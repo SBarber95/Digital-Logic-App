@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Savannah Barber">
+
+    <title>Digital Logic App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/workspace.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Digital Logic Name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#binaryArith">Binary Arithmetic</a></li>
+                <li class="active"><a href="truthTables.html">Truth Tables</a></li>
+                <li><a href="#circuitBuild">Circuit Design</a></li>
+                <li><a href="conversions.html">Conversions</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Boolean Theorems</a></li>
+                        <li><a href="#">Binary Arithmetic Rules</a></li>
+                        <li><a href="#">Logic Gates</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="sub-header">Truth Table Options</li>
+                <li><a href="#">2 Variables</a></li>
+                <li><a href="#">3 Variables</a></li>
+                <li><a href="#">4 Variables</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li class="sub-header">Additional Options</li>
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+                <li><a href="">More navigation</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+            <h1 class="page-header">3-Variable Truth Table</h1>
+            <div class="table-responsive">
+                <form name="3_var_TT" id="3_var_TT">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>Output</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td><select name="binary0">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td><select name="binary1">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td><select name="binary2">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><select name="binary3">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td><select name="binary4">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td><select name="binary5">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td><select name="binary6">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><select name="binary7">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="btn btn-primary" name="submit" value="Find Min/Maxterms">
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Output</h3>
+                </div>
+                <div class="panel-body" id="Output">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/docs.min.js"></script>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+
+<script>
+    var output = document.getElementById("Output");
+
+    // Pull needed form into a variable for easy manipulation
+    var form = document.getElementById("3_var_TT");
+
+    // Sets up corresponding minterm values if that row is marked with a 0
+    // Ex) Row 0 is 0 0 0, so its minterm if output is 1 would be A'B'C'
+    var minterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
+
+    // Sets up corresponding maxterm values if that row is marked with a 0
+    // Ex) Row 0 is 0 0 0, so its maxterm if output is 0 would be (A + B + C)
+    var maxterms = ["(A + B + C)", "(A + B + C')", "(A + B' + C)", "(A + B' + C')", "(A' + B + C)", "(A' + B + C')",
+        "(A' + B' + C)", "(A' + B' + C')"];
+
+    form.onsubmit = function (e) {
+        e.preventDefault();
+
+        // Grab user input values and store them
+        var inputArray = [form.binary0.value,
+            form.binary1.value,
+            form.binary2.value,
+            form.binary3.value,
+            form.binary4.value,
+            form.binary5.value,
+            form.binary6.value,
+            form.binary7.value];
+
+        // Clear output from previous submission
+        output.innerHTML = "";
+
+        output.innerHTML += "Minterms: ";
+
+        // Find minterm input and display output
+        for (i = 0; i < inputArray.length; i++) {
+
+            if (inputArray[i] == 1) {
+                output.innerHTML += minterms[i] + " ";
+            }
+
+        }
+
+        output.innerHTML += "<br>Maxterms: ";
+
+        // Find maxterm input and display output
+        for (var i = 0; i < inputArray.length; i++) {
+
+            if (inputArray[i] == 0) {
+                output.innerHTML += maxterms[i] + " ";
+            }
+
+        }
+
+    };
+</script>
+
+</body>
+
+</html>

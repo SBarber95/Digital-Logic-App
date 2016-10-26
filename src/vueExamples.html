@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Vue Examples</title>
+
+</head>
+
+<body>
+
+    <div id="app">
+        {{message}}
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue! This is a test to potentially begin integrating the Vue framework' +
+                ' into this project!'
+            }
+        })
+    </script>
+
+</body>
+
+</html>
