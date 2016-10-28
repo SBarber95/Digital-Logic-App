@@ -9,20 +9,26 @@
 
 <body>
 
-    <div id="app">
-        {{message}}
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
     </div>
 
     <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script src="vueTest.js"></script>
 
     <script>
-        new Vue({
-            el: '#app',
+        var app5 = new Vue({
+            el: '#app-5',
             data: {
-                message: 'Hello Vue! This is a test to potentially begin integrating the Vue framework' +
-                ' into this project!'
+                message: 'Hello Vue.js!'
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('')
+                }
             }
-        })
+        });
     </script>
 
 </body>
