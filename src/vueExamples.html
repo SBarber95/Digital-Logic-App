@@ -5,13 +5,29 @@
     <meta charset="UTF-8">
     <title>Vue Examples</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/workspace.css" rel="stylesheet">
+
 </head>
 
 <body>
 
+    <div id="app">
+
+    </div>
+
     <div id="app-5">
         <p>{{ message }}</p>
         <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+        <h1 id="binary-arith-header" class="page-header">{{ message }}</h1>
     </div>
 
     <script src="../node_modules/vue/dist/vue.min.js"></script>
@@ -27,6 +43,16 @@
                 reverseMessage: function () {
                     this.message = this.message.split('').reverse().join('')
                 }
+            }
+        });
+    </script>
+
+    <script>
+
+        var binaryArithHeader = new Vue ({
+            el: '#binary-arith-header',
+            data: {
+                message: 'Binary Addition',
             }
         });
     </script>
