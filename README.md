@@ -8,7 +8,7 @@
 
 1. Implement minterm/maxterm finder for rest of the truth tables
 2. Implement Binary Arithmetic calculator and quizzer
-3. Implement conversion calculator (base conversions, IEE floating point
+3. Implement conversion calculator (base conversions, IEE floating point)
 4. Begin structuring circuit designer objects and components
 5. Fill out References page with relevant information
 6. Fill out and style the home page
