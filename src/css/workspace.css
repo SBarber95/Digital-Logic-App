@@ -140,3 +140,7 @@ body {
 body {
     font-size: 18px;
 }
+
+.caret {
+    margin-left: 4px;
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,8 @@
     <meta name="author" content="Savannah Barber">
 
     <title>Digital Logic App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
 
     <!-- IE required polyfill -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -31,13 +34,15 @@
     <!-- Custom styles for bootstrap template -->
     <link href="src/css/carousel.css" rel="stylesheet">
 
+    <link href="src/css/workspace.css" rel="stylesheet">
+
     <!-- Styles for just the home page -->
     <link href="src/css/index.css" rel="stylesheet">
 
 </head>
 
 <body>
-
+<div id="app">
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -48,8 +53,8 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="src/binaryArithmetic.html">Binary Arithmetic</a></li>
-                <li><a href="src/truthTables.html">Truth Tables</a></li>
+                <li><a href="src/views/binary-arithmetic/binaryArithmetic.html">Binary Arithmetic</a></li>
+                <li><a href="src/views/truth-tables/truthTable3Var.html">Truth Tables</a></li>
                 <li><a href="src/circuitDesign.html">Circuit Design</a></li>
                 <li><a href="src/conversions.html">Conversions</a></li>
                 <li class="dropdown">
@@ -192,7 +197,9 @@
     </footer>
 
 </div><!-- /.container -->
+</div>
 
+<script>document.write('<base href="' + document.location + '" />');</script>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -200,6 +207,7 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="src/js/bootstrap.min.js"></script>
 <script src="src/js/docs.min.js"></script>
+<script src="node_modules/vue/dist/vue.min.js"></script>
 
 </body>
 
