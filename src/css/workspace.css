@@ -144,3 +144,48 @@ body {
 .caret {
     margin-left: 4px;
 }
+
+.user-input-addition {
+    width: 48%;
+    height: 80%;
+    padding-right: 1%;
+    display: inline-block;
+}
+
+.first_value {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.second_value {
+    margin-bottom: 10px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.user_answer {
+    width: 250px;
+    border-radius: 3px;
+}
+
+p.border {
+    border-bottom: 1px solid black;
+}
+
+.addition-quiz {
+    height: 80%;
+    width: 48%;
+    padding-left: 1%;
+    display: inline-block;
+    /* border-left: 1px solid #dddddd; */
+}
+
+.arithmetic-output {
+    margin-top: 2%;
+}
+
+.paper {
+
+}
