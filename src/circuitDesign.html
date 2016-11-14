@@ -10,15 +10,24 @@
     <!-- Bootstrap theme -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="css/workspace.css" rel="stylesheet">
+
+    <style>
+        .nav-sidebar li {
+            text-align: left;
+            min-height: 60px;
+        }
+    </style>
 
 </head>
 
 <body>
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <img class="icon-bar" src="images/favicon.ico">
@@ -48,16 +57,101 @@
     <div class="row">
         <div class="col-sm-4 col-md-3 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="sub-header">Additional Options</li>
-                <li><a href="">Nav item again</a></li>
-                <li><a href="">One more nav</a></li>
-                <li><a href="">Another nav item</a></li>
-                <li><a href="">More navigation</a></li>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Logic Gates
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <ul class="list-group">
+                                <li class="list-group-item">2-Input AND</li>
+                                <li class="list-group-item">3-Input AND<img src="images/3_Input_AND.svg" class="three-input-AND-img"></li>
+                                <li class="list-group-item">2-Input OR</li>
+                                <li class="list-group-item">3-Input OR</li>
+                                <li class="list-group-item">2-Input NOR</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Collapsible Group Item #2
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Output Modules
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <ul class="list-group">
+                                <li class="list-group-item">7-Segment Display</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-            <svg class="paper" height="600" width="1000"></svg>
+            <svg class="paper" height="600" width="1000">
+                <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="85.15" height="40" id="svg2" version="1">
+                    <style>
+                        .s0{
+                            fill:none;
+                            stroke-linecap:butt;
+                            stroke-linejoin:miter;
+                            stroke-opacity:1;
+                            stroke-width:1.79;
+                            stroke:#000;
+                        }
 
+                    </style>  <defs id="defs4"/>
+                    <metadata id="metadata7"/>
+                    <g id="layer1" transform="translate(-9.8502279,-5)">
+                        <path d="m74.98 25.13c16.01 0 20.02 0 20.02 0" id="output3AND" class="s0">
+                            <title id="title3353">
+                                output3AND
+                            </title>
+                        </path>
+                        <path d="M31 12 10.11 12" id="inputA3AND" class="s0">
+                            <title id="title3355">
+                                inputA3AND
+                            </title>
+                        </path>
+                        <path d="M32 38 9.98 38" id="inputC3AND" style="fill:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-width:1.81;stroke:#000">
+                            <title id="title3359">
+                                inputC3AND
+                            </title>
+                        </path>
+                        <path d="M30 5 30 6.43 30 43.57 30 45l1.59 0 21.15 0c12.51 0 22.2-9 22.2-20 0-11-9.69-20-22.2-20 0 0 0 0-21.15 0L30 5Zm3.17 2.86c8.86 0 14.5 0 16.92 0 1.32 0 1.98 0 2.31 0 0.17 0 0.26 0 0.3 0 0.02 0 0.03 0 0.03 0 10.84 0 18.5 7.64 18.5 17.14 0 9.5-8.2 17.14-19.03 17.14l-19.03 0 0-34.29z" id="3" onmouseover="" style="-inkscape-font-specification:'Bitstream Vera Sans';block-progression:tb;direction:ltr;fill-opacity:1;fill:#000;font-family:'Bitstream Vera Sans';font-size:medium;font-stretch:normal;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;marker:none;text-align:start;text-anchor:start;text-decoration-line:none;text-decoration:none;text-indent:0;text-transform:none;visibility:visible;word-spacing:normal;writing-mode:lr-tb">
+                            <title id="title3365">
+                                3AND
+                            </title>
+                        </path>
+                        <path d="M31 25 9.85 25" id="inputB3AND" style="fill:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-width:1.8;stroke:#000">
+                            <title id="title3357">
+                                inputB3AND
+                            </title>
+                        </path>
+                        <path d="m10 25 0 0" id="path3361" style="fill:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-width:1;stroke:#000"/>
+                    </g>
+            </svg>
+        </svg>
         </div>
     </div>
 </div>
