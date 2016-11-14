@@ -6,7 +6,7 @@
 
 **Needed Improvements/Features**
 
-1. Routing for performance
+1. Comprehensive routing for performance
 2. Implement Binary Arithmetic calculator and quizzer
 3. Implement conversions (base conversions, IEEE floating point)
 4. Begin structuring circuit designer objects and components
