@@ -189,3 +189,12 @@ p.border {
 .paper {
 
 }
+
+.three-input-AND-img {
+    float: right;
+}
+
+.panel-title {
+    font-size: 20px;
+    font-weight: bold;
+}
