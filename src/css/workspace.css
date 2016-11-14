@@ -3,10 +3,19 @@ body {
     padding-bottom: 30px;
 }
 
+.icon-bar {
+    float: left;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 2px 0 0 6px;
+}
+
 .theme-dropdown .dropdown-menu {
     position: static;
     display: block;
     margin-bottom: 20px;
+    font-size: 16px;
 }
 
 .theme-showcase > p > .btn {
@@ -130,4 +139,53 @@ body {
 
 body {
     font-size: 18px;
+}
+
+.caret {
+    margin-left: 4px;
+}
+
+.user-input-addition {
+    width: 48%;
+    height: 80%;
+    padding-right: 1%;
+    display: inline-block;
+}
+
+.first_value {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.second_value {
+    margin-bottom: 10px;
+    width: 250px;
+    border-radius: 3px;
+}
+
+.user_answer {
+    width: 250px;
+    border-radius: 3px;
+}
+
+p.border {
+    border-bottom: 1px solid black;
+}
+
+.addition-quiz {
+    height: 80%;
+    width: 48%;
+    padding-left: 1%;
+    display: inline-block;
+    /* border-left: 1px solid #dddddd; */
+}
+
+.arithmetic-output {
+    margin-top: 2%;
+}
+
+.paper {
+
 }

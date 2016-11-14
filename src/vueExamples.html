@@ -21,38 +21,26 @@
 
     </div>
 
-    <div id="app-5">
+    <div class="app-5">
         <p>{{ message }}</p>
         <button v-on:click="reverseMessage">Reverse Message</button>
     </div>
 
-    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-        <h1 id="binary-arith-header" class="page-header">{{ message }}</h1>
-    </div>
-
     <script src="../node_modules/vue/dist/vue.min.js"></script>
-    <script src="vueTest.js"></script>
 
     <script>
         var app5 = new Vue({
-            el: '#app-5',
+            el: '.app-5',
             data: {
                 message: 'Hello Vue.js!'
             },
             methods: {
                 reverseMessage: function () {
                     this.message = this.message.split('').reverse().join('')
+                    var thing = document.createElement("div");
+                    thing.setAttribute("class", "app-5");
+                    this.parentNode.appendChild(thing);
                 }
-            }
-        });
-    </script>
-
-    <script>
-
-        var binaryArithHeader = new Vue ({
-            el: '#binary-arith-header',
-            data: {
-                message: 'Binary Addition',
             }
         });
     </script>

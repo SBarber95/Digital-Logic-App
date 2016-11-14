@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,8 @@
     <meta name="author" content="Savannah Barber">
 
     <title>Digital Logic App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
 
     <!-- IE required polyfill -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -31,29 +34,28 @@
     <!-- Custom styles for bootstrap template -->
     <link href="src/css/carousel.css" rel="stylesheet">
 
+    <link href="src/css/workspace.css" rel="stylesheet">
+
     <!-- Styles for just the home page -->
     <link href="src/css/index.css" rel="stylesheet">
 
 </head>
 
 <body>
-
+<div id="app">
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-            </button>
+            <img class="icon-bar" src="src/images/favicon.ico">
             <a class="navbar-brand">Digital Logic Name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="src/binaryArithmetic.html">Binary Arithmetic</a></li>
-                <li><a href="src/truthTables.html">Truth Tables</a></li>
-                <li><a href="#circuitBuild">Circuit Design</a></li>
+                <li><a href="src/views/binary-arithmetic/binaryArithmeticAdd.html">Binary Arithmetic</a></li>
+                <li><a href="src/views/truth-tables/truthTable3Var.html">Truth Tables</a></li>
+                <li><a href="src/circuitDesign.html">Circuit Design</a></li>
                 <li><a href="src/conversions.html">Conversions</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
@@ -78,10 +80,10 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+            <img class="first-slide" src="src/IMG_1761%20-%20Copy.JPG" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Welcome to the new digital logic solution.</h1>
+                    <h1>Welcome to the new digital logic solution. Includes a crude example of placing a picture here.</h1>
                     <p>An app with no downloads and plenty of features to help students and other professionals learn and apply the concepts in digital logic design.</p>
                 </div>
             </div>
@@ -195,7 +197,9 @@
     </footer>
 
 </div><!-- /.container -->
+</div>
 
+<script>document.write('<base href="' + document.location + '" />');</script>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -203,6 +207,7 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="src/js/bootstrap.min.js"></script>
 <script src="src/js/docs.min.js"></script>
+<script src="node_modules/vue/dist/vue.min.js"></script>
 
 </body>
 
