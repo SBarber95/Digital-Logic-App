@@ -133,6 +133,9 @@
         var firstNumberDigits = Array.from(firstNumber);
         var secondNumberDigits = Array.from(secondNumber);
 
+        // The following loops prepend 0's to simulate a zero-extension
+        // of the shorter binary value to the matched size of the longer
+        // binary value to facilitate easier arithmetic
         if (firstNumberDigits.length > secondNumberDigits.length) {
             for (var i = secondNumberDigits.length; i < firstNumberDigits.length; i++) {
 
@@ -151,10 +154,6 @@
         var carryIn = 0;
 
         var answer = [];
-
-        // The following loops prepend 0's to simulate a zero-extension
-        // of the shorter binary value to the matched size of the longer
-        // binary value to facilitate easier arithmetic
 
         // Clear previous output
         calculatorOutput.innerHTML = "Answer: ";
