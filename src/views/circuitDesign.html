@@ -6,14 +6,14 @@
     <title>Digital Logic App</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/workspace.css" rel="stylesheet">
+    <link href="../css/workspace.css" rel="stylesheet">
 
     <style>
         .nav-sidebar li {
@@ -33,14 +33,14 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <img class="icon-bar" src="images/favicon.ico">
+            <img class="icon-bar" src="../images/favicon.ico">
             <a class="navbar-brand">Digital Logic Name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="views/binary-arithmetic/binaryArithmeticAdd.html">Binary Arithmetic</a></li>
-                <li><a href="views/truth-tables/truthTable3Var.html">Truth Tables</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="binary-arithmetic/binaryArithmeticAdd.html">Binary Arithmetic</a></li>
+                <li><a href="truthTables.html">Truth Tables</a></li>
                 <li class="active"><a href="circuitDesign.html">Circuit Design</a></li>
                 <li><a href="conversions.html">Conversions</a></li>
                 <li class="dropdown">
@@ -72,7 +72,7 @@
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <ul class="list-group">
                                 <li class="list-group-item">2-Input AND</li>
-                                <li id="select3InputAND" class="list-group-item">3-Input AND<img src="images/3_Input_AND.svg" class="three-input-AND-img"></li>
+                                <li id="select3InputAND" class="list-group-item">3-Input AND<img src="../images/3_Input_AND.svg" class="three-input-AND-img"></li>
                                 <li class="list-group-item">2-Input OR</li>
                                 <li class="list-group-item">3-Input OR</li>
                                 <li class="list-group-item">2-Input NOR</li>
@@ -111,7 +111,7 @@
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">
-              <object data="images/3_Input_AND.svg" type="image/svg+xml"></object>
+              <object data="../images/3_Input_AND.svg" type="image/svg+xml"></object>
         </div>
     </div>
 </div>
@@ -119,10 +119,10 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/docs.min.js"></script>
-<script src="../node_modules/vue/dist/vue.min.js"></script>
-<script src="js/snap.svg-min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/docs.min.js"></script>
+<script src="../../node_modules/vue/dist/vue.min.js"></script>
+<script src="../js/snap.svg-min.js"></script>
 
 <script>
 
@@ -130,7 +130,7 @@
 
     // Testing addition of more gates (throw-away code) ------------------------------
     $("#select3InputAND").on("click", function() {
-          canvas.innerHTML += '<object data="images/3_Input_AND.svg" type="image/svg+xml"></object>';
+          canvas.innerHTML += '<object data="../images/3_Input_AND.svg" type="image/svg+xml"></object>';
     });
 
 </script>
