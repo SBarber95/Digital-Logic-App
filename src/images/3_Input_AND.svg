@@ -1,5 +1,50 @@
-<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="85.15" height="40" id="svg2" version="1">
-<style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="105.10703"
+   height="54.930817"
+   id="svg2"
+   version="1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="3_Input_AND.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1536"
+     inkscape:window-height="801"
+     id="namedview8187"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="6.7645331"
+     inkscape:cx="70.854266"
+     inkscape:cy="24.390405"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid8189"
+       originx="0.00022825"
+       originy="14.930816" />
+  </sodipodi:namedview>
+  <style
+     id="style8171">
 .s0{
 	fill:none;
 	stroke-linecap:butt;
@@ -9,34 +54,81 @@
 	stroke:#000;
 }
 
-</style>  <defs id="defs4"/>
-  <metadata id="metadata7"/>
-  <g id="layer1" transform="translate(-9.8502279,-5)">
-    <path d="m74.98 25.13c16.01 0 20.02 0 20.02 0" id="output3AND" class="s0">
-      <title id="title3353">
+</style>
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="matrix(1.234375,0,0,1.3732704,-12.158594,-6.866352)">
+    <path
+       d="m 74.98,25.13 c 16.01,0 20.02,0 20.02,0"
+       id="output3AND"
+       class="s0"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:1.78999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+      <title
+         id="title3353">
         output3AND
       </title>
     </path>
-    <path d="M31 12 10.11 12" id="inputA3AND" class="s0">
-      <title id="title3355">
+    <path
+       d="M 31,12 10.11,12"
+       id="inputA3AND"
+       class="s0"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:1.78999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+      <title
+         id="title3355">
         inputA3AND
       </title>
     </path>
-    <path d="M32 38 9.98 38" id="inputC3AND" style="fill:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-width:1.81;stroke:#000">
-      <title id="title3359">
+    <path
+       d="M 32,38 9.98,38"
+       id="inputC3AND"
+       style="fill:none;stroke:#000000;stroke-width:1.80999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:connector-curvature="0">
+      <title
+         id="title3359">
         inputC3AND
       </title>
     </path>
-    <path d="M30 5 30 6.43 30 43.57 30 45l1.59 0 21.15 0c12.51 0 22.2-9 22.2-20 0-11-9.69-20-22.2-20 0 0 0 0-21.15 0L30 5Zm3.17 2.86c8.86 0 14.5 0 16.92 0 1.32 0 1.98 0 2.31 0 0.17 0 0.26 0 0.3 0 0.02 0 0.03 0 0.03 0 10.84 0 18.5 7.64 18.5 17.14 0 9.5-8.2 17.14-19.03 17.14l-19.03 0 0-34.29z" id="3" onmouseover="" style="-inkscape-font-specification:'Bitstream Vera Sans';block-progression:tb;direction:ltr;fill-opacity:1;fill:#000;font-family:'Bitstream Vera Sans';font-size:medium;font-stretch:normal;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;marker:none;text-align:start;text-anchor:start;text-decoration-line:none;text-decoration:none;text-indent:0;text-transform:none;visibility:visible;word-spacing:normal;writing-mode:lr-tb">
-      <title id="title3365">
+    <path
+       d="m 30,5 0,1.43 0,37.14 0,1.43 1.59,0 21.15,0 c 12.51,0 22.2,-9 22.2,-20 0,-11 -9.69,-20 -22.2,-20 0,0 0,0 -21.15,0 L 30,5 Z m 3.17,2.86 c 8.86,0 14.5,0 16.92,0 1.32,0 1.98,0 2.31,0 0.17,0 0.26,0 0.3,0 0.02,0 0.03,0 0.03,0 10.84,0 18.5,7.64 18.5,17.14 0,9.5 -8.2,17.14 -19.03,17.14 l -19.03,0 0,-34.29 z"
+       id="3"
+       onmouseover=""
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;visibility:visible;fill:#000000;fill-opacity:1;marker:none"
+       inkscape:connector-curvature="0">
+      <title
+         id="title3365">
         3AND
       </title>
     </path>
-    <path d="M31 25 9.85 25" id="inputB3AND" style="fill:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-width:1.8;stroke:#000">
-      <title id="title3357">
+    <path
+       d="M 31,25 9.85,25"
+       id="inputB3AND"
+       style="fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:connector-curvature="0">
+      <title
+         id="title3357">
         inputB3AND
       </title>
     </path>
-    <path d="m10 25 0 0" id="path3361" style="fill:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-width:1;stroke:#000"/>
+    <path
+       d="m 10,25 0,0"
+       id="path3361"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

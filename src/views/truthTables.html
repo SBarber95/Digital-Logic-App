@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Savannah Barber">
 
-    <title>Digital Logic App</title>
+    <title>Sovereign Logic</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <img class="icon-bar" src="../images/favicon.ico">
+            <img class="icon-bar" src="../images/Logo.svg">
             <a class="navbar-brand">Sovereign Logic</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -53,27 +53,23 @@
     <div class="row">
         <div class="col-sm-4 col-md-3 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="sub-header">Truth Table Options</li>
+                <li class="sub-header">Basic Truth Table Options</li>
                 <li><a href="#">2 Variables</a></li>
                 <li id="display-three-var-tt"><a href="#">3 Variables</a></li>
                 <li id="display-four-var-tt"><a href="#">4 Variables</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li class="sub-header">Additional Options</li>
+                <li class="sub-header">Additional Truth Table Options</li>
                 <li><a href="">Nav item again</a></li>
                 <li><a href="">One more nav</a></li>
                 <li><a href="">Another nav item</a></li>
                 <li><a href="">More navigation</a></li>
             </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="">Nav item again</a></li>
-                <li><a href="">One more nav</a></li>
-                <li><a href="">Another nav item</a></li>
-            </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
             <h1 class="page-header" id="truth_table_header">3-Variable Truth Table</h1>
             <div id="table-placeholder" class="three-var-tt">
+                <!-- Vue Component for Truth Table Injected Here -->
             </div>
         </div>
     </div>
@@ -97,7 +93,7 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/docs.min.js"></script>
-<script src="../../node_modules/vue/dist/vue.min.js"></script>
+<script src="../../src/js/vue.min.js"></script>
 <script src="../js/truthTables.js"></script>
 
 </body>
