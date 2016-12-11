@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Digital Logic App</title>
+    <title>Sovereign Logic</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -23,16 +23,16 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <img class="icon-bar" src="../../images/favicon.ico">
-            <a class="navbar-brand">Digital Logic Name</a>
+            <img class="icon-bar" src="../../images/Logo.svg">
+            <a class="navbar-brand">Sovereign Logic</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="../../../index.html">Home</a></li>
                 <li class="active"><a href="binaryArithmeticAdd.html">Binary Arithmetic</a></li>
-                <li><a href="../truth-tables/truthTable3Var.html">Truth Tables</a></li>
-                <li><a href="../../circuitDesign.html">Circuit Design</a></li>
-                <li><a href="../../conversions.html">Conversions</a></li>
+                <li><a href="../truthTables.html">Truth Tables</a></li>
+                <li><a href="../circuitDesign.html">Circuit Design</a></li>
+                <li><a href="../conversions.html">Conversions</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -133,6 +133,9 @@
         var firstNumberDigits = Array.from(firstNumber);
         var secondNumberDigits = Array.from(secondNumber);
 
+        // The following loops prepend 0's to simulate a zero-extension
+        // of the shorter binary value to the matched size of the longer
+        // binary value to facilitate easier arithmetic
         if (firstNumberDigits.length > secondNumberDigits.length) {
             for (var i = secondNumberDigits.length; i < firstNumberDigits.length; i++) {
 
@@ -151,10 +154,6 @@
         var carryIn = 0;
 
         var answer = [];
-
-        // The following loops prepend 0's to simulate a zero-extension
-        // of the shorter binary value to the matched size of the longer
-        // binary value to facilitate easier arithmetic
 
         // Clear previous output
         calculatorOutput.innerHTML = "Answer: ";

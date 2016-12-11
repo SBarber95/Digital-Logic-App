@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Sovereign Logic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/workspace.css" rel="stylesheet">
+
+    <style>
+        .nav-sidebar li {
+            text-align: left;
+            min-height: 80px;
+        }
+        .main {
+              height: 800px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img class="icon-bar" src="../images/Logo.svg">
+            <a class="navbar-brand">Sovereign Logic</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="binary-arithmetic/binaryArithmeticAdd.html">Binary Arithmetic</a></li>
+                <li><a href="truthTables.html">Truth Tables</a></li>
+                <li class="active"><a href="circuitDesign.html">Circuit Design</a></li>
+                <li><a href="conversions.html">Conversions</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Boolean Theorems</a></li>
+                        <li><a href="#">Binary Arithmetic Rules</a></li>
+                        <li><a href="#">Logic Gates</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+            <ul class="nav nav-sidebar">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Logic Gates
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <ul class="list-group">
+                                <li class="list-group-item">2-Input AND</li>
+                                <li id="select3InputAND" class="list-group-item">3-Input AND<img src="../images/3_Input_AND.svg" class="three-input-AND-img"></li>
+                                <li class="list-group-item">2-Input OR</li>
+                                <li class="list-group-item">3-Input OR</li>
+                                <li class="list-group-item">2-Input NOR</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Other Components
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                              <ul class="list-group">
+                                    <li class="list-group-item">A Component</li>
+                              </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Output Modules
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <ul class="list-group">
+                                <li class="list-group-item">7-Segment Display</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">
+            <object data="../images/OR_ANSI.svg" type="image/svg+xml"></object>
+        </div>
+    </div>
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/docs.min.js"></script>
+<script src="../../src/js/vue.min.js"></script>
+<script src="../js/svg.js"></script>
+
+<script>
+    var canvas = document.getElementById("canvas");
+
+    var select = document.getElementById("select3InputAND");
+
+    // Testing addition of more gates (throw-away code) ------------------------------
+    $("#select3InputAND").on("click", function(e) {
+          e.preventDefault();
+          canvas.innerHTML += '<object data="../images/3_Input_AND.svg" type="image/svg+xml"></object>';
+    });
+
+</script>
+
+</body>
+
+</html>
