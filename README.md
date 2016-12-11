@@ -1,4 +1,4 @@
-**(Application Name TBD)**
+**Sovereign Logic**
 
 1. Clone repo & set up in IDE of choice 
 2. npm install _(install dependencies)_
@@ -12,5 +12,5 @@
 4. Begin structuring circuit designer objects and components
 5. Fill out References page with relevant information
 6. Fill out and style the home page
-7. Finish truth tables for nim/maxterms
+7. Finish truth tables for min/maxterms
 8. Integrate Karnaugh Maps and possibly link with truth tables

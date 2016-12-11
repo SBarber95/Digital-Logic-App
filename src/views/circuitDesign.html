@@ -39,10 +39,12 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="binary-arithmetic/binaryArithmeticAdd.html">Binary Arithmetic</a></li>
-                <li><a href="truthTables.html">Truth Tables</a></li>
-                <li class="active"><a href="circuitDesign.html">Circuit Design</a></li>
+                <li><a href="binaryArithmetic.html">Binary Arithmetic</a></li>
                 <li><a href="conversions.html">Conversions</a></li>
+                <li><a href="truthTables.html">Min/Maxterms</a></li>
+                <li><a href="karnaughMaps.html">Karnaugh Maps</a></li>
+                <li><a href="designProblems.html">Design Problems</a></li>
+                <li class="active"><a href="circuitDesign.html">Circuit Design</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -111,20 +113,24 @@
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">
-            <object data="../images/OR_ANSI.svg" type="image/svg+xml"></object>
+
         </div>
     </div>
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="../js/svg.js"></script>
+<script src="../js/svg.draggable.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/docs.min.js"></script>
 <script src="../../src/js/vue.min.js"></script>
-<script src="../js/svg.js"></script>
+<script src="../js/draggabilly.min.js"></script>
 
 <script>
+
+    // Grab reference of circuit building workspace
     var canvas = document.getElementById("canvas");
 
     var select = document.getElementById("select3InputAND");
@@ -135,6 +141,14 @@
           canvas.innerHTML += '<object data="../images/3_Input_AND.svg" type="image/svg+xml"></object>';
     });
 
+    window.onload = function() {
+        // Get one of the SVG items by ID;
+        var svgItem = document.getElementById("OR-2-INPUT");
+
+        new Draggabilly(svgItem, {
+            containment: true
+        });
+    };
 </script>
 
 </body>
