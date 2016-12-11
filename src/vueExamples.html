@@ -5,24 +5,44 @@
     <meta charset="UTF-8">
     <title>Vue Examples</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/workspace.css" rel="stylesheet">
+
 </head>
 
 <body>
 
     <div id="app">
-        {{message}}
+
+    </div>
+
+    <div class="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
     </div>
 
     <script src="../node_modules/vue/dist/vue.min.js"></script>
 
     <script>
-        new Vue({
-            el: '#app',
+        var app5 = new Vue({
+            el: '.app-5',
             data: {
-                message: 'Hello Vue! This is a test to potentially begin integrating the Vue framework' +
-                ' into this project!'
+                message: 'Hello Vue.js!'
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('')
+                    var thing = document.createElement("div");
+                    thing.setAttribute("class", "app-5");
+                    this.parentNode.appendChild(thing);
+                }
             }
-        })
+        });
     </script>
 
 </body>
