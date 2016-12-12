@@ -1,31 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-   width="109.95652"
-   height="54.8125"
-   class="inverter"
-   version="1.0">
-  <g id="layer1"
-     transform="translate(-5.0434781,-2.59375)">
-    <path
-       style="fill:none;stroke:#000000;stroke-width:2.4454813;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 95.634522,30 115,30"
-       class="inverter-output"
-       id="path3059"/>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:2.44548154;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 34.379389,30 5.0434781,30"
-       class="inverter-input"
-       id="path3061"/>
-    <path
-       style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
-       d="m 34.288047,2.59375 0,2.9432096 0,48.9260804 0,2.94321 2.635648,-1.299599 50.153713,-24.46304 0,-3.287222 L 36.923695,3.893349 34.288047,2.59375 Z M 37.955036,8.4801691 82.111693,30 37.955036,51.519831 l 0,-43.0396619 z"
-       class="inverter-component"
-       id="path2638"/>
-    <ellipse
-       style="display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3.66822219;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate"
-       id="path2671"
-       cx="90.553406"
-       cy="30"
-       rx="4.8893185"
-       ry="4.8926082" />
+<svg xmlns="http://www.w3.org/2000/svg" width="109.95652" height="54.8125" class="inverter" version="1.0">
+  <g transform="translate(-5.0434781,-2.59375)">
+    <path style="fill:none;stroke:#000000;stroke-width:2.4454813;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 95.634522,30 115,30" class="inverter-output"/>
+    <path style="fill:none;stroke:#000000;stroke-width:2.44548154;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 34.379389,30 5.0434781,30" class="inverter-input"/>
+    <path style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" d="m 34.288047,2.59375 0,2.9432096 0,48.9260804 0,2.94321 2.635648,-1.299599 50.153713,-24.46304 0,-3.287222 L 36.923695,3.893349 34.288047,2.59375 Z M 37.955036,8.4801691 82.111693,30 37.955036,51.519831 l 0,-43.0396619 z" class="inverter-component"/>
+    <ellipse style="display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3.66822219;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" cx="90.553406" cy="30" rx="4.8893185" ry="4.8926082" />
   </g>
 </svg>
