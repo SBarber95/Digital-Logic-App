@@ -140,29 +140,13 @@
 <script src="../js/docs.min.js"></script>
 <script src="../../src/js/vue.min.js"></script>
 <script src="../js/draggabilly.min.js"></script>
-<script src="../js/components/twoInputNAND.js"></script>
+<script src="../js/components/threeInputOR.js"></script>
 
 <script>
 
     // Grab reference of circuit building workspace
     var canvas = document.getElementById("canvas");
 
-    var select = document.getElementById("select3InputAND");
-
-    // Testing addition of more gates (throw-away code) ------------------------------
-    $("#select3InputAND").on("click", function(e) {
-          e.preventDefault();
-          canvas.innerHTML += '<object data="../images/3_Input_AND.svg" type="image/svg+xml"></object>';
-    });
-
-    window.onload = function() {
-        // Get one of the SVG items by ID;
-        var svgItem = document.getElementById("OR-2-INPUT");
-
-        new Draggabilly(svgItem, {
-            containment: true
-        });
-    };
 </script>
 
 </body>
