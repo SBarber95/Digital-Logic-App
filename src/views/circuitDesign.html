@@ -14,16 +14,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/workspace.css" rel="stylesheet">
-
-    <style>
-        .nav-sidebar li {
-            text-align: left;
-            min-height: 80px;
-        }
-        .main {
-              height: 800px;
-        }
-    </style>
+    <link href="../css/circuitDesignStyle.css" rel="stylesheet">
 
 </head>
 
@@ -39,10 +30,12 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="binary-arithmetic/binaryArithmeticAdd.html">Binary Arithmetic</a></li>
-                <li><a href="truthTables.html">Truth Tables</a></li>
-                <li class="active"><a href="circuitDesign.html">Circuit Design</a></li>
+                <li><a href="binaryArithmetic.html">Binary Arithmetic</a></li>
                 <li><a href="conversions.html">Conversions</a></li>
+                <li><a href="truthTables.html">Min/Maxterms</a></li>
+                <li><a href="karnaughMaps.html">Karnaugh Maps</a></li>
+                <li><a href="designProblems.html">Design Problems</a></li>
+                <li class="active"><a href="circuitDesign.html">Circuit Design</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -71,11 +64,16 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <ul class="list-group">
-                                <li class="list-group-item">2-Input AND</li>
-                                <li id="select3InputAND" class="list-group-item">3-Input AND<img src="../images/3_Input_AND.svg" class="three-input-AND-img"></li>
-                                <li class="list-group-item">2-Input OR</li>
-                                <li class="list-group-item">3-Input OR</li>
-                                <li class="list-group-item">2-Input NOR</li>
+                                <li class="list-group-item">2-Input AND<img src="../images/2_Input_AND.svg" class="component-img"></li>
+                                <li id="select3InputAND" class="list-group-item">3-Input AND<img src="../images/3_Input_AND.svg" class="component-img"></li>
+                                <li class="list-group-item">2-Input OR<img src="../images/2_Input_OR.svg" class="component-img"></li>
+                                <li class="list-group-item">3-Input OR<img src="../images/3_Input_OR.svg" class="component-img"></li>
+                                <li class="list-group-item">2-Input NOR<img src="../images/2_Input_NOR.svg" class="component-img"></li>
+                                <li class="list-group-item">3-Input NOR<img src="../images/3_Input_NOR.svg" class="component-img"></li>
+                                <li class="list-group-item">2-Input NAND<img src="../images/2_Input_NAND.svg" class="component-img"></li>
+                                <li class="list-group-item">3-Input NAND<img src="../images/3_Input_NAND.svg" class="component-img"></li>
+                                <li class="list-group-item">2-Input XOR<img src="../images/2_Input_XOR.svg" class="component-img"></li>
+                                <li class="list-group-item">2-Input XNOR<img src="../images/2_Input_XNOR.svg" class="component-img"></li>
                             </ul>
                         </div>
                     </div>
@@ -83,14 +81,17 @@
                         <div class="panel-heading" role="tab" id="headingTwo">
                             <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Other Components
+                                    Flip-Flops
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                              <ul class="list-group">
-                                    <li class="list-group-item">A Component</li>
-                              </ul>
+                            <ul class="list-group">
+                                <li class="list-group-item">S-R Flip-Flop</li>
+                                <li class="list-group-item">J-K Flip-Flop</li>
+                                <li class="list-group-item">D Flip-Flop</li>
+                                <li class="list-group-item">T Flip-Flop</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="panel panel-default">
@@ -107,24 +108,43 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Other Components
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <ul class="list-group">
+                                <li class="list-group-item">Inverter<img src="../images/Inverter.svg" class="component-img"></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">
-            <object data="../images/OR_ANSI.svg" type="image/svg+xml"></object>
+            <div class="insertion-point"></div>
         </div>
     </div>
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="../js/svg.js"></script>
+<script src="../js/svg.draggable.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/docs.min.js"></script>
 <script src="../../src/js/vue.min.js"></script>
-<script src="../js/svg.js"></script>
+<script src="../js/draggabilly.min.js"></script>
+<script src="../js/components/twoInputNAND.js"></script>
 
 <script>
+
+    // Grab reference of circuit building workspace
     var canvas = document.getElementById("canvas");
 
     var select = document.getElementById("select3InputAND");
@@ -135,6 +155,14 @@
           canvas.innerHTML += '<object data="../images/3_Input_AND.svg" type="image/svg+xml"></object>';
     });
 
+    window.onload = function() {
+        // Get one of the SVG items by ID;
+        var svgItem = document.getElementById("OR-2-INPUT");
+
+        new Draggabilly(svgItem, {
+            containment: true
+        });
+    };
 </script>
 
 </body>
