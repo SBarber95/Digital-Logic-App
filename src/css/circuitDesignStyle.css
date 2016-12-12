@@ -1,0 +1,57 @@
+.nav-sidebar li {
+    text-align: left;
+    min-height: 80px;
+}
+.main {
+    height: 800px;
+}
+
+.component-img {
+    float: right;
+}
+
+.list-group-item:hover {
+    background-color: #deb684;
+}
+
+.gate-input, .gate-output{
+    fill:none;
+    stroke-linecap:butt;
+    stroke-linejoin:miter;
+    stroke-opacity:1;
+    stroke-width:1.79;
+    stroke:#000;
+}
+
+.gate-inverter {
+    display:inline;
+    overflow:visible;
+    visibility:visible;
+    fill:none;
+    fill-opacity:1;
+    stroke:#000000;
+    stroke-width:3.89350438;
+    stroke-linejoin:miter;
+    stroke-opacity:1;
+    marker:none;
+    enable-background:accumulate
+}
+
+.two-AND {
+    visibility:visible;
+    fill:#000000;
+    fill-opacity:1;
+    marker:none
+}
+
+.two-NAND {
+    display:inline;
+    overflow:visible;
+    visibility:visible;
+    fill:#000000;
+    fill-opacity:1;
+    stroke:none;
+    stroke-width:3;
+    marker:none;
+    enable-background:accumulate
+}
