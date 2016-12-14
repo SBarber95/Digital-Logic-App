@@ -23,6 +23,10 @@
     stroke:#000;
 }
 
+.gate-output:hover {
+    stroke: #2088f5;
+}
+
 .gate-inverter {
     display:inline;
     overflow:visible;

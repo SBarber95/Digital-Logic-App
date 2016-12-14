@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="110.25" height="49.750008" class="two-input-XOR" version="1.0">
+<svg xmlns="http://www.w3.org/2000/svg" width="102.25" height="49.750008" class="two-input-XOR" version="1.0">
   <g transform="translate(-4.9999998,-4.9999986)">
     <path style="fill:none;stroke:#000000;stroke-width:2.46867895;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 86.833332,29.874999 c 16.333338,0 20.416668,0 20.416668,0" class="gate-output"/>
     <path style="fill:none;stroke:#000000;stroke-width:2.46867847;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 36.097503,17.437499 -31.0975032,0" class="gate-input"/>

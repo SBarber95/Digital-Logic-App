@@ -9,8 +9,7 @@
 1. Comprehensive routing for performance
 2. Implement Binary Arithmetic calculator and quizzer
 3. Implement conversions (base conversions, IEEE floating point)
-4. Begin structuring circuit designer objects and components
-5. Fill out References page with relevant information
+4. Continue structuring circuit designer objects and components
+5. Fill out Reference pages with relevant information
 6. Fill out and style the home page
-7. Finish truth tables for min/maxterms
-8. Integrate Karnaugh Maps and possibly link with truth tables
+7. Integrate Karnaugh Maps and possibly link with truth tables

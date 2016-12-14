@@ -3,7 +3,7 @@
  */
 var inverter = new Vue({
     el: '.insertion-point',
-    template: '<svg xmlns="http://www.w3.org/2000/svg" width="109.95652" height="54.8125" class="inverter" version="1.0">'+
+    template: '<svg xmlns="http://www.w3.org/2000/svg" width="109.95652" height="54.8125" class="component inverter" version="1.0">'+
     '<g transform="translate(-5.0434781,-2.59375)">'+
     '<path style="stroke-width:2.4454813" d="M 95.634522,30 115,30" class="inverter-output"/>'+
     '<path style="stroke-width:2.44548154" d="M 34.379389,30 5.0434781,30" class="inverter-input"/>'+
