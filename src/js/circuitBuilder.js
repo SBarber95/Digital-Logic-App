@@ -1,8 +1,12 @@
 /**
  * Created by savannahb on 12/14/2016.
  */
+
+// Global ID # for unique component IDs
 var idNum = 1;
 
+// Debug function to find approximate output coordinates on
+// circuit components (for use later in wire drawing)
 function findOutputCoords(e) {
 
     // SVG length attributes

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1064.3289"
+   height="1069.3964"
+   id="svg7964"
+   sodipodi:version="0.32"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Karnaugh_map_KV_4mal4_01.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0">
+  <svg:defs
+     id="defs3" />
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.33774617"
+     inkscape:cx="-434.03435"
+     inkscape:cy="149.79127"
+     inkscape:current-layer="layer2"
+     showgrid="true"
+     inkscape:window-width="1536"
+     inkscape:window-height="801"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     height="1200px"
+     width="1200px"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <svg:metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </svg:metadata>
+  <svg:g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true"
+     transform="translate(-43.671092,-48.603586)">
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306,316 800,0"
+       id="path12909"
+       inkscape:connector-curvature="0" />
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306,516 800,0"
+       id="path12913"
+       inkscape:connector-curvature="0">
+      <svg:path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 125.83415,360.9173 L 566.99385,360.9173"
+         id="path12911" />
+    </svg:path>
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306,716 800,0"
+       id="path12915"
+       inkscape:connector-curvature="0" />
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306,916 800,0"
+       id="path12917"
+       inkscape:connector-curvature="0" />
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306,1116 800,0"
+       id="path12922"
+       inkscape:connector-curvature="0" />
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 306,316 0,800"
+       id="path12919"
+       inkscape:connector-curvature="0">
+      <aa />
+    </svg:path>
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 506,316 0,800"
+       id="path12926"
+       inkscape:connector-curvature="0">
+      <aa />
+    </svg:path>
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 706,316 0,800"
+       id="path12928"
+       inkscape:connector-curvature="0">
+      <aa />
+    </svg:path>
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 906,316 0,800"
+       id="path12930"
+       inkscape:connector-curvature="0">
+      <aa />
+    </svg:path>
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1106,316 0,800"
+       id="path12932"
+       inkscape:connector-curvature="0">
+      <aa />
+    </svg:path>
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 906,1116 0,0"
+       id="path12934"
+       inkscape:connector-curvature="0">
+      <aa />
+    </svg:path>
+  </svg:g>
+  <svg:g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Einsen"
+     transform="translate(-43.671092,-48.603586)">
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:104.51911926px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="179.39412"
+       y="120.73429"
+       id="text12937"
+       transform="scale(0.9205819,1.0862694)"><svg:tspan
+         sodipodi:role="line"
+         id="tspan12939"
+         x="179.39412"
+         y="120.73429">AB</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:104.51911926px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="41.56958"
+       y="262.58237"
+       id="text12941"
+       transform="scale(0.9205819,1.0862694)"><svg:tspan
+         sodipodi:role="line"
+         id="tspan12943"
+         x="41.56958"
+         y="262.58237">CD</svg:tspan></svg:text>
+    <svg:path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 285.71753,296.95497 c -0.49347,0 -0.98694,0 0,0 z M 62.176871,80.816327 282.75672,292.51377"
+       id="path12947"
+       inkscape:connector-curvature="0" />
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:81.40825653px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="591.98047"
+       y="252.79529"
+       id="text12949"
+       transform="scale(0.9565528,1.0454206)"><svg:tspan
+         sodipodi:role="line"
+         id="tspan12951"
+         x="591.98047"
+         y="252.79529">01</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:81.40825653px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="381.97366"
+       y="252.79529"
+       id="text12953"
+       transform="scale(0.9565528,1.0454206)"><svg:tspan
+         sodipodi:role="line"
+         id="tspan12955"
+         x="381.97366"
+         y="252.79529">00</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:81.40825653px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="799.88043"
+       y="253.94804"
+       id="text12957"
+       transform="scale(0.9565528,1.0454206)"><svg:tspan
+         sodipodi:role="line"
+         id="tspan12959"
+         x="799.88043"
+         y="253.94804">11</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:81.40825653px;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1005.6737"
+       y="252.79529"
+       id="text12965"
+       transform="scale(0.9565528,1.0454206)"><svg:tspan
+         sodipodi:role="line"
+         id="tspan12967"
+         x="1005.6737"
+         y="252.79529">10</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:81.40874481px;line-height:125%;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="161.28497"
+       y="798.89374"
+       id="text12969"
+       transform="scale(0.9565528,1.0454206)"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan4171"
+         x="161.28497"
+         y="798.89374">11</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:81.40874481px;line-height:125%;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="160.23158"
+       y="984.40051"
+       id="text12973"
+       transform="scale(0.9565528,1.0454206)"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan4173"
+         x="160.23158"
+         y="984.40051">10</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:81.40874481px;line-height:125%;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="159.49622"
+       y="613.3869"
+       id="text12977"
+       transform="scale(0.9565528,1.0454206)"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan4169"
+         x="159.49622"
+         y="613.3869">01</svg:tspan></svg:text>
+    <svg:text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:81.40874481px;line-height:125%;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="158.44284"
+       y="427.88013"
+       id="text12981"
+       transform="scale(0.9565528,1.0454206)"
+       sodipodi:linespacing="125%"><svg:tspan
+         sodipodi:role="line"
+         id="tspan4167"
+         x="158.44284"
+         y="427.88013">00</svg:tspan></svg:text>
+  </svg:g>
+</svg:svg>

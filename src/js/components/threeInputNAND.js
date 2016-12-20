@@ -3,7 +3,6 @@
  */
 
 $("#select3InputNAND").click(function() {
-    var data = [{input1: false}, {input2: false}, {input3: false}, {logic: !(input1 && input2 && input3)}];
 
     var threeInputNAND = new Vue({
         el: '.insertion-point',
@@ -16,23 +15,17 @@ $("#select3InputNAND").click(function() {
         '<ellipse class="gate-inverter" cx="90.75" cy="32.5" rx="4.9000001" ry="5.5" />'+
         '<path style="stroke-width:2.59566951" d="m 36.799748,32.486544 -31.8500005,0" class="gate-input"/>'+
         '</g>'+
-        '</svg>',
-        data: function () {
-          return {
-            input1: false,
-            input2: false,
-            input3: false,
-            logic: !(input1 && input2 && input3)
-          }
-        }
+        '</svg>'
     });
 
     // Recreates insertion point to allow the addition of multiple components
     var canvas = document.getElementById("canvas");
 
+    // Sets a unique id to the rendered component
     var newSVG = canvas.lastElementChild;
     var uniqueID = "component-" + idNum;
     newSVG.setAttribute("id", uniqueID);
+    idNum++;
 
     canvas.innerHTML += '<div class="insertion-point"></div>';
 
@@ -48,9 +41,5 @@ $("#select3InputNAND").click(function() {
         });
         draggies.push( draggie );
     }
-
-    var input1 = true;
-    var input2 = false;
-    var input3 = true;
 
 });
