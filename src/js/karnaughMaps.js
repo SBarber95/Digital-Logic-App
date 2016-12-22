@@ -86,6 +86,20 @@ var threeVarKarnaughMap = new Vue ({
             var groups = [[]];
             var groupIndex = 0;
 
+            // Set potential groups of 4 and their corresponding simplified minterms
+            var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
+                                    [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
+                                    [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
+            var simpleMins4Group = ["A' ", "C' ", "B' ", "C ", "B ", "A "];
+            var minsIndex = 0;
+
+            // Set potential groups of 2 and their corresponding simplified minterms
+            var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
+                                    [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
+                                    [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
+            var simpleMins2Group = ["A'B' ", "A'C' ", "B'C' ", "A'C ", "B'C ", "A'B ", "BC' ",
+                                    "BC ", "AB' ", "AC' ", "AC ", "AB "];
+
             // For building the simplified boolean expression
             var newBooleanExp = "";
 
@@ -113,251 +127,67 @@ var threeVarKarnaughMap = new Vue ({
 
             }
 
-            // Check for groups of 4 (6 possible groups)
-            if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                && (cell4.cellValue == "1" || cell4.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                && (!cell0.isGrouped || !cell1.isGrouped || !cell4.isGrouped || !cell5.isGrouped)) {
+            else {
 
-                cell0.isGrouped = true;
-                cell1.isGrouped = true;
-                cell4.isGrouped = true;
-                cell5.isGrouped = true;
+                for (var i = 0; i < potential4Groups.length; i++) {
 
-                groups[groupIndex] = [cell0, cell1, cell4, cell5];
-                groupIndex++;
+                    // TODO: Fix redundant groups made with don't cares
+                    if ((potential4Groups[i][0].cellValue == "1" || potential4Groups[i][0].cellValue == "X") && (potential4Groups[i][1].cellValue == "1" || potential4Groups[i][1].cellValue == "X")
+                        && (potential4Groups[i][2].cellValue == "1" || potential4Groups[i][2].cellValue == "X") && (potential4Groups[i][3].cellValue == "1" || potential4Groups[i][3].cellValue == "X")
+                        && (!potential4Groups[i][0].isGrouped || !potential4Groups[i][1].isGrouped || !potential4Groups[i][2].isGrouped || !potential4Groups[i][3].isGrouped)) {
 
-                newBooleanExp += "B' ";
+                        potential4Groups[i][0].isGrouped = true;
+                        potential4Groups[i][1].isGrouped = true;
+                        potential4Groups[i][2].isGrouped = true;
+                        potential4Groups[i][3].isGrouped = true;
 
-            }
-            if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell2.cellValue == "1" || cell2.cellValue == "X")
-                && (cell4.cellValue == "1" || cell4.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                && (!cell0.isGrouped || !cell2.isGrouped || !cell4.isGrouped || !cell6.isGrouped)) {
+                        groups[groupIndex] = potential4Groups[i];
+                        groupIndex++;
 
-                cell0.isGrouped = true;
-                cell2.isGrouped = true;
-                cell4.isGrouped = true;
-                cell6.isGrouped = true;
+                        newBooleanExp += simpleMins4Group[minsIndex];
+                        minsIndex++;
 
-                groups[groupIndex] = [cell0, cell2, cell4, cell6];
-                groupIndex++;
-
-                newBooleanExp += "C' ";
-
-            }
-            if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                && (cell7.cellValue == "1" || cell7.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                && (!cell3.isGrouped || !cell1.isGrouped || !cell7.isGrouped || !cell5.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell1.isGrouped = true;
-                cell7.isGrouped = true;
-                cell5.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell1, cell7, cell5];
-                groupIndex++;
-
-                newBooleanExp += "C ";
-
-            }
-            if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                && (cell2.cellValue == "1" || cell2.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                && (!cell3.isGrouped || !cell7.isGrouped || !cell2.isGrouped || !cell6.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell7.isGrouped = true;
-                cell2.isGrouped = true;
-                cell6.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell7, cell2, cell6];
-                groupIndex++;
-
-                newBooleanExp += "B ";
-
-            }
-            if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell0.cellValue == "1" || cell0.cellValue == "X")
-                && (cell2.cellValue == "1" || cell2.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                && (!cell3.isGrouped || !cell0.isGrouped || !cell2.isGrouped || !cell1.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell1.isGrouped = true;
-                cell2.isGrouped = true;
-                cell0.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell0, cell2, cell1];
-                groupIndex++;
-
-                newBooleanExp += "A' ";
-
-            }
-            if ((cell4.cellValue == "1" || cell4.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                && (cell5.cellValue == "1" || cell5.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                && (!cell4.isGrouped || !cell7.isGrouped || !cell5.isGrouped || !cell6.isGrouped)) {
-
-                cell4.isGrouped = true;
-                cell7.isGrouped = true;
-                cell5.isGrouped = true;
-                cell6.isGrouped = true;
-
-                groups[groupIndex] = [cell4, cell7, cell5, cell6];
-                groupIndex++;
-
-                newBooleanExp += "A ";
-
-            }
-
-            // Check for groups of 2 (12 possible groups)
-            if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                && (!cell3.isGrouped || !cell7.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell7.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell7];
-                groupIndex++;
-
-                newBooleanExp += "BC ";
-
-            }
-            if ((cell5.cellValue == "1" || cell5.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                && (!cell5.isGrouped || !cell7.isGrouped)) {
-
-                cell5.isGrouped = true;
-                cell7.isGrouped = true;
-
-                groups[groupIndex] = [cell5, cell7];
-                groupIndex++;
-
-                newBooleanExp += "AC ";
-
-            }
-            if ((cell6.cellValue == "1" || cell6.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                && (!cell6.isGrouped || !cell7.isGrouped)) {
-
-                cell6.isGrouped = true;
-                cell7.isGrouped = true;
-
-                groups[groupIndex] = [cell6, cell7];
-                groupIndex++;
-
-                newBooleanExp += "AB ";
-
-            }
-            if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                && (!cell3.isGrouped || !cell1.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell1.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell1];
-                groupIndex++;
-
-                newBooleanExp += "A'C ";
-
-            }
-            if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell2.cellValue == "1" || cell2.cellValue == "X")
-                && (!cell3.isGrouped || !cell2.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell2.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell2];
-                groupIndex++;
-
-                newBooleanExp += "A'B ";
-
-            }
-            if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell4.cellValue == "1" || cell4.cellValue == "X")
-                && (!cell0.isGrouped || !cell4.isGrouped)) {
-
-                cell0.isGrouped = true;
-                cell4.isGrouped = true;
-
-                groups[groupIndex] = [cell0, cell4];
-                groupIndex++;
-
-                newBooleanExp += "B'C' ";
-
-            }
-            // TODO: IT SEEMS TO WORK
-            if ((cell1.cellValue == "1" || cell1.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                && (!cell1.isGrouped || !cell5.isGrouped)) {
-
-                if ((cell1.cellValue == "X" && cell5.cellValue == "X") || (!cell1.isGrouped && cell1.cellValue == "X")
-                    || (!cell5.isGrouped && cell5.cellValue == "X")) {
-                    // Do nothing as a group here would be unnecessary
-                }
-                else {
-
-                    cell1.isGrouped = true;
-                    cell5.isGrouped = true;
-
-                    groups[groupIndex] = [cell1, cell5];
-                    groupIndex++;
-
-                    newBooleanExp += "B'C ";
+                    }
+                    else {
+                        minsIndex++;
+                    }
 
                 }
 
-            }
-            if ((cell2.cellValue == "1" || cell2.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                && (!cell2.isGrouped || !cell6.isGrouped)) {
+                minsIndex = 0;
 
-                cell2.isGrouped = true;
-                cell6.isGrouped = true;
+                for (i = 0; i < potential2Groups.length; i++) {
 
-                groups[groupIndex] = [cell2, cell6];
-                groupIndex++;
+                    if ((potential2Groups[i][0].cellValue == "1" || potential2Groups[i][0].cellValue == "X") &&
+                        (potential2Groups[i][1].cellValue == "1" || potential2Groups[i][1].cellValue == "X") &&
+                        (!potential2Groups[i][0].isGrouped || !potential2Groups[i][1].isGrouped)) {
 
-                newBooleanExp += "BC' ";
+                        if ((potential2Groups[i][0].cellValue == "X" && potential2Groups[i][1].cellValue == "X") ||
+                            ((potential2Groups[i][0].isGrouped && potential2Groups[i][0].cellValue == "1") &&
+                              potential2Groups[i][1].cellValue == "X") || ((potential2Groups[i][1].isGrouped &&
+                              potential2Groups[i][1].cellValue == "1") && potential2Groups[i][0].cellValue == "X")) {
+                            // Do nothing as a group here would be unnecessary
+                            minsIndex++;
+                        }
+                        else {
 
-            }
-            if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                && (!cell0.isGrouped || !cell1.isGrouped)) {
+                            potential2Groups[i][0].isGrouped = true;
+                            potential2Groups[i][1].isGrouped = true;
 
-                cell0.isGrouped = true;
-                cell1.isGrouped = true;
+                            groups[groupIndex] = potential2Groups[i];
+                            groupIndex++;
 
-                groups[groupIndex] = [cell0, cell1];
-                groupIndex++;
+                            newBooleanExp += simpleMins2Group[minsIndex];
+                            minsIndex++;
 
-                newBooleanExp += "A'B' ";
+                        }
 
-            }
-            if ((cell4.cellValue == "1" || cell4.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                && (!cell4.isGrouped || !cell5.isGrouped)) {
+                    }
+                    else {
+                        minsIndex++;
+                    }
 
-                cell4.isGrouped = true;
-                cell5.isGrouped = true;
-
-                groups[groupIndex] = [cell4, cell5];
-                groupIndex++;
-
-                newBooleanExp += "AB' ";
-
-
-            }
-            if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell2.cellValue == "1" || cell2.cellValue == "X")
-                && (!cell0.isGrouped || !cell2.isGrouped)) {
-
-                cell0.isGrouped = true;
-                cell2.isGrouped = true;
-
-                groups[groupIndex] = [cell0, cell2];
-                groupIndex++;
-
-                newBooleanExp += "A'C' ";
-
-            }
-            if ((cell4.cellValue == "1" || cell4.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                && (!cell4.isGrouped || !cell6.isGrouped)) {
-
-                cell4.isGrouped = true;
-                cell6.isGrouped = true;
-
-                groups[groupIndex] = [cell4, cell6];
-                groupIndex++;
-
-                newBooleanExp += "AC' ";
+                }
 
             }
 
@@ -365,7 +195,7 @@ var threeVarKarnaughMap = new Vue ({
             var cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7];
             var isolatedCellMinterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
 
-            for (var i = 0; i < cells.length; i++) {
+            for (i = 0; i < cells.length; i++) {
 
                 if (!cells[i].isGrouped && (cells[i].cellValue == "1")) {
 
@@ -415,6 +245,20 @@ var threeVarKarnaughMap = new Vue ({
             var groups = [[]];
             var groupIndex = 0;
 
+            // Set potential groups of 4 and their corresponding simplified maxterms
+            var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
+                [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
+                [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
+            var simpleMax4Group = ["A ", "C ", "B ", "C' ", "B' ", "A' "];
+            var maxIndex = 0;
+
+            // Set potential groups of 2 and their corresponding simplified maxterms
+            var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
+                [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
+                [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
+            var simpleMax2Group = ["(A + B) ", "(A + C) ", "(B + C) ", "(A + C') ", "(B + C') ", "(A + B') ", "(B' + C) ",
+                "(B' + C') ", "(A' + B) ", "(A' + C) ", "(A' + C') ", "(A' + B') "];
+
             // For building the simplified boolean expression
             var newBooleanExp = "";
 
@@ -442,242 +286,66 @@ var threeVarKarnaughMap = new Vue ({
 
             }
 
-            // Check for groups of 4 (6 possible groups)
-            if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                && (cell4.cellValue == "0" || cell4.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                && (!cell0.isGrouped || !cell1.isGrouped || !cell4.isGrouped || !cell5.isGrouped)) {
+            else {
 
-                cell0.isGrouped = true;
-                cell1.isGrouped = true;
-                cell4.isGrouped = true;
-                cell5.isGrouped = true;
+                for (var i = 0; i < potential4Groups.length; i++) {
 
-                groups[groupIndex] = [cell0, cell1, cell4, cell5];
-                groupIndex++;
+                    if ((potential4Groups[i][0].cellValue == "0" || potential4Groups[i][0].cellValue == "X") && (potential4Groups[i][1].cellValue == "0" || potential4Groups[i][1].cellValue == "X")
+                        && (potential4Groups[i][2].cellValue == "0" || potential4Groups[i][2].cellValue == "X") && (potential4Groups[i][3].cellValue == "0" || potential4Groups[i][3].cellValue == "X")
+                        && (!potential4Groups[i][0].isGrouped || !potential4Groups[i][1].isGrouped || !potential4Groups[i][2].isGrouped || !potential4Groups[i][3].isGrouped)) {
 
-                newBooleanExp += "B ";
+                        potential4Groups[i][0].isGrouped = true;
+                        potential4Groups[i][1].isGrouped = true;
+                        potential4Groups[i][2].isGrouped = true;
+                        potential4Groups[i][3].isGrouped = true;
 
-            }
-            if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell2.cellValue == "0" || cell2.cellValue == "X")
-                && (cell4.cellValue == "0" || cell4.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                && (!cell0.isGrouped || !cell2.isGrouped || !cell4.isGrouped || !cell6.isGrouped)) {
+                        groups[groupIndex] = potential4Groups[i];
+                        groupIndex++;
 
-                cell0.isGrouped = true;
-                cell2.isGrouped = true;
-                cell4.isGrouped = true;
-                cell6.isGrouped = true;
+                        newBooleanExp += simpleMax4Group[maxIndex];
+                        maxIndex++;
 
-                groups[groupIndex] = [cell0, cell2, cell4, cell6];
-                groupIndex++;
+                    }
+                    else {
+                        maxIndex++;
+                    }
 
-                newBooleanExp += "C ";
+                }
 
-            }
-            if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                && (cell7.cellValue == "0" || cell7.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                && (!cell3.isGrouped || !cell1.isGrouped || !cell7.isGrouped || !cell5.isGrouped)) {
+                maxIndex = 0;
 
-                cell3.isGrouped = true;
-                cell1.isGrouped = true;
-                cell7.isGrouped = true;
-                cell5.isGrouped = true;
+                for (i = 0; i < potential2Groups.length; i++) {
 
-                groups[groupIndex] = [cell3, cell1, cell7, cell5];
-                groupIndex++;
+                    // TODO: IT SEEMS TO WORK BUT STILL NOT FOR EVERY CASE
+                    if ((potential2Groups[i][0].cellValue == "0" || potential2Groups[i][0].cellValue == "X") &&
+                        (potential2Groups[i][1].cellValue == "0" || potential2Groups[i][1].cellValue == "X") &&
+                        (!potential2Groups[i][0].isGrouped || !potential2Groups[i][1].isGrouped)) {
 
-                newBooleanExp += "C' ";
+                        if ((potential2Groups[i][0].cellValue == "X" && potential2Groups[i][1].cellValue == "X") ||
+                            ((potential2Groups[i][0].isGrouped && potential2Groups[i][0].cellValue == "0") &&
+                            potential2Groups[i][1].cellValue == "X") || ((potential2Groups[i][1].isGrouped &&
+                            potential2Groups[i][1].cellValue == "0") && potential2Groups[i][0].cellValue == "X")) {
+                            // Do nothing as a group here would be unnecessary
+                        }
+                        else {
 
-            }
-            if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                && (cell2.cellValue == "0" || cell2.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                && (!cell3.isGrouped || !cell7.isGrouped || !cell2.isGrouped || !cell6.isGrouped)) {
+                            potential2Groups[i][0].isGrouped = true;
+                            potential2Groups[i][1].isGrouped = true;
 
-                cell3.isGrouped = true;
-                cell7.isGrouped = true;
-                cell2.isGrouped = true;
-                cell6.isGrouped = true;
+                            groups[groupIndex] = potential2Groups[i];
+                            groupIndex++;
 
-                groups[groupIndex] = [cell3, cell7, cell2, cell6];
-                groupIndex++;
+                            newBooleanExp += simpleMax2Group[maxIndex];
+                            maxIndex++;
 
-                newBooleanExp += "B' ";
+                        }
 
-            }
-            if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell0.cellValue == "0" || cell0.cellValue == "X")
-                && (cell2.cellValue == "0" || cell2.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                && (!cell3.isGrouped || !cell0.isGrouped || !cell2.isGrouped || !cell1.isGrouped)) {
+                    }
+                    else {
+                        maxIndex++;
+                    }
 
-                cell3.isGrouped = true;
-                cell1.isGrouped = true;
-                cell2.isGrouped = true;
-                cell0.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell0, cell2, cell1];
-                groupIndex++;
-
-                newBooleanExp += "A ";
-
-            }
-            if ((cell4.cellValue == "0" || cell4.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                && (cell5.cellValue == "0" || cell5.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                && (!cell4.isGrouped || !cell7.isGrouped || !cell5.isGrouped || !cell6.isGrouped)) {
-
-                cell4.isGrouped = true;
-                cell7.isGrouped = true;
-                cell5.isGrouped = true;
-                cell6.isGrouped = true;
-
-                groups[groupIndex] = [cell4, cell7, cell5, cell6];
-                groupIndex++;
-
-                newBooleanExp += "A' ";
-
-            }
-
-            // Check for groups of 2 (12 possible groups)
-            if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                && (!cell3.isGrouped || !cell7.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell7.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell7];
-                groupIndex++;
-
-                newBooleanExp += "(B' + C') ";
-
-            }
-            if ((cell5.cellValue == "0" || cell5.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                && (!cell5.isGrouped || !cell7.isGrouped)) {
-
-                cell5.isGrouped = true;
-                cell7.isGrouped = true;
-
-                groups[groupIndex] = [cell5, cell7];
-                groupIndex++;
-
-                newBooleanExp += "(A' + C') ";
-
-            }
-            if ((cell6.cellValue == "0" || cell6.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                && (!cell6.isGrouped || !cell7.isGrouped)) {
-
-                cell6.isGrouped = true;
-                cell7.isGrouped = true;
-
-                groups[groupIndex] = [cell6, cell7];
-                groupIndex++;
-
-                newBooleanExp += "(A' + B') ";
-
-            }
-            if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                && (!cell3.isGrouped || !cell1.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell1.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell1];
-                groupIndex++;
-
-                newBooleanExp += "(A + C') ";
-
-            }
-            if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell2.cellValue == "0" || cell2.cellValue == "X")
-                && (!cell3.isGrouped || !cell2.isGrouped)) {
-
-                cell3.isGrouped = true;
-                cell2.isGrouped = true;
-
-                groups[groupIndex] = [cell3, cell2];
-                groupIndex++;
-
-                newBooleanExp += "(A + B') ";
-
-            }
-            if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell4.cellValue == "0" || cell4.cellValue == "X")
-                && (!cell0.isGrouped || !cell4.isGrouped)) {
-
-                cell0.isGrouped = true;
-                cell4.isGrouped = true;
-
-                groups[groupIndex] = [cell0, cell4];
-                groupIndex++;
-
-                newBooleanExp += "(B + C) ";
-
-            }
-            if ((cell1.cellValue == "0" || cell1.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                && (!cell1.isGrouped || !cell5.isGrouped)) {
-
-                cell1.isGrouped = true;
-                cell5.isGrouped = true;
-
-                groups[groupIndex] = [cell1, cell5];
-                groupIndex++;
-
-                newBooleanExp += "(B + C') ";
-
-            }
-            if ((cell2.cellValue == "0" || cell2.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                && (!cell2.isGrouped || !cell6.isGrouped)) {
-
-                cell2.isGrouped = true;
-                cell6.isGrouped = true;
-
-                groups[groupIndex] = [cell2, cell6];
-                groupIndex++;
-
-                newBooleanExp += "(B' + C) ";
-
-            }
-            if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                && (!cell0.isGrouped || !cell1.isGrouped)) {
-
-                cell0.isGrouped = true;
-                cell1.isGrouped = true;
-
-                groups[groupIndex] = [cell0, cell1];
-                groupIndex++;
-
-                newBooleanExp += "(A + B) ";
-
-            }
-            if ((cell4.cellValue == "0" || cell4.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                && (!cell4.isGrouped || !cell5.isGrouped)) {
-
-                cell4.isGrouped = true;
-                cell5.isGrouped = true;
-
-                groups[groupIndex] = [cell4, cell5];
-                groupIndex++;
-
-                newBooleanExp += "(A' + B) ";
-
-
-            }
-            if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell2.cellValue == "0" || cell2.cellValue == "X")
-                && (!cell0.isGrouped || !cell2.isGrouped)) {
-
-                cell0.isGrouped = true;
-                cell2.isGrouped = true;
-
-                groups[groupIndex] = [cell0, cell2];
-                groupIndex++;
-
-                newBooleanExp += "(A + C) ";
-
-            }
-            if ((cell4.cellValue == "0" || cell4.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                && (!cell4.isGrouped || !cell6.isGrouped)) {
-
-                cell4.isGrouped = true;
-                cell6.isGrouped = true;
-
-                groups[groupIndex] = [cell4, cell6];
-                groupIndex++;
-
-                newBooleanExp += "(A' + C) ";
+                }
 
             }
 
@@ -686,7 +354,7 @@ var threeVarKarnaughMap = new Vue ({
             var isolatedCellMinterms = ["(A + B + C)", "(A + B + C')", "(A + B' + C)", "(A + B' + C')", "(A' + B + C)", "(A' + B + C')",
                 "(A' + B' + C)", "(A' + B' + C')"];
 
-            for (var i = 0; i < cells.length; i++) {
+            for (i = 0; i < cells.length; i++) {
 
                 if (!cells[i].isGrouped && (cells[i].cellValue == "0")) {
 
@@ -804,6 +472,20 @@ $("#display_three_var_km").click(function() {
                 var groups = [[]];
                 var groupIndex = 0;
 
+                // Set potential groups of 4 and their corresponding simplified minterms
+                var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
+                    [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
+                    [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
+                var simpleMins4Group = ["A' ", "C' ", "B' ", "C ", "B ", "A "];
+                var minsIndex = 0;
+
+                // Set potential groups of 2 and their corresponding simplified minterms
+                var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
+                    [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
+                    [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
+                var simpleMins2Group = ["A'B' ", "A'C' ", "B'C' ", "A'C ", "B'C ", "A'B ", "BC' ",
+                    "BC ", "AB' ", "AC' ", "AC ", "AB "];
+
                 // For building the simplified boolean expression
                 var newBooleanExp = "";
 
@@ -831,242 +513,66 @@ $("#display_three_var_km").click(function() {
 
                 }
 
-                // Check for groups of 4 (6 possible groups)
-                if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                    && (cell4.cellValue == "1" || cell4.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                    && (!cell0.isGrouped || !cell1.isGrouped || !cell4.isGrouped || !cell5.isGrouped)) {
+                else {
 
-                    cell0.isGrouped = true;
-                    cell1.isGrouped = true;
-                    cell4.isGrouped = true;
-                    cell5.isGrouped = true;
+                    for (var i = 0; i < potential4Groups.length; i++) {
 
-                    groups[groupIndex] = [cell0, cell1, cell4, cell5];
-                    groupIndex++;
+                        if ((potential4Groups[i][0].cellValue == "1" || potential4Groups[i][0].cellValue == "X") && (potential4Groups[i][1].cellValue == "1" || potential4Groups[i][1].cellValue == "X")
+                            && (potential4Groups[i][2].cellValue == "1" || potential4Groups[i][2].cellValue == "X") && (potential4Groups[i][3].cellValue == "1" || potential4Groups[i][3].cellValue == "X")
+                            && (!potential4Groups[i][0].isGrouped || !potential4Groups[i][1].isGrouped || !potential4Groups[i][2].isGrouped || !potential4Groups[i][3].isGrouped)) {
 
-                    newBooleanExp += "B' ";
+                            potential4Groups[i][0].isGrouped = true;
+                            potential4Groups[i][1].isGrouped = true;
+                            potential4Groups[i][2].isGrouped = true;
+                            potential4Groups[i][3].isGrouped = true;
 
-                }
-                if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell2.cellValue == "1" || cell2.cellValue == "X")
-                    && (cell4.cellValue == "1" || cell4.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                    && (!cell0.isGrouped || !cell2.isGrouped || !cell4.isGrouped || !cell6.isGrouped)) {
+                            groups[groupIndex] = potential4Groups[i];
+                            groupIndex++;
 
-                    cell0.isGrouped = true;
-                    cell2.isGrouped = true;
-                    cell4.isGrouped = true;
-                    cell6.isGrouped = true;
+                            newBooleanExp += simpleMins4Group[minsIndex];
+                            minsIndex++;
 
-                    groups[groupIndex] = [cell0, cell2, cell4, cell6];
-                    groupIndex++;
+                        }
+                        else {
+                            minsIndex++;
+                        }
 
-                    newBooleanExp += "C' ";
+                    }
 
-                }
-                if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                    && (cell7.cellValue == "1" || cell7.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                    && (!cell3.isGrouped || !cell1.isGrouped || !cell7.isGrouped || !cell5.isGrouped)) {
+                    minsIndex = 0;
 
-                    cell3.isGrouped = true;
-                    cell1.isGrouped = true;
-                    cell7.isGrouped = true;
-                    cell5.isGrouped = true;
+                    for (i = 0; i < potential2Groups.length; i++) {
 
-                    groups[groupIndex] = [cell3, cell1, cell7, cell5];
-                    groupIndex++;
+                        // TODO: IT SEEMS TO WORK BUT STILL NOT FOR EVERY CASE
+                        if ((potential2Groups[i][0].cellValue == "1" || potential2Groups[i][0].cellValue == "X") &&
+                            (potential2Groups[i][1].cellValue == "1" || potential2Groups[i][1].cellValue == "X") &&
+                            (!potential2Groups[i][0].isGrouped || !potential2Groups[i][1].isGrouped)) {
 
-                    newBooleanExp += "C ";
+                            if ((potential2Groups[i][0].cellValue == "X" && potential2Groups[i][1].cellValue == "X") ||
+                                ((potential2Groups[i][0].isGrouped && potential2Groups[i][0].cellValue == "1") &&
+                                potential2Groups[i][1].cellValue == "X") || ((potential2Groups[i][1].isGrouped &&
+                                potential2Groups[i][1].cellValue == "1") && potential2Groups[i][0].cellValue == "X")) {
+                                // Do nothing as a group here would be unnecessary
+                            }
+                            else {
 
-                }
-                if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                    && (cell2.cellValue == "1" || cell2.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                    && (!cell3.isGrouped || !cell7.isGrouped || !cell2.isGrouped || !cell6.isGrouped)) {
+                                potential2Groups[i][0].isGrouped = true;
+                                potential2Groups[i][1].isGrouped = true;
 
-                    cell3.isGrouped = true;
-                    cell7.isGrouped = true;
-                    cell2.isGrouped = true;
-                    cell6.isGrouped = true;
+                                groups[groupIndex] = potential2Groups[i];
+                                groupIndex++;
 
-                    groups[groupIndex] = [cell3, cell7, cell2, cell6];
-                    groupIndex++;
+                                newBooleanExp += simpleMins2Group[minsIndex];
+                                minsIndex++;
 
-                    newBooleanExp += "B ";
+                            }
 
-                }
-                if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell0.cellValue == "1" || cell0.cellValue == "X")
-                    && (cell2.cellValue == "1" || cell2.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                    && (!cell3.isGrouped || !cell0.isGrouped || !cell2.isGrouped || !cell1.isGrouped)) {
+                        }
+                        else {
+                            minsIndex++;
+                        }
 
-                    cell3.isGrouped = true;
-                    cell1.isGrouped = true;
-                    cell2.isGrouped = true;
-                    cell0.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell0, cell2, cell1];
-                    groupIndex++;
-
-                    newBooleanExp += "A' ";
-
-                }
-                if ((cell4.cellValue == "1" || cell4.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                    && (cell5.cellValue == "1" || cell5.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                    && (!cell4.isGrouped || !cell7.isGrouped || !cell5.isGrouped || !cell6.isGrouped)) {
-
-                    cell4.isGrouped = true;
-                    cell7.isGrouped = true;
-                    cell5.isGrouped = true;
-                    cell6.isGrouped = true;
-
-                    groups[groupIndex] = [cell4, cell7, cell5, cell6];
-                    groupIndex++;
-
-                    newBooleanExp += "A ";
-
-                }
-
-                // Check for groups of 2 (12 possible groups)
-                if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                    && (!cell3.isGrouped || !cell7.isGrouped)) {
-
-                    cell3.isGrouped = true;
-                    cell7.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell7];
-                    groupIndex++;
-
-                    newBooleanExp += "BC ";
-
-                }
-                if ((cell5.cellValue == "1" || cell5.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                    && (!cell5.isGrouped || !cell7.isGrouped)) {
-
-                    cell5.isGrouped = true;
-                    cell7.isGrouped = true;
-
-                    groups[groupIndex] = [cell5, cell7];
-                    groupIndex++;
-
-                    newBooleanExp += "AC ";
-
-                }
-                if ((cell6.cellValue == "1" || cell6.cellValue == "X") && (cell7.cellValue == "1" || cell7.cellValue == "X")
-                    && (!cell6.isGrouped || !cell7.isGrouped)) {
-
-                    cell6.isGrouped = true;
-                    cell7.isGrouped = true;
-
-                    groups[groupIndex] = [cell6, cell7];
-                    groupIndex++;
-
-                    newBooleanExp += "AB ";
-
-                }
-                if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                    && (!cell3.isGrouped || !cell1.isGrouped)) {
-
-                    cell3.isGrouped = true;
-                    cell1.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell1];
-                    groupIndex++;
-
-                    newBooleanExp += "A'C ";
-
-                }
-                if ((cell3.cellValue == "1" || cell3.cellValue == "X") && (cell2.cellValue == "1" || cell2.cellValue == "X")
-                    && (!cell3.isGrouped || !cell2.isGrouped)) {
-
-                    cell3.isGrouped = true;
-                    cell2.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell2];
-                    groupIndex++;
-
-                    newBooleanExp += "A'B ";
-
-                }
-                if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell4.cellValue == "1" || cell4.cellValue == "X")
-                    && (!cell0.isGrouped || !cell4.isGrouped)) {
-
-                    cell0.isGrouped = true;
-                    cell4.isGrouped = true;
-
-                    groups[groupIndex] = [cell0, cell4];
-                    groupIndex++;
-
-                    newBooleanExp += "B'C' ";
-
-                }
-                if ((cell1.cellValue == "1" || cell1.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                    && (!cell1.isGrouped || !cell5.isGrouped)) {
-
-                    cell1.isGrouped = true;
-                    cell5.isGrouped = true;
-
-                    groups[groupIndex] = [cell1, cell5];
-                    groupIndex++;
-
-                    newBooleanExp += "B'C ";
-
-                }
-                if ((cell2.cellValue == "1" || cell2.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                    && (!cell2.isGrouped || !cell6.isGrouped)) {
-
-                    cell2.isGrouped = true;
-                    cell6.isGrouped = true;
-
-                    groups[groupIndex] = [cell2, cell6];
-                    groupIndex++;
-
-                    newBooleanExp += "BC' ";
-
-                }
-                if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell1.cellValue == "1" || cell1.cellValue == "X")
-                    && (!cell0.isGrouped || !cell1.isGrouped)) {
-
-                    cell0.isGrouped = true;
-                    cell1.isGrouped = true;
-
-                    groups[groupIndex] = [cell0, cell1];
-                    groupIndex++;
-
-                    newBooleanExp += "A'B' ";
-
-                }
-                if ((cell4.cellValue == "1" || cell4.cellValue == "X") && (cell5.cellValue == "1" || cell5.cellValue == "X")
-                    && (!cell4.isGrouped || !cell5.isGrouped)) {
-
-                    cell4.isGrouped = true;
-                    cell5.isGrouped = true;
-
-                    groups[groupIndex] = [cell4, cell5];
-                    groupIndex++;
-
-                    newBooleanExp += "AB' ";
-
-
-                }
-                if ((cell0.cellValue == "1" || cell0.cellValue == "X") && (cell2.cellValue == "1" || cell2.cellValue == "X")
-                    && (!cell0.isGrouped || !cell2.isGrouped)) {
-
-                    cell0.isGrouped = true;
-                    cell2.isGrouped = true;
-
-                    groups[groupIndex] = [cell0, cell2];
-                    groupIndex++;
-
-                    newBooleanExp += "A'C' ";
-
-                }
-                if ((cell4.cellValue == "1" || cell4.cellValue == "X") && (cell6.cellValue == "1" || cell6.cellValue == "X")
-                    && (!cell4.isGrouped || !cell6.isGrouped)) {
-
-                    cell4.isGrouped = true;
-                    cell6.isGrouped = true;
-
-                    groups[groupIndex] = [cell4, cell6];
-                    groupIndex++;
-
-                    newBooleanExp += "AC' ";
+                    }
 
                 }
 
@@ -1074,7 +580,7 @@ $("#display_three_var_km").click(function() {
                 var cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7];
                 var isolatedCellMinterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
 
-                for (var i = 0; i < cells.length; i++) {
+                for (i = 0; i < cells.length; i++) {
 
                     if (!cells[i].isGrouped && (cells[i].cellValue == "1")) {
 
@@ -1124,6 +630,20 @@ $("#display_three_var_km").click(function() {
                 var groups = [[]];
                 var groupIndex = 0;
 
+                // Set potential groups of 4 and their corresponding simplified maxterms
+                var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
+                    [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
+                    [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
+                var simpleMax4Group = ["A ", "C ", "B ", "C' ", "B' ", "A' "];
+                var maxIndex = 0;
+
+                // Set potential groups of 2 and their corresponding simplified maxterms
+                var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
+                    [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
+                    [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
+                var simpleMax2Group = ["(A + B) ", "(A + C) ", "(B + C) ", "(A + C') ", "(B + C') ", "(A + B') ", "(B' + C) ",
+                    "(B' + C') ", "(A' + B) ", "(A' + C) ", "(A' + C') ", "(A' + B') "];
+
                 // For building the simplified boolean expression
                 var newBooleanExp = "";
 
@@ -1151,242 +671,65 @@ $("#display_three_var_km").click(function() {
 
                 }
 
-                // Check for groups of 4 (6 possible groups)
-                if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                    && (cell4.cellValue == "0" || cell4.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                    && (!cell0.isGrouped || !cell1.isGrouped || !cell4.isGrouped || !cell5.isGrouped)) {
+                else {
 
-                    cell0.isGrouped = true;
-                    cell1.isGrouped = true;
-                    cell4.isGrouped = true;
-                    cell5.isGrouped = true;
+                    for (var i = 0; i < potential4Groups.length; i++) {
 
-                    groups[groupIndex] = [cell0, cell1, cell4, cell5];
-                    groupIndex++;
+                        if ((potential4Groups[i][0].cellValue == "0" || potential4Groups[i][0].cellValue == "X") && (potential4Groups[i][1].cellValue == "0" || potential4Groups[i][1].cellValue == "X")
+                            && (potential4Groups[i][2].cellValue == "0" || potential4Groups[i][2].cellValue == "X") && (potential4Groups[i][3].cellValue == "0" || potential4Groups[i][3].cellValue == "X")
+                            && (!potential4Groups[i][0].isGrouped || !potential4Groups[i][1].isGrouped || !potential4Groups[i][2].isGrouped || !potential4Groups[i][3].isGrouped)) {
 
-                    newBooleanExp += "B ";
+                            potential4Groups[i][0].isGrouped = true;
+                            potential4Groups[i][1].isGrouped = true;
+                            potential4Groups[i][2].isGrouped = true;
+                            potential4Groups[i][3].isGrouped = true;
 
-                }
-                if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell2.cellValue == "0" || cell2.cellValue == "X")
-                    && (cell4.cellValue == "0" || cell4.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                    && (!cell0.isGrouped || !cell2.isGrouped || !cell4.isGrouped || !cell6.isGrouped)) {
+                            groups[groupIndex] = potential4Groups[i];
+                            groupIndex++;
 
-                    cell0.isGrouped = true;
-                    cell2.isGrouped = true;
-                    cell4.isGrouped = true;
-                    cell6.isGrouped = true;
+                            newBooleanExp += simpleMax4Group[maxIndex];
+                            maxIndex++;
 
-                    groups[groupIndex] = [cell0, cell2, cell4, cell6];
-                    groupIndex++;
+                        }
+                        else {
+                            maxIndex++;
+                        }
 
-                    newBooleanExp += "C ";
+                    }
 
-                }
-                if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                    && (cell7.cellValue == "0" || cell7.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                    && (!cell3.isGrouped || !cell1.isGrouped || !cell7.isGrouped || !cell5.isGrouped)) {
+                    maxIndex = 0;
 
-                    cell3.isGrouped = true;
-                    cell1.isGrouped = true;
-                    cell7.isGrouped = true;
-                    cell5.isGrouped = true;
+                    for (i = 0; i < potential2Groups.length; i++) {
+                        
+                        if ((potential2Groups[i][0].cellValue == "0" || potential2Groups[i][0].cellValue == "X") &&
+                            (potential2Groups[i][1].cellValue == "0" || potential2Groups[i][1].cellValue == "X") &&
+                            (!potential2Groups[i][0].isGrouped || !potential2Groups[i][1].isGrouped)) {
 
-                    groups[groupIndex] = [cell3, cell1, cell7, cell5];
-                    groupIndex++;
+                            if ((potential2Groups[i][0].cellValue == "X" && potential2Groups[i][1].cellValue == "X") ||
+                                ((potential2Groups[i][0].isGrouped && potential2Groups[i][0].cellValue == "0") &&
+                                potential2Groups[i][1].cellValue == "X") || ((potential2Groups[i][1].isGrouped &&
+                                potential2Groups[i][1].cellValue == "0") && potential2Groups[i][0].cellValue == "X")) {
+                                // Do nothing as a group here would be unnecessary
+                            }
+                            else {
 
-                    newBooleanExp += "C' ";
+                                potential2Groups[i][0].isGrouped = true;
+                                potential2Groups[i][1].isGrouped = true;
 
-                }
-                if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                    && (cell2.cellValue == "0" || cell2.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                    && (!cell3.isGrouped || !cell7.isGrouped || !cell2.isGrouped || !cell6.isGrouped)) {
+                                groups[groupIndex] = potential2Groups[i];
+                                groupIndex++;
 
-                    cell3.isGrouped = true;
-                    cell7.isGrouped = true;
-                    cell2.isGrouped = true;
-                    cell6.isGrouped = true;
+                                newBooleanExp += simpleMax2Group[maxIndex];
+                                maxIndex++;
 
-                    groups[groupIndex] = [cell3, cell7, cell2, cell6];
-                    groupIndex++;
+                            }
 
-                    newBooleanExp += "B' ";
+                        }
+                        else {
+                            maxIndex++;
+                        }
 
-                }
-                if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell0.cellValue == "0" || cell0.cellValue == "X")
-                    && (cell2.cellValue == "0" || cell2.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                    && (!cell3.isGrouped || !cell0.isGrouped || !cell2.isGrouped || !cell1.isGrouped)) {
-
-                    cell3.isGrouped = true;
-                    cell1.isGrouped = true;
-                    cell2.isGrouped = true;
-                    cell0.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell0, cell2, cell1];
-                    groupIndex++;
-
-                    newBooleanExp += "A ";
-
-                }
-                if ((cell4.cellValue == "0" || cell4.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                    && (cell5.cellValue == "0" || cell5.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                    && (!cell4.isGrouped || !cell7.isGrouped || !cell5.isGrouped || !cell6.isGrouped)) {
-
-                    cell4.isGrouped = true;
-                    cell7.isGrouped = true;
-                    cell5.isGrouped = true;
-                    cell6.isGrouped = true;
-
-                    groups[groupIndex] = [cell4, cell7, cell5, cell6];
-                    groupIndex++;
-
-                    newBooleanExp += "A' ";
-
-                }
-
-                // Check for groups of 2 (12 possible groups)
-                if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                    && (!cell3.isGrouped || !cell7.isGrouped)) {
-
-                    cell3.isGrouped = true;
-                    cell7.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell7];
-                    groupIndex++;
-
-                    newBooleanExp += "(B' + C') ";
-
-                }
-                if ((cell5.cellValue == "0" || cell5.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                    && (!cell5.isGrouped || !cell7.isGrouped)) {
-
-                    cell5.isGrouped = true;
-                    cell7.isGrouped = true;
-
-                    groups[groupIndex] = [cell5, cell7];
-                    groupIndex++;
-
-                    newBooleanExp += "(A' + C') ";
-
-                }
-                if ((cell6.cellValue == "0" || cell6.cellValue == "X") && (cell7.cellValue == "0" || cell7.cellValue == "X")
-                    && (!cell6.isGrouped || !cell7.isGrouped)) {
-
-                    cell6.isGrouped = true;
-                    cell7.isGrouped = true;
-
-                    groups[groupIndex] = [cell6, cell7];
-                    groupIndex++;
-
-                    newBooleanExp += "(A' + B') ";
-
-                }
-                if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                    && (!cell3.isGrouped || !cell1.isGrouped)) {
-
-                    cell3.isGrouped = true;
-                    cell1.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell1];
-                    groupIndex++;
-
-                    newBooleanExp += "(A + C') ";
-
-                }
-                if ((cell3.cellValue == "0" || cell3.cellValue == "X") && (cell2.cellValue == "0" || cell2.cellValue == "X")
-                    && (!cell3.isGrouped || !cell2.isGrouped)) {
-
-                    cell3.isGrouped = true;
-                    cell2.isGrouped = true;
-
-                    groups[groupIndex] = [cell3, cell2];
-                    groupIndex++;
-
-                    newBooleanExp += "(A + B') ";
-
-                }
-                if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell4.cellValue == "0" || cell4.cellValue == "X")
-                    && (!cell0.isGrouped || !cell4.isGrouped)) {
-
-                    cell0.isGrouped = true;
-                    cell4.isGrouped = true;
-
-                    groups[groupIndex] = [cell0, cell4];
-                    groupIndex++;
-
-                    newBooleanExp += "(B + C) ";
-
-                }
-                if ((cell1.cellValue == "0" || cell1.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                    && (!cell1.isGrouped || !cell5.isGrouped)) {
-
-                    cell1.isGrouped = true;
-                    cell5.isGrouped = true;
-
-                    groups[groupIndex] = [cell1, cell5];
-                    groupIndex++;
-
-                    newBooleanExp += "(B + C') ";
-
-                }
-                if ((cell2.cellValue == "0" || cell2.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                    && (!cell2.isGrouped || !cell6.isGrouped)) {
-
-                    cell2.isGrouped = true;
-                    cell6.isGrouped = true;
-
-                    groups[groupIndex] = [cell2, cell6];
-                    groupIndex++;
-
-                    newBooleanExp += "(B' + C) ";
-
-                }
-                if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell1.cellValue == "0" || cell1.cellValue == "X")
-                    && (!cell0.isGrouped || !cell1.isGrouped)) {
-
-                    cell0.isGrouped = true;
-                    cell1.isGrouped = true;
-
-                    groups[groupIndex] = [cell0, cell1];
-                    groupIndex++;
-
-                    newBooleanExp += "(A + B) ";
-
-                }
-                if ((cell4.cellValue == "0" || cell4.cellValue == "X") && (cell5.cellValue == "0" || cell5.cellValue == "X")
-                    && (!cell4.isGrouped || !cell5.isGrouped)) {
-
-                    cell4.isGrouped = true;
-                    cell5.isGrouped = true;
-
-                    groups[groupIndex] = [cell4, cell5];
-                    groupIndex++;
-
-                    newBooleanExp += "(A' + B) ";
-
-
-                }
-                if ((cell0.cellValue == "0" || cell0.cellValue == "X") && (cell2.cellValue == "0" || cell2.cellValue == "X")
-                    && (!cell0.isGrouped || !cell2.isGrouped)) {
-
-                    cell0.isGrouped = true;
-                    cell2.isGrouped = true;
-
-                    groups[groupIndex] = [cell0, cell2];
-                    groupIndex++;
-
-                    newBooleanExp += "(A + C) ";
-
-                }
-                if ((cell4.cellValue == "0" || cell4.cellValue == "X") && (cell6.cellValue == "0" || cell6.cellValue == "X")
-                    && (!cell4.isGrouped || !cell6.isGrouped)) {
-
-                    cell4.isGrouped = true;
-                    cell6.isGrouped = true;
-
-                    groups[groupIndex] = [cell4, cell6];
-                    groupIndex++;
-
-                    newBooleanExp += "(A' + C) ";
+                    }
 
                 }
 
@@ -1395,7 +738,7 @@ $("#display_three_var_km").click(function() {
                 var isolatedCellMinterms = ["(A + B + C)", "(A + B + C')", "(A + B' + C)", "(A + B' + C')", "(A' + B + C)", "(A' + B + C')",
                     "(A' + B' + C)", "(A' + B' + C')"];
 
-                for (var i = 0; i < cells.length; i++) {
+                for (i = 0; i < cells.length; i++) {
 
                     if (!cells[i].isGrouped && (cells[i].cellValue == "0")) {
 
