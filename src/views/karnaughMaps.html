@@ -25,6 +25,12 @@
             display: inline-block;
             margin-right: 20px;
         }
+        .km-container-4var {
+            width: 480px;
+            height: 500px;
+            display: inline-block;
+            margin-right: 20px;
+        }
         .cell {
             width: 95px;
             height: 95px;
@@ -76,6 +82,18 @@
             left: 710px;
             top: -400px;
         }
+        .first-input-4-var {
+            margin-top: 8px;
+            position: relative;
+            left: 514px;
+            top: -353px;
+        }
+        .second-input-4-var {
+            margin-top: 8px;
+            position: relative;
+            left: 534px;
+            top: -353px;
+        }
         .btn-primary {
             font-size: 18px;
         }
@@ -119,8 +137,8 @@
         <div class="col-sm-4 col-md-3 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="sub-header">Karnaugh Map Options</li>
-                <li><a href="#">3-Variable</a></li>
-                <li><a href="#">4-Variable</a></li>
+                <li id="display_three_var_km"><a href="#">3-Variable</a></li>
+                <li id="display_four_var_km"><a href="#">4-Variable</a></li>
                 <li><a href="#">5-Variable</a></li>
             </ul>
             <ul class="nav nav-sidebar">
@@ -130,60 +148,9 @@
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-            <h1 id="km-header" class="page-header">{{ message }}</h1>
-            <!-- Possible Vue Component -->
-                <div class="km-container">
-                    <form id="three_var_KM" name="three_var_KM">
-                    <div class="info-cell"><img src="../images/KMLabel3Var.png"></div>
-                    <div class="info-cell"><p class="info-top">0</p></div>
-                    <div class="info-cell"><p class="info-top">1</p></div>
-                    <div class="info-cell"><p class="info-side">00</p></div>
-                    <div class="cell"><select name="cell0">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <div class="cell"><select name="cell4">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <div class="info-cell"><p class="info-side">01</p></div>
-                    <div class="cell"><select name="cell1">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <div class="cell"><select name="cell5">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <div class="info-cell"><p class="info-side">11</p></div>
-                    <div class="cell"><select name="cell3">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <div class="cell"><select name="cell7">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <div class="info-cell"><p class="info-side">10</p></div>
-                    <div class="cell"><select name="cell2">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <div class="cell"><select name="cell6">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="X">X</option>
-                    </select></div>
-                    <input type="submit" class="btn btn-primary" name="submit" value="Simplify (Minterms)">
-                    <input type="submit" class="btn btn-primary second-input" name="submitMax" value="Simplify (Maxterms)">
-                    </form>
+            <h1 id="km_header" class="page-header">3-Variable Karnaugh Map</h1>
+                <div class="km-container" id="km_placeholder">
+                    <!-- Vue Component Injects Here -->
                 </div>
             <div class="panel panel-primary" style="float: right; display: inline-block; width: 52%">
                 <div class="panel-heading">
@@ -204,6 +171,7 @@
 <script src="../js/docs.min.js"></script>
 <script src="../js/libs/vue.min.js"></script>
 <script src="../js/karnaughMaps.js"></script>
+<script src="../js/karnaughMaps(4Var).js"></script>
 
 </body>
 
