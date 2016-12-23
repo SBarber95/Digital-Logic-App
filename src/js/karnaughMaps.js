@@ -521,6 +521,11 @@ $("#display_three_var_km").click(function() {
                             && (potential4Groups[i][2].cellValue == "1" || potential4Groups[i][2].cellValue == "X") && (potential4Groups[i][3].cellValue == "1" || potential4Groups[i][3].cellValue == "X")
                             && (!potential4Groups[i][0].isGrouped || !potential4Groups[i][1].isGrouped || !potential4Groups[i][2].isGrouped || !potential4Groups[i][3].isGrouped)) {
 
+                            if (potential4Groups[i][0] == "X" && potential4Groups[i][1] == "X" &&
+                                potential4Groups[i][2] == "X" && potential4Groups[i][3] == "X") {
+                                minsIndex++;
+                            }
+
                             potential4Groups[i][0].isGrouped = true;
                             potential4Groups[i][1].isGrouped = true;
                             potential4Groups[i][2].isGrouped = true;
@@ -679,6 +684,11 @@ $("#display_three_var_km").click(function() {
                             && (potential4Groups[i][2].cellValue == "0" || potential4Groups[i][2].cellValue == "X") && (potential4Groups[i][3].cellValue == "0" || potential4Groups[i][3].cellValue == "X")
                             && (!potential4Groups[i][0].isGrouped || !potential4Groups[i][1].isGrouped || !potential4Groups[i][2].isGrouped || !potential4Groups[i][3].isGrouped)) {
 
+                            if (potential4Groups[i][0] == "X" && potential4Groups[i][1] == "X" &&
+                                potential4Groups[i][2] == "X" && potential4Groups[i][3] == "X") {
+                                maxIndex++;
+                            }
+
                             potential4Groups[i][0].isGrouped = true;
                             potential4Groups[i][1].isGrouped = true;
                             potential4Groups[i][2].isGrouped = true;
@@ -700,7 +710,7 @@ $("#display_three_var_km").click(function() {
                     maxIndex = 0;
 
                     for (i = 0; i < potential2Groups.length; i++) {
-                        
+
                         if ((potential2Groups[i][0].cellValue == "0" || potential2Groups[i][0].cellValue == "X") &&
                             (potential2Groups[i][1].cellValue == "0" || potential2Groups[i][1].cellValue == "X") &&
                             (!potential2Groups[i][0].isGrouped || !potential2Groups[i][1].isGrouped)) {
