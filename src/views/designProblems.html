@@ -18,6 +18,62 @@
     <!-- Custom styles for this template -->
     <link href="../css/workspace.css" rel="stylesheet">
 
+    <style>
+        .km-container {
+            width: 300px;
+            height: 500px;
+            display: inline-block;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        .cell {
+            width: 95px;
+            height: 95px;
+            border: 3px solid #43494c;
+            display: inline-flex;
+            font-size: 28px;
+        }
+        .cell > p {
+            position: relative;
+            left: 42%;
+            top: 28%;
+        }
+        .info-cell {
+            width: 95px;
+            height: 50px;
+            display: inline-flex;
+        }
+        .km-label {
+            font-size: 24px;
+            position: relative;
+            top: 10%;
+            left: 60%;
+            text-decoration: underline;
+        }
+        img {
+            height: 70px;
+        }
+        .info-top {
+            display: inline;
+            position: relative;
+            font-size: 30px;
+            top: 25%;
+            left: 45%;
+            color: #D38D5F;
+        }
+        .info-side {
+            display: inline;
+            position: relative;
+            font-size: 30px;
+            top: 60%;
+            left: 50%;
+            color: #D38D5F;
+        }
+        .btn-primary {
+            font-size: 18px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -51,7 +107,7 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid" id="placeholder">
     <div class="row">
         <div class="col-sm-4 col-md-3 sidebar">
             <ul class="nav nav-sidebar">
@@ -65,7 +121,7 @@
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">
             <h1 class="page-header">S-R Counter Design</h1>
             <!-- Truth Table -->
-            <div class="table-responsive" id="placeholder">
+            <div class="table-responsive">
                 <form name="sr-counter-design" id="sr_counter_design">
                     <table class="table table-striped">
                         <thead>
@@ -252,7 +308,124 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
+        <!-- Karnaugh Maps Go Here -->
+        <div class="km-container">
+            <p class="km-label">Sc</p>
+            <div class="info-cell"><img src="../images/KMLabel3Var.png"></div>
+            <div class="info-cell"><p class="info-top">0</p></div>
+            <div class="info-cell"><p class="info-top">1</p></div>
+            <div class="info-cell"><p class="info-side">00</p></div>
+            <div class="cell"><p id="SC_cell0">0</p></div>
+            <div class="cell"><p id="SC_cell4">0</p></div>
+            <div class="info-cell"><p class="info-side">01</p></div>
+            <div class="cell"><p id="SC_cell1">0</p></div>
+            <div class="cell"><p id="SC_cell5">0</p></div>
+            <div class="info-cell"><p class="info-side">11</p></div>
+            <div class="cell"><p id="SC_cell3">0</p></div>
+            <div class="cell"><p id="SC_cell7">0</p></div>
+            <div class="info-cell"><p class="info-side">10</p></div>
+            <div class="cell"><p id="SC_cell2">0</p></div>
+            <div class="cell"><p id="SC_cell6">0</p></div>
+        </div>
+        <div class="km-container">
+            <p class="km-label">Sb</p>
+            <div class="info-cell"><img src="../images/KMLabel3Var.png"></div>
+            <div class="info-cell"><p class="info-top">0</p></div>
+            <div class="info-cell"><p class="info-top">1</p></div>
+            <div class="info-cell"><p class="info-side">00</p></div>
+            <div class="cell"><p id="SB_cell0">0</p></div>
+            <div class="cell"><p id="SB_cell4">0</p></div>
+            <div class="info-cell"><p class="info-side">01</p></div>
+            <div class="cell"><p id="SB_cell1">0</p></div>
+            <div class="cell"><p id="SB_cell5">0</p></div>
+            <div class="info-cell"><p class="info-side">11</p></div>
+            <div class="cell"><p id="SB_cell3">0</p></div>
+            <div class="cell"><p id="SB_cell7">0</p></div>
+            <div class="info-cell"><p class="info-side">10</p></div>
+            <div class="cell"><p id="SB_cell2">0</p></div>
+            <div class="cell"><p id="SB_cell6">0</p></div>
+        </div>
+        <div class="km-container">
+            <p class="km-label">Sa</p>
+            <div class="info-cell"><img src="../images/KMLabel3Var.png"></div>
+            <div class="info-cell"><p class="info-top">0</p></div>
+            <div class="info-cell"><p class="info-top">1</p></div>
+            <div class="info-cell"><p class="info-side">00</p></div>
+            <div class="cell"><p id="SA_cell0">0</p></div>
+            <div class="cell"><p id="SA_cell4">0</p></div>
+            <div class="info-cell"><p class="info-side">01</p></div>
+            <div class="cell"><p id="SA_cell1">0</p></div>
+            <div class="cell"><p id="SA_cell5">0</p></div>
+            <div class="info-cell"><p class="info-side">11</p></div>
+            <div class="cell"><p id="SA_cell3">0</p></div>
+            <div class="cell"><p id="SA_cell7">0</p></div>
+            <div class="info-cell"><p class="info-side">10</p></div>
+            <div class="cell"><p id="SA_cell2">0</p></div>
+            <div class="cell"><p id="SA_cell6">0</p></div>
+        </div>
+        <div class="km-container">
+            <p class="km-label">Rc</p>
+            <div class="info-cell"><img src="../images/KMLabel3Var.png"></div>
+            <div class="info-cell"><p class="info-top">0</p></div>
+            <div class="info-cell"><p class="info-top">1</p></div>
+            <div class="info-cell"><p class="info-side">00</p></div>
+            <div class="cell"><p id="RC_cell0">0</p></div>
+            <div class="cell"><p id="RC_cell4">0</p></div>
+            <div class="info-cell"><p class="info-side">01</p></div>
+            <div class="cell"><p id="RC_cell1">0</p></div>
+            <div class="cell"><p id="RC_cell5">0</p></div>
+            <div class="info-cell"><p class="info-side">11</p></div>
+            <div class="cell"><p id="RC_cell3">0</p></div>
+            <div class="cell"><p id="RC_cell7">0</p></div>
+            <div class="info-cell"><p class="info-side">10</p></div>
+            <div class="cell"><p id="RC_cell2">0</p></div>
+            <div class="cell"><p id="RC_cell6">0</p></div>
+        </div>
+        <div class="km-container">
+            <p class="km-label">Rb</p>
+            <div class="info-cell"><img src="../images/KMLabel3Var.png"></div>
+            <div class="info-cell"><p class="info-top">0</p></div>
+            <div class="info-cell"><p class="info-top">1</p></div>
+            <div class="info-cell"><p class="info-side">00</p></div>
+            <div class="cell"><p id="RB_cell0">0</p></div>
+            <div class="cell"><p id="RB_cell4">0</p></div>
+            <div class="info-cell"><p class="info-side">01</p></div>
+            <div class="cell"><p id="RB_cell1">0</p></div>
+            <div class="cell"><p id="RB_cell5">0</p></div>
+            <div class="info-cell"><p class="info-side">11</p></div>
+            <div class="cell"><p id="RB_cell3">0</p></div>
+            <div class="cell"><p id="RB_cell7">0</p></div>
+            <div class="info-cell"><p class="info-side">10</p></div>
+            <div class="cell"><p id="RB_cell2">0</p></div>
+            <div class="cell"><p id="RB_cell6">0</p></div>
+        </div>
+        <div class="km-container">
+            <p class="km-label">Ra</p>
+            <div class="info-cell"><img src="../images/KMLabel3Var.png"></div>
+            <div class="info-cell"><p class="info-top">0</p></div>
+            <div class="info-cell"><p class="info-top">1</p></div>
+            <div class="info-cell"><p class="info-side">00</p></div>
+            <div class="cell"><p id="RA_cell0">0</p></div>
+            <div class="cell"><p id="RA_cell4">0</p></div>
+            <div class="info-cell"><p class="info-side">01</p></div>
+            <div class="cell"><p id="RA_cell1">0</p></div>
+            <div class="cell"><p id="RA_cell5">0</p></div>
+            <div class="info-cell"><p class="info-side">11</p></div>
+            <div class="cell"><p id="RA_cell3">0</p></div>
+            <div class="cell"><p id="RA_cell7">0</p></div>
+            <div class="info-cell"><p class="info-side">10</p></div>
+            <div class="cell"><p id="RA_cell2">0</p></div>
+            <div class="cell"><p id="RA_cell6">0</p></div>
+        </div>
+    </div>
 </div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/libs/bootstrap.min.js"></script>
+<script src="../js/docs.min.js"></script>
+<script src="../js/libs/vue.min.js"></script>
 
 <script>
 
@@ -338,6 +511,61 @@
                 outputValues[i][1] = "X";
 
             }
+
+        }
+
+        var ScOutputs = [0, 0, 0, 0, 0, 0, 0, 0];
+        var RcOutputs = [0, 0, 0, 0, 0, 0, 0, 0];
+
+        var SbOutputs = [0, 0, 0, 0, 0, 0, 0, 0];
+        var RbOutputs = [0, 0, 0, 0, 0, 0, 0, 0];
+
+        var SaOutputs = [0, 0, 0, 0, 0, 0, 0, 0];
+        var RaOutputs = [0, 0, 0, 0, 0, 0, 0, 0];
+
+        var index = 0;
+
+        for (i = 0; i < outputValues.length; i += 3) {
+
+            ScOutputs[index] = outputValues[i][0];
+            RcOutputs[index] = outputValues[i][1];
+            index++;
+
+        }
+
+        index = 0;
+        for (i = 1; i < outputValues.length; i += 3) {
+
+            SbOutputs[index] = outputValues[i][0];
+            RbOutputs[index] = outputValues[i][1];
+            index++;
+
+        }
+
+        index = 0;
+        for (i = 2; i < outputValues.length; i += 3) {
+
+            SaOutputs[index] = outputValues[i][0];
+            RaOutputs[index] = outputValues[i][1];
+            index++;
+
+        }
+
+        var karnaughMapIDs = [["SC_cell0", "SC_cell1", "SC_cell2", "SC_cell3", "SC_cell4", "SC_cell5", "SC_cell6", "SC_cell7"],
+                            ["RC_cell0", "RC_cell1", "RC_cell2", "RC_cell3", "RC_cell4", "RC_cell5", "RC_cell6", "RC_cell7"],
+                            ["SB_cell0", "SB_cell1", "SB_cell2", "SB_cell3", "SB_cell4", "SB_cell5", "SB_cell6", "SB_cell7"],
+                            ["RB_cell0", "RB_cell1", "RB_cell2", "RB_cell3", "RB_cell4", "RB_cell5", "RB_cell6", "RB_cell7"],
+                            ["SA_cell0", "SA_cell1", "SA_cell2", "SA_cell3", "SA_cell4", "SA_cell5", "SA_cell6", "SA_cell7"],
+                            ["RA_cell0", "RA_cell1", "RA_cell2", "RA_cell3", "RA_cell4", "RA_cell5", "RA_cell6", "RA_cell7"]];
+
+        for (i = 0; i < karnaughMapIDs[i].length; i++) {
+
+            document.getElementById(karnaughMapIDs[0][i]).innerHTML = "" + ScOutputs[i];
+            document.getElementById(karnaughMapIDs[1][i]).innerHTML = "" + RcOutputs[i];
+            document.getElementById(karnaughMapIDs[2][i]).innerHTML = "" + SbOutputs[i];
+            document.getElementById(karnaughMapIDs[3][i]).innerHTML = "" + RbOutputs[i];
+            document.getElementById(karnaughMapIDs[4][i]).innerHTML = "" + SaOutputs[i];
+            document.getElementById(karnaughMapIDs[5][i]).innerHTML = "" + RaOutputs[i];
 
         }
 
