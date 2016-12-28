@@ -26,6 +26,8 @@ new Vue ({
     '<li id="select_JK_counter" onclick="showJKCounter()"><a href="#">J-K Counter</a></li>'+
     '<li id="select_D_counter" onclick="showDCounter()"><a href="#">D Counter</a></li>'+
     '<li id="select_T_counter" onclick="showTCounter()"><a href="#">T Counter</a></li>'+
+    '<li class="sub-header">Other Design Problems</li>'+
+    '<li id="select_7S_Display" onclick="show7SegDisplay()"><a href="#">7-Segment Display</a></li>'+
     '</ul>'+
     '</div>'+
 '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
@@ -1414,6 +1416,8 @@ function showSRCounter() {
         '<li id="select_JK_counter" onclick="showJKCounter()"><a href="#">J-K Counter</a></li>'+
         '<li id="select_D_counter" onclick="showDCounter()"><a href="#">D Counter</a></li>'+
         '<li id="select_T_counter" onclick="showTCounter()"><a href="#">T Counter</a></li>'+
+        '<li class="sub-header">Other Design Problems</li>'+
+        '<li id="select_7S_Display" onclick="show7SegDisplay()"><a href="#">7-Segment Display</a></li>'+
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
@@ -2806,6 +2810,8 @@ function showJKCounter() {
         '<li id="select_JK_counter" onclick="showJKCounter()"><a href="#">J-K Counter</a></li>'+
         '<li id="select_D_counter" onclick="showDCounter()"><a href="#">D Counter</a></li>'+
         '<li id="select_T_counter" onclick="showTCounter()"><a href="#">T Counter</a></li>'+
+        '<li class="sub-header">Other Design Problems</li>'+
+        '<li id="select_7S_Display" onclick="show7SegDisplay()"><a href="#">7-Segment Display</a></li>'+
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
@@ -4199,6 +4205,8 @@ function showDCounter() {
         '<li id="select_JK_counter" onclick="showJKCounter()"><a href="#">J-K Counter</a></li>'+
         '<li id="select_D_counter" onclick="showDCounter()"><a href="#">D Counter</a></li>'+
         '<li id="select_T_counter" onclick="showTCounter()"><a href="#">T Counter</a></li>'+
+        '<li class="sub-header">Other Design Problems</li>'+
+        '<li id="select_7S_Display" onclick="show7SegDisplay()"><a href="#">7-Segment Display</a></li>'+
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
@@ -4917,6 +4925,8 @@ function showTCounter() {
         '<li id="select_JK_counter" onclick="showJKCounter()"><a href="#">J-K Counter</a></li>'+
         '<li id="select_D_counter" onclick="showDCounter()"><a href="#">D Counter</a></li>'+
         '<li id="select_T_counter" onclick="showTCounter()"><a href="#">T Counter</a></li>'+
+        '<li class="sub-header">Other Design Problems</li>'+
+        '<li id="select_7S_Display" onclick="show7SegDisplay()"><a href="#">7-Segment Display</a></li>'+
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
