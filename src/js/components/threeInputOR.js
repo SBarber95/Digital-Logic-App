@@ -2,9 +2,25 @@
  * Created by savannah on 12/12/2016.
  */
 
+class ThreeInputOR {
+
+    // String, Boolean, Boolean, Boolean
+    constructor(id, input1, input2, input3) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.input3 = input3;
+
+        this.output = (this.input1 || this.input2 || this.input3);
+
+    }
+
+}
+
 $("#select3InputOR").click(function() {
 
-    var threeInputNOR = new Vue({
+    var threeInputOR = new Vue({
         el: '.insertion-point',
         template: '<svg xmlns="http://www.w3.org/2000/svg" width="109.09188" height="55.026028" class="component three-input-OR" version="1.0">'+
         '<path d="m 81.784691,27.513008 c 21.845749,0 27.307189,0 27.307189,0" class="gate-output" style="stroke-width:2.45161653" />'+
@@ -19,9 +35,19 @@ $("#select3InputOR").click(function() {
         '</svg>'
     });
 
-    // Recreates insertion point to allow the addition of multiple components
     var canvas = document.getElementById("canvas");
+
+    // Sets a unique id to the rendered component
+    var newSVG = canvas.lastElementChild;
+    var uniqueID = "component-" + idNum;
+    newSVG.setAttribute("id", uniqueID);
+    idNum++;
+
+    // Recreates insertion point to allow the addition of multiple components
     canvas.innerHTML += '<div class="insertion-point"></div>';
+
+    // Create default 2 input OR gate
+    new ThreeInputOR(uniqueID, false, false, false);
 
     // Makes sure all instances of this component remain draggable
     var draggableElems = document.querySelectorAll('.component');

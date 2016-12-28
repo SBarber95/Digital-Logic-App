@@ -128,14 +128,21 @@ var threeVarTruthTable = new Vue({
 
             output.innerHTML += "Minterms: ";
 
+            var mintermString = "";
+
             // Find minterm input and display output
             for (i = 0; i < inputArray.length; i++) {
 
                 if (inputArray[i] == 1) {
-                    output.innerHTML += minterms[i] + " ";
+                    mintermString += minterms[i] + " ";
                 }
 
             }
+
+            // Format output for decent user readability
+            mintermString = mintermString.replace(/\s/g, " + ");
+            mintermString = mintermString.substring(0, mintermString.length - 2);
+            output.innerHTML += mintermString;
 
             output.innerHTML += "<br>Maxterms: ";
 
@@ -279,17 +286,23 @@ $("#display-three-var-tt").click(function() {
 
                 // Clear output from previous submission
                 output.innerHTML = "";
-
                 output.innerHTML += "Minterms: ";
+
+                var mintermString = "";
 
                 // Find minterm input and display output
                 for (i = 0; i < inputArray.length; i++) {
 
                     if (inputArray[i] == 1) {
-                        output.innerHTML += minterms[i] + " ";
+                        mintermString += minterms[i] + " ";
                     }
 
                 }
+
+                // Format output for decent user readability
+                mintermString = mintermString.replace(/\s/g, " + ");
+                mintermString = mintermString.substring(0, mintermString.length - 2);
+                output.innerHTML += mintermString;
 
                 output.innerHTML += "<br>Maxterms: ";
 
@@ -537,14 +550,21 @@ $("#display-four-var-tt").click(function() {
 
                 output.innerHTML += "Minterms: ";
 
+                var mintermString = "";
+
                 // Find minterm input and display output
                 for (i = 0; i < inputArray.length; i++) {
 
                     if (inputArray[i] == 1) {
-                        output.innerHTML += minterms[i] + " ";
+                        mintermString += minterms[i] + " ";
                     }
 
                 }
+
+                // Format output for decent user readability
+                mintermString = mintermString.replace(/\s/g, " + ");
+                mintermString = mintermString.substring(0, mintermString.length - 2);
+                output.innerHTML += mintermString;
 
                 output.innerHTML += "<br>Maxterms: ";
 
