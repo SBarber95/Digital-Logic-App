@@ -2,6 +2,21 @@
  * Created by savannah on 12/12/2016.
  */
 
+class TwoInputXNOR {
+
+    // String, Boolean, Boolean, Boolean
+    constructor(id, input1, input2) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+
+        this.output = !(this.input1 ^ this.input2);
+
+    }
+
+}
+
 $("#select2InputXNOR").click(function() {
 
     var twoInputXNOR = new Vue({
@@ -20,9 +35,19 @@ $("#select2InputXNOR").click(function() {
         '</svg>'
     });
 
-    // Recreates insertion point to allow the addition of multiple components
     var canvas = document.getElementById("canvas");
+
+    // Sets a unique id to the rendered component
+    var newSVG = canvas.lastElementChild;
+    var uniqueID = "component-" + idNum;
+    newSVG.setAttribute("id", uniqueID);
+    idNum++;
+
+    // Recreates insertion point to allow the addition of multiple components
     canvas.innerHTML += '<div class="insertion-point"></div>';
+
+    // Create default 2 input XNOR gate
+    new TwoInputXNOR(uniqueID, false, false);
 
     // Makes sure all instances of this component remain draggable
     var draggableElems = document.querySelectorAll('.component');
