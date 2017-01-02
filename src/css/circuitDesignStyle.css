@@ -14,7 +14,7 @@
     background-color: #deb684;
 }
 
-.gate-input, .gate-output{
+.gate-input, .gate-output, .wire {
     fill:none;
     stroke-linecap:butt;
     stroke-linejoin:miter;
@@ -23,8 +23,22 @@
     stroke:#000;
 }
 
+.wire-component {
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+.wire {
+    z-index: -2;
+}
+
 .gate-output:hover {
     stroke: #2088f5;
+}
+
+.gate-input:hover {
+    stroke: #cd5f00;
 }
 
 .gate-inverter {

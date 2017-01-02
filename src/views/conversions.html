@@ -50,22 +50,28 @@
     <div class="row">
         <div class="col-sm-4 col-md-3 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="sub-header">Conversion Options</li>
-                <li><a href="#">From Binary</a></li>
-                <li><a href="#">From Decimal</a></li>
-                <li><a href="#">(Other Option)</a></li>
+                <li class="sub-header">Select Base to Convert From</li>
+                <li id="binary_conversions"><a href="#">Binary (Base 2)</a></li>
+                <li id="octal_conversions"><a href="#">Octal (Base 8)</a></li>
+                <li id="decimal_conversions"><a href="#">Decimal (Base 10)</a></li>
+                <li id="hex_conversions"><a href="#">Hexadecimal (Base 16)</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li class="sub-header">Additional Options</li>
-                <li><a href="">IEEE Floating Point</a></li>
+                <li class="sub-header">Special Conversions</li>
+                <li id="ieee_conversions"><a href="">IEEE Floating Point</a></li>
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-            <h1 id="conversions-header" class="page-header">{{ message }}</h1>
-            <div class="user-input-addition">
+            <h1 id="conversions-header" class="page-header">Conversions from Decimal (Base 10)</h1>
+            <div class="user-input-converter">
                 <h2 class="sub-header">Converter</h2>
-                <div id="dec-to-bin-convert-component"></div>
+                <div id="convert-component"></div>
                 <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+            </div>
+            <div class="conversion-quiz">
+                <h2 class="sub-header">Practice Problems</h2>
+                <div id="convert-quiz-component"></div>
+                <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
             </div>
         </div>
     </div>
@@ -83,12 +89,10 @@
 
 <script>
 
-    var conversionsHeader = new Vue ({
-        el: '#conversions-header',
-        data: {
-            message: 'Binary-Decimal Conversions',
-        }
-    });
+    // TODO: MAKE ONE FOR EACH VUE COMPONENT (NOT HERE)
+    function resetConvertValue() {
+
+    }
 
 </script>
 

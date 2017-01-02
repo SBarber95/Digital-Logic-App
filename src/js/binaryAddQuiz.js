@@ -40,6 +40,7 @@ function resetValues() {
         secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
 
     }
+
 }
 
 additionQuizForm.onsubmit = function(e) {
