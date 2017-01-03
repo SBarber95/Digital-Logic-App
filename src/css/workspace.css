@@ -147,7 +147,8 @@ body {
     margin-left: 4px;
 }
 
-.user-input-addition, .user-input-converter {
+.user-input-addition, .user-input-converter, .user-input-subtraction,
+.user-input-multiplication{
     width: 48%;
     height: 80%;
     padding-right: 1%;
@@ -176,7 +177,7 @@ p.border {
     border-bottom: 1px solid black;
 }
 
-.addition-quiz, .conversion-quiz {
+.addition-quiz, .conversion-quiz, .subtraction-quiz, .multiplication-quiz {
     height: 80%;
     width: 48%;
     padding-left: 1%;
@@ -195,4 +196,16 @@ p.border {
 
 input {
     margin-right: 4px;
+}
+
+.modal-title {
+    font-size: 26px;
+}
+
+.modal-body {
+    font-size: 16px;
+}
+
+.btn-default {
+    color: white;
 }

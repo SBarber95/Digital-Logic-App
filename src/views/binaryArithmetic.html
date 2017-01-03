@@ -13,10 +13,6 @@
     <!-- Custom styles for this template -->
     <link href="../css/workspace.css" rel="stylesheet">
 
-    <style>
-
-    </style>
-
 </head>
 
 <body>
@@ -41,7 +37,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Boolean Theorems</a></li>
-                        <li><a href="#">Binary Arithmetic Rules</a></li>
+                        <li><a href="#">Arithmetic/Conversion Rules</a></li>
                         <li><a href="#">Logic Gates</a></li>
                     </ul>
                 </li>
@@ -55,19 +51,44 @@
         <div class="col-sm-4 col-md-3 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="sub-header">Binary Arithmetic Options</li>
-                <li><a href="#">Binary Addition</a></li>
-                <li><a href="#">Binary Subtraction</a></li>
-                <li><a href="#">Binary Multiplication</a></li>
-                <li><a href="#">Binary Division</a></li>
+                <li id="binary_addition"><a href="#">Binary Addition</a></li>
+                <li id="binary_subtraction"><a href="#">Binary Subtraction</a></li>
+                <li id="binary_multiplication"><a href="#">Binary Multiplication</a></li>
+                <li id="binary_division"><a href="#">Binary Division</a></li>
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-            <h1 id="binary-arith-header" class="page-header">Binary Addition</h1>
+            <h1 id="binary-arith-header" class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">
+                Instructions!
+                </button>
+                <div class="modal fade" id="binaryAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                                <h4 class="modal-title" id="binaryAddTitle">Binary Addition Instructions</h4>
+                                </div>
+                            <div class="modal-body">
+                                <h3 class="sub-header">Calculator</h3>
+                                Simply enter your two binary values and hit calculate! If you have negative binary values,
+                                it is recommended to use the binary subtraction feature as binary addition only works with
+                                positive binary numbers as of now; however, please read the instructions on that page first.
+                                <h3 class="sub-header">Practice Problems</h3>
+                                This feature generates two random binary values for you to add and provide the answer for.
+                                You can generate new random values with the Change Values button. You can also check your
+                                answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>Binary Addition</h1>
             <!-- Vue Component -->
-            <div class="user-input-addition" id="addition_calc">
+            <div class="user-input-addition" id="calc">
             </div>
             <!-- Vue Component -->
-            <div class="addition-quiz" id="addition_quiz">
+            <div class="addition-quiz" id="quiz">
             </div>
         </div>
     </div>
