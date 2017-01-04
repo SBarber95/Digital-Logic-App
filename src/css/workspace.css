@@ -14,7 +14,6 @@ body {
     position: static;
     display: block;
     margin-bottom: 20px;
-    font-size: 16px;
 }
 
 .theme-showcase > p > .btn {
@@ -140,11 +139,16 @@ body {
     font-size: 18px;
 }
 
+.dropdown-menu {
+    font-size: 16px;
+}
+
 .caret {
     margin-left: 4px;
 }
 
-.user-input-addition {
+.user-input-addition, .user-input-converter, .user-input-subtraction,
+.user-input-multiplication{
     width: 48%;
     height: 80%;
     padding-right: 1%;
@@ -164,7 +168,7 @@ body {
     border-radius: 3px;
 }
 
-.user_answer {
+.user_answer, .decimal-value, .binary-value, .hex-value, .octal-value {
     width: 250px;
     border-radius: 3px;
 }
@@ -173,19 +177,35 @@ p.border {
     border-bottom: 1px solid black;
 }
 
-.addition-quiz {
+.addition-quiz, .conversion-quiz, .subtraction-quiz, .multiplication-quiz {
     height: 80%;
     width: 48%;
     padding-left: 1%;
     display: inline-block;
-    /* border-left: 1px solid #dddddd; */
+    float: right;
 }
 
-.arithmetic-output {
+.arithmetic-output, .converter-output {
     margin-top: 2%;
 }
 
 .panel-title {
     font-size: 20px;
     font-weight: bold;
+}
+
+input {
+    margin-right: 4px;
+}
+
+.modal-title {
+    font-size: 26px;
+}
+
+.modal-body {
+    font-size: 16px;
+}
+
+.btn-default {
+    color: white;
 }
