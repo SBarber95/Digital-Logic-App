@@ -610,11 +610,12 @@ $("#binary_multiplication").click(function() {
         '</div>'+
         '<div class="modal-body">'+
         '<h3 class="sub-header">Calculator</h3>'+
-        ''+
-        ''+
+        'Simply enter two binary numbers and hit calculate! The multiplier works with just about any positive '+
+        'whole binary number.'+
         '<h3 class="sub-header">Practice Problems</h3>'+
-        ''+
-        ''+
+        'The practice problem feature generates two random binary values for you to multiply. Just enter your final '+
+        'answer in the corresponding box and click on the Check Answer button. If you are incorrect, the correct '+
+        'value will be displayed. Generate more random values at any time with the Change Values button.'+
         '</div>'+
         '<div class="modal-footer">'+
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
@@ -631,7 +632,7 @@ $("#binary_multiplication").click(function() {
         '<h2 class="sub-header">Calculator</h2>'+
         '<form id="multiplication_calculator">'+
         '<input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>'+
-        '- <input type="text" style="margin-left: 4px" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>'+
+        '* <input type="text" style="margin-left: 4px" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>'+
         '<p class="border"></p>'+
         '<input type="submit" class="btn btn-primary" name="submit" value="Calculate" v-on:click="calculate">'+
         '</form>'+
@@ -656,7 +657,7 @@ $("#binary_multiplication").click(function() {
 
                 var answer = (firstNumber*secondNumber).toString(2);
 
-                calculatorOutput.innerHTML = "Answer (Normal Form): " + answer;
+                calculatorOutput.innerHTML = "Answer: " + answer;
 
             }
 
