@@ -199,7 +199,7 @@ $("#binary_conversions").click(function () {
 
                 var form = document.getElementById("bin-converter");
 
-                var binaryValue = parseInt(form.binaryValue.value);
+                var binaryValue = parseInt(form.binaryValue.value, 2);
                 var desiredBaseValue = parseInt(form.desiredBase.value);
 
                 output.innerHTML = "Converted Value: " + (binaryValue).toString(desiredBaseValue);
@@ -302,7 +302,7 @@ $("#octal_conversions").click(function () {
 
                 var form = document.getElementById("oct-converter");
 
-                var octalValue = parseInt(form.octalValue.value);
+                var octalValue = parseInt(form.octalValue.value, 8);
                 var desiredBaseValue = parseInt(form.desiredBase.value);
 
                 output.innerHTML = "Converted Value: " + (octalValue).toString(desiredBaseValue);
@@ -379,11 +379,10 @@ $("#octal_conversions").click(function () {
 
 $("#hex_conversions").click(function () {
 
-    // TODO: IMPLEMENT HEX CONVERSIONS
-
     document.getElementById("conversions-header").innerHTML = "Conversions from Hexadecimal (Base 16)";
 
-    var quizNum = [0, 0, 0];
+    var hexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+    var quizNum = [0, 0, 0, 0];
 
     // From Hexadecimal Converter Component ------------------------------
     var hexConverter = new Vue({
@@ -407,10 +406,30 @@ $("#hex_conversions").click(function () {
 
                 var form = document.getElementById("hex-converter");
 
-                var hexValue = parseInt(form.hexValue.value);
+                var hexValue = form.hexValue.value;
+                var hexValueArray = Array.from(hexValue);
                 var desiredBaseValue = parseInt(form.desiredBase.value);
 
-                output.innerHTML = "Converted Value: " + (hexValue).toString(desiredBaseValue);
+                var exponent = 0;
+                var hexDigitValue = null;
+                var base10Value = 0;
+
+                for (var i = hexValueArray.length - 1; i >= 0; i--) {
+
+                    for (var j = 0; j < hexDigits.length; j++) {
+
+                        if (hexValueArray[i] == hexDigits[j]) {
+                            hexDigitValue = j;
+                        }
+
+                    }
+
+                    base10Value += hexDigitValue * Math.pow(16, exponent);
+                    exponent++;
+
+                }
+
+                output.innerHTML = "Converted Value: " + (base10Value).toString(desiredBaseValue);
             }
         }
     });
@@ -439,7 +458,7 @@ $("#hex_conversions").click(function () {
 
                 for (var i = 0; i < quizNum.length; i++) {
 
-                    quizNum[i] = Math.floor((Math.random() * 8));
+                    quizNum[i] = hexDigits[Math.floor((Math.random() * 16))];
 
                     document.getElementById("quiz_number").innerHTML += quizNum[i];
 
@@ -453,16 +472,37 @@ $("#hex_conversions").click(function () {
                 var convertQuizForm = document.getElementById("converter_quiz");
 
                 var selectedBase = parseInt(convertQuizForm.selectedBase.value);
-                var userAnswer = parseInt(convertQuizForm.userAnswer.value, selectedBase);
+                var userAnswer = parseInt(convertQuizForm.userAnswer.value);
 
-                var quizBinary = parseInt(document.getElementById("quiz_number").innerHTML, 8);
+                var answer = Array.from(document.getElementById("quiz_number").innerHTML);
 
-                if (userAnswer == quizBinary) {
+                var exponent = 0;
+                var hexDigitValue = null;
+                var base10Value = 0;
+
+                for (var i = answer.length - 1; i >= 0; i--) {
+
+                    for (var j = 0; j < hexDigits.length; j++) {
+
+                        if (answer[i] == hexDigits[j]) {
+                            hexDigitValue = j;
+                        }
+
+                    }
+
+                    base10Value += hexDigitValue * Math.pow(16, exponent);
+                    exponent++;
+
+                }
+
+                var finalAnswer = base10Value.toString(selectedBase);
+
+                if (userAnswer == finalAnswer) {
                     document.getElementById("quiz_output").innerHTML = "Correct.";
                 }
                 else {
                     document.getElementById("quiz_output").innerHTML = "You are incorrect. The answer is " +
-                        quizBinary.toString(selectedBase);
+                        finalAnswer;
                 }
 
             }
@@ -474,7 +514,7 @@ $("#hex_conversions").click(function () {
     // To place initial random value on first load
     for (var i = 0; i < quizNum.length; i++) {
 
-        quizNum[i] = Math.floor((Math.random() * 8));
+        quizNum[i] = hexDigits[Math.floor((Math.random() * 16))];
 
         document.getElementById("quiz_number").innerHTML += quizNum[i];
 
