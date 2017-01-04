@@ -3,6 +3,10 @@
  * Last Modified 1/2/2017.
  */
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip({container: 'body'})
+})
+
 // From Decimal Converter Component ------------------------------
 var decConverter = new Vue({
     el: '#convert-component',

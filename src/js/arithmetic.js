@@ -2,6 +2,10 @@
  * Created by savannah on 1/3/2017.
  */
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip({container: 'body'})
+})
+
 // Binary Addition Calculator --------------------------------
 var binaryAdditionCalc = new Vue ({
     el: '#calc',

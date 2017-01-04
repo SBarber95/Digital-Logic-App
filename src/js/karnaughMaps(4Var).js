@@ -2,7 +2,9 @@
  * Created by savannah on 12/21/2016.
  */
 
-// TODO: Translate algorithm to a 4-Variable KM compatible function.
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip({container: 'body'})
+});
 
 class KarnaughMapCell4Var {
     constructor(cellNum, cellValue, isGrouped) {
