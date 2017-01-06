@@ -3,17 +3,14 @@
  * Modified 1/5/2017
  */
 
-class TwoInputOR {
+function TwoInputOR (id, input1, input2) {
 
-    // String, Boolean, Boolean, Boolean
-    constructor(id, input1, input2) {
+    this.id = id;
+    this.input1 = input1;
+    this.input2 = input2;
 
-        this.id = id;
-        this.input1 = input1;
-        this.input2 = input2;
-
-        this.output = this.input1 || this.input2;
-
+    this.output = function() {
+        return (this.input1 || this.input2);
     }
 
 }
