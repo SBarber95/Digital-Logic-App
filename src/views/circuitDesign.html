@@ -64,16 +64,16 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                             <ul class="list-group">
-                                <li id="select2InputAND" class="list-group-item">2-Input AND<img src="../images/2_Input_AND.svg" class="component-img"></li>
-                                <li id="select3InputAND" class="list-group-item">3-Input AND<img src="../images/3_Input_AND.svg" class="component-img"></li>
-                                <li id="select2InputOR" class="list-group-item">2-Input OR<img src="../images/2_Input_OR.svg" class="component-img"></li>
-                                <li id="select3InputOR" class="list-group-item">3-Input OR<img src="../images/3_Input_OR.svg" class="component-img"></li>
-                                <li id="select2InputNOR" class="list-group-item">2-Input NOR<img src="../images/2_Input_NOR.svg" class="component-img"></li>
-                                <li id="select3InputNOR" class="list-group-item">3-Input NOR<img src="../images/3_Input_NOR.svg" class="component-img"></li>
-                                <li id="select2InputNAND" class="list-group-item">2-Input NAND<img src="../images/2_Input_NAND.svg" class="component-img"></li>
-                                <li id="select3InputNAND" class="list-group-item">3-Input NAND<img src="../images/3_Input_NAND.svg" class="component-img"></li>
-                                <li id="select2InputXOR" class="list-group-item">2-Input XOR<img src="../images/2_Input_XOR.svg" class="component-img"></li>
-                                <li id="select2InputXNOR" class="list-group-item">2-Input XNOR<img src="../images/2_Input_XNOR.svg" class="component-img"></li>
+                                <li id="select2InputAND" class="list-group-item">2-Input AND<img src="../images/2_Input_AND.png" class="component-img"></li>
+                                <li id="select3InputAND" class="list-group-item">3-Input AND<img src="../images/3_Input_AND.png" class="component-img"></li>
+                                <li id="select2InputOR" class="list-group-item">2-Input OR<img src="../images/2_Input_OR.png" class="component-img"></li>
+                                <li id="select3InputOR" class="list-group-item">3-Input OR<img src="../images/3_Input_OR.png" class="component-img"></li>
+                                <li id="select2InputNOR" class="list-group-item">2-Input NOR<img src="../images/2_Input_NOR.png" class="component-img"></li>
+                                <li id="select3InputNOR" class="list-group-item">3-Input NOR<img src="../images/3_Input_NOR.png" class="component-img"></li>
+                                <li id="select2InputNAND" class="list-group-item">2-Input NAND<img src="../images/2_Input_NAND.png" class="component-img"></li>
+                                <li id="select3InputNAND" class="list-group-item">3-Input NAND<img src="../images/3_Input_NAND.png" class="component-img"></li>
+                                <li id="select2InputXOR" class="list-group-item">2-Input XOR<img src="../images/2_Input_XOR.png" class="component-img"></li>
+                                <li id="select2InputXNOR" class="list-group-item">2-Input XNOR<img src="../images/2_Input_XNOR.png" class="component-img"></li>
                             </ul>
                         </div>
                     </div>
@@ -125,19 +125,18 @@
                 </div>
             </ul>
         </div>
-        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">
-            <div class="insertion-point"></div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+            <svg id="canvas"></svg>
         </div>
     </div>
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../js/svg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../js/libs/bootstrap.min.js"></script>
 <script src="../js/docs.min.js"></script>
 <script src="../js/libs/vue.min.js"></script>
-<script src="../js/libs/draggabilly.min.js"></script>
+<script src="../js/snap.svg-min.js"></script>
 
 <!-- Component Scripts -->
 <script src="../js/circuitBuilder.js"></script>
@@ -151,10 +150,6 @@
 <script src="../js/components/threeInputNAND.js"></script>
 <script src="../js/components/twoInputNOR.js"></script>
 <script src="../js/components/threeInputNOR.js"></script>
-
-<script>
-
-</script>
 
 </body>
 

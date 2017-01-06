@@ -2,6 +2,10 @@
  * Created by savannah on 12/20/2016.
  */
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip({container: 'body'})
+})
+
 class KarnaughMapCell3Var {
     constructor(cellNum, cellValue, isGrouped) {
         this.cellNum = cellNum;
