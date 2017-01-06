@@ -3,7 +3,11 @@
     min-height: 80px;
 }
 #canvas {
-    height: 800px;
+    position: absolute;
+    height: 650px;
+    width: 80%;
+    padding: 0 0 0 0;
+    border: 3px solid #626d71;
 }
 
 .component-img {
@@ -15,21 +19,17 @@
 }
 
 .gate-input, .gate-output, .wire {
-    fill:none;
     stroke-linecap:butt;
     stroke-linejoin:miter;
     stroke-opacity:1;
     stroke-width:1.79;
     stroke:#000;
+    z-index: -3;
 }
 
 .wire-component {
-    width: 0;
-    height: 0;
-    z-index: -1;
-}
-
-.wire {
+    position: relative;
+    display: inline;
     z-index: -2;
 }
 
@@ -168,4 +168,14 @@
     stroke-linecap:butt;
     stroke-linejoin:miter;
     stroke-opacity:1
+}
+
+.insertion-point {
+    width: 0;
+    height: 0;
+}
+
+.component {
+    display: inline;
+    position: relative;
 }

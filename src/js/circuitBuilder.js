@@ -5,6 +5,7 @@
 // Global ID # for unique component IDs and wires
 var idNum = 0;
 var wireIdNum = 0;
+var snap = Snap("#canvas");
 
 var outputCoords = [];
 var circuitComponents = [];
@@ -24,22 +25,30 @@ class Wire {
 var outputComponent;
 var inputComponent;
 
+var outputCompTransform;
+var outputCompOffsetX;
+var outputCompOffsetY;
+var outputSVGOffsetY;
+
 // Finds approximate output coordinates on
 // circuit components (for use in wire drawing)
 function findOutputCoords(e) {
 
-    outputComponent = e.getAttribute("id");
+    outputComponent = e.parentNode.getAttribute("id");
 
-    // SVG length attributes
-    var width = e.getBoundingClientRect().right - e.getBoundingClientRect().left;
-    var height = e.getBoundingClientRect().bottom - e.getBoundingClientRect().top;
+    outputCompTransform = e.parentNode.getAttribute("transform");
+    outputCompTransform = (outputCompTransform.substring(7, outputCompTransform.length - 1)).split(",");
 
-    // Absolute offsets of SVG from its (0,0) coordinate
-    var xCoord = e.getBoundingClientRect().left;
-    var yCoord = e.getBoundingClientRect().top;
+    outputCompOffsetX = Number(outputCompTransform[4]);
+    outputCompOffsetY = Number(outputCompTransform[5]);
 
-    var outputX = width + xCoord;
-    var outputY = height/2.0 + yCoord;
+    outputSVGOffsetY = Number(e.getAttribute("aria-label"));
+
+    // SVG component length attributes
+    var width = e.parentNode.getBoundingClientRect().right - e.parentNode.getBoundingClientRect().left;
+
+    var outputX = width + outputCompOffsetX;
+    var outputY = outputCompOffsetY + outputSVGOffsetY;
 
     outputCoords = [outputX, outputY];
 
@@ -61,46 +70,43 @@ function findInputCoords(e) {
     else {
 
         // TODO: Change 3 Input OR SVG so reference is consistent (won't work now with 3-OR)
-        inputComponent = e.parentNode.parentNode.getAttribute("id");
+        inputComponent = e.parentNode.getAttribute("id");
 
         // Grab attribute of clicked element that sets coordinate values
-        var svgYCoord = e.getAttribute("aria-label");
+        var svgInputYCoord = e.getAttribute("aria-label");
 
-        var leftOffset = e.parentNode.getBoundingClientRect().left;
-        var topOffset = e.parentNode.getBoundingClientRect().top;
+        var inputCompTransform = e.parentNode.getAttribute("transform");
+        inputCompTransform = (inputCompTransform.substring(7, inputCompTransform.length - 1)).split(",");
+
+        var inputCompOffsetX = Number(inputCompTransform[4]) + 5;
+        var inputCompOffsetY = Number(inputCompTransform[5]);
 
         // Calculate total Y offset
-        var totalYOffset = Number(svgYCoord) + topOffset;
+        var totalYOffset = Number(svgInputYCoord) + inputCompOffsetY;
 
         // Set up appropriately named variables for all coordinates for wire drawing
-        var outputX = outputCoords[0];
+        var outputX = outputCoords[0] - 10;
         var outputY = outputCoords[1];
-        var inputX = leftOffset;
+        var inputX = inputCompOffsetX + 10;
         var inputY = totalYOffset;
 
         var newX = ((Math.abs(inputX - outputX)) / 2.0) + outputX;
 
         // Set up path attributes
-        var path1 = "M " + outputX + "," + outputY + " " + newX + "," + outputY;
-        var path2 = "M " + newX + "," + outputY + " " + newX + "," + inputY;
-        var path3 = "M " + newX + "," + inputY + " " + inputX + "," + inputY;
+        var path1 = snap.path("M " + outputX + "," + outputY + "L" + newX + "," + outputY);
+        var path2 = snap.path("M " + newX + "," + outputY + "L" + newX + "," + inputY);
+        var path3 = snap.path("M " + newX + "," + inputY + "L" + inputX + "," + inputY);
 
-        document.getElementById("canvas").innerHTML += "<svg id='new_wire' class='wire-component'><path class='wire' id='path1'></path><path class='wire' id='path2'></path><path class='wire' id='path3'></path></svg>";
-        // TODO: ADD DRAG ENABLER IN HERE
+        var wireGroup = snap.group(path1, path2, path3);
 
-        document.getElementById("path1").setAttribute("d", path1);
-        document.getElementById("path2").setAttribute("d", path2);
-        document.getElementById("path3").setAttribute("d", path3);
-
-        document.getElementById("path1").removeAttribute("id");
-        document.getElementById("path2").removeAttribute("id");
-        document.getElementById("path3").removeAttribute("id");
+        wireGroup.attr({
+            stroke: "#000",
+            strokeWidth: 2.3
+        });
 
         var wireId = "wire-" + wireIdNum;
-        document.getElementById("new_wire").setAttribute("id", wireId);
+        document.getElementById("canvas").lastElementChild.setAttribute("id", wireId);
         wireIdNum++;
-
-        //document.getElementById("canvas").innerHTML += "" + leftOffset + ", " + totalYOffset + " " + outputCoords[0];
 
         outputCoords = [];  // Reset output coords
 
