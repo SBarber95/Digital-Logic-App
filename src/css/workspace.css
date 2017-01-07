@@ -174,7 +174,7 @@ body {
 }
 
 p.border {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #626d71;
 }
 
 .addition-quiz, .conversion-quiz, .subtraction-quiz, .multiplication-quiz {
@@ -187,6 +187,10 @@ p.border {
 
 .arithmetic-output, .converter-output {
     margin-top: 2%;
+}
+
+#quiz_output_add, #quiz_output_sub, #quiz_output_mult {
+    margin-top: 30px;
 }
 
 .panel-title {
@@ -208,4 +212,22 @@ input {
 
 .btn-default {
     color: white;
+}
+
+#addition_calculator > input, #subtraction_calculator > input, #multiplication_calculator > input {
+    margin-bottom: 20px;
+}
+
+#first_quiz_number, #second_quiz_number {
+    font-size: 24px;
+}
+
+#first_quiz_number {
+    margin-top: 17px;
+    margin-left: 12px;
+}
+
+#second_quiz_number {
+    margin-bottom: 18px;
+    margin-left: 12px;
 }
