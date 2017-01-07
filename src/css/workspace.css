@@ -231,3 +231,11 @@ input {
     margin-bottom: 18px;
     margin-left: 12px;
 }
+
+#quiz_number_placeholder {
+    font-size: 20px;
+}
+
+#convert-quiz-component {
+    line-height: 2;
+}
