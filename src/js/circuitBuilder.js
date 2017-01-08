@@ -121,7 +121,7 @@ $("#delete_circuit").click(function() {
         wires = [];
         idNum = 0;
         wireIdNum = 0;
-        
+
     }
 
 });
