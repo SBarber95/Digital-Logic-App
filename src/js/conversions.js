@@ -5,7 +5,7 @@
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip({container: 'body'})
-})
+});
 
 // From Decimal Converter Component ------------------------------
 var decConverter = new Vue({
@@ -16,7 +16,7 @@ var decConverter = new Vue({
         'Select Desired Base: <select name="desiredBase"><option value="2">2</option>' +
         '<option value="8">8</option>' +
         '<option value="16">16</option></select><br>' +
-        '<input type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
+        '<input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
         '</form>' +
         '</div>',
     methods: {
@@ -44,7 +44,7 @@ var decConvertQuiz = new Vue({
     '<form id="converter_quiz">'+
     '<p id="quiz_number_placeholder">Convert from this Base 10 Value: <span id="quiz_number"></span></p>'+
     '<p class="border"></p>'+
-    '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
+    '<input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
     'Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>' +
     '<option value="8">8</option>' +
     '<option value="16">16</option></select><br>' +
@@ -101,7 +101,7 @@ $("#decimal_conversions").click(function () {
         'Select Desired Base: <select name="desiredBase"><option value="2">2</option>' +
         '<option value="8">8</option>' +
         '<option value="16">16</option></select><br>' +
-        '<input type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
+        '<input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
         '</form>' +
         '</div>',
         methods: {
@@ -129,7 +129,7 @@ $("#decimal_conversions").click(function () {
         '<form id="converter_quiz">'+
         '<p id="quiz_number_placeholder">Convert from this Base 10 Value: <span id="quiz_number"></span></p>'+
         '<p class="border"></p>'+
-        '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
+        '<input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
         'Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>' +
         '<option value="8">8</option>' +
         '<option value="16">16</option></select><br>' +
@@ -190,7 +190,7 @@ $("#binary_conversions").click(function () {
         'Select Desired Base: <select name="desiredBase"><option value="8">8</option>' +
         '<option value="10">10</option>' +
         '<option value="16">16</option></select><br>' +
-        '<input type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
+        '<input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
         '</form>' +
         '</div>',
         methods: {
@@ -218,7 +218,7 @@ $("#binary_conversions").click(function () {
         '<form id="converter_quiz">'+
         '<p id="quiz_number_placeholder">Convert from this Base 2 Value: <span id="quiz_number"></span></p>'+
         '<p class="border"></p>'+
-        '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
+        '<input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
         'Select Base You Converted To: <select name="selectedBase"><option value="8">8</option>' +
         '<option value="10">10</option>' +
         '<option value="16">16</option></select><br>' +
@@ -293,7 +293,7 @@ $("#octal_conversions").click(function () {
         'Select Desired Base: <select name="desiredBase"><option value="2">2</option>' +
         '<option value="10">10</option>' +
         '<option value="16">16</option></select><br>' +
-        '<input type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
+        '<input type="submit" id="converter_submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
         '</form>' +
         '</div>',
         methods: {
@@ -321,7 +321,7 @@ $("#octal_conversions").click(function () {
         '<form id="converter_quiz">'+
         '<p id="quiz_number_placeholder">Convert from this Base 8 Value: <span id="quiz_number"></span></p>'+
         '<p class="border"></p>'+
-        '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
+        '<input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
         'Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>' +
         '<option value="10">10</option>' +
         '<option value="16">16</option></select><br>' +
@@ -397,7 +397,7 @@ $("#hex_conversions").click(function () {
         'Select Desired Base: <select name="desiredBase"><option value="2">2</option>' +
         '<option value="8">8</option>' +
         '<option value="10">10</option></select><br>' +
-        '<input type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
+        '<input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
         '</form>' +
         '</div>',
         methods: {
@@ -445,7 +445,7 @@ $("#hex_conversions").click(function () {
         '<form id="converter_quiz">'+
         '<p id="quiz_number_placeholder">Convert from this Base 16 Value: <span id="quiz_number"></span></p>'+
         '<p class="border"></p>'+
-        '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
+        '<input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
         'Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>' +
         '<option value="8">8</option>' +
         '<option value="10">10</option></select><br>' +

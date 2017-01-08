@@ -25,24 +25,19 @@ class Wire {
 var outputComponent;
 var inputComponent;
 
-var outputCompTransform;
-var outputCompOffsetX;
-var outputCompOffsetY;
-var outputSVGOffsetY;
-
 // Finds approximate output coordinates on
 // circuit components (for use in wire drawing)
 function findOutputCoords(e) {
 
     outputComponent = e.parentNode.getAttribute("id");
 
-    outputCompTransform = e.parentNode.getAttribute("transform");
+    var outputCompTransform = e.parentNode.getAttribute("transform");
     outputCompTransform = (outputCompTransform.substring(7, outputCompTransform.length - 1)).split(",");
 
-    outputCompOffsetX = Number(outputCompTransform[4]);
-    outputCompOffsetY = Number(outputCompTransform[5]);
+    var outputCompOffsetX = Number(outputCompTransform[4]);
+    var outputCompOffsetY = Number(outputCompTransform[5]);
 
-    outputSVGOffsetY = Number(e.getAttribute("aria-label"));
+    var outputSVGOffsetY = Number(e.getAttribute("aria-label"));
 
     // SVG component length attributes
     var width = e.parentNode.getBoundingClientRect().right - e.parentNode.getBoundingClientRect().left;
@@ -113,3 +108,20 @@ function findInputCoords(e) {
     }
 
 }
+
+$("#delete_circuit").click(function() {
+
+    var response = confirm("Are you sure you want to delete the entire circuit and start over?\n" +
+                            "Everything will be erased from the design board.");
+
+    if (response) {
+
+        $("#canvas").empty();
+        circuitComponents = [];
+        wires = [];
+        idNum = 0;
+        wireIdNum = 0;
+        
+    }
+
+});

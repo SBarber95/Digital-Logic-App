@@ -128,6 +128,37 @@
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
             <svg id="canvas"></svg>
         </div>
+        <button type="button" style="position: relative; left: 89.5%;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#circuitModal">
+            Instructions!
+        </button>
+        <div class="modal fade" id="circuitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                        <h4 class="modal-title" id="circuitTitle">Circuit Designer Instructions</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="sub-header">How to Add Circuit Components</h3>
+                        On the left side of the screen, there are categories of circuit components
+                        to choose from. When a category is selected, it will expand to show all of
+                        the options. Clicking on any option will add that corresponding component to
+                        the designated designer canvas.
+                        <h3 class="sub-header">How to Draw Wires Between Components</h3>
+                        To make connections between circuit components, first double click on a
+                        component's output (make sure it highlights in a different color when you double click).
+                        Then, click on the second component's input. It should also highlight in a different color
+                        when it is ready to be double clicked. A wire will then be drawn between both components.
+                        <h3 class="sub-header">Running Simulations</h3>
+                        Instructions coming soon when simulations are implemented!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="delete_circuit" style="position: relative; left: 81.2%; top: 70px;" class="btn btn-danger">Delete Circuit</button>
     </div>
 </div>
 
