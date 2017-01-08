@@ -4,7 +4,7 @@
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip({container: 'body'})
-})
+});
 
 // Binary Addition Calculator --------------------------------
 var binaryAdditionCalc = new Vue ({
@@ -114,7 +114,7 @@ var additionQuiz = new Vue ({
     '<form id="addition_quiz_form">'+
     '<p id="first_quiz_number"></p>'+
     '<p id="second_quiz_number"></p>'+
-    '<p class="border"></p>'+
+    '<p id="quiz_border" class="border"></p>'+
     '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
     '<input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">'+
     '<input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">'+
@@ -335,7 +335,7 @@ $("#binary_addition").click(function() {
         '<form id="addition_quiz_form">'+
         '<p id="first_quiz_number"></p>'+
         '<p id="second_quiz_number"></p>'+
-        '<p class="border"></p>'+
+        '<p id="quiz_border" class="border"></p>'+
         '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
         '<input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">'+
         '<input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">'+
@@ -510,7 +510,7 @@ $("#binary_subtraction").click(function() {
         '<form id="subtraction_quiz_form">'+
         '<p id="first_quiz_number"></p>'+
         '<p id="second_quiz_number"></p>'+
-        '<p class="border"></p>'+
+        '<p id="quiz_border" class="border"></p>'+
         '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
         '<input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">'+
         '<input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">'+
@@ -676,7 +676,7 @@ $("#binary_multiplication").click(function() {
         '<form id="multiplication_quiz_form">'+
         '<p id="first_quiz_number"></p>'+
         '<p id="second_quiz_number"></p>'+
-        '<p class="border"></p>'+
+        '<p id="quiz_border" class="border"></p>'+
         '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
         '<input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">'+
         '<input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">'+
