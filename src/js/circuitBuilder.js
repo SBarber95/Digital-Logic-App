@@ -13,11 +13,16 @@ var wires = [];
 
 // TODO: PERHAPS STORE INFO OF LATEST COMPONENT OR WIRE MADE FOR UNDO PURPOSES
 
-function Wire(outputSide, inputSide, wireId) {
+// Wire class definition
+function Wire(outputSide, inputSide, wireId, outputX, outputY, inputX, inputY) {
 
     this.outputSide = outputSide;
     this.inputSide = inputSide;
     this.wireId = wireId;
+    this.outputX = outputX;
+    this.outputY = outputY;
+    this.inputX = inputX;
+    this.inputY = inputY;
 
 }
 
@@ -99,7 +104,7 @@ function findInputCoords(e) {
 
         var wireId = "wire-" + wireIdNum;
         document.getElementById("canvas").lastElementChild.setAttribute("id", wireId);
-        wires[wireId] = new Wire(outputComponent, inputComponent, wireId);
+        wires[wireId] = new Wire(outputComponent, inputComponent, wireId, outputX, outputY, inputX, inputY);
         wireIdNum++;
 
         outputCoords = [];  // Reset output coords
@@ -110,6 +115,9 @@ function findInputCoords(e) {
 
 // TODO: CREATE REDRAW FUNCTION
 
+/**
+ * Deletes a circuit design upon confirmation of the user and resets the design cnavas.
+ */
 $("#delete_circuit").click(function() {
 
     var response = confirm("Are you sure you want to delete the entire circuit and start over?\n" +

@@ -90,7 +90,33 @@ document.getElementById("quiz_number").innerHTML = "" + Math.floor((Math.random(
 
 $("#decimal_conversions").click(function () {
 
-    document.getElementById("conversions-header").innerHTML = "Conversions from Decimal (Base 10)";
+    document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        '<h3 class="sub-header">Calculator</h3>'+
+        'Simply enter your decimal value and hit convert! You can also select the desired base '+
+        'you wish to convert to in the drop-down box under the text box.'+
+        '<h3 class="sub-header">Practice Problems</h3>'+
+        'This feature generates a random decimal value for you to convert and provide the answer for. '+
+        'You can generate new random values with the Change Values button. You can also check your '+
+        'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed. '+
+        'You can convert this given value to any base offered in the drop-down box, but make sure you '+
+        'select which base you converted to as you put in your answer.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>Conversions from Decimal (Base 10)';
 
     // From Decimal Converter Component ------------------------------
     var decConverter = new Vue({
@@ -177,7 +203,33 @@ $("#decimal_conversions").click(function () {
 
 $("#binary_conversions").click(function () {
 
-    document.getElementById("conversions-header").innerHTML = "Conversions from Binary (Base 2)";
+    document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        '<h3 class="sub-header">Calculator</h3>'+
+        'Simply enter your decimal value and hit convert! You can also select the desired base '+
+        'you wish to convert to in the drop-down box under the text box.'+
+        '<h3 class="sub-header">Practice Problems</h3>'+
+        'This feature generates a random decimal value for you to convert and provide the answer for. '+
+        'You can generate new random values with the Change Values button. You can also check your '+
+        'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed. '+
+        'You can convert this given value to any base offered in the drop-down box, but make sure you '+
+        'select which base you converted to as you put in your answer.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>Conversions from Binary (Base 2)';
 
     var quizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -280,7 +332,33 @@ $("#binary_conversions").click(function () {
 
 $("#octal_conversions").click(function () {
 
-    document.getElementById("conversions-header").innerHTML = "Conversions from Octal (Base 8)";
+    document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        '<h3 class="sub-header">Calculator</h3>'+
+        'Simply enter your decimal value and hit convert! You can also select the desired base '+
+        'you wish to convert to in the drop-down box under the text box.'+
+        '<h3 class="sub-header">Practice Problems</h3>'+
+        'This feature generates a random decimal value for you to convert and provide the answer for. '+
+        'You can generate new random values with the Change Values button. You can also check your '+
+        'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed. '+
+        'You can convert this given value to any base offered in the drop-down box, but make sure you '+
+        'select which base you converted to as you put in your answer.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>Conversions from Octal (Base 8)';
 
     var quizNum = [0, 0, 0];
 
@@ -383,7 +461,33 @@ $("#octal_conversions").click(function () {
 
 $("#hex_conversions").click(function () {
 
-    document.getElementById("conversions-header").innerHTML = "Conversions from Hexadecimal (Base 16)";
+    document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        '<h3 class="sub-header">Calculator</h3>'+
+        'Simply enter your decimal value and hit convert! You can also select the desired base '+
+        'you wish to convert to in the drop-down box under the text box.'+
+        '<h3 class="sub-header">Practice Problems</h3>'+
+        'This feature generates a random decimal value for you to convert and provide the answer for. '+
+        'You can generate new random values with the Change Values button. You can also check your '+
+        'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed. '+
+        'You can convert this given value to any base offered in the drop-down box, but make sure you '+
+        'select which base you converted to as you put in your answer.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>Conversions from Hexadecimal (Base 16)';
 
     var hexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
     var quizNum = [0, 0, 0, 0];
