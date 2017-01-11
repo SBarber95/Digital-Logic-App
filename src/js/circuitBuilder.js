@@ -11,15 +11,14 @@ var outputCoords = [];
 var circuitComponents = [];
 var wires = [];
 
-class Wire {
+// TODO: PERHAPS STORE INFO OF LATEST COMPONENT OR WIRE MADE FOR UNDO PURPOSES
 
-    constructor(outputSide, inputSide, wireId) {
+function Wire(outputSide, inputSide, wireId) {
 
-        this.outputSide = outputSide;
-        this.inputSide = inputSide;
-        this.wireId = wireId;
+    this.outputSide = outputSide;
+    this.inputSide = inputSide;
+    this.wireId = wireId;
 
-    }
 }
 
 var outputComponent;
@@ -58,13 +57,12 @@ function findOutputCoords(e) {
  */
 function findInputCoords(e) {
 
-    if (outputCoords == []) {
+    if (outputCoords[0] == undefined) {
         return null;
     }
 
     else {
 
-        // TODO: Change 3 Input OR SVG so reference is consistent (won't work now with 3-OR)
         inputComponent = e.parentNode.getAttribute("id");
 
         // Grab attribute of clicked element that sets coordinate values
@@ -80,7 +78,7 @@ function findInputCoords(e) {
         var totalYOffset = Number(svgInputYCoord) + inputCompOffsetY;
 
         // Set up appropriately named variables for all coordinates for wire drawing
-        var outputX = outputCoords[0] - 10;
+        var outputX = outputCoords[0] - 6;
         var outputY = outputCoords[1];
         var inputX = inputCompOffsetX + 10;
         var inputY = totalYOffset;
@@ -101,6 +99,7 @@ function findInputCoords(e) {
 
         var wireId = "wire-" + wireIdNum;
         document.getElementById("canvas").lastElementChild.setAttribute("id", wireId);
+        wires[wireId] = new Wire(outputComponent, inputComponent, wireId);
         wireIdNum++;
 
         outputCoords = [];  // Reset output coords
@@ -108,6 +107,8 @@ function findInputCoords(e) {
     }
 
 }
+
+// TODO: CREATE REDRAW FUNCTION
 
 $("#delete_circuit").click(function() {
 
