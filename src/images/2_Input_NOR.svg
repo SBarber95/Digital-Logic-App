@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="109.62221" height="54.849255" class="two-input-NOR" version="1.0">
-  <g id="layer1" transform="translate(-5,-5.0000001)">
+  <g transform="translate(-5,-5.0000001)" class="component">
     <path
        style="fill:none;stroke-width:2.58471894;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 95.13382,32.424619 c 24.36049,0 19.48839,0 19.48839,0"

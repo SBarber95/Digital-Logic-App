@@ -13,7 +13,7 @@
         stroke:#000;
     }
   </style>
-  <g id="layer1" transform="matrix(1.234375,0,0,1.3732704,-12.158594,-6.866352)">
+  <g transform="matrix(1.234375,0,0,1.3732704,-12.158594,-6.866352)" class="component">
     <path
        d="m 74.98,25.13 c 16.01,0 20.02,0 20.02,0"
        id="output-2-AND"

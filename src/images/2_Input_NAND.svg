@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="110.25" height="55" class="two-input-NAND" version="1.0">
-  <g transform="translate(-5,-5)">
+  <g transform="translate(-5,-5)" class="component">
     <path style="fill:none;stroke-width:2.59566951;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" aria-label="32.5" ondblclick="findOutputCoords(this)" d="m 95.65,32.5 c 15.68,0 19.6,0 19.6,0" class="gate-output"/>
     <path style="fill:none;stroke-width:2.59566951;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" aria-label="18.75" ondblclick="findInputCoords(this)" d="M 36.85,18.75 5,18.75" class="gate-input"/>
     <path style="fill:none;stroke-width:2.59566927;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" aria-label="46.25" ondblclick="findInputCoords(this)" d="M 38.075,46.25 5,46.25" class="gate-input"/>

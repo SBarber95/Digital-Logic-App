@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="110.25" height="55.000008" class="two-input-XNOR" version="1.0">
-  <g transform="translate(-4.9999998,-4.9999995)">
+  <g transform="translate(-4.9999998,-4.9999995)" class="component">
     <path ondblclick="findOutputCoords(this)" aria-label="32.49999" style="fill:none;stroke-width:2.59566951;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 94.833332,32.499999 c 16.333338,0 20.416668,0 20.416668,0" class="gate-output"/>
     <path ondblclick="findInputCoords(this)" aria-label="18.749999" style="fill:none;stroke-width:2.59566903;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 36.097503,18.749999 -31.0975032,0" class="gate-input"/>
     <path ondblclick="findInputCoords(this)" aria-label="46.249997" style="fill:none;stroke-width:2.59566903;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 37.293562,46.249997 -32.2935622,0" class="gate-input"/>
