@@ -3,11 +3,13 @@
  * Modified 1/5/2017
  */
 
-function TwoInputOR (id, input1, input2) {
+function TwoInputOR (id, input1, input2, inputConnections, outputConnections) {
 
     this.id = id;
     this.input1 = input1;
     this.input2 = input2;
+    this.inputConnections = inputConnections;
+    this.outputConnections = outputConnections;
 
     this.output = function() {
         return (this.input1 || this.input2);
@@ -31,7 +33,7 @@ $("#select2InputOR").click(function() {
         newSVG.setAttribute("id", uniqueID);
 
         // Create default 2 input OR gate
-        circuitComponents[idNum] = new TwoInputOR(uniqueID, false, false);
+        circuitComponents[idNum] = new TwoInputOR(uniqueID, false, false, [], []);
         idNum++;
 
     });

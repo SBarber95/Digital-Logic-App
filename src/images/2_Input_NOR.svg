@@ -33,6 +33,6 @@
            style="display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" />
       </g>
     </g>
-    <rect x="37" y="8" width="46" height="48" fill="transparent" />
+    <rect x="37" y="8" width="46" height="48" fill="transparent" onmouseup="redrawWires(this.parentNode)"/>
   </g>
 </svg>

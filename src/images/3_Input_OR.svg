@@ -9,6 +9,6 @@
     </g>
   </g>
   <path d="m 30.941876,27.563661 -31.13127168,0" aria-label="27.563661" ondblclick="findInputCoords(this)" class="gate-input" style="fill:none;stroke-width:2.56682229;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-  <rect x="30" y="1" width="50" height="50" fill="transparent" />
+  <rect x="30" y="1" width="50" height="50" fill="transparent" onmouseup="redrawWires(this.parentNode)"/>
   </g>
 </svg>

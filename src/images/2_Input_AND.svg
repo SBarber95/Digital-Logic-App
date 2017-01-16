@@ -43,6 +43,6 @@
        id="two-AND"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Bitstream Vera Sans';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;visibility:visible;fill:#000000;fill-opacity:1;marker:none">
     </path>
-      <rect x="30" y="6" width="43" height="43" fill="transparent" />
+      <rect x="30" y="6" width="43" height="43" fill="transparent" onmouseup="redrawWires(this.parentNode)"/>
   </g>
 </svg>

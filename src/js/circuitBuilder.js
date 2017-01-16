@@ -132,7 +132,6 @@ function findInputCoords(e) {
 
 }
 
-// TODO: CREATE REDRAW FUNCTION RESPONDING TO END OF COMPONENT DRAG
 function redrawWires(e) {
 
     var componentId = e.getAttribute("id");
