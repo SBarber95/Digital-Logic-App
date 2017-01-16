@@ -104,13 +104,14 @@ function findInputCoords(e) {
 
         var wireGroup = snap.group(path1, path2, path3);
 
+        var wireId = "wire-" + wireIdNum;
+
         wireGroup.attr({
+            id: wireId,
             stroke: "#000",
             strokeWidth: 2.3
         });
 
-        var wireId = "wire-" + wireIdNum;
-        document.getElementById("canvas").lastElementChild.setAttribute("id", wireId);
         wires[wireIdNum] = new Wire(outputComponent, inputComponent, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX,
                                  outputCompOffsetY, inputCompOffsetX, inputCompOffsetY);
 
@@ -147,17 +148,31 @@ function redrawWires(e) {
         var newCompOffsetX = Number(compTransform[4]);
         var newCompOffsetY = Number(compTransform[5]);
 
-        // Retrieve old x and y transform values
-        var oldCompOffsetX = componentObject.inputConnections[0].inputCompOffsetX;
-        var oldCompOffsetY = componentObject.inputConnections[0].inputCompOffsetY;
-
-        // Calculate transform offsets
-        var dragOffsetX = newCompOffsetX - oldCompOffsetX;
-        var dragOffsetY = newCompOffsetY - oldCompOffsetY;
-
         for (var i = 0; i < componentObject.inputConnections.length; i++) {
 
+            // Retrieve old x and y transform values
+            var oldCompOffsetX = componentObject.inputConnections[i].inputCompOffsetX;
+            var oldCompOffsetY = componentObject.inputConnections[i].inputCompOffsetY;
+
+            // Calculate transform offsets
+            var dragOffsetX = newCompOffsetX - oldCompOffsetX;
+            var dragOffsetY = newCompOffsetY - oldCompOffsetY;
+
             var currentWire = componentObject.inputConnections[i];
+
+            var outputSideIndex = currentWire.outputSide;
+            outputSideIndex = Number(outputSideIndex.substring(10, outputSideIndex.length));
+
+            // TODO: INNER LOOP FOR MULTIPLE OUTPUT WIRES FROM SAME OUTPUT
+            // Looks for the proper wire in the corresponding output component's connections array
+            var outputSideWire;
+            for (i = 0; i < circuitComponents[outputSideIndex].outputConnections.length; ++i) {
+
+                if (circuitComponents[outputSideIndex].outputConnections[i].wireId == currentWire.wireId) {
+                    outputSideWire = circuitComponents[outputSideIndex].outputConnections[i];
+                }
+
+            }
 
             var newInputX = currentWire.inputX + dragOffsetX;
             var newInputY = currentWire.inputY + dragOffsetY;
@@ -171,23 +186,94 @@ function redrawWires(e) {
 
             var wireGroup = snap.group(path1, path2, path3);
 
+            var wireId = currentWire.wireId;
+
+            var newWireIdNum = Number(wireId.substring(5, wireId.length));
+            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, currentWire.outputX, currentWire.outputY,
+                newInputX, newInputY, currentWire.outputCompOffsetX, currentWire.outputCompOffsetY, newCompOffsetX, newCompOffsetY);
+            componentObject.inputConnections[i] = wires[newWireIdNum];
+            outputSideWire.inputX = newInputX;
+            outputSideWire.inputY = newInputY;
+            outputSideWire.inputCompOffsetX = newCompOffsetX;
+            outputSideWire.inputCompOffsetY = newCompOffsetY;
+
+            $("#" + wireId).remove();
+
             wireGroup.attr({
+                id: wireId,
                 stroke: "#000",
                 strokeWidth: 2.3
             });
 
-            var wireId = "wire-" + wireIdNum;
-            document.getElementById("canvas").lastElementChild.setAttribute("id", wireId);
-            wires[wireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, currentWire.outputX, currentWire.outputY,
-                newInputX, newInputY, currentWire.outputCompOffsetX, currentWire.outputCompOffsetY, newCompOffsetX, newCompOffsetY);
-            componentObject.inputConnections[i] = wires[wireIdNum];
-            wireIdNum++;
-
-            $("#" + currentWire.wireId).remove();
-
         }
 
-        // TODO: WRITE REDRAW FOR OUTPUT CONNECTIONS
+    }
+
+    if (componentObject.outputConnections.length > 0) {
+
+        // Grab new x and y transform values
+        compTransform = e.getAttribute("transform");
+        compTransform = (compTransform.substring(7, compTransform.length - 1)).split(",");
+
+        newCompOffsetX = Number(compTransform[4]);
+        newCompOffsetY = Number(compTransform[5]);
+
+        for (i = 0; i < componentObject.outputConnections.length; i++) {
+
+            // Retrieve old x and y transform values
+            oldCompOffsetX = componentObject.outputConnections[i].outputCompOffsetX;
+            oldCompOffsetY = componentObject.outputConnections[i].outputCompOffsetY;
+
+            // Calculate transform offsets
+            dragOffsetX = newCompOffsetX - oldCompOffsetX;
+            dragOffsetY = newCompOffsetY - oldCompOffsetY;
+
+            currentWire = componentObject.outputConnections[i];
+
+            var inputSideIndex = currentWire.inputSide;
+            inputSideIndex = Number(inputSideIndex.substring(10, inputSideIndex.length));
+
+            // Looks for the proper wire in the corresponding input component's connections array
+            var inputSideWire;
+            for (i = 0; i < circuitComponents[inputSideIndex].inputConnections.length; ++i) {
+
+                if (circuitComponents[inputSideIndex].inputConnections[i].wireId == currentWire.wireId) {
+                    inputSideWire = circuitComponents[inputSideIndex].inputConnections[i];
+                }
+
+            }
+
+            var newOutputX = currentWire.outputX + dragOffsetX;
+            var newOutputY = currentWire.outputY + dragOffsetY;
+
+            newX = ((Math.abs(currentWire.inputX - newOutputX)) / 2.0) + newOutputX;
+
+            // Set up path attributes
+            path1 = snap.path("M " + newOutputX + "," + newOutputY + "L" + newX + "," + newOutputY);
+            path2 = snap.path("M " + newX + "," + newOutputY + "L" + newX + "," + currentWire.inputY);
+            path3 = snap.path("M " + newX + "," + currentWire.inputY + "L" + (currentWire.inputX + 8) + "," + currentWire.inputY);
+
+            wireGroup = snap.group(path1, path2, path3);
+
+            wireId = currentWire.wireId;
+            newWireIdNum = Number(wireId.substring(5, wireId.length));
+            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, newOutputX, newOutputY,
+                currentWire.inputX, currentWire.inputY, newCompOffsetX, newCompOffsetY, currentWire.inputCompOffsetX, currentWire.inputCompOffsetY);
+            componentObject.outputConnections[i] = wires[newWireIdNum];
+            inputSideWire.outputX = newOutputX;
+            inputSideWire.outputY = newOutputY;
+            inputSideWire.outputCompOffsetX = newCompOffsetX;
+            inputSideWire.outputCompOffsetY = newCompOffsetY;
+
+            $("#" + wireId).remove();
+
+            wireGroup.attr({
+                id: wireId,
+                stroke: "#000",
+                strokeWidth: 2.3
+            });
+
+        }
 
     }
 
