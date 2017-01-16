@@ -162,17 +162,8 @@ function redrawWires(e) {
 
             var outputSideIndex = currentWire.outputSide;
             outputSideIndex = Number(outputSideIndex.substring(10, outputSideIndex.length));
-
             // TODO: INNER LOOP FOR MULTIPLE OUTPUT WIRES FROM SAME OUTPUT
-            // Looks for the proper wire in the corresponding output component's connections array
-            var outputSideWire;
-            for (i = 0; i < circuitComponents[outputSideIndex].outputConnections.length; ++i) {
-
-                if (circuitComponents[outputSideIndex].outputConnections[i].wireId == currentWire.wireId) {
-                    outputSideWire = circuitComponents[outputSideIndex].outputConnections[i];
-                }
-
-            }
+            var outputSideWire = circuitComponents[outputSideIndex].outputConnections[0];
 
             var newInputX = currentWire.inputX + dragOffsetX;
             var newInputY = currentWire.inputY + dragOffsetY;
