@@ -13,7 +13,7 @@
         stroke:#000;
     }
   </style>
-  <g id="layer1" transform="matrix(1.234375,0,0,1.3732704,-12.158594,-6.866352)">
+  <g transform="matrix(1.234375,0,0,1.3732704,-12.158594,-6.866352)" class="component">
     <path
        d="m 74.98,25.13 c 16.01,0 20.02,0 20.02,0"
        id="output-2-AND"
@@ -43,6 +43,6 @@
        id="two-AND"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Bitstream Vera Sans';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;visibility:visible;fill:#000000;fill-opacity:1;marker:none">
     </path>
-      <rect x="30" y="6" width="43" height="43" fill="transparent" />
+      <rect x="30" y="6" width="43" height="43" fill="transparent" onmouseup="redrawWires(this.parentNode)"/>
   </g>
 </svg>
