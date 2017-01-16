@@ -2,11 +2,13 @@
  * Created by savannah on 12/12/2016.
  */
 
-function TwoInputNAND (id, input1, input2) {
+function TwoInputNAND (id, input1, input2, inputConnections, outputConnections) {
 
     this.id = id;
     this.input1 = input1;
     this.input2 = input2;
+    this.inputConnections = inputConnections;
+    this.outputConnections = outputConnections;
 
     this.output = function() {
         return !(this.input1 && this.input2);
@@ -30,7 +32,7 @@ $("#select2InputNAND").click(function() {
         newSVG.setAttribute("id", uniqueID);
 
         // Create default 2 input NAND gate
-        circuitComponents[idNum] = new TwoInputNAND(uniqueID, false, false);
+        circuitComponents[idNum] = new TwoInputNAND(uniqueID, false, false, [], []);
         idNum++;
 
     });

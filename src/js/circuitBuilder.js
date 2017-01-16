@@ -11,19 +11,30 @@ var outputCoords = [];
 var circuitComponents = [];
 var wires = [];
 
-class Wire {
+// TODO: PERHAPS STORE INFO OF LATEST COMPONENT OR WIRE MADE FOR UNDO PURPOSES
 
-    constructor(outputSide, inputSide, wireId) {
+// Wire class definition
+function Wire(outputSide, inputSide, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX, outputCompOffsetY,
+                inputCompOffsetX, inputCompOffsetY) {
 
-        this.outputSide = outputSide;
-        this.inputSide = inputSide;
-        this.wireId = wireId;
+    this.outputSide = outputSide;
+    this.inputSide = inputSide;
+    this.wireId = wireId;
+    this.outputX = outputX;
+    this.outputY = outputY;
+    this.inputX = inputX;
+    this.inputY = inputY;
+    this.outputCompOffsetX = outputCompOffsetX;
+    this.outputCompOffsetY = outputCompOffsetY;
+    this.inputCompOffsetX = inputCompOffsetX;
+    this.inputCompOffsetY = inputCompOffsetY;
 
-    }
 }
 
 var outputComponent;
 var inputComponent;
+var outputCompOffsetX;
+var outputCompOffsetY;
 
 // Finds approximate output coordinates on
 // circuit components (for use in wire drawing)
@@ -34,8 +45,8 @@ function findOutputCoords(e) {
     var outputCompTransform = e.parentNode.getAttribute("transform");
     outputCompTransform = (outputCompTransform.substring(7, outputCompTransform.length - 1)).split(",");
 
-    var outputCompOffsetX = Number(outputCompTransform[4]);
-    var outputCompOffsetY = Number(outputCompTransform[5]);
+    outputCompOffsetX = Number(outputCompTransform[4]);
+    outputCompOffsetY = Number(outputCompTransform[5]);
 
     var outputSVGOffsetY = Number(e.getAttribute("aria-label"));
 
@@ -58,13 +69,12 @@ function findOutputCoords(e) {
  */
 function findInputCoords(e) {
 
-    if (outputCoords == []) {
+    if (outputCoords[0] == undefined) {
         return null;
     }
 
     else {
 
-        // TODO: Change 3 Input OR SVG so reference is consistent (won't work now with 3-OR)
         inputComponent = e.parentNode.getAttribute("id");
 
         // Grab attribute of clicked element that sets coordinate values
@@ -80,7 +90,7 @@ function findInputCoords(e) {
         var totalYOffset = Number(svgInputYCoord) + inputCompOffsetY;
 
         // Set up appropriately named variables for all coordinates for wire drawing
-        var outputX = outputCoords[0] - 10;
+        var outputX = outputCoords[0] - 6;
         var outputY = outputCoords[1];
         var inputX = inputCompOffsetX + 10;
         var inputY = totalYOffset;
@@ -94,13 +104,26 @@ function findInputCoords(e) {
 
         var wireGroup = snap.group(path1, path2, path3);
 
+        var wireId = "wire-" + wireIdNum;
+
         wireGroup.attr({
+            id: wireId,
             stroke: "#000",
             strokeWidth: 2.3
         });
 
-        var wireId = "wire-" + wireIdNum;
-        document.getElementById("canvas").lastElementChild.setAttribute("id", wireId);
+        wires[wireIdNum] = new Wire(outputComponent, inputComponent, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX,
+                                 outputCompOffsetY, inputCompOffsetX, inputCompOffsetY);
+
+        var inputComponentIndex = Number(inputComponent.substring(10, inputComponent.length));
+        var outputComponentIndex = Number(outputComponent.substring(10, outputComponent.length));
+
+        var inputCompObject = circuitComponents[inputComponentIndex];
+        inputCompObject.inputConnections.push(wires[wireIdNum]);
+
+        var outputCompObject = circuitComponents[outputComponentIndex];
+        outputCompObject.outputConnections.push(wires[wireIdNum]);
+
         wireIdNum++;
 
         outputCoords = [];  // Reset output coords
@@ -109,6 +132,146 @@ function findInputCoords(e) {
 
 }
 
+function redrawWires(e) {
+
+    var componentId = e.getAttribute("id");
+    var componentIndex = Number(componentId.substring(10, componentId.length));
+    var componentObject = circuitComponents[componentIndex];
+
+    if (componentObject.inputConnections.length > 0) {
+
+        // Grab new x and y transform values
+        var compTransform = e.getAttribute("transform");
+        compTransform = (compTransform.substring(7, compTransform.length - 1)).split(",");
+
+        var newCompOffsetX = Number(compTransform[4]);
+        var newCompOffsetY = Number(compTransform[5]);
+
+        for (var i = 0; i < componentObject.inputConnections.length; i++) {
+
+            // Retrieve old x and y transform values
+            var oldCompOffsetX = componentObject.inputConnections[i].inputCompOffsetX;
+            var oldCompOffsetY = componentObject.inputConnections[i].inputCompOffsetY;
+
+            // Calculate transform offsets
+            var dragOffsetX = newCompOffsetX - oldCompOffsetX;
+            var dragOffsetY = newCompOffsetY - oldCompOffsetY;
+
+            var currentWire = componentObject.inputConnections[i];
+
+            var outputSideIndex = currentWire.outputSide;
+            outputSideIndex = Number(outputSideIndex.substring(10, outputSideIndex.length));
+            // TODO: INNER LOOP FOR MULTIPLE OUTPUT WIRES FROM SAME OUTPUT
+            var outputSideWire = circuitComponents[outputSideIndex].outputConnections[0];
+
+            var newInputX = currentWire.inputX + dragOffsetX;
+            var newInputY = currentWire.inputY + dragOffsetY;
+
+            var newX = ((Math.abs(newInputX - currentWire.outputX)) / 2.0) + currentWire.outputX;
+
+            // Set up path attributes
+            var path1 = snap.path("M " + currentWire.outputX + "," + currentWire.outputY + "L" + newX + "," + currentWire.outputY);
+            var path2 = snap.path("M " + newX + "," + currentWire.outputY + "L" + newX + "," + newInputY);
+            var path3 = snap.path("M " + newX + "," + newInputY + "L" + (newInputX + 8) + "," + newInputY);
+
+            var wireGroup = snap.group(path1, path2, path3);
+
+            var wireId = currentWire.wireId;
+
+            var newWireIdNum = Number(wireId.substring(5, wireId.length));
+            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, currentWire.outputX, currentWire.outputY,
+                newInputX, newInputY, currentWire.outputCompOffsetX, currentWire.outputCompOffsetY, newCompOffsetX, newCompOffsetY);
+            componentObject.inputConnections[i] = wires[newWireIdNum];
+            outputSideWire.inputX = newInputX;
+            outputSideWire.inputY = newInputY;
+            outputSideWire.inputCompOffsetX = newCompOffsetX;
+            outputSideWire.inputCompOffsetY = newCompOffsetY;
+
+            $("#" + wireId).remove();
+
+            wireGroup.attr({
+                id: wireId,
+                stroke: "#000",
+                strokeWidth: 2.3
+            });
+
+        }
+
+    }
+
+    if (componentObject.outputConnections.length > 0) {
+
+        // Grab new x and y transform values
+        compTransform = e.getAttribute("transform");
+        compTransform = (compTransform.substring(7, compTransform.length - 1)).split(",");
+
+        newCompOffsetX = Number(compTransform[4]);
+        newCompOffsetY = Number(compTransform[5]);
+
+        for (i = 0; i < componentObject.outputConnections.length; i++) {
+
+            // Retrieve old x and y transform values
+            oldCompOffsetX = componentObject.outputConnections[i].outputCompOffsetX;
+            oldCompOffsetY = componentObject.outputConnections[i].outputCompOffsetY;
+
+            // Calculate transform offsets
+            dragOffsetX = newCompOffsetX - oldCompOffsetX;
+            dragOffsetY = newCompOffsetY - oldCompOffsetY;
+
+            currentWire = componentObject.outputConnections[i];
+
+            var inputSideIndex = currentWire.inputSide;
+            inputSideIndex = Number(inputSideIndex.substring(10, inputSideIndex.length));
+
+            // Looks for the proper wire in the corresponding input component's connections array
+            var inputSideWire;
+            for (i = 0; i < circuitComponents[inputSideIndex].inputConnections.length; ++i) {
+
+                if (circuitComponents[inputSideIndex].inputConnections[i].wireId == currentWire.wireId) {
+                    inputSideWire = circuitComponents[inputSideIndex].inputConnections[i];
+                }
+
+            }
+
+            var newOutputX = currentWire.outputX + dragOffsetX;
+            var newOutputY = currentWire.outputY + dragOffsetY;
+
+            newX = ((Math.abs(currentWire.inputX - newOutputX)) / 2.0) + newOutputX;
+
+            // Set up path attributes
+            path1 = snap.path("M " + newOutputX + "," + newOutputY + "L" + newX + "," + newOutputY);
+            path2 = snap.path("M " + newX + "," + newOutputY + "L" + newX + "," + currentWire.inputY);
+            path3 = snap.path("M " + newX + "," + currentWire.inputY + "L" + (currentWire.inputX + 8) + "," + currentWire.inputY);
+
+            wireGroup = snap.group(path1, path2, path3);
+
+            wireId = currentWire.wireId;
+            newWireIdNum = Number(wireId.substring(5, wireId.length));
+            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, newOutputX, newOutputY,
+                currentWire.inputX, currentWire.inputY, newCompOffsetX, newCompOffsetY, currentWire.inputCompOffsetX, currentWire.inputCompOffsetY);
+            componentObject.outputConnections[i] = wires[newWireIdNum];
+            inputSideWire.outputX = newOutputX;
+            inputSideWire.outputY = newOutputY;
+            inputSideWire.outputCompOffsetX = newCompOffsetX;
+            inputSideWire.outputCompOffsetY = newCompOffsetY;
+
+            $("#" + wireId).remove();
+
+            wireGroup.attr({
+                id: wireId,
+                stroke: "#000",
+                strokeWidth: 2.3
+            });
+
+        }
+
+    }
+
+}
+
+/**
+ * Deletes a circuit design upon confirmation of the user and resets the design canvas.
+ */
 $("#delete_circuit").click(function() {
 
     var response = confirm("Are you sure you want to delete the entire circuit and start over?\n" +
@@ -121,7 +284,7 @@ $("#delete_circuit").click(function() {
         wires = [];
         idNum = 0;
         wireIdNum = 0;
-        
+
     }
 
 });

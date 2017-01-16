@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="109.62221" height="54.849255" class="three-input-NOR" version="1.0">
-  <g transform="translate(-5,-5.0000001)">
+  <g transform="translate(-5,-5.0000001)" class="component">
     <path style="fill:none;stroke-width:2.58471894;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" ondblclick="findOutputCoords(this)" aria-label="32.424619" d="m 95.13382,32.424619 c 24.36049,0 19.48839,0 19.48839,0" class="gate-output"/>
     <path style="fill:none;stroke-width:2.51228857;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" aria-label="15.46231" ondblclick="findInputCoords(this)" d="m 35.168639,15.46231 -29.918639,0" class="gate-input"/>
     <path style="fill:none;stroke-width:2.48453379;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" aria-label="50.136929" ondblclick="findInputCoords(this)" d="M 35.386664,50.136929 5,50.136929" class="gate-input"/>
@@ -10,6 +10,6 @@
       </g>
     </g>
     <path style="fill:none;stroke-width:2.63523626;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" aria-label="32.71231" ondblclick="findInputCoords(this)" d="m 37.918639,32.71231 -32.9186389,0" class="gate-input"/>
-    <rect x="35" y="6" width="48" height="55" fill="transparent" />
+    <rect x="35" y="6" width="48" height="55" fill="transparent" onmouseup="redrawWires(this.parentNode)"/>
   </g>
 </svg>

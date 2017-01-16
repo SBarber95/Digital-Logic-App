@@ -18,7 +18,31 @@ class KarnaughMapCell4Var {
 $("#display_four_var_km").click(function() {
 
     var header = document.getElementById("km_header");
-    header.innerHTML = "4-Variable Karnaugh Map";
+    header.innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#KMModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="KMModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="KMTitle">Karnaugh Map Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Each cell in the Karnaugh Map diagram contains a selection box where you can fill '+
+        'in your desired values (0, 1, X). The maps in this feature correspond to the conventional '+
+        'cell numbering and orientation of a vertical Karnaugh Map. Once you fill in all of your values, '+
+        'you have the option to simplify the Karnaugh Map through its minterms or maxterms. Keep in mind '+
+        'that minterms correspond to grouping 1s and maxterms correspond to grouping 0s. When the simplify '+
+        'button is clicked, the output box will show its generated simplified expression, as well as a '+
+        'list of cell groups it has captured. These groups are made up of the cell numbers (in decimal).'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>4-Variable Karnaugh Map';
 
     new Vue({
         el: "#km_placeholder",

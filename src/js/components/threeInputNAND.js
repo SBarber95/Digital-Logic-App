@@ -2,12 +2,14 @@
  * Created by savannah on 12/12/2016.
  */
 
-function ThreeInputNAND (id, input1, input2, input3) {
+function ThreeInputNAND (id, input1, input2, input3, inputConnections, outputConnections) {
 
     this.id = id;
     this.input1 = input1;
     this.input2 = input2;
     this.input3 = input3;
+    this.inputConnections = inputConnections;
+    this.outputConnections = outputConnections;
 
     this.output = function() {
         return !(this.input1 && this.input2 && this.input3);
@@ -31,7 +33,7 @@ $("#select3InputNAND").click(function() {
         newSVG.setAttribute("id", uniqueID);
 
         // Create default 3 input NAND gate
-        circuitComponents[idNum] = new ThreeInputNAND(uniqueID, false, false, false);
+        circuitComponents[idNum] = new ThreeInputNAND(uniqueID, false, false, false, [], []);
         idNum++;
 
     });

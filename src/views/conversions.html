@@ -42,14 +42,7 @@
                 <li><a href="karnaughMaps.html">Karnaugh Maps</a></li>
                 <li><a href="designProblems.html">Design Problems</a></li>
                 <li><a href="circuitDesign.html">Circuit Design</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">References<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Boolean Theorems</a></li>
-                        <li><a href="#">Arithmetic/Conversion Rules</a></li>
-                        <li><a href="#">Logic Gates</a></li>
-                    </ul>
-                </li>
+                <li><a href="references.html">References</a></li>
             </ul>
         </div>
     </div>
@@ -71,7 +64,33 @@
             </ul>
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-            <h1 id="conversions-header" class="page-header">Conversions from Decimal (Base 10)</h1>
+            <h1 id="conversions-header" class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">
+                Instructions!
+            </button>
+                <div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                                <h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h3 class="sub-header">Calculator</h3>
+                                Simply enter your decimal value and hit convert! You can also select the desired base
+                                you wish to convert to in the drop-down box under the text box.
+                                <h3 class="sub-header">Practice Problems</h3>
+                                This feature generates a random decimal value for you to convert and provide the answer for.
+                                You can generate new random values with the Change Values button. You can also check your
+                                answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.
+                                You can convert this given value to any base offered in the drop-down box, but make sure you
+                                select which base you converted to as you put in your answer.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>Conversions from Decimal (Base 10)</h1>
             <div class="user-input-converter">
                 <h2 class="sub-header" style="margin-bottom: 20px;">Converter</h2>
                 <div id="convert-component"></div>
@@ -92,7 +111,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../js/libs/bootstrap.min.js"></script>
-<script src="../js/docs.min.js"></script>
+<script src="../js/libs/docs.min.js"></script>
 <script src="../js/libs/vue.min.js"></script>
 <script src="../js/conversions.js"></script>
 
