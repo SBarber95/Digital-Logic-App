@@ -4911,7 +4911,6 @@ function showDCounter() {
 }
 
 // T Counter -------------------------------------------------------------------------------
-
 function showTCounter() {
 
     new Vue ({

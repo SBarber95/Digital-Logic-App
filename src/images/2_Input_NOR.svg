@@ -11,14 +11,14 @@
        style="fill:none;stroke-width:2.58471894;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 36.668639,18.71231 5,18.71231"
        aria-label="18.71231"
-       class="gate-input"
+       class="gate-input input1"
        ondblclick="findInputCoords(this)"
        id="path3061"/>
     <path
        style="fill:none;stroke-width:2.5847187;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 37.886664,46.136929 5,46.136929"
        aria-label="46.136929"
-       class="gate-input"
+       class="gate-input input2"
        ondblclick="findInputCoords(this)"
        id="path3944"/>
     <g id="g4712" transform="matrix(1.2180246,0,0,1.371231,-1.090123,-1.8561549)">
