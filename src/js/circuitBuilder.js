@@ -76,7 +76,9 @@ function findInputCoords(e) {
 
     else {
 
-        // TODO: USE e TO GRAB WHICH INPUT GOT CONNECTED
+        // Grabs which input the wire will be connecting to
+        var inputNum = e.getAttribute("class");
+        inputNum = inputNum.substring(inputNum.length - 1, inputNum.length);
 
         inputComponent = e.parentNode.getAttribute("id");
 
@@ -250,7 +252,7 @@ function redrawWires(e) {
 
             wireId = currentWire.wireId;
             newWireIdNum = Number(wireId.substring(5, wireId.length));
-            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, newOutputX, newOutputY,
+            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, currentWire.inputNumber, wireId, newOutputX, newOutputY,
                 currentWire.inputX, currentWire.inputY, newCompOffsetX, newCompOffsetY, currentWire.inputCompOffsetX, currentWire.inputCompOffsetY);
             componentObject.outputConnections[i] = wires[newWireIdNum];
             inputSideWire.outputX = newOutputX;
@@ -292,7 +294,15 @@ $("#delete_circuit").click(function() {
 
 });
 
+/**
+ * Simulates the logic of the built circuit by building a subtree for
+ * each output component, then evaluating outputs in a postorder
+ * traversal.
+ */
 function simulate() {
+
+    // Clear previous debug output
+    document.getElementById("circuitOutput").innerHTML = "";
 
     // Create Array of outputs (which will become the roots)
     var treeRoots = [];
@@ -367,6 +377,38 @@ function simulate() {
         root.walk({strategy: 'post'}, function (node) {
             nodes.push(node.model.id);
         });
+
+        for (j = 0; j < nodes.length; ++j) {
+
+            var currentComponent = circuitComponents[nodes[j]];
+
+            var output = currentComponent.output();
+
+            for (k = 0; k < currentComponent.outputConnections.length; ++k) {
+
+                var inputNum = currentComponent.outputConnections[k].inputNumber;
+                var nextComponentIndex = Number(currentComponent.outputConnections[k].inputSide.substring(10));
+
+                if (inputNum == "1") {
+                    circuitComponents[nextComponentIndex].input1 = output;
+                }
+                else if (inputNum == "2") {
+                    circuitComponents[nextComponentIndex].input2 = output;
+                }
+                else if (inputNum == "3") {
+                    circuitComponents[nextComponentIndex].input3 = output;
+                }
+
+            }
+
+            if (j == nodes.length - 1) {
+
+                // TODO: CHANGE OUTPUT FROM DEBUG TO END-USER
+                document.getElementById("circuitOutput").innerHTML += "" + output + "<br>";
+
+            }
+
+        }
 
     }
 
