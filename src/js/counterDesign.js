@@ -630,14 +630,20 @@ new Vue ({
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (var j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | "
 
             }
 
@@ -775,20 +781,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -926,20 +938,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -1077,20 +1095,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (var j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -1228,20 +1252,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -1379,20 +1409,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -2020,14 +2056,20 @@ function showSRCounter() {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -2165,20 +2207,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2316,20 +2364,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2467,20 +2521,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2618,20 +2678,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2769,20 +2835,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -3413,15 +3485,20 @@ function showJKCounter() {
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
+                else {
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -3559,20 +3636,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Jb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Jb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -3710,20 +3793,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ja: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ja: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -3861,20 +3950,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Kc: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Kc: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4012,20 +4107,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Kb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Kb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4163,20 +4264,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ka: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ka: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4587,14 +4694,20 @@ function showDCounter() {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -4732,20 +4845,26 @@ function showDCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Db: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Db: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4883,20 +5002,26 @@ function showDCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Da: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Da: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -5418,14 +5543,20 @@ function showTCounter() {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -5563,20 +5694,26 @@ function showTCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Tb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Tb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -5714,20 +5851,26 @@ function showTCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ta: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ta: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 

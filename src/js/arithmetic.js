@@ -112,7 +112,7 @@ var additionQuiz = new Vue ({
     template: '<div class="addition-quiz" id="quiz">'+
     '<h2 class="sub-header">Practice Problems</h2>'+
     '<form id="addition_quiz_form">'+
-    '<p id="first_quiz_number"></p>'+
+    '<p id="first_quiz_number" style="margin-left: 6.5%;"></p>'+
     '<p id="second_quiz_number"></p>'+
     '<p id="quiz_border" class="border"></p>'+
     '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
@@ -128,7 +128,7 @@ var additionQuiz = new Vue ({
             e.preventDefault();
 
             firstQuizNumPlaceholder.innerHTML = "";
-            secondQuizNumPlaceholder.innerHTML = "";
+            secondQuizNumPlaceholder.innerHTML = "+ ";
 
             for (var i = 0; i < firstQuizNum.length; i++) {
 
@@ -151,7 +151,7 @@ var additionQuiz = new Vue ({
             var quizOutput = document.getElementById("quiz_output_add");
 
             var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-            var secondNumber = parseInt(document.getElementById("second_quiz_number").innerHTML, 2);
+            var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
             var userAnswer = additionQuizForm.userAnswer.value;
 
             var actualAnswer = (firstNumber+secondNumber).toString(2);
@@ -182,7 +182,7 @@ var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
 firstQuizNumPlaceholder.innerHTML = "";
-secondQuizNumPlaceholder.innerHTML = "";
+secondQuizNumPlaceholder.innerHTML = "+ ";
 
 // Sets random binary digits to each quiz number
 // and injects generated values into HTML for user viewing
@@ -333,7 +333,7 @@ $("#binary_addition").click(function() {
         template: '<div class="addition-quiz" id="quiz">'+
         '<h2 class="sub-header">Practice Problems</h2>'+
         '<form id="addition_quiz_form">'+
-        '<p id="first_quiz_number"></p>'+
+        '<p id="first_quiz_number" style="margin-left: 6.5%;"></p>'+
         '<p id="second_quiz_number"></p>'+
         '<p id="quiz_border" class="border"></p>'+
         '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
@@ -349,7 +349,7 @@ $("#binary_addition").click(function() {
                 e.preventDefault();
 
                 firstQuizNumPlaceholder.innerHTML = "";
-                secondQuizNumPlaceholder.innerHTML = "";
+                secondQuizNumPlaceholder.innerHTML = "+ ";
 
                 for (var i = 0; i < firstQuizNum.length; i++) {
 
@@ -372,7 +372,7 @@ $("#binary_addition").click(function() {
                 var quizOutput = document.getElementById("quiz_output_add");
 
                 var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-                var secondNumber = parseInt(document.getElementById("second_quiz_number").innerHTML, 2);
+                var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
                 var userAnswer = additionQuizForm.userAnswer.value;
 
                 var actualAnswer = (firstNumber+secondNumber).toString(2);
@@ -399,7 +399,7 @@ $("#binary_addition").click(function() {
     var secondQuizNumPlaceholder = document.getElementById("second_quiz_number");
 
     firstQuizNumPlaceholder.innerHTML = "";
-    secondQuizNumPlaceholder.innerHTML = "";
+    secondQuizNumPlaceholder.innerHTML = "+ ";
 
     // Initialize quiz numbers to be randomized
     var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -508,7 +508,7 @@ $("#binary_subtraction").click(function() {
         template: '<div class="subtraction-quiz" id="quiz">'+
         '<h2 class="sub-header">Practice Problems</h2>'+
         '<form id="subtraction_quiz_form">'+
-        '<p id="first_quiz_number"></p>'+
+        '<p id="first_quiz_number" style="margin-left: 5.5%;"></p>'+
         '<p id="second_quiz_number"></p>'+
         '<p id="quiz_border" class="border"></p>'+
         '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
@@ -524,7 +524,7 @@ $("#binary_subtraction").click(function() {
                 e.preventDefault();
 
                 firstQuizNumPlaceholder.innerHTML = "";
-                secondQuizNumPlaceholder.innerHTML = "";
+                secondQuizNumPlaceholder.innerHTML = "- ";
 
                 for (var i = 0; i < firstQuizNum.length; i++) {
 
@@ -547,7 +547,7 @@ $("#binary_subtraction").click(function() {
                 var quizOutput = document.getElementById("quiz_output_sub");
 
                 var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-                var secondNumber = parseInt(document.getElementById("second_quiz_number").innerHTML, 2);
+                var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
                 var userAnswer = subtractionQuizForm.userAnswer.value;
 
                 var actualAnswer1 = (firstNumber-secondNumber).toString(2);
@@ -583,7 +583,7 @@ $("#binary_subtraction").click(function() {
     var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
     firstQuizNumPlaceholder.innerHTML = "";
-    secondQuizNumPlaceholder.innerHTML = "";
+    secondQuizNumPlaceholder.innerHTML = "- ";
 
     // Sets random binary digits to each quiz number
     // and injects generated values into HTML for user viewing
@@ -674,7 +674,7 @@ $("#binary_multiplication").click(function() {
         template: '<div class="multiplication-quiz" id="quiz">'+
         '<h2 class="sub-header">Practice Problems</h2>'+
         '<form id="multiplication_quiz_form">'+
-        '<p id="first_quiz_number"></p>'+
+        '<p id="first_quiz_number" style="margin-left: 5.5%;"></p>'+
         '<p id="second_quiz_number"></p>'+
         '<p id="quiz_border" class="border"></p>'+
         '<input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>'+
@@ -690,7 +690,7 @@ $("#binary_multiplication").click(function() {
                 e.preventDefault();
 
                 firstQuizNumPlaceholder.innerHTML = "";
-                secondQuizNumPlaceholder.innerHTML = "";
+                secondQuizNumPlaceholder.innerHTML = "* ";
 
                 for (var i = 0; i < firstQuizNum.length; i++) {
 
@@ -713,7 +713,7 @@ $("#binary_multiplication").click(function() {
                 var quizOutput = document.getElementById("quiz_output_mult");
 
                 var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-                var secondNumber = parseInt(document.getElementById("second_quiz_number").innerHTML, 2);
+                var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
                 var userAnswer = multiplicationQuizForm.userAnswer.value;
 
                 var actualAnswer = (firstNumber*secondNumber).toString(2);
@@ -743,7 +743,7 @@ $("#binary_multiplication").click(function() {
     var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
     firstQuizNumPlaceholder.innerHTML = "";
-    secondQuizNumPlaceholder.innerHTML = "";
+    secondQuizNumPlaceholder.innerHTML = "* ";
 
     // Sets random binary digits to each quiz number
     // and injects generated values into HTML for user viewing

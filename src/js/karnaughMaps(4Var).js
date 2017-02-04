@@ -393,15 +393,23 @@ $("#display_four_var_km").click(function() {
                 // Shows simplified boolean expression
                 kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups (Cell #s): ";
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groups.length; i++) {
+                if (groups[0].length == 16) {
+                    kmOutput.innerHTML += "All cells";
+                }
 
-                    kmOutput.innerHTML += "[ ";
+                if (groups[0].length != 16) {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        kmOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+                        kmOutput.innerHTML += "] "
+
                     }
-                    kmOutput.innerHTML += "] "
 
                 }
 
@@ -658,15 +666,23 @@ $("#display_four_var_km").click(function() {
                 // Shows simplified boolean expression
                 kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups (Cell #s): ";
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groups.length; i++) {
+                if (groups[0].length == 16) {
+                    kmOutput.innerHTML += "All cells";
+                }
 
-                    kmOutput.innerHTML += "[ ";
+                if (groups[0].length != 16) {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        kmOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+                        kmOutput.innerHTML += "] "
+
                     }
-                    kmOutput.innerHTML += "] "
 
                 }
 
