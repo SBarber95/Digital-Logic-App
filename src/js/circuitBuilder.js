@@ -230,10 +230,10 @@ function redrawWires(e) {
 
             // Looks for the proper wire in the corresponding input component's connections array
             var inputSideWire;
-            for (i = 0; i < circuitComponents[inputSideIndex].inputConnections.length; ++i) {
+            for (var j = 0; j < circuitComponents[inputSideIndex].inputConnections.length; ++j) {
 
-                if (circuitComponents[inputSideIndex].inputConnections[i].wireId == currentWire.wireId) {
-                    inputSideWire = circuitComponents[inputSideIndex].inputConnections[i];
+                if (circuitComponents[inputSideIndex].inputConnections[j].wireId == currentWire.wireId) {
+                    inputSideWire = circuitComponents[inputSideIndex].inputConnections[j];
                 }
 
             }
@@ -300,9 +300,6 @@ $("#delete_circuit").click(function() {
  * traversal.
  */
 function simulate() {
-
-    // Clear previous debug output
-    document.getElementById("circuitOutput").innerHTML = "";
 
     // Create Array of outputs (which will become the roots)
     var treeRoots = [];
@@ -374,6 +371,7 @@ function simulate() {
 
         var nodes = [];
 
+        // Builds the simulation order by tree traversal
         root.walk({strategy: 'post'}, function (node) {
             nodes.push(node.model.id);
         });
@@ -403,8 +401,17 @@ function simulate() {
 
             if (j == nodes.length - 1) {
 
-                // TODO: CHANGE OUTPUT FROM DEBUG TO END-USER
-                document.getElementById("circuitOutput").innerHTML += "" + output + "<br>";
+                var outputID = currentComponent.id;
+                outputID = document.getElementById(outputID).firstElementChild;
+
+                // Color output to show true value (green)
+                if (output) {
+                    outputID.setAttribute("style", "stroke: #06c400");
+                }
+                // Color output to show false value (red)
+                else {
+                    outputID.setAttribute("style", "stroke: #ef0000");
+                }
 
             }
 
