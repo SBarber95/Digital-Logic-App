@@ -5339,6 +5339,14 @@ function showTCounter() {
                         outputValues[i][0] = "1";
 
                     }
+                    else if ((tableInputs[i][0] == "1" && tableInputs[i][1] == "X") ||
+                            (tableInputs[i][0] == "0" && tableInputs[i][1] == "X")) {
+
+                        document.getElementById(tableOutputIds[i]).innerHTML = "X";
+
+                        outputValues[i][0] = "X";
+
+                    }
                     else {
 
                         document.getElementById(tableOutputIds[i]).innerHTML = "0";
