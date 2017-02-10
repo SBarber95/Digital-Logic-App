@@ -31,8 +31,31 @@ new Vue ({
     '</ul>'+
     '</div>'+
 '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-    '<h1 class="page-header">S-R Counter Design</h1>'+
-'<div class="table-responsive">'+
+    '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+    'Instructions!'+
+    '</button>'+
+    '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+    '<div class="modal-dialog" role="document">'+
+    '<div class="modal-content">'+
+    '<div class="modal-header">'+
+    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+    '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+    '</div>'+
+    '<div class="modal-body">'+
+    'Fill out the table entries according to the state changes you wish to include in your counter. '+
+    'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+    'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+    'output column will be populated with the table information. Finally, at the bottom there will be a '+
+    'simplified boolean expression for the counter.'+
+    '</div>'+
+    '<div class="modal-footer">'+
+    '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+    '</div>'+
+    '</div>'+
+    '</div>'+
+    '</div>'+
+    'S-R Counter Design</h1>'+
+    '<div class="table-responsive">'+
     '<form name="sr-counter-design" id="sr_counter_design">'+
     '<table class="table table-striped">'+
     '<thead>'+
@@ -1441,6 +1464,7 @@ new Vue ({
 });
 
 function showSRCounter() {
+
     new Vue ({
         el: '#placeholder',
         template: '<div class="container-fluid" id="placeholder">'+
@@ -1457,7 +1481,30 @@ function showSRCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">S-R Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'S-R Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="sr-counter-design" id="sr_counter_design">'+
         '<table class="table table-striped">'+
@@ -2887,7 +2934,30 @@ function showJKCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">J-K Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'J-K Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="jk-counter-design" id="jk_counter_design">'+
         '<table class="table table-striped">'+
@@ -4317,7 +4387,30 @@ function showDCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">D Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'D Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="d-counter-design" id="d_counter_design">'+
         '<table class="table table-striped">'+
@@ -5054,7 +5147,30 @@ function showTCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">T Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'T Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="t-counter-design" id="t_counter_design">'+
         '<table class="table table-striped">'+
