@@ -233,6 +233,9 @@ var threeVarKarnaughMap = new Vue ({
                 }
 
             }
+            else {
+                kmOutput.innerHTML += "All cells";
+            }
 
         },
         simplifyMaxterms: function(e) {
@@ -660,6 +663,9 @@ $("#display_three_var_km").click(function() {
                     }
 
                 }
+                else {
+                    kmOutput.innerHTML += "All cells";
+                }
 
             },
             simplifyMaxterms: function(e) {
@@ -810,11 +816,7 @@ $("#display_three_var_km").click(function() {
                 // Shows simplified boolean expression
                 kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups(Cell #s): ";
 
-                if (newBooleanExp == "0") {
-                    kmOutput.innerHTML += "All cells";
-                }
-
-                if (groups.length != 8) {
+                if (groups[0].length != 8) {
 
                     // Print debugged output of groups in cell numbers separated by a line break
                     for (i = 0; i < groups.length; i++) {
@@ -828,6 +830,9 @@ $("#display_three_var_km").click(function() {
 
                     }
 
+                }
+                else {
+                    kmOutput.innerHTML += "All cells";
                 }
 
             }
