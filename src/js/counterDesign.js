@@ -31,8 +31,31 @@ new Vue ({
     '</ul>'+
     '</div>'+
 '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-    '<h1 class="page-header">S-R Counter Design</h1>'+
-'<div class="table-responsive">'+
+    '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+    'Instructions!'+
+    '</button>'+
+    '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+    '<div class="modal-dialog" role="document">'+
+    '<div class="modal-content">'+
+    '<div class="modal-header">'+
+    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+    '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+    '</div>'+
+    '<div class="modal-body">'+
+    'Fill out the table entries according to the state changes you wish to include in your counter. '+
+    'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+    'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+    'output column will be populated with the table information. Finally, at the bottom there will be a '+
+    'simplified boolean expression for the counter.'+
+    '</div>'+
+    '<div class="modal-footer">'+
+    '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+    '</div>'+
+    '</div>'+
+    '</div>'+
+    '</div>'+
+    'S-R Counter Design</h1>'+
+    '<div class="table-responsive">'+
     '<form name="sr-counter-design" id="sr_counter_design">'+
     '<table class="table table-striped">'+
     '<thead>'+
@@ -630,14 +653,20 @@ new Vue ({
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (var j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | "
 
             }
 
@@ -775,20 +804,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -926,20 +961,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -1077,20 +1118,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (var j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -1228,20 +1275,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -1379,20 +1432,26 @@ new Vue ({
             newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
             // Shows simplified boolean expression
-            designOutput.innerHTML += "Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
+            designOutput.innerHTML += "<br>Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
             if (groups[0].length == 8) {
                 designOutput.innerHTML += "Full Karnaugh Map";
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            else {
 
-                for (j = 0; j < groups[i].length; j++) {
-                    designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    designOutput.innerHTML += "[ ";
+
+                    for (j = 0; j < groups[i].length; j++) {
+                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+
+                    designOutput.innerHTML += "] "
+
                 }
-
-                designOutput.innerHTML += " | ";
 
             }
 
@@ -1405,6 +1464,7 @@ new Vue ({
 });
 
 function showSRCounter() {
+
     new Vue ({
         el: '#placeholder',
         template: '<div class="container-fluid" id="placeholder">'+
@@ -1421,7 +1481,30 @@ function showSRCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">S-R Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'S-R Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="sr-counter-design" id="sr_counter_design">'+
         '<table class="table table-striped">'+
@@ -2020,14 +2103,20 @@ function showSRCounter() {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -2165,20 +2254,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Sb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2316,20 +2411,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Sa: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2467,20 +2568,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Rc: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2618,20 +2725,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Rb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2769,20 +2882,26 @@ function showSRCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ra: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -2815,7 +2934,30 @@ function showJKCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">J-K Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'J-K Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="jk-counter-design" id="jk_counter_design">'+
         '<table class="table table-striped">'+
@@ -3413,15 +3555,20 @@ function showJKCounter() {
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
+                else {
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -3559,20 +3706,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Jb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Jb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -3710,20 +3863,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ja: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ja: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -3861,20 +4020,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Kc: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Kc: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4012,20 +4177,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Kb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Kb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4163,20 +4334,26 @@ function showJKCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ka: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ka: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4210,7 +4387,30 @@ function showDCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">D Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'D Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="d-counter-design" id="d_counter_design">'+
         '<table class="table table-striped">'+
@@ -4587,14 +4787,20 @@ function showDCounter() {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -4732,20 +4938,26 @@ function showDCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Db: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Db: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4883,20 +5095,26 @@ function showDCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Da: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Da: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -4911,7 +5129,6 @@ function showDCounter() {
 }
 
 // T Counter -------------------------------------------------------------------------------
-
 function showTCounter() {
 
     new Vue ({
@@ -4930,7 +5147,30 @@ function showTCounter() {
         '</ul>'+
         '</div>'+
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="canvas">'+
-        '<h1 class="page-header">T Counter Design</h1>'+
+        '<h1 class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Fill out the table entries according to the state changes you wish to include in your counter. '+
+        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
+        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
+        'output column will be populated with the table information. Finally, at the bottom there will be a '+
+        'simplified boolean expression for the counter.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        'T Counter Design</h1>'+
         '<div class="table-responsive">'+
         '<form name="t-counter-design" id="t_counter_design">'+
         '<table class="table table-striped">'+
@@ -5215,6 +5455,14 @@ function showTCounter() {
                         outputValues[i][0] = "1";
 
                     }
+                    else if ((tableInputs[i][0] == "1" && tableInputs[i][1] == "X") ||
+                            (tableInputs[i][0] == "0" && tableInputs[i][1] == "X")) {
+
+                        document.getElementById(tableOutputIds[i]).innerHTML = "X";
+
+                        outputValues[i][0] = "X";
+
+                    }
                     else {
 
                         document.getElementById(tableOutputIds[i]).innerHTML = "0";
@@ -5419,14 +5667,20 @@ function showTCounter() {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | "
 
                 }
 
@@ -5564,20 +5818,26 @@ function showTCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Tb: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Tb: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 
@@ -5715,20 +5975,26 @@ function showTCounter() {
                 newBooleanExp = newBooleanExp.substring(0, newBooleanExp.length - 2);
 
                 // Shows simplified boolean expression
-                designOutput.innerHTML += "Ta: " + newBooleanExp + "<br>Groups (Cell #s): ";
+                designOutput.innerHTML += "<br>Ta: " + newBooleanExp + "<br>Groups (Cell #s): ";
 
                 if (groups[0].length == 8) {
                     designOutput.innerHTML += "Full Karnaugh Map";
                 }
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                else {
 
-                    for (j = 0; j < groups[i].length; j++) {
-                        designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        designOutput.innerHTML += "[ ";
+
+                        for (j = 0; j < groups[i].length; j++) {
+                            designOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+
+                        designOutput.innerHTML += "] "
+
                     }
-
-                    designOutput.innerHTML += " | ";
 
                 }
 

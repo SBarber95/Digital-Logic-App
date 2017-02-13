@@ -14,11 +14,12 @@ var wires = [];
 // TODO: PERHAPS STORE INFO OF LATEST COMPONENT OR WIRE MADE FOR UNDO PURPOSES
 
 // Wire class definition
-function Wire(outputSide, inputSide, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX, outputCompOffsetY,
+function Wire(outputSide, inputSide, inputNumber, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX, outputCompOffsetY,
                 inputCompOffsetX, inputCompOffsetY) {
 
     this.outputSide = outputSide;
     this.inputSide = inputSide;
+    this.inputNumber = inputNumber;
     this.wireId = wireId;
     this.outputX = outputX;
     this.outputY = outputY;
@@ -75,6 +76,10 @@ function findInputCoords(e) {
 
     else {
 
+        // Grabs which input the wire will be connecting to
+        var inputNum = e.getAttribute("class");
+        inputNum = inputNum.substring(inputNum.length - 1, inputNum.length);
+
         inputComponent = e.parentNode.getAttribute("id");
 
         // Grab attribute of clicked element that sets coordinate values
@@ -112,7 +117,7 @@ function findInputCoords(e) {
             strokeWidth: 2.3
         });
 
-        wires[wireIdNum] = new Wire(outputComponent, inputComponent, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX,
+        wires[wireIdNum] = new Wire(outputComponent, inputComponent, inputNum, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX,
                                  outputCompOffsetY, inputCompOffsetX, inputCompOffsetY);
 
         var inputComponentIndex = Number(inputComponent.substring(10, inputComponent.length));
@@ -179,7 +184,7 @@ function redrawWires(e) {
             var wireId = currentWire.wireId;
 
             var newWireIdNum = Number(wireId.substring(5, wireId.length));
-            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, currentWire.outputX, currentWire.outputY,
+            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, currentWire.inputNumber,  wireId, currentWire.outputX, currentWire.outputY,
                 newInputX, newInputY, currentWire.outputCompOffsetX, currentWire.outputCompOffsetY, newCompOffsetX, newCompOffsetY);
             componentObject.inputConnections[i] = wires[newWireIdNum];
             outputSideWire.inputX = newInputX;
@@ -225,10 +230,10 @@ function redrawWires(e) {
 
             // Looks for the proper wire in the corresponding input component's connections array
             var inputSideWire;
-            for (i = 0; i < circuitComponents[inputSideIndex].inputConnections.length; ++i) {
+            for (var j = 0; j < circuitComponents[inputSideIndex].inputConnections.length; ++j) {
 
-                if (circuitComponents[inputSideIndex].inputConnections[i].wireId == currentWire.wireId) {
-                    inputSideWire = circuitComponents[inputSideIndex].inputConnections[i];
+                if (circuitComponents[inputSideIndex].inputConnections[j].wireId == currentWire.wireId) {
+                    inputSideWire = circuitComponents[inputSideIndex].inputConnections[j];
                 }
 
             }
@@ -247,7 +252,7 @@ function redrawWires(e) {
 
             wireId = currentWire.wireId;
             newWireIdNum = Number(wireId.substring(5, wireId.length));
-            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, wireId, newOutputX, newOutputY,
+            wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, currentWire.inputNumber, wireId, newOutputX, newOutputY,
                 currentWire.inputX, currentWire.inputY, newCompOffsetX, newCompOffsetY, currentWire.inputCompOffsetX, currentWire.inputCompOffsetY);
             componentObject.outputConnections[i] = wires[newWireIdNum];
             inputSideWire.outputX = newOutputX;
@@ -288,3 +293,130 @@ $("#delete_circuit").click(function() {
     }
 
 });
+
+/**
+ * Simulates the logic of the built circuit by building a subtree for
+ * each output component, then evaluating outputs in a postorder
+ * traversal.
+ */
+function simulate() {
+
+    // Create Array of outputs (which will become the roots)
+    var treeRoots = [];
+    for (var i = 0; i < circuitComponents.length; ++i) {
+
+        if (circuitComponents[i].outputConnections.length == 0) {
+            treeRoots.push(circuitComponents[i]);
+        }
+
+    }
+
+    for (i = 0; i < treeRoots.length; ++i) {
+
+        var tree = new TreeModel();
+
+        var rootId = (treeRoots[i].id).substring(10, treeRoots[i].id.length);
+
+        var children = [];
+        var tempChildren = [];
+
+        // Set root
+        var root = tree.parse({id: rootId});
+
+        // Current parent node is the root
+        var parentTreeNode = root.first(function(node) {
+            return node.model.id === rootId;
+        });
+
+        // Initial child-finding loop for the root's children
+        for (var j = 0; j < treeRoots[i].inputConnections.length; ++j) {
+
+            var childId = treeRoots[i].inputConnections[j].outputSide;
+            childId = childId.substring(10, childId.length);
+            var newChild = tree.parse({id: childId});
+
+            parentTreeNode.addChild(newChild);
+            var childComponent = circuitComponents[childId];
+            tempChildren.push(childComponent);
+
+        }
+
+        // Loop for all subsequent levels of the circuits
+        while (tempChildren.length != 0) {
+
+            children = tempChildren.slice();
+            tempChildren = [];
+
+            for (j = 0; j < children.length; ++j) {
+
+                parentTreeNode = root.first(function(node) {
+                    return node.model.id === (children[j].id).substring(10, children[j].id.length);
+                });
+
+                for (var k = 0; k < children[j].inputConnections.length; ++k) {
+
+                    childId = children[j].inputConnections[k].outputSide;
+                    childId = childId.substring(10, childId.length);
+                    newChild = tree.parse({id: childId});
+
+                    parentTreeNode.addChild(newChild);
+                    childComponent = circuitComponents[childId];
+                    tempChildren.push(childComponent);
+
+                }
+
+            }
+
+        }
+
+        var nodes = [];
+
+        // Builds the simulation order by tree traversal
+        root.walk({strategy: 'post'}, function (node) {
+            nodes.push(node.model.id);
+        });
+
+        for (j = 0; j < nodes.length; ++j) {
+
+            var currentComponent = circuitComponents[nodes[j]];
+
+            var output = currentComponent.output();
+
+            for (k = 0; k < currentComponent.outputConnections.length; ++k) {
+
+                var inputNum = currentComponent.outputConnections[k].inputNumber;
+                var nextComponentIndex = Number(currentComponent.outputConnections[k].inputSide.substring(10));
+
+                if (inputNum == "1") {
+                    circuitComponents[nextComponentIndex].input1 = output;
+                }
+                else if (inputNum == "2") {
+                    circuitComponents[nextComponentIndex].input2 = output;
+                }
+                else if (inputNum == "3") {
+                    circuitComponents[nextComponentIndex].input3 = output;
+                }
+
+            }
+
+            if (j == nodes.length - 1) {
+
+                var outputID = currentComponent.id;
+                outputID = document.getElementById(outputID).firstElementChild;
+
+                // Color output to show true value (green)
+                if (output) {
+                    outputID.setAttribute("style", "stroke: #06c400");
+                }
+                // Color output to show false value (red)
+                else {
+                    outputID.setAttribute("style", "stroke: #ef0000");
+                }
+
+            }
+
+        }
+
+    }
+
+}

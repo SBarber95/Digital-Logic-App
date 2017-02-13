@@ -26,13 +26,13 @@
        d="m 31,16.150564 -20.89,0"
        id="input-A2-AND"
        aria-label="22.2"
-       class="gate-input"
+       class="gate-input input1"
        ondblclick="findInputCoords(this)"
        style="fill:none;stroke-width:1.78999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
     </path>
     <path
        d="m 32,34.140661 -22.02,0"
-       class="gate-input"
+       class="gate-input input2"
        id="input-B2-AND"
        aria-label="47"
        ondblclick="findInputCoords(this)"

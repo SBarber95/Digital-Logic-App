@@ -218,14 +218,23 @@ var threeVarKarnaughMap = new Vue ({
             // Shows simplified boolean expression
             kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups (Cell #s): ";
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            if (groups[0].length != 8) {
 
-                for (var j = 0; j < groups[i].length; j++) {
-                    kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    kmOutput.innerHTML += "[ ";
+
+                    for (var j = 0; j < groups[i].length; j++) {
+                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+                    kmOutput.innerHTML += "] "
+
                 }
-                kmOutput.innerHTML += " | "
 
+            }
+            else {
+                kmOutput.innerHTML += "All cells";
             }
 
         },
@@ -377,13 +386,19 @@ var threeVarKarnaughMap = new Vue ({
                 kmOutput.innerHTML += "All cells"
             }
 
-            // Print debugged output of groups in cell numbers separated by a line break
-            for (i = 0; i < groupIndex; i++) {
+            if (groups[0].length != 8) {
 
-                for (var j = 0; j < groups[i].length; j++) {
-                    kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                // Print debugged output of groups in cell numbers separated by a line break
+                for (i = 0; i < groups.length; i++) {
+
+                    kmOutput.innerHTML += "[ ";
+
+                    for (var j = 0; j < groups[i].length; j++) {
+                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    }
+                    kmOutput.innerHTML += "] "
+
                 }
-                kmOutput.innerHTML += " | "
 
             }
 
@@ -633,14 +648,23 @@ $("#display_three_var_km").click(function() {
                 // Shows simplified boolean expression
                 kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups (Cell #s): ";
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                if (groups[0].length != 8) {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        kmOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+                        kmOutput.innerHTML += "] "
+
                     }
-                    kmOutput.innerHTML += " | "
 
+                }
+                else {
+                    kmOutput.innerHTML += "All cells";
                 }
 
             },
@@ -792,18 +816,23 @@ $("#display_three_var_km").click(function() {
                 // Shows simplified boolean expression
                 kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups(Cell #s): ";
 
-                if (newBooleanExp == "0") {
-                    kmOutput.innerHTML += "All cells"
-                }
+                if (groups[0].length != 8) {
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        kmOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+                        kmOutput.innerHTML += "] "
+
                     }
-                    kmOutput.innerHTML += " | "
 
+                }
+                else {
+                    kmOutput.innerHTML += "All cells";
                 }
 
             }
