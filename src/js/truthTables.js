@@ -159,8 +159,31 @@ var threeVarTruthTable = new Vue({
 });
 
 $("#display-three-var-tt").click(function() {
-    var header = document.getElementById("truth_table_header");
-    header.innerHTML = "3-Variable Truth Table";
+
+    document.getElementById("truth_table_header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#minMaxModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="minMaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Simply enter the output values in the output column of the table. Click on one of the '+
+        '"simplify" buttons to receive the minterm or maxterm expression. NOTE: The min/maxterm '+
+        'expression you receive here is NOT simplified! If you desire a simplified expression, '+
+        'you can use the output here with the Karnaugh Map feature.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '3-Variable Truth Table';
+
     var table = document.getElementById("table-placeholder");
     table.setAttribute("class", "three-var-tt");
     // Three Variable Truth Table Component ----------------------------
@@ -320,10 +343,34 @@ $("#display-three-var-tt").click(function() {
 });
 
 $("#display-four-var-tt").click(function() {
-    var header = document.getElementById("truth_table_header");
-    header.innerHTML = "4-Variable Truth Table";
+
+    document.getElementById("truth_table_header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#minMaxModal">'+
+        'Instructions!'+
+        '</button>'+
+        '<div class="modal fade" id="minMaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+        '<div class="modal-dialog" role="document">'+
+        '<div class="modal-content">'+
+        '<div class="modal-header">'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+        '<h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>'+
+        '</div>'+
+        '<div class="modal-body">'+
+        'Simply enter the output values in the output column of the table. Click on one of the '+
+        '"simplify" buttons to receive the minterm or maxterm expression. NOTE: The min/maxterm '+
+        'expression you receive here is NOT simplified! If you desire a simplified expression, '+
+        'you can use the output here with the Karnaugh Map feature.'+
+        '</div>'+
+        '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '4-Variable Truth Table';
+
     var table = document.getElementById("table-placeholder");
     table.setAttribute("class", "four-var-tt");
+
     // Four Variable Truth Table Component ----------------------------
     var fourVarTruthTable = new Vue({
         el: '.four-var-tt',

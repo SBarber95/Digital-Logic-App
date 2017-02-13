@@ -192,7 +192,7 @@ $("#display_four_var_km").click(function() {
                     [cell1, cell3, cell5, cell7], [cell5, cell7, cell13, cell15],
                     [cell9, cell11, cell13, cell15], [cell2, cell3, cell6, cell7],
                     [cell6, cell7, cell14, cell15], [cell10, cell11, cell14, cell15]];
-                var simpleMins4Group = ["B'D' ", "C'D' ", "C'D", "CD ", "CD' ", "A'B' ", "A'B ", "AB ", "AB' ", "A'D' ",
+                var simpleMins4Group = ["B'D' ", "C'D' ", "C'D ", "CD ", "CD' ", "A'B' ", "A'B ", "AB ", "AB' ", "A'D' ",
                     "BD' ", "AD' ", "B'C' ", "B'D ", "B'C ", "A'C' ", "BC' ", "AC' ", "A'D ",
                     "BD ", "AD ", "A'C ", "BC ", "AC "];
 
@@ -393,13 +393,23 @@ $("#display_four_var_km").click(function() {
                 // Shows simplified boolean expression
                 kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups (Cell #s): ";
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                if (groups[0].length == 16) {
+                    kmOutput.innerHTML += "All cells";
+                }
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                if (groups[0].length != 16) {
+
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        kmOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+                        kmOutput.innerHTML += "] "
+
                     }
-                    kmOutput.innerHTML += " | "
 
                 }
 
@@ -656,13 +666,23 @@ $("#display_four_var_km").click(function() {
                 // Shows simplified boolean expression
                 kmOutput.innerHTML += "" + newBooleanExp + "<br>Groups (Cell #s): ";
 
-                // Print debugged output of groups in cell numbers separated by a line break
-                for (i = 0; i < groupIndex; i++) {
+                if (groups[0].length == 16) {
+                    kmOutput.innerHTML += "All cells";
+                }
 
-                    for (var j = 0; j < groups[i].length; j++) {
-                        kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                if (groups[0].length != 16) {
+
+                    // Print debugged output of groups in cell numbers separated by a line break
+                    for (i = 0; i < groups.length; i++) {
+
+                        kmOutput.innerHTML += "[ ";
+
+                        for (var j = 0; j < groups[i].length; j++) {
+                            kmOutput.innerHTML += "" + groups[i][j].cellNum + " ";
+                        }
+                        kmOutput.innerHTML += "] "
+
                     }
-                    kmOutput.innerHTML += " | "
 
                 }
 

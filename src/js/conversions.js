@@ -367,7 +367,7 @@ $("#octal_conversions").click(function () {
         el: '#convert-component',
         template: '<div id="convert-component">' +
         '<form id="oct-converter">' +
-        '<input type="text" class="octal-value" name="octalValue" placeholder="Enter a Octal Value" required><br>' +
+        '<input type="text" class="octal-value" name="octalValue" placeholder="Enter an Octal Value" required><br>' +
         'Select Desired Base: <select name="desiredBase"><option value="2">2</option>' +
         '<option value="10">10</option>' +
         '<option value="16">16</option></select><br>' +

@@ -16,6 +16,50 @@
     <link href="../css/workspace.css" rel="stylesheet">
     <link href="../css/circuitDesignStyle.css" rel="stylesheet">
 
+    <style>
+        .context-menu {
+            display: none;
+            position: absolute;
+            z-index: 10;
+            padding: 12px 0;
+            width: 240px;
+            background-color: #fff;
+            border: solid 1px #dfdfdf;
+            box-shadow: 1px 1px 2px #cfcfcf;
+        }
+
+        .context-menu--active {
+            display: block;
+        }
+
+        .context-menu__items {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .context-menu__item {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .context-menu__item:last-child {
+            margin-bottom: 0;
+        }
+
+        .context-menu__link {
+            display: block;
+            padding: 4px 12px;
+            color: #626d71;
+            text-decoration: none;
+        }
+
+        .context-menu__link:hover {
+            color: #fff;
+            background-color: #b38867;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -138,12 +182,19 @@
                         the options. Clicking on any option will add that corresponding component to
                         the designated designer canvas.
                         <h3 class="sub-header">How to Draw Wires Between Components</h3>
-                        To make connections between circuit components, first double click on a
-                        component's output (make sure it highlights in a different color when you double click).
-                        Then, click on the second component's input. It should also highlight in a different color
-                        when it is ready to be double clicked. A wire will then be drawn between both components.
+                        To make connections between circuit components, first double-click on a
+                        component's output (make sure it highlights in a different color when you double-click).
+                        Then, double-click on the second component's input. It should also highlight in a different color
+                        when it is ready to be double-clicked. A wire will then be drawn between both components.
+                        <h3 class="sub-header">Setting Inputs</h3>
+                        All inputs for each component are false by default. To toggle an input signal, right click on the
+                        input you wish to change.  A menu will pop up with options. Select "toggle input". The associated
+                        input will change color based in its current value (Green = true; Red = false).
                         <h3 class="sub-header">Running Simulations</h3>
-                        Instructions coming soon when simulations are implemented!
+                        When your circuit is fully connected, click on the Simulate button on the right side
+                        of the screen. The application can evaluate both single and multiple-output circuits.
+                        The outputs will change color in association with the simulated value (Green = true;
+                        Red = false).
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -152,8 +203,19 @@
             </div>
         </div>
         <button type="button" id="delete_circuit" style="position: relative; left: 81.2%; top: 70px;" class="btn btn-danger">Delete Circuit</button>
+        <button type="button" id="simulate" onclick="simulate()" style="position: relative; left: 74.7%; top: 130px;" class="btn btn-primary">Simulate</button>
     </div>
 </div>
+<nav id="context-menu" class="context-menu">
+    <ul class="context-menu__items">
+        <li class="context-menu__item">
+            <a href="#" class="context-menu__link" id="toggle_input" data-action="View"><i class="fa fa-cogs"></i> Toggle Input</a>
+        </li>
+        <li class="context-menu__item">
+            <a href="#" class="context-menu__link" id="delete_component" data-action="Delete"><i class="fa fa-times"></i> Delete Component</a>
+        </li>
+    </ul>
+</nav>
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -161,6 +223,8 @@
 <script src="../js/libs/docs.min.js"></script>
 <script src="../js/libs/vue.min.js"></script>
 <script src="../js/libs/snap.svg-min.js"></script>
+<script src="../js/libs/TreeModel-min.js"></script>
+<script src="../js/circuitContextMenus.js"></script>
 
 <!-- Component Scripts -->
 <script src="../js/circuitBuilder.js"></script>
