@@ -247,6 +247,19 @@
 
     });
 
+    $("#delete_component").click(function () {
+
+        // TODO: BEFORE GETTING RID OF COMPONENT FROM ARRAY, MUST DELETE ALL CONNECTING WIRES (VISUALLY
+        // TODO: AND LOGICALLY), AS WELL AS ADJACENT COMPONENTS' CONNECTIONS (LOGICALLY ONLY)
+
+        var circuitComponent = circuitComponents[Number(associatedItemId.substring(10))];
+
+        circuitComponents[Number(associatedItemId.substring(10))] = null;
+
+        $("#" + associatedItemId).remove();
+
+    });
+
     /**
      * Dummy action function that logs an action when a menu item link is clicked
      *

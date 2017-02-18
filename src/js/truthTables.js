@@ -171,8 +171,8 @@ $("#display-three-var-tt").click(function() {
         '<h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>'+
         '</div>'+
         '<div class="modal-body">'+
-        'Simply enter the output values in the output column of the table. Click on one of the '+
-        '"simplify" buttons to receive the minterm or maxterm expression. NOTE: The min/maxterm '+
+        'Select the output values in the table and click "Find Min/Maxterms" '+
+        'to receive the minterm and maxterm expression. <br>NOTE: The min/maxterm '+
         'expression you receive here is NOT simplified! If you desire a simplified expression, '+
         'you can use the output here with the Karnaugh Map feature.'+
         '</div>'+
@@ -355,8 +355,8 @@ $("#display-four-var-tt").click(function() {
         '<h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>'+
         '</div>'+
         '<div class="modal-body">'+
-        'Simply enter the output values in the output column of the table. Click on one of the '+
-        '"simplify" buttons to receive the minterm or maxterm expression. NOTE: The min/maxterm '+
+        'Select the output values in the table and click "Find Min/Maxterms" '+
+        'to receive the minterm and maxterm expression. <br>NOTE: The min/maxterm '+
         'expression you receive here is NOT simplified! If you desire a simplified expression, '+
         'you can use the output here with the Karnaugh Map feature.'+
         '</div>'+

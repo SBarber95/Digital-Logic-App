@@ -43,10 +43,10 @@ new Vue ({
     '</div>'+
     '<div class="modal-body">'+
     'Fill out the table entries according to the state changes you wish to include in your counter. '+
-    'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
-    'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
-    'output column will be populated with the table information. Finally, at the bottom there will be a '+
-    'simplified boolean expression for the counter.'+
+    'Click "Set Up Counter Design" and the rest of the table will fill in with the proper values. '+
+    'Below the table, the Karnaugh Maps associated with each '+
+    'input column will be populated with the table info. A '+
+    'simplified minterm boolean expression for the counter inputs is shown at the bottom.'+
     '</div>'+
     '<div class="modal-footer">'+
     '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
@@ -1493,10 +1493,10 @@ function showSRCounter() {
         '</div>'+
         '<div class="modal-body">'+
         'Fill out the table entries according to the state changes you wish to include in your counter. '+
-        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
-        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
-        'output column will be populated with the table information. Finally, at the bottom there will be a '+
-        'simplified boolean expression for the counter.'+
+        'Click "Set Up Counter Design" and the rest of the table will fill in with the proper values. '+
+        'Below the table, the Karnaugh Maps associated with each '+
+        'input column will be populated with the table info. A '+
+        'simplified minterm boolean expression for the counter inputs is shown at the bottom.'+
         '</div>'+
         '<div class="modal-footer">'+
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
@@ -2946,10 +2946,10 @@ function showJKCounter() {
         '</div>'+
         '<div class="modal-body">'+
         'Fill out the table entries according to the state changes you wish to include in your counter. '+
-        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
-        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
-        'output column will be populated with the table information. Finally, at the bottom there will be a '+
-        'simplified boolean expression for the counter.'+
+        'Click "Set Up Counter Design" and the rest of the table will fill in with the proper values. '+
+        'Below the table, the Karnaugh Maps associated with each '+
+        'input column will be populated with the table info. A '+
+        'simplified minterm boolean expression for the counter inputs is shown at the bottom.'+
         '</div>'+
         '<div class="modal-footer">'+
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
@@ -4399,10 +4399,10 @@ function showDCounter() {
         '</div>'+
         '<div class="modal-body">'+
         'Fill out the table entries according to the state changes you wish to include in your counter. '+
-        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
-        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
-        'output column will be populated with the table information. Finally, at the bottom there will be a '+
-        'simplified boolean expression for the counter.'+
+        'Click "Set Up Counter Design" and the rest of the table will fill in with the proper values. '+
+        'Below the table, the Karnaugh Maps associated with each '+
+        'input column will be populated with the table info. A '+
+        'simplified minterm boolean expression for the counter inputs is shown at the bottom.'+
         '</div>'+
         '<div class="modal-footer">'+
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
@@ -5159,10 +5159,10 @@ function showTCounter() {
         '</div>'+
         '<div class="modal-body">'+
         'Fill out the table entries according to the state changes you wish to include in your counter. '+
-        'Luckily this is all you have to do! Click the "Set Up Counter Design" button and the rest of the '+
-        'table will fill in with the proper values. Below the table, the Karnaugh Maps associated with each '+
-        'output column will be populated with the table information. Finally, at the bottom there will be a '+
-        'simplified boolean expression for the counter.'+
+        'Click "Set Up Counter Design" and the rest of the table will fill in with the proper values. '+
+        'Below the table, the Karnaugh Maps associated with each '+
+        'input column will be populated with the table info. A '+
+        'simplified minterm boolean expression for the counter inputs is shown at the bottom.'+
         '</div>'+
         '<div class="modal-footer">'+
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
