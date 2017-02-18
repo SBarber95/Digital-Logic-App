@@ -13,5 +13,4 @@
 5. Fill out and style the home page
 6. Fix Karnaugh Map bugs with don't care values
 7. Implement 7-Segment Display designer
-8. Fix don't care implementation with T counter designer
-9. Error-checking for arithmetic and conversions input
+8. Error-checking for arithmetic and conversions input

@@ -213,7 +213,7 @@ $("#binary_addition").click(function() {
         '<h3 class="sub-header">Calculator</h3>'+
         'Simply enter your two binary values and hit calculate! If you have negative binary values, '+
         'it is recommended to use the binary subtraction feature as binary addition only works with '+
-        'positive binary numbers as of now; however, please read the instructions on that page first.'+
+        'positive binary numbers as of now. Please read the instructions on that page.'+
         '<h3 class="sub-header">Practice Problems</h3>'+
         'This feature generates two random binary values for you to add and provide the answer for. '+
         'You can generate new random values with the Change Values button. You can also check your '+
@@ -435,15 +435,13 @@ $("#binary_subtraction").click(function() {
         '<div class="modal-body">'+
         '<h3 class="sub-header">Calculator</h3>'+
         'When entering your binary values, make sure they are in normal form; that is, each number entered '+
-        'should not be in 1s or 2s complement. When the application calculates the subtracted result of your '+
-        'entered values, you will get both the normal form result and the 2s complement result for convenience. '+
+        'should not be in 1s or 2s complement. You will get both the normal form result and the 2s complement result for convenience. '+
         'The 2s complement answer is the answer you would receive if both values were originally in 2s complement form.'+
         '<h3 class="sub-header">Practice Problems</h3>'+
-        'The practice problem section presents two random binary values in NORMAL form. You can change the values '+
-        'presented to you with the Change Values button whenever you like. You can enter the answer in normal form '+
-        'or in 2s complement form if you wish to convert the shown values to 2s complement yourself and work out '+
-        'the problem that way. When you are finished, hit the Check Your Answer button. If you are incorrect, the '+
-        'output will also display the correct answer in both normal and 2s complement forms.<br>'+
+        'This section presents two random binary values in NORMAL form. Change the values '+
+        'presented to you with the Change Values button. You can enter the answer in normal form '+
+        'or in 2s complement form. When you are finished, click "Check Answer". If you are incorrect, the '+
+        'output will display the correct answer in both normal and 2s complement forms.<br>'+
         'NOTE: If answering in 2s complement form, please enter the sign-extended value (16 bits long)<br>'+
         'Example) If the answer was 2s complement 101, enter 1111111111111101.'+
         '</div>'+
@@ -614,12 +612,12 @@ $("#binary_multiplication").click(function() {
         '</div>'+
         '<div class="modal-body">'+
         '<h3 class="sub-header">Calculator</h3>'+
-        'Simply enter two binary numbers and hit calculate! The multiplier works with just about any positive '+
+        'Simply enter two binary numbers and hit calculate! The multiplier works with any positive '+
         'whole binary number.'+
         '<h3 class="sub-header">Practice Problems</h3>'+
-        'The practice problem feature generates two random binary values for you to multiply. Just enter your final '+
-        'answer in the corresponding box and click on the Check Answer button. If you are incorrect, the correct '+
-        'value will be displayed. Generate more random values at any time with the Change Values button.'+
+        'This section generates two random binary values for you to multiply. Enter your '+
+        'answer in the text box and click "Check Answer". If you are incorrect, the correct '+
+        'value will show. Generate more random values with the Change Values button.'+
         '</div>'+
         '<div class="modal-footer">'+
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+

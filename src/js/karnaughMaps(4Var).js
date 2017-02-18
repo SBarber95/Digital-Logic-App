@@ -29,13 +29,10 @@ $("#display_four_var_km").click(function() {
         '<h4 class="modal-title" id="KMTitle">Karnaugh Map Instructions</h4>'+
         '</div>'+
         '<div class="modal-body">'+
-        'Each cell in the Karnaugh Map diagram contains a selection box where you can fill '+
-        'in your desired values (0, 1, X). The maps in this feature correspond to the conventional '+
-        'cell numbering and orientation of a vertical Karnaugh Map. Once you fill in all of your values, '+
-        'you have the option to simplify the Karnaugh Map through its minterms or maxterms. Keep in mind '+
-        'that minterms correspond to grouping 1s and maxterms correspond to grouping 0s. When the simplify '+
-        'button is clicked, the output box will show its generated simplified expression, as well as a '+
-        'list of cell groups it has captured. These groups are made up of the cell numbers (in decimal).'+
+        'Fill in your desired values in the drop-down boxes. Once you fill in your values, '+
+        'click "Simplify Minterms" or "Simplify Maxterms". Keep in mind that minterms group '+
+        '1s and maxterms group 0s. The output box will show its generated simplified expression '+
+        'and a list of the groupings by cell number.'+
         '</div>'+
         '<div class="modal-footer">'+
         '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
