@@ -305,8 +305,10 @@ function simulate() {
     var treeRoots = [];
     for (var i = 0; i < circuitComponents.length; ++i) {
 
-        if (circuitComponents[i].outputConnections.length == 0) {
-            treeRoots.push(circuitComponents[i]);
+        if (circuitComponents[i] != null) {
+            if (circuitComponents[i].outputConnections.length == 0) {
+                treeRoots.push(circuitComponents[i]);
+            }
         }
 
     }
