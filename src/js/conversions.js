@@ -9,6 +9,7 @@ $(function () {
 
 // From Decimal Converter Component ------------------------------
 var decConverter = new Vue({
+
     el: '#convert-component',
     template: '<div id="convert-component">' +
         '<form id="dec-converter">' +
@@ -34,11 +35,14 @@ var decConverter = new Vue({
 
             output.innerHTML = "Converted Value: " + (decimalValue).toString(desiredBaseValue);
         }
+
     }
+
 });
 
 // Decimal Conversion Practice Problems -----------------------------
 var decConvertQuiz = new Vue({
+
     el: '#convert-quiz-component',
     template: '<div id="convert-quiz-component">'+
     '<form id="converter_quiz">'+
@@ -119,6 +123,7 @@ $("#decimal_conversions").click(function () {
 
     // From Decimal Converter Component ------------------------------
     var decConverter = new Vue({
+
         el: '#convert-component',
         template: '<div id="convert-component">' +
         '<form id="dec-converter">' +
@@ -144,11 +149,14 @@ $("#decimal_conversions").click(function () {
 
                 output.innerHTML = "Converted Value: " + (decimalValue).toString(desiredBaseValue);
             }
+
         }
+
     });
 
     // Decimal Conversion Practice Problems -----------------------------
     var decConvertQuiz = new Vue({
+
         el: '#convert-quiz-component',
         template: '<div id="convert-quiz-component">'+
         '<form id="converter_quiz">'+
@@ -198,6 +206,8 @@ $("#decimal_conversions").click(function () {
     // To place initial random value on first load
     document.getElementById("quiz_number").innerHTML = "" + Math.floor((Math.random() * 200));
 
+    document.getElementById("output").setAttribute("style", "margin-top: 62px");
+
 });
 
 $("#binary_conversions").click(function () {
@@ -233,6 +243,7 @@ $("#binary_conversions").click(function () {
 
     // From Binary Converter Component ------------------------------
     var binConverter = new Vue({
+
         el: '#convert-component',
         template: '<div id="convert-component">' +
         '<form id="bin-converter">' +
@@ -258,7 +269,9 @@ $("#binary_conversions").click(function () {
 
                 output.innerHTML = "Converted Value: " + (binaryValue).toString(desiredBaseValue);
             }
+
         }
+
     });
 
     // Binary Conversion Practice Problems -----------------------------
@@ -326,6 +339,8 @@ $("#binary_conversions").click(function () {
 
     }
 
+    document.getElementById("output").setAttribute("style", "margin-top: 62px");
+
 });
 
 $("#octal_conversions").click(function () {
@@ -361,6 +376,7 @@ $("#octal_conversions").click(function () {
 
     // From Octal Converter Component ------------------------------
     var octConverter = new Vue({
+
         el: '#convert-component',
         template: '<div id="convert-component">' +
         '<form id="oct-converter">' +
@@ -386,7 +402,9 @@ $("#octal_conversions").click(function () {
 
                 output.innerHTML = "Converted Value: " + (octalValue).toString(desiredBaseValue);
             }
+
         }
+
     });
 
     // Octal Conversion Practice Problems -----------------------------
@@ -454,6 +472,8 @@ $("#octal_conversions").click(function () {
 
     }
 
+    document.getElementById("output").setAttribute("style", "margin-top: 62px");
+
 });
 
 $("#hex_conversions").click(function () {
@@ -486,10 +506,12 @@ $("#hex_conversions").click(function () {
         '</div>Conversions from Hexadecimal (Base 16)';
 
     var hexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+    var altHexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
     var quizNum = [0, 0, 0, 0];
 
     // From Hexadecimal Converter Component ------------------------------
     var hexConverter = new Vue({
+
         el: '#convert-component',
         template: '<div id="convert-component">' +
         '<form id="hex-converter">' +
@@ -522,7 +544,7 @@ $("#hex_conversions").click(function () {
 
                     for (var j = 0; j < hexDigits.length; j++) {
 
-                        if (hexValueArray[i] == hexDigits[j]) {
+                        if (hexValueArray[i] == hexDigits[j] || hexValueArray[i] == altHexDigits[j]) {
                             hexDigitValue = j;
                         }
 
@@ -535,11 +557,14 @@ $("#hex_conversions").click(function () {
 
                 output.innerHTML = "Converted Value: " + (base10Value).toString(desiredBaseValue);
             }
+
         }
+
     });
 
     // Hexadecimal Conversion Practice Problems -----------------------------
     var hexConvertQuiz = new Vue({
+
         el: '#convert-quiz-component',
         template: '<div id="convert-quiz-component">'+
         '<form id="converter_quiz">'+
@@ -588,7 +613,7 @@ $("#hex_conversions").click(function () {
 
                     for (var j = 0; j < hexDigits.length; j++) {
 
-                        if (answer[i] == hexDigits[j]) {
+                        if (answer[i] == hexDigits[j] || answer[i] == altHexDigits[j]) {
                             hexDigitValue = j;
                         }
 
@@ -623,5 +648,7 @@ $("#hex_conversions").click(function () {
         document.getElementById("quiz_number").innerHTML += quizNum[i];
 
     }
+
+    document.getElementById("output").setAttribute("style", "margin-top: 62px");
 
 });
