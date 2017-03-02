@@ -94,6 +94,8 @@ document.getElementById("quiz_number").innerHTML = "" + Math.floor((Math.random(
 
 $("#decimal_conversions").click(function () {
 
+    document.getElementById("second_header").innerHTML = "Practice Problems";
+
     document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
         'Instructions!'+
         '</button>'+
@@ -211,6 +213,8 @@ $("#decimal_conversions").click(function () {
 });
 
 $("#binary_conversions").click(function () {
+
+    document.getElementById("second_header").innerHTML = "Practice Problems";
 
     document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
         'Instructions!'+
@@ -345,6 +349,8 @@ $("#binary_conversions").click(function () {
 
 $("#octal_conversions").click(function () {
 
+    document.getElementById("second_header").innerHTML = "Practice Problems";
+
     document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
         'Instructions!'+
         '</button>'+
@@ -477,6 +483,8 @@ $("#octal_conversions").click(function () {
 });
 
 $("#hex_conversions").click(function () {
+
+    document.getElementById("second_header").innerHTML = "Practice Problems";
 
     document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
         'Instructions!'+

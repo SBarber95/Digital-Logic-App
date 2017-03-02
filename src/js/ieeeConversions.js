@@ -42,7 +42,6 @@ $("#ieee_conversions").click(function() {
         '<form id="ieee-hex-converter">' +
         '<input type="text" class="ieee-hex-value" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #" required><br>' +
         '<input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">' +
-        '<div id="convert_steps"></div>'+
         '</form>' +
         '</div>',
         methods: {
@@ -79,7 +78,6 @@ $("#ieee_conversions").click(function() {
                     return null;
                 }
 
-                steps.innerHTML += "Step by Step:<br>";
                 steps.innerHTML += "Binary conversion: ";
 
                 var binaryArrayIndex = 0;
@@ -142,16 +140,62 @@ $("#ieee_conversions").click(function() {
                                     + last7bits + " x 2<sup>" + biasCalculation + "</sup>";
 
                 // Set up expanded binary number for easy decimal conversion
-                var expandedBinaryNum = "1" + last7bits;
-                for (i = 0; i < (biasCalculation - 7); ++i) {
-                    expandedBinaryNum += "0";
-                }
+                if (biasCalculation > 0) {
 
-                if (binaryArray[0] == 1) {
-                    output.innerHTML = "The final answer is -" + parseInt(expandedBinaryNum, 2);
+                    var expandedBinaryNum = "1" + last7bits;
+                    for (i = 0; i < (biasCalculation - 7); ++i) {
+                        expandedBinaryNum += "0";
+                    }
+
+                    if (binaryArray[0] == 1) {
+                        output.innerHTML = "The final answer is -" + parseInt(expandedBinaryNum, 2);
+                    }
+                    else {
+                        output.innerHTML = "The final answer is " + parseInt(expandedBinaryNum, 2);
+                    }
+
+                }
+                else if (biasCalculation == 0) {
+
+                    // Begin with leading 1
+                    var finalAnswer = 1;
+
+                    var exponent = -1;
+                    for (i = 0; i < last7bits.length; ++i) {
+
+                        finalAnswer += Number(last7bits.charAt(i)) * Math.pow(2, exponent);
+                        exponent--;
+
+                    }
+
+                    if (binaryArray[0] == 1) {
+                        output.innerHTML = "The final answer is -" + finalAnswer;
+                    }
+                    else {
+                        output.innerHTML = "The final answer is " + finalAnswer;
+                    }
+
                 }
                 else {
-                    output.innerHTML = "The final answer is " + parseInt(expandedBinaryNum, 2);
+
+                    // Begin with leading 1
+                    finalAnswer = Math.pow(2, biasCalculation + 1);
+
+                    exponent = biasCalculation;
+                    for (i = 0; i < last7bits.length; ++i) {
+
+                        finalAnswer += Number(last7bits.charAt(i)) * Math.pow(2, exponent);
+                        exponent--;
+
+                    }
+
+                    if (binaryArray[0] == 1) {
+                        output.innerHTML = "The final answer is -" + finalAnswer;
+                    }
+                    else {
+                        output.innerHTML = "The final answer is " + finalAnswer;
+                    }
+
                 }
 
             }
@@ -160,73 +204,14 @@ $("#ieee_conversions").click(function() {
 
     });
 
-    // IEEE Hex Conversion Practice Problems -----------------------------
-    var ieeeHexConvertQuiz = new Vue({
+    document.getElementById("second_header").innerHTML = "Conversion Steps";
+
+    // IEEE Hex Conversion Steps -----------------------------
+    var converterSteps = new Vue({
 
         el: '#convert-quiz-component',
-        template: '<div id="convert-quiz-component">'+
-        '<form id="converter_quiz">'+
-        '<p id="quiz_number_placeholder">Convert from <span id="quiz_number"></span></p>'+
-        '<p class="border"></p>'+
-        '<input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>'+
-        '<input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">'+
-        '<input type="button" class="btn btn-primary" name="reset" value="Change Value" v-on:click="resetConvertValue">'+
-        '</form>'+
-        '</div>',
-        methods: {
-            resetConvertValue: function(e) {
-
-                e.preventDefault();
-
-                document.getElementById("quiz_number").innerHTML = "";
-
-                for (var i = 0; i < quizNum.length; i++) {
-
-                    quizNum[i] = altHexDigits[Math.floor((Math.random() * 16))];
-
-                    document.getElementById("quiz_number").innerHTML += quizNum[i];
-
-                }
-
-                document.getElementById("quiz_number").innerHTML += "0000";
-
-            },
-            checkAnswer: function(e) {
-
-                e.preventDefault();
-
-                var convertQuizForm = document.getElementById("converter_quiz");
-
-                var selectedBase = parseInt(convertQuizForm.selectedBase.value);
-                var userAnswer = parseInt(convertQuizForm.userAnswer.value, selectedBase);
-
-                var quizDecimal = parseInt(document.getElementById("quiz_number").innerHTML);
-
-                if (userAnswer == quizDecimal) {
-                    document.getElementById("quiz_output").innerHTML = "Correct.";
-                }
-                else {
-                    document.getElementById("quiz_output").innerHTML = "You are incorrect. The answer is " +
-                        quizDecimal.toString(selectedBase);
-                }
-
-            }
-
-        }
+        template: '<div id="convert-quiz-component"><div id="convert_steps"></div></div>'
 
     });
-
-    // To place initial random value on first load
-    for (var i = 0; i < quizNum.length; i++) {
-
-        quizNum[i] = altHexDigits[Math.floor((Math.random() * 16))];
-
-        document.getElementById("quiz_number").innerHTML += quizNum[i];
-
-    }
-
-    document.getElementById("quiz_number").innerHTML += "0000";
-
-    document.getElementById("output").setAttribute("style", "margin-top: 98px");
 
 });
