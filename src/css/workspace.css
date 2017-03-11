@@ -168,7 +168,8 @@ body {
     border-radius: 3px;
 }
 
-.user-answer, .user_answer, .decimal-value, .binary-value, .hex-value, .octal-value, .ieee-hex-value {
+.user-answer, .user_answer, .decimal-value, .binary-value,
+.hex-value, .octal-value, .ieee-hex-value, .ieee-dec-value {
     width: 250px;
     border-radius: 3px;
 }
