@@ -475,30 +475,72 @@ function toggleDirection() {
                         }
 
                         var bias = 127 + exponent;
-
                         steps.innerHTML += "<br>Add bias of 127 to the exponent: " + bias;
-                        steps.innerHTML += "<br>Then convert it to binary: " + bias.toString(2);
+
+                        bias = bias.toString(2);
+
+                        if (bias.length != 8) {
+                            bias = "0" + bias;
+                        }
+
+                        steps.innerHTML += "<br>Then convert it to binary: " + bias;
                         steps.innerHTML += "<br>Now build the full binary string, beginning with the sign bit, followed " +
                                             "by the bias, and finally the value found to the right of the decimal place in the binary value above: " +
-                                            signBit + bias.toString(2) + partialBinValue;
+                                            signBit + bias + partialBinValue;
+
+                        output.innerHTML = "The final value is " + signBit + bias + partialBinValue;
 
                     }
                     else {
 
                         // Variables for positive/negative management
-                        var startingIndex = 0;
+                        var startingIndex = 2;
                         signBit = 0;
 
                         if (binaryArray[0] == "-") {
-                            startingIndex = 1;
+                            startingIndex = 3;
                             signBit = 1;
                         }
 
+                        exponent = 0;
+                        partialBinValue = "";
+
                         for (startingIndex; startingIndex < binaryArray.length; ++startingIndex) {
 
+                            exponent--;
+                            if (binaryArray[startingIndex] == "1") {
 
+                                startingIndex++;
+                                for (startingIndex; startingIndex < binaryArray.length; ++startingIndex) {
+                                    partialBinValue += binaryArray[startingIndex];
+                                }
+                                if (partialBinValue.length == 0) {
+                                    partialBinValue += 0;
+                                }
+                                break;
+
+                            }
 
                         }
+
+                        steps.innerHTML += "<br>After moving the decimal over, you get 1." + partialBinValue +
+                            " x 2<sup>" + exponent + "</sup>";
+
+                        bias = 127 + exponent;
+                        steps.innerHTML += "<br>Add bias of 127 to the exponent: " + bias;
+
+                        bias = bias.toString(2);
+
+                        if (bias.length != 8) {
+                            bias = "0" + bias;
+                        }
+
+                        steps.innerHTML += "<br>Then convert it to binary: " + bias;
+                        steps.innerHTML += "<br>Now build the full binary string, beginning with the sign bit, followed " +
+                            "by the bias, and finally the value found to the right of the decimal place in the binary value above: " +
+                            signBit + bias + partialBinValue;
+
+                        output.innerHTML = "The final value is " + signBit + bias + partialBinValue;
 
                     }
 
@@ -521,6 +563,7 @@ function toggleDirection() {
             template: '<div id="convert-quiz-component"><div id="convert_steps"></div></div>'
 
         });
+
     }
 
 }
