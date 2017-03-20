@@ -6,6 +6,8 @@ var toggled = false;
 
 $("#ieee_conversions").click(function() {
 
+    document.getElementById("quiz_output").removeAttribute("class");
+
     document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
         'Instructions!'+
         '</button>'+
@@ -197,8 +199,7 @@ $("#ieee_conversions").click(function() {
 
                 }
 
-                document.getElementById("quiz_output").innerHTML = "Remember that you can view any conversion from " +
-                                                                    "the opposite direction as well.";
+                document.getElementById("quiz_output").innerHTML = "";
 
             }
 
@@ -392,8 +393,7 @@ function toggleDirection() {
 
                     }
 
-                    document.getElementById("quiz_output").innerHTML = "Remember that you can view any conversion from " +
-                        "the opposite direction as well.";
+                    document.getElementById("quiz_output").innerHTML = "";
 
                 }
 
@@ -544,8 +544,7 @@ function toggleDirection() {
 
                     }
 
-                    document.getElementById("quiz_output").innerHTML = "Remember that you can view any conversion from " +
-                        "the opposite direction as well.";
+                    document.getElementById("quiz_output").innerHTML = "";
 
                 }
 
