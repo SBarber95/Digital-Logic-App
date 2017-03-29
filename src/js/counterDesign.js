@@ -245,7 +245,7 @@ new Vue ({
     '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">'+
 '<div class="km-container">'+
     '<p class="km-label">Sc</p>'+
-    '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+    '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
     '<div class="info-cell"><p class="info-top">0</p></div>'+
     '<div class="info-cell"><p class="info-top">1</p></div>'+
     '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -263,7 +263,7 @@ new Vue ({
     '</div>'+
     '<div class="km-container">'+
     '<p class="km-label">Sb</p>'+
-    '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+    '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
     '<div class="info-cell"><p class="info-top">0</p></div>'+
     '<div class="info-cell"><p class="info-top">1</p></div>'+
     '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -281,7 +281,7 @@ new Vue ({
     '</div>'+
     '<div class="km-container">'+
     '<p class="km-label">Sa</p>'+
-    '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+    '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
     '<div class="info-cell"><p class="info-top">0</p></div>'+
     '<div class="info-cell"><p class="info-top">1</p></div>'+
     '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -299,7 +299,7 @@ new Vue ({
     '</div>'+
     '<div class="km-container">'+
     '<p class="km-label">Rc</p>'+
-    '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+    '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
     '<div class="info-cell"><p class="info-top">0</p></div>'+
     '<div class="info-cell"><p class="info-top">1</p></div>'+
     '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -317,7 +317,7 @@ new Vue ({
     '</div>'+
     '<div class="km-container">'+
     '<p class="km-label">Rb</p>'+
-    '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+    '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
     '<div class="info-cell"><p class="info-top">0</p></div>'+
     '<div class="info-cell"><p class="info-top">1</p></div>'+
     '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -335,7 +335,7 @@ new Vue ({
     '</div>'+
     '<div class="km-container">'+
     '<p class="km-label">Ra</p>'+
-    '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+    '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
     '<div class="info-cell"><p class="info-top">0</p></div>'+
     '<div class="info-cell"><p class="info-top">1</p></div>'+
     '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -525,15 +525,15 @@ new Vue ({
             var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
                 [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
                 [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
-            var simpleMins4Group = ["A' ", "C' ", "B' ", "C ", "B ", "A "];
+            var simpleMins4Group = ["C' ", "A' ", "B' ", "A ", "B ", "C "];
             var minsIndex = 0;
 
             // Set potential groups of 2 and their corresponding simplified minterms
             var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
                 [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
                 [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
-            var simpleMins2Group = ["A'B' ", "A'C' ", "B'C' ", "A'C ", "B'C ", "A'B ", "BC' ",
-                "BC ", "AB' ", "AC' ", "AC ", "AB "];
+            var simpleMins2Group = ["C'B' ", "C'A' ", "B'A' ", "C'A ", "B'A ", "C'B ", "BA' ",
+                "BA ", "CB' ", "CA' ", "CA ", "CB "];
 
             // For building the simplified boolean expression
             var newBooleanExp = "";
@@ -628,7 +628,7 @@ new Vue ({
 
             // Accounts for isolated cells (Groups of 1)
             var cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7];
-            var isolatedCellMinterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
+            var isolatedCellMinterms = ["C'B'A'", "C'B'A", "C'BA'", "C'BA", "CB'A'", "CB'A", "CBA'", "CBA"];
 
             for (i = 0; i < cells.length; i++) {
 
@@ -1695,7 +1695,7 @@ function showSRCounter() {
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">'+
         '<div class="km-container">'+
         '<p class="km-label">Sc</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -1713,7 +1713,7 @@ function showSRCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Sb</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -1731,7 +1731,7 @@ function showSRCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Sa</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -1749,7 +1749,7 @@ function showSRCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Rc</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -1767,7 +1767,7 @@ function showSRCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Rb</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -1785,7 +1785,7 @@ function showSRCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Ra</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -1975,15 +1975,15 @@ function showSRCounter() {
                 var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
                     [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
                     [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
-                var simpleMins4Group = ["A' ", "C' ", "B' ", "C ", "B ", "A "];
+                var simpleMins4Group = ["C' ", "A' ", "B' ", "A ", "B ", "C "];
                 var minsIndex = 0;
 
                 // Set potential groups of 2 and their corresponding simplified minterms
                 var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
                     [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
                     [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
-                var simpleMins2Group = ["A'B' ", "A'C' ", "B'C' ", "A'C ", "B'C ", "A'B ", "BC' ",
-                    "BC ", "AB' ", "AC' ", "AC ", "AB "];
+                var simpleMins2Group = ["C'B' ", "C'A' ", "B'A' ", "C'A ", "B'A ", "C'B ", "BA' ",
+                    "BA ", "CB' ", "CA' ", "CA ", "CB "];
 
                 // For building the simplified boolean expression
                 var newBooleanExp = "";
@@ -2078,7 +2078,7 @@ function showSRCounter() {
 
                 // Accounts for isolated cells (Groups of 1)
                 var cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7];
-                var isolatedCellMinterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
+                var isolatedCellMinterms = ["C'B'A'", "C'B'A", "C'BA'", "C'BA", "CB'A'", "CB'A", "CBA'", "CBA"];
 
                 for (i = 0; i < cells.length; i++) {
 
@@ -3148,7 +3148,7 @@ function showJKCounter() {
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">'+
         '<div class="km-container">'+
         '<p class="km-label">Jc</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -3166,7 +3166,7 @@ function showJKCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Jb</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -3184,7 +3184,7 @@ function showJKCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Ja</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -3202,7 +3202,7 @@ function showJKCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Kc</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -3220,7 +3220,7 @@ function showJKCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Kb</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -3238,7 +3238,7 @@ function showJKCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Ka</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -3428,15 +3428,15 @@ function showJKCounter() {
                 var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
                     [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
                     [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
-                var simpleMins4Group = ["A' ", "C' ", "B' ", "C ", "B ", "A "];
+                var simpleMins4Group = ["C' ", "A' ", "B' ", "A ", "B ", "C "];
                 var minsIndex = 0;
 
                 // Set potential groups of 2 and their corresponding simplified minterms
                 var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
                     [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
                     [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
-                var simpleMins2Group = ["A'B' ", "A'C' ", "B'C' ", "A'C ", "B'C ", "A'B ", "BC' ",
-                    "BC ", "AB' ", "AC' ", "AC ", "AB "];
+                var simpleMins2Group = ["C'B' ", "C'A' ", "B'A' ", "C'A ", "B'A ", "C'B ", "BA' ",
+                    "BA ", "CB' ", "CA' ", "CA ", "CB "];
 
                 // For building the simplified boolean expression
                 var newBooleanExp = "";
@@ -3531,7 +3531,7 @@ function showJKCounter() {
 
                 // Accounts for isolated cells (Groups of 1)
                 var cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7];
-                var isolatedCellMinterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
+                var isolatedCellMinterms = ["C'B'A'", "C'B'A", "C'BA'", "C'BA", "CB'A'", "CB'A", "CBA'", "CBA"];
 
                 for (i = 0; i < cells.length; i++) {
 
@@ -4547,7 +4547,7 @@ function showDCounter() {
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">'+
         '<div class="km-container">'+
         '<p class="km-label">C+</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -4565,7 +4565,7 @@ function showDCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">B+</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -4583,7 +4583,7 @@ function showDCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">A+</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -4659,15 +4659,15 @@ function showDCounter() {
                 var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
                     [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
                     [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
-                var simpleMins4Group = ["A' ", "C' ", "B' ", "C ", "B ", "A "];
+                var simpleMins4Group = ["C' ", "A' ", "B' ", "A ", "B ", "C "];
                 var minsIndex = 0;
 
                 // Set potential groups of 2 and their corresponding simplified minterms
                 var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
                     [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
                     [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
-                var simpleMins2Group = ["A'B' ", "A'C' ", "B'C' ", "A'C ", "B'C ", "A'B ", "BC' ",
-                    "BC ", "AB' ", "AC' ", "AC ", "AB "];
+                var simpleMins2Group = ["C'B' ", "C'A' ", "B'A' ", "C'A ", "B'A ", "C'B ", "BA' ",
+                    "BA ", "CB' ", "CA' ", "CA ", "CB "];
 
                 // For building the simplified boolean expression
                 var newBooleanExp = "";
@@ -4762,7 +4762,7 @@ function showDCounter() {
 
                 // Accounts for isolated cells (Groups of 1)
                 var cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7];
-                var isolatedCellMinterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
+                var isolatedCellMinterms = ["C'B'A'", "C'B'A", "C'BA'", "C'BA", "CB'A'", "CB'A", "CBA'", "CBA"];
 
                 for (i = 0; i < cells.length; i++) {
 
@@ -5334,7 +5334,7 @@ function showTCounter() {
         '<div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">'+
         '<div class="km-container">'+
         '<p class="km-label">Tc</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -5352,7 +5352,7 @@ function showTCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Tb</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -5370,7 +5370,7 @@ function showTCounter() {
         '</div>'+
         '<div class="km-container">'+
         '<p class="km-label">Ta</p>'+
-        '<div class="info-cell"><img src="../images/KMLabel3Var.png"></div>'+
+        '<div class="info-cell"><img src="../images/counterKMLogo.png"></div>'+
         '<div class="info-cell"><p class="info-top">0</p></div>'+
         '<div class="info-cell"><p class="info-top">1</p></div>'+
         '<div class="info-cell"><p class="info-side">00</p></div>'+
@@ -5539,15 +5539,15 @@ function showTCounter() {
                 var potential4Groups = [[cell0, cell1, cell2, cell3],[cell0, cell2, cell4, cell6],
                     [cell0, cell1, cell4, cell5],[cell1, cell3, cell5, cell7],
                     [cell2, cell3, cell6, cell7],[cell4, cell5, cell6, cell7]];
-                var simpleMins4Group = ["A' ", "C' ", "B' ", "C ", "B ", "A "];
+                var simpleMins4Group = ["C' ", "A' ", "B' ", "A ", "B ", "C "];
                 var minsIndex = 0;
 
                 // Set potential groups of 2 and their corresponding simplified minterms
                 var potential2Groups = [[cell0, cell1], [cell0, cell2], [cell0, cell4], [cell1, cell3],
                     [cell1, cell5], [cell2, cell3], [cell2, cell6], [cell3, cell7],
                     [cell4, cell5], [cell4, cell6], [cell5, cell7], [cell6, cell7]];
-                var simpleMins2Group = ["A'B' ", "A'C' ", "B'C' ", "A'C ", "B'C ", "A'B ", "BC' ",
-                    "BC ", "AB' ", "AC' ", "AC ", "AB "];
+                var simpleMins2Group = ["C'B' ", "C'A' ", "B'A' ", "C'A ", "B'A ", "C'B ", "BA' ",
+                    "BA ", "CB' ", "CA' ", "CA ", "CB "];
 
                 // For building the simplified boolean expression
                 var newBooleanExp = "";
@@ -5642,7 +5642,7 @@ function showTCounter() {
 
                 // Accounts for isolated cells (Groups of 1)
                 var cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7];
-                var isolatedCellMinterms = ["A'B'C'", "A'B'C", "A'BC'", "A'BC", "AB'C'", "AB'C", "ABC'", "ABC"];
+                var isolatedCellMinterms = ["C'B'A'", "C'B'A", "C'BA'", "C'BA", "CB'A'", "CB'A", "CBA'", "CBA"];
 
                 for (i = 0; i < cells.length; i++) {
 
