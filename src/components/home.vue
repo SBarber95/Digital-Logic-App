@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container-fluid">
         <!-- Carousel ================================================== -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -46,7 +46,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div><!-- /.carousel -->
-
 
         <!-- Marketing messaging and featurettes
         ================================================== -->

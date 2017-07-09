@@ -21,9 +21,7 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid">
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -39,4 +37,7 @@ export default {
 </script>
 
 <style>
+  .container-fluid {
+    padding: 0;
+  }
 </style>
