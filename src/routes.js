@@ -14,6 +14,6 @@ export const routes = [
             {path: 'addition', component: BinaryArithAdd},
             {path: 'subtraction', component: BinaryArithSub},
             {path: 'multiplication', component: BinaryArithMult}
-            ]},
+        ]},
     {path: '*', component: Home}
 ]
