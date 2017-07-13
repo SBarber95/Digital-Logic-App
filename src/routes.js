@@ -3,7 +3,7 @@
  */
 import Home from './components/home.vue'
 import BinaryArith from './components/binaryArith.vue'
-import BinaryAuthAdd from './components/binaryArithAdd.vue'
+import BinaryAuthAdd from './components/subComponents/binaryArithAdd.vue'
 
 export const routes = [
     {path: '', component: Home},
