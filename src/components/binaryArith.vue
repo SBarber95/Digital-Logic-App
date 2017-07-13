@@ -4,8 +4,8 @@
             <div class="col-sm-4 col-md-3 sidebar">
                 <ul class="nav nav-sidebar">
                     <li class="sub-header">Binary Arithmetic Options</li>
-                    <li id="binary_addition"><a href="#">Binary Addition</a></li>
-                    <li id="binary_subtraction"><a href="#">Binary Subtraction</a></li>
+                    <li id="binary_addition"><router-link to="addition">Binary Addition</router-link></li>
+                    <li id="binary_subtraction"><router-link to="subtraction">Binary Subtraction</router-link></li>
                     <li id="binary_multiplication"><a href="#">Binary Multiplication</a></li>
                     <li id="binary_division" data-toggle="tooltip" data-placement="right" title="Coming Soon!"><a href="#">Binary Division</a></li>
                 </ul>
@@ -38,12 +38,6 @@
                         </div>
                     </div>Binary Addition</h1>
                 <router-view></router-view>
-                <!-- Vue Component -->
-                <div class="user-input-addition" id="calc">
-                </div>
-                <!-- Vue Component -->
-                <div class="addition-quiz" id="quiz">
-                </div>
             </div>
         </div>
     </div>
