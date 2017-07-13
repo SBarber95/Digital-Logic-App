@@ -6,7 +6,7 @@
                     <li class="sub-header">Binary Arithmetic Options</li>
                     <li id="binary_addition"><router-link to="addition">Binary Addition</router-link></li>
                     <li id="binary_subtraction"><router-link to="subtraction">Binary Subtraction</router-link></li>
-                    <li id="binary_multiplication"><a href="#">Binary Multiplication</a></li>
+                    <li id="binary_multiplication"><router-link to="multiplication">Binary Multiplication</router-link></li>
                     <li id="binary_division" data-toggle="tooltip" data-placement="right" title="Coming Soon!"><a href="#">Binary Division</a></li>
                 </ul>
             </div>
