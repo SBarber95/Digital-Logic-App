@@ -9,6 +9,10 @@ const router = new VueRouter({
     routes: routes
 })
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip({container: 'body'})
+});
+
 new Vue({
   el: '#app',
   render: h => h(App),

@@ -9,8 +9,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="../index.html">Home</a></li>
-            <li class="active"><a href="views/binaryArithmetic.html">Binary Arithmetic</a></li>
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/binaryArithmetic/addition">Binary Arithmetic</router-link></li>
             <li><a href="views/conversions.html">Conversions</a></li>
             <li><a href="views/truthTables.html">Min/Maxterms</a></li>
             <li><a href="views/karnaughMaps.html">Karnaugh Maps</a></li>
@@ -27,12 +27,7 @@
 
 <script>
 export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  name: 'app'
 }
 </script>
 

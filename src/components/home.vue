@@ -143,3 +143,26 @@
 <script>
     export default {}
 </script>
+
+<style scoped>
+    .navbar {
+        font-size: 18px;
+    }
+    .dropdown-menu {
+        font-size: 16px;
+    }
+    .icon-bar {
+        float: left;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+    }
+
+    .btn-default {
+        color: white;
+    }
+
+    .caret {
+        margin-left: 4px;
+    }
+</style>
