@@ -12,7 +12,7 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/binaryArithmetic/addition">Binary Arithmetic</router-link></li>
             <li><router-link to="/conversions/fromDecimal">Conversions</router-link></li>
-            <li><a href="views/truthTables.html">Min/Maxterms</a></li>
+            <li><router-link to="/minMaxterms/threeVar">Min/Maxterms</router-link></li>
             <li><router-link to="/karnaughMaps/threeVar">Karnaugh Maps</router-link></li>
             <li><a href="views/designProblems.html">Design Problems</a></li>
             <li><a href="views/circuitDesign.html">Circuit Design</a></li>
