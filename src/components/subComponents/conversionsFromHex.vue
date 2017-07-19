@@ -91,8 +91,6 @@
                 var hexValueArray = Array.from(hexValue);
                 var desiredBaseValue = parseInt(form.desiredBase.value);
 
-                console.log('hex array: ' + hexValueArray)
-
                 var exponent = 0;
                 var hexDigitValue = null;
                 var base10Value = 0;
@@ -107,7 +105,6 @@
                         }
 
                     }
-                    console.log('hex digit value: ' + hexDigitValue)
                     base10Value += hexDigitValue * Math.pow(16, exponent);
                     exponent++;
 
