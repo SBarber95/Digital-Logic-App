@@ -4,10 +4,10 @@
             <div class="col-sm-4 col-md-3 sidebar">
                 <ul class="nav nav-sidebar">
                     <li class="sub-header">Select Base to Convert From</li>
-                    <li id="binary_conversions"><a href="#">Binary (Base 2)</a></li>
-                    <li id="octal_conversions"><a href="#">Octal (Base 8)</a></li>
-                    <li id="decimal_conversions"><a href="#">Decimal (Base 10)</a></li>
-                    <li id="hex_conversions"><a href="#">Hexadecimal (Base 16)</a></li>
+                    <li id="binary_conversions"><router-link to="fromBinary">Binary (Base 2)</router-link></li>
+                    <li id="octal_conversions"><router-link to="fromOctal">Octal (Base 8)</router-link></li>
+                    <li id="decimal_conversions"><router-link to="fromDecimal">Decimal (Base 10)</router-link></li>
+                    <li id="hex_conversions"><router-link to="fromHex">Hexadecimal (Base 16)</router-link></li>
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li class="sub-header">Special Conversions</li>

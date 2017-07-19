@@ -31,6 +31,32 @@
 <script>
     export default {
         mounted () {
+            document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
+                'Instructions!'+
+                '</button>'+
+                '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+                '<div class="modal-dialog" role="document">'+
+                '<div class="modal-content">'+
+                '<div class="modal-header">'+
+                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
+                '</div>'+
+                '<div class="modal-body">'+
+                '<h3 class="sub-header">Calculator</h3>'+
+                'Simply enter your decimal value and hit convert! Select the desired base '+
+                'you wish to convert to in the drop-down box.'+
+                '<h3 class="sub-header">Practice Problems</h3>'+
+                'This feature generates a random decimal value for you to convert. '+
+                'Generate new random values with the Change Values button. Check your '+
+                'answer with the Check Answer button. If you are incorrect, the correct answer will show. '+
+                'Make sure you select which base you converted to in the drop-down box as you put in your answer.'+
+                '</div>'+
+                '<div class="modal-footer">'+
+                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '</div>'+
+                '</div>'+
+                '</div>'+
+                '</div>Conversions from Decimal (Base 10)';
             // To place initial random value on first load
             document.getElementById("quiz_number").innerHTML = "" + Math.floor((Math.random() * 200));
             // TODO: Terrible Style design obviously

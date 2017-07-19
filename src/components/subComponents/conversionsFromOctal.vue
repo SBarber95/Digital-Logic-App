@@ -1,35 +1,35 @@
 <template>
-<div>
-    <div class="user-input-converter">
-        <h2 class="sub-header" style="margin-bottom: 20px;">Converter</h2>
-        <form id="bin-converter">
-            <input type="text" class="binary-value" name="binaryValue" placeholder="Enter a Binary Value" required><br>
-            Select Desired Base: <select name="desiredBase"><option value="8">8</option>
-                <option value="10">10</option>
-                <option value="16">16</option></select><br>
-            <input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">
-            </form>
-        <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+    <div>
+        <div class="user-input-converter">
+            <h2 class="sub-header" style="margin-bottom: 20px;">Converter</h2>
+            <form id="oct-converter">
+                <input type="text" class="octal-value" name="octalValue" placeholder="Enter an Octal Value" required><br>
+                Select Desired Base: <select name="desiredBase"><option value="2">2</option>
+                    <option value="10">10</option>
+                    <option value="16">16</option></select><br>
+                <input type="submit" id="converter_submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">
+                </form>
+            <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+        </div>
+        <div class="conversion-quiz">
+            <h2 class="sub-header" id="second_header">Practice Problems</h2>
+            <form id="converter_quiz">
+                <p id="quiz_number_placeholder">Convert from this Base 8 Value: <span id="quiz_number"></span></p>
+                <p class="border"></p>
+                <input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>
+                Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>
+                    <option value="10">10</option>
+                    <option value="16">16</option></select><br>
+                <input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">
+                <input type="button" class="btn btn-primary" name="reset" value="Change Value" v-on:click="resetConvertValue">
+                </form>
+            <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
+        </div>
     </div>
-    <div class="conversion-quiz">
-        <h2 class="sub-header" id="second_header">Practice Problems</h2>
-        <form id="converter_quiz">
-            <p id="quiz_number_placeholder">Convert from this Base 2 Value: <span id="quiz_number"></span></p>
-            <p class="border"></p>
-            <input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>
-            Select Base You Converted To: <select name="selectedBase"><option value="8">8</option>
-                <option value="10">10</option>
-                <option value="16">16</option></select><br>
-            <input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">
-            <input type="button" class="btn btn-primary" name="reset" value="Change Value" v-on:click="resetConvertValue">
-            </form>
-        <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
-    </div>
-</div>
 </template>
 
 <script>
-    var quizNum = [0, 0, 0, 0, 0, 0, 0, 0];
+    var quizNum = [0, 0, 0];
     export default {
         mounted () {
             document.getElementById("quiz_output").setAttribute("class", "well converter-output");
@@ -48,7 +48,7 @@
                 '</div>'+
                 '<div class="modal-body">'+
                 '<h3 class="sub-header">Calculator</h3>'+
-                'Simply enter your binary value and hit convert! Select the desired base '+
+                'Simply enter your octal value and hit convert! Select the desired base '+
                 'you wish to convert to in the drop-down box.'+
                 '<h3 class="sub-header">Practice Problems</h3>'+
                 'This feature generates a random decimal value for you to convert. '+
@@ -61,12 +61,12 @@
                 '</div>'+
                 '</div>'+
                 '</div>'+
-                '</div>Conversions from Binary (Base 2)';
+                '</div>Conversions from Octal (Base 8)';
 
             // To place initial random value on first load
             for (var i = 0; i < quizNum.length; i++) {
 
-                quizNum[i] = Math.floor((Math.random() * 2));
+                quizNum[i] = Math.floor((Math.random() * 8));
 
                 document.getElementById("quiz_number").innerHTML += quizNum[i];
 
@@ -82,12 +82,12 @@
 
                 var output = document.getElementById("output");
 
-                var form = document.getElementById("bin-converter");
+                var form = document.getElementById("oct-converter");
 
-                var binaryValue = parseInt(form.binaryValue.value, 2);
+                var octalValue = parseInt(form.octalValue.value, 8);
                 var desiredBaseValue = parseInt(form.desiredBase.value);
 
-                output.innerHTML = "Converted Value: " + (binaryValue).toString(desiredBaseValue);
+                output.innerHTML = "Converted Value: " + (octalValue).toString(desiredBaseValue);
             },
             resetConvertValue: function(e) {
 
@@ -97,7 +97,7 @@
 
                 for (var i = 0; i < quizNum.length; i++) {
 
-                    quizNum[i] = Math.floor((Math.random() * 2));
+                    quizNum[i] = Math.floor((Math.random() * 8));
 
                     document.getElementById("quiz_number").innerHTML += quizNum[i];
 
@@ -113,7 +113,7 @@
                 var selectedBase = parseInt(convertQuizForm.selectedBase.value);
                 var userAnswer = parseInt(convertQuizForm.userAnswer.value, selectedBase);
 
-                var quizBinary = parseInt(document.getElementById("quiz_number").innerHTML, 2);
+                var quizBinary = parseInt(document.getElementById("quiz_number").innerHTML, 8);
 
                 if (userAnswer == quizBinary) {
                     document.getElementById("quiz_output").innerHTML = "Correct.";

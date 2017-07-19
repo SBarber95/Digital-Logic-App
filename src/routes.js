@@ -8,6 +8,9 @@ import BinaryArithSub from './components/subComponents/binaryArithSubtract.vue'
 import BinaryArithMult from './components/subComponents/binaryArithMult.vue'
 import Conversions from './components/conversions.vue'
 import ConversionsFromDec from './components/subComponents/conversionsFromDec.vue'
+import ConversionsFromBin from './components/subComponents/conversionsFromBin.vue'
+import ConversionsFromOctal from './components/subComponents/conversionsFromOctal.vue'
+import ConversionsFromHex from './components/subComponents/conversionsFromHex.vue'
 
 export const routes = [
     {path: '', component: Home},
@@ -19,7 +22,10 @@ export const routes = [
         ]},
     {path: '/conversions/', component: Conversions,
         children: [
-            {path: 'fromDecimal', component: ConversionsFromDec}
+            {path: 'fromDecimal', component: ConversionsFromDec},
+            {path: 'fromBinary', component: ConversionsFromBin},
+            {path: 'fromOctal', component: ConversionsFromOctal},
+            {path: 'fromHex', component: ConversionsFromHex}
         ]},
     {path: '*', component: Home}
 ]
