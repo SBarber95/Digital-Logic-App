@@ -11,6 +11,9 @@ import ConversionsFromDec from './components/subComponents/conversionsFromDec.vu
 import ConversionsFromBin from './components/subComponents/conversionsFromBin.vue'
 import ConversionsFromOctal from './components/subComponents/conversionsFromOctal.vue'
 import ConversionsFromHex from './components/subComponents/conversionsFromHex.vue'
+import KarnaughMaps from './components/karnaughMaps.vue'
+import ThreeVarKM from './components/subComponents/threeVarKM.vue'
+import FourVarKM from './components/subComponents/fourVarKM.vue'
 
 export const routes = [
     {path: '', component: Home},
@@ -19,13 +22,21 @@ export const routes = [
             {path: 'addition', component: BinaryArithAdd},
             {path: 'subtraction', component: BinaryArithSub},
             {path: 'multiplication', component: BinaryArithMult}
-        ]},
+        ]
+    },
     {path: '/conversions/', component: Conversions,
         children: [
             {path: 'fromDecimal', component: ConversionsFromDec},
             {path: 'fromBinary', component: ConversionsFromBin},
             {path: 'fromOctal', component: ConversionsFromOctal},
             {path: 'fromHex', component: ConversionsFromHex}
-        ]},
+        ]
+    },
+    {path: '/karnaughMaps/', component: KarnaughMaps,
+        children: [
+            {path: 'threeVar', component: ThreeVarKM},
+            {path: 'fourVar', component: FourVarKM}
+        ]
+    },
     {path: '*', component: Home}
 ]
