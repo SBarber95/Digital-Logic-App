@@ -160,7 +160,6 @@
 <script>
     import Snap from 'snapsvg'
     import $ from 'jquery'
-    import '../js/circuitComponents/twoInputOR'
 
     function ThreeInputAND (id, input1, input2, input3, inputConnections, outputConnections) {
 
@@ -403,6 +402,146 @@
 
                     // Create default 3 input NOR gate
                     vm.circuitComponents[vm.idNum] = new ThreeInputNOR(uniqueID, false, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select3InputOR").click(function() {
+
+                Snap.load("src/images/3_Input_OR.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 3 input OR gate
+                    vm.circuitComponents[vm.idNum] = new ThreeInputOR(uniqueID, false, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select2InputXOR").click(function() {
+
+                Snap.load("src/images/2_Input_XOR.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 2 input XOR gate
+                    vm.circuitComponents[vm.idNum] = new TwoInputXOR(uniqueID, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select2InputXNOR").click(function() {
+
+                Snap.load("src/images/2_Input_XNOR.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 2 input XNOR gate
+                    vm.circuitComponents[vm.idNum] = new TwoInputXNOR(uniqueID, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select2InputOR").click(function() {
+
+                Snap.load("src/images/2_Input_OR.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 2 input OR gate
+                    vm.circuitComponents[vm.idNum] = new TwoInputOR(uniqueID, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select2InputNOR").click(function() {
+
+                Snap.load("src/images/2_Input_NOR.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 2 input NOR gate
+                    vm.circuitComponents[vm.idNum] = new TwoInputNOR(uniqueID, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select2InputNAND").click(function() {
+
+                Snap.load("src/images/2_Input_NAND.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 2 input NAND gate
+                    vm.circuitComponents[vm.idNum] = new TwoInputNAND(uniqueID, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select2InputAND").click(function() {
+
+                Snap.load("src/images/2_Input_AND.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 2 input AND gate
+                    vm.circuitComponents[vm.idNum] = new TwoInputAND(uniqueID, false, false, [], []);
                     vm.idNum++;
 
                 });
