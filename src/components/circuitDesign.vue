@@ -160,6 +160,22 @@
 <script>
     import Snap from 'snapsvg'
     import $ from 'jquery'
+    import '../js/circuitComponents/twoInputOR'
+
+    function ThreeInputAND (id, input1, input2, input3, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.input3 = input3;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return (this.input1 && this.input2 && this.input3);
+        }
+
+    }
 
     function ThreeInputNAND (id, input1, input2, input3, inputConnections, outputConnections) {
 
@@ -172,6 +188,120 @@
 
         this.output = function() {
             return !(this.input1 && this.input2 && this.input3);
+        }
+
+    }
+
+    function ThreeInputNOR (id, input1, input2, input3, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.input3 = input3;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return !(this.input1 || this.input2 || this.input3);
+        }
+
+    }
+
+    function ThreeInputOR (id, input1, input2, input3, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.input3 = input3;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return (this.input1 || this.input2 || this.input3);
+        }
+
+    }
+
+    function TwoInputAND (id, input1, input2, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return (this.input1 && this.input2);
+        }
+
+    }
+
+    function TwoInputNAND (id, input1, input2, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return !(this.input1 && this.input2);
+        }
+
+    }
+
+    function TwoInputNOR (id, input1, input2, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return !(this.input1 || this.input2);
+        }
+
+    }
+
+    function TwoInputOR (id, input1, input2, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return (this.input1 || this.input2);
+        }
+
+    }
+
+    function TwoInputXNOR (id, input1, input2, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return !(this.input1 ^ this.input2);
+        }
+
+    }
+
+    function TwoInputXOR (id, input1, input2, inputConnections, outputConnections) {
+
+        this.id = id;
+        this.input1 = input1;
+        this.input2 = input2;
+        this.inputConnections = inputConnections;
+        this.outputConnections = outputConnections;
+
+        this.output = function() {
+            return (this.input1 ^ this.input2);
         }
 
     }
@@ -216,10 +346,10 @@
             let snap = Snap('#canvas');
             let vm = this;
 
-            document.getElementById('select3InputNAND').addEventListener('click', function() {
+            let newComponent;
+            let canvas = document.getElementById("canvas");
 
-                var newComponent;
-                var canvas = document.getElementById("canvas");
+            $('#select3InputNAND').click(function() {
 
                 Snap.load("src/images/3_Input_NAND.svg", function(e) {
                     newComponent = e.select("g");
@@ -238,6 +368,47 @@
                 });
 
             });
+
+            $('#select3InputAND').click(function() {
+
+                Snap.load("src/images/3_Input_AND.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 3 input AND gate
+                    vm.circuitComponents[vm.idNum] = new ThreeInputAND(uniqueID, false, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
+            $("#select3InputNOR").click(function() {
+
+                Snap.load("src/images/3_Input_NOR.svg", function(e) {
+                    newComponent = e.select("g");
+                    snap.append(newComponent);
+                    newComponent.drag();
+
+                    // Sets a unique id to the rendered component
+                    var newSVG = canvas.lastElementChild;
+                    var uniqueID = "component-" + vm.idNum;
+                    newSVG.setAttribute("id", uniqueID);
+
+                    // Create default 3 input NOR gate
+                    vm.circuitComponents[vm.idNum] = new ThreeInputNOR(uniqueID, false, false, false, [], []);
+                    vm.idNum++;
+
+                });
+
+            });
+
         },
         methods: {
             // Finds approximate output coordinates on
