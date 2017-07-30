@@ -17,6 +17,7 @@ import FourVarTT from './components/subComponents/fourVarTT.vue'
 import KarnaughMaps from './components/karnaughMaps.vue'
 import ThreeVarKM from './components/subComponents/threeVarKM.vue'
 import FourVarKM from './components/subComponents/fourVarKM.vue'
+import CircuitDesign from './components/circuitDesign.vue'
 
 export const routes = [
     {path: '', component: Home},
@@ -43,9 +44,10 @@ export const routes = [
     },
     {path: '/karnaughMaps/', component: KarnaughMaps,
         children: [
-            {path: 'threeVar', component: ThreeVarTT},
-            {path: 'fourVar', component: FourVarTT}
+            {path: 'threeVar', component: ThreeVarKM},
+            {path: 'fourVar', component: FourVarKM}
         ]
     },
+    {path: '/circuitDesign', component: CircuitDesign},
     {path: '*', component: Home}
 ]

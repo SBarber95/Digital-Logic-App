@@ -1,6 +1,10 @@
 /**
  * Created by savannah on 12/12/2016.
  */
+import Snap from 'snapsvg'
+import $ from 'jquery'
+
+var snap = Snap("#canvas");
 
 function ThreeInputNAND (id, input1, input2, input3, inputConnections, outputConnections) {
 
