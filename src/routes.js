@@ -58,7 +58,7 @@ export const routes = [
             {path: 'SR-Counter', component: SRCounter},
             {path: 'JK-Counter', component: JKCounter},
             {path: 'D-Counter', component: DCounter},
-            {path: 'T-Counter', component: TCounter},
+            {path: 'T-Counter', component: TCounter}
         ]
     },
     {path: '/circuitDesign', component: CircuitDesign},

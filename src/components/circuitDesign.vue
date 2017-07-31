@@ -936,3 +936,10 @@
 
     }
 </script>
+
+<style scoped>
+    .nav-sidebar li {
+        text-align: left;
+        min-height: 80px;
+    }
+</style>

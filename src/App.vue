@@ -14,7 +14,7 @@
             <li><router-link to="/conversions/fromDecimal">Conversions</router-link></li>
             <li><router-link to="/minMaxterms/threeVar">Min/Maxterms</router-link></li>
             <li><router-link to="/karnaughMaps/threeVar">Karnaugh Maps</router-link></li>
-            <li><a href="views/designProblems.html">Design Problems</a></li>
+            <li><router-link to="/designProblems/SR-Counter">Design Problems</router-link></li>
             <li><router-link to="/circuitDesign">Circuit Design</router-link></li>
             <li><a href="views/references.html">References</a></li>
           </ul>
@@ -77,10 +77,6 @@ export default {
     background-color: #b38867;
   }
 
-  .nav-sidebar li {
-    text-align: left;
-    min-height: 80px;
-  }
   #canvas {
     position: absolute;
     height: 650px;
