@@ -137,7 +137,7 @@
                 <button type="button" id="delete_circuit" style="position: relative; left: 81.2%; top: 70px;"
                         class="btn btn-danger">Delete Circuit
                 </button>
-                <button type="button" id="simulate" onclick="simulate()"
+                <button type="button" id="simulate" onclick="simulate"
                         style="position: relative; left: 74.7%; top: 130px;" class="btn btn-primary">Simulate
                 </button>
             </div>
@@ -159,6 +159,7 @@
 
 <script>
     import Snap from 'snapsvg'
+    import TreeModel from 'tree-model'
     import $ from 'jquery'
 
     function ThreeInputAND (id, input1, input2, input3, inputConnections, outputConnections) {
@@ -552,7 +553,7 @@
         methods: {
             // Finds approximate output coordinates on
             // circuit components (for use in wire drawing)
-            findOutputCoords: function (e) {
+            findOutputCoords (e) {
 
                 outputComponent = e.parentNode.getAttribute("id");
 
@@ -581,11 +582,11 @@
              * output and input coordinates to create a wire.
              * @param e
              */
-            findInputCoords: function (e) {
+            findInputCoords (e) {
 
                 let snap = Snap('#canvas');
 
-                if (outputCoords[0] == undefined) {
+                if (this.outputCoords[0] == undefined) {
                     return null;
                 }
 
@@ -610,8 +611,8 @@
                     var totalYOffset = Number(svgInputYCoord) + inputCompOffsetY;
 
                     // Set up appropriately named variables for all coordinates for wire drawing
-                    var outputX = outputCoords[0] - 6;
-                    var outputY = outputCoords[1];
+                    var outputX = this.outputCoords[0] - 6;
+                    var outputY = this.outputCoords[1];
                     var inputX = inputCompOffsetX + 10;
                     var inputY = totalYOffset;
 
@@ -632,31 +633,33 @@
                         strokeWidth: 2.3
                     });
 
-                    wires[wireIdNum] = new Wire(outputComponent, inputComponent, inputNum, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX,
+                    this.wires[wireIdNum] = new Wire(outputComponent, inputComponent, inputNum, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX,
                         outputCompOffsetY, inputCompOffsetX, inputCompOffsetY);
 
                     var inputComponentIndex = Number(inputComponent.substring(10, inputComponent.length));
                     var outputComponentIndex = Number(outputComponent.substring(10, outputComponent.length));
 
                     var inputCompObject = circuitComponents[inputComponentIndex];
-                    inputCompObject.inputConnections.push(wires[wireIdNum]);
+                    inputCompObject.inputConnections.push(this.wires[wireIdNum]);
 
                     var outputCompObject = circuitComponents[outputComponentIndex];
-                    outputCompObject.outputConnections.push(wires[wireIdNum]);
+                    outputCompObject.outputConnections.push(this.wires[wireIdNum]);
 
                     wireIdNum++;
 
-                    outputCoords = [];  // Reset output coords
+                   this.outputCoords = [];  // Reset output coords
 
                 }
 
             },
 
-            redrawWires: function (e) {
+            redrawWires (e) {
 
+                let snap = Snap('#canvas')
+                
                 var componentId = e.getAttribute("id");
                 var componentIndex = Number(componentId.substring(10, componentId.length));
-                var componentObject = circuitComponents[componentIndex];
+                var componentObject = this.circuitComponents[componentIndex];
 
                 if (componentObject.inputConnections.length > 0) {
 
@@ -682,7 +685,7 @@
                         var outputSideIndex = currentWire.outputSide;
                         outputSideIndex = Number(outputSideIndex.substring(10, outputSideIndex.length));
                         // TODO: INNER LOOP FOR MULTIPLE OUTPUT WIRES FROM SAME OUTPUT
-                        var outputSideWire = circuitComponents[outputSideIndex].outputConnections[0];
+                        var outputSideWire = this.circuitComponents[outputSideIndex].outputConnections[0];
 
                         var newInputX = currentWire.inputX + dragOffsetX;
                         var newInputY = currentWire.inputY + dragOffsetY;
@@ -699,9 +702,9 @@
                         var wireId = currentWire.wireId;
 
                         var newWireIdNum = Number(wireId.substring(5, wireId.length));
-                        wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, currentWire.inputNumber, wireId, currentWire.outputX, currentWire.outputY,
+                        this.wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, currentWire.inputNumber, wireId, currentWire.outputX, currentWire.outputY,
                             newInputX, newInputY, currentWire.outputCompOffsetX, currentWire.outputCompOffsetY, newCompOffsetX, newCompOffsetY);
-                        componentObject.inputConnections[i] = wires[newWireIdNum];
+                        componentObject.inputConnections[i] = this.wires[newWireIdNum];
                         outputSideWire.inputX = newInputX;
                         outputSideWire.inputY = newInputY;
                         outputSideWire.inputCompOffsetX = newCompOffsetX;
@@ -747,8 +750,8 @@
                         var inputSideWire;
                         for (var j = 0; j < circuitComponents[inputSideIndex].inputConnections.length; ++j) {
 
-                            if (circuitComponents[inputSideIndex].inputConnections[j].wireId == currentWire.wireId) {
-                                inputSideWire = circuitComponents[inputSideIndex].inputConnections[j];
+                            if (this.circuitComponents[inputSideIndex].inputConnections[j].wireId == currentWire.wireId) {
+                                inputSideWire = this.circuitComponents[inputSideIndex].inputConnections[j];
                             }
 
                         }
@@ -767,9 +770,9 @@
 
                         wireId = currentWire.wireId;
                         newWireIdNum = Number(wireId.substring(5, wireId.length));
-                        wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, currentWire.inputNumber, wireId, newOutputX, newOutputY,
+                        this.wires[newWireIdNum] = new Wire(currentWire.outputSide, currentWire.inputSide, currentWire.inputNumber, wireId, newOutputX, newOutputY,
                             currentWire.inputX, currentWire.inputY, newCompOffsetX, newCompOffsetY, currentWire.inputCompOffsetX, currentWire.inputCompOffsetY);
-                        componentObject.outputConnections[i] = wires[newWireIdNum];
+                        componentObject.outputConnections[i] = this.wires[newWireIdNum];
                         inputSideWire.outputX = newOutputX;
                         inputSideWire.outputY = newOutputY;
                         inputSideWire.outputCompOffsetX = newCompOffsetX;
@@ -782,6 +785,129 @@
                             stroke: "#000",
                             strokeWidth: 2.3
                         });
+
+                    }
+
+                }
+
+            },
+            simulate () {
+
+                // Create Array of outputs (which will become the roots)
+                var treeRoots = [];
+                for (var i = 0; i < circuitComponents.length; ++i) {
+
+                    if (this.circuitComponents[i] != null) {
+                        if (this.circuitComponents[i].outputConnections.length == 0) {
+                            treeRoots.push(this.circuitComponents[i]);
+                        }
+                    }
+
+                }
+
+                for (i = 0; i < treeRoots.length; ++i) {
+
+                    var tree = new TreeModel();
+
+                    var rootId = (treeRoots[i].id).substring(10, treeRoots[i].id.length);
+
+                    var children = [];
+                    var tempChildren = [];
+
+                    // Set root
+                    var root = tree.parse({id: rootId});
+
+                    // Current parent node is the root
+                    var parentTreeNode = root.first(function(node) {
+                        return node.model.id === rootId;
+                    });
+
+                    // Initial child-finding loop for the root's children
+                    for (var j = 0; j < treeRoots[i].inputConnections.length; ++j) {
+
+                        var childId = treeRoots[i].inputConnections[j].outputSide;
+                        childId = childId.substring(10, childId.length);
+                        var newChild = tree.parse({id: childId});
+
+                        parentTreeNode.addChild(newChild);
+                        var childComponent = this.circuitComponents[childId];
+                        tempChildren.push(childComponent);
+
+                    }
+
+                    // Loop for all subsequent levels of the circuits
+                    while (tempChildren.length != 0) {
+
+                        children = tempChildren.slice();
+                        tempChildren = [];
+
+                        for (j = 0; j < children.length; ++j) {
+
+                            parentTreeNode = root.first(function(node) {
+                                return node.model.id === (children[j].id).substring(10, children[j].id.length);
+                            });
+
+                            for (var k = 0; k < children[j].inputConnections.length; ++k) {
+
+                                childId = children[j].inputConnections[k].outputSide;
+                                childId = childId.substring(10, childId.length);
+                                newChild = tree.parse({id: childId});
+
+                                parentTreeNode.addChild(newChild);
+                                childComponent = this.circuitComponents[childId];
+                                tempChildren.push(childComponent);
+
+                            }
+
+                        }
+
+                    }
+
+                    var nodes = [];
+
+                    // Builds the simulation order by tree traversal
+                    root.walk({strategy: 'post'}, function (node) {
+                        nodes.push(node.model.id);
+                    });
+
+                    for (j = 0; j < nodes.length; ++j) {
+
+                        var currentComponent = this.circuitComponents[nodes[j]];
+
+                        var output = currentComponent.output();
+
+                        for (k = 0; k < currentComponent.outputConnections.length; ++k) {
+
+                            var inputNum = currentComponent.outputConnections[k].inputNumber;
+                            var nextComponentIndex = Number(currentComponent.outputConnections[k].inputSide.substring(10));
+
+                            if (inputNum == "1") {
+                                this.circuitComponents[nextComponentIndex].input1 = output;
+                            }
+                            else if (inputNum == "2") {
+                                this.circuitComponents[nextComponentIndex].input2 = output;
+                            }
+                            else if (inputNum == "3") {
+                                this.circuitComponents[nextComponentIndex].input3 = output;
+                            }
+
+                        }
+
+                        if (j == nodes.length - 1) {
+
+                            var outputID = currentComponent.id;
+                            outputID = document.getElementById(outputID).firstElementChild;
+
+                            // Color output to show true value (green)
+                            if (output) {
+                                outputID.setAttribute("style", "stroke: #06c400");
+                            }
+                            // Color output to show false value (red)
+                            else {
+                                outputID.setAttribute("style", "stroke: #ef0000");
+                            }
+
+                        }
 
                     }
 
