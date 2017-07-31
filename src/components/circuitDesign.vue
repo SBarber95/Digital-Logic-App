@@ -332,6 +332,7 @@
         },
         data() {
             return {
+                // TODO: PERHAPS STORE INFO OF LATEST COMPONENT OR WIRE MADE FOR UNDO PURPOSES
                 // Global ID # for unique component IDs and wires
                 idNum: 0,
                 vm: this,
