@@ -161,7 +161,6 @@
     import Snap from 'snapsvg'
     import TreeModel from 'tree-model'
     import $ from 'jquery'
-    import twoInputAND from './circuitComponents/twoInputAND.vue'
 
     function ThreeInputAND (id, input1, input2, input3, inputConnections, outputConnections) {
 
