@@ -1,0 +1,12 @@
+<template>
+    <svg xmlns="http://www.w3.org/2000/svg" width="105.10703" height="54.930817" version="1">
+        <g transform="matrix(1.234375,0,0,1.3732704,-12.158594,-6.866352)" class="component">
+            <path d="m 74.98,25.13 c 16.01,0 20.02,0 20.02,0" aria-label="34.5" class="gate-output" style="fill:none;stroke-width:1.78999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+            <path d="M 31,12 10.11,12" aria-label="16.2" class="gate-input input1" style="fill:none;stroke-width:1.78999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+            <path d="M 32,38 9.98,38" aria-label="51.8" class="gate-input input3" style="fill:none;stroke-width:1.80999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+            <path d="m 30,5 0,1.43 0,37.14 0,1.43 1.59,0 21.15,0 c 12.51,0 22.2,-9 22.2,-20 0,-11 -9.69,-20 -22.2,-20 0,0 0,0 -21.15,0 L 30,5 Z m 3.17,2.86 c 8.86,0 14.5,0 16.92,0 1.32,0 1.98,0 2.31,0 0.17,0 0.26,0 0.3,0 0.02,0 0.03,0 0.03,0 10.84,0 18.5,7.64 18.5,17.14 0,9.5 -8.2,17.14 -19.03,17.14 l -19.03,0 0,-34.29 z" class="three-AND" style="visibility:visible;fill:#000000;fill-opacity:1;marker:none"></path>
+            <path d="M 31,25 9.85,25" aria-label="34.2" class="gate-input input2" style="fill:none;stroke-width:1.79999995;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"></path>
+            <rect x="30" y="1" width="45" height="45" fill="transparent" class="drag-box"></rect>
+        </g>
+    </svg>
+</template>

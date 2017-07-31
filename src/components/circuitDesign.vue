@@ -137,7 +137,7 @@
                 <button type="button" id="delete_circuit" style="position: relative; left: 81.2%; top: 70px;"
                         class="btn btn-danger">Delete Circuit
                 </button>
-                <button type="button" id="simulate" onclick="simulate"
+                <button type="button" id="simulate" @click="simulate"
                         style="position: relative; left: 74.7%; top: 130px;" class="btn btn-primary">Simulate
                 </button>
             </div>
@@ -161,6 +161,7 @@
     import Snap from 'snapsvg'
     import TreeModel from 'tree-model'
     import $ from 'jquery'
+    import twoInputAND from './subComponents/twoInputAND.vue'
 
     function ThreeInputAND (id, input1, input2, input3, inputConnections, outputConnections) {
 
@@ -326,10 +327,14 @@
     }
 
     export default {
+        components: {
+            twoAND: twoInputAND
+        },
         data() {
             return {
                 // Global ID # for unique component IDs and wires
                 idNum: 0,
+                vm: this,
                 wireIdNum: 0,
 
                 outputCoords: [],
@@ -351,7 +356,7 @@
 
             $('#select3InputNAND').click(function() {
 
-                Snap.load("src/images/3_Input_NAND.svg", function(e) {
+                Snap.load("src/components/subComponents/threeInputNAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -371,7 +376,7 @@
 
             $('#select3InputAND').click(function() {
 
-                Snap.load("src/images/3_Input_AND.svg", function(e) {
+                Snap.load("src/components/subComponents/threeInputAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -391,7 +396,7 @@
 
             $("#select3InputNOR").click(function() {
 
-                Snap.load("src/images/3_Input_NOR.svg", function(e) {
+                Snap.load("src/components/subComponents/threeInputNOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -411,7 +416,7 @@
 
             $("#select3InputOR").click(function() {
 
-                Snap.load("src/images/3_Input_OR.svg", function(e) {
+                Snap.load("src/components/subComponents/threeInputOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -431,7 +436,7 @@
 
             $("#select2InputXOR").click(function() {
 
-                Snap.load("src/images/2_Input_XOR.svg", function(e) {
+                Snap.load("src/components/subComponents/twoInputXOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -451,7 +456,7 @@
 
             $("#select2InputXNOR").click(function() {
 
-                Snap.load("src/images/2_Input_XNOR.svg", function(e) {
+                Snap.load("src/components/subComponents/twoInputXNOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -471,7 +476,7 @@
 
             $("#select2InputOR").click(function() {
 
-                Snap.load("src/images/2_Input_OR.svg", function(e) {
+                Snap.load("src/components/subComponents/twoInputOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -491,7 +496,7 @@
 
             $("#select2InputNOR").click(function() {
 
-                Snap.load("src/images/2_Input_NOR.svg", function(e) {
+                Snap.load("src/components/subComponents/twoInputNOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -511,7 +516,7 @@
 
             $("#select2InputNAND").click(function() {
 
-                Snap.load("src/images/2_Input_NAND.svg", function(e) {
+                Snap.load("src/components/subComponents/twoInputNAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -531,7 +536,7 @@
 
             $("#select2InputAND").click(function() {
 
-                Snap.load("src/images/2_Input_AND.svg", function(e) {
+                Snap.load("src/components/subComponents/twoInputAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -549,31 +554,43 @@
 
             });
 
+            $(document).on("dblclick", ".gate-output", function () {
+                vm.findOutputCoords($(this))
+            });
+            $(document).on("dblclick", ".gate-input", function () {
+                vm.findInputCoords($(this))
+            });
+            $(document).on("mouseup", ".drag-box", function () {
+                vm.redrawWires($(this)[0].parentNode)
+            });
+
         },
         methods: {
             // Finds approximate output coordinates on
             // circuit components (for use in wire drawing)
             findOutputCoords (e) {
 
-                outputComponent = e.parentNode.getAttribute("id");
+                e = e[0]
+
+                this.outputComponent = e.parentNode.getAttribute("id");
 
                 var outputCompTransform = e.parentNode.getAttribute("transform");
                 outputCompTransform = (outputCompTransform.substring(7, outputCompTransform.length - 1)).split(",");
 
-                outputCompOffsetX = Number(outputCompTransform[4]);
-                outputCompOffsetY = Number(outputCompTransform[5]);
+                this.outputCompOffsetX = Number(outputCompTransform[4]);
+                this.outputCompOffsetY = Number(outputCompTransform[5]);
 
                 var outputSVGOffsetY = Number(e.getAttribute("aria-label"));
 
                 // SVG component length attributes
                 var width = e.parentNode.getBoundingClientRect().right - e.parentNode.getBoundingClientRect().left;
 
-                var outputX = width + outputCompOffsetX;
-                var outputY = outputCompOffsetY + outputSVGOffsetY;
+                var outputX = width + this.outputCompOffsetX;
+                var outputY = this.outputCompOffsetY + outputSVGOffsetY;
 
-                outputCoords = [outputX, outputY];
+                this.outputCoords = [outputX, outputY];
 
-                return outputCoords;
+                return this.outputCoords;
 
             },
 
@@ -583,6 +600,8 @@
              * @param e
              */
             findInputCoords (e) {
+
+                e = e[0]
 
                 let snap = Snap('#canvas');
 
@@ -596,7 +615,7 @@
                     var inputNum = e.getAttribute("class");
                     inputNum = inputNum.substring(inputNum.length - 1, inputNum.length);
 
-                    inputComponent = e.parentNode.getAttribute("id");
+                    this.inputComponent = e.parentNode.getAttribute("id");
 
                     // Grab attribute of clicked element that sets coordinate values
                     var svgInputYCoord = e.getAttribute("aria-label");
@@ -625,7 +644,7 @@
 
                     var wireGroup = snap.group(path1, path2, path3);
 
-                    var wireId = "wire-" + wireIdNum;
+                    var wireId = "wire-" + this.wireIdNum;
 
                     wireGroup.attr({
                         id: wireId,
@@ -633,21 +652,21 @@
                         strokeWidth: 2.3
                     });
 
-                    this.wires[wireIdNum] = new Wire(outputComponent, inputComponent, inputNum, wireId, outputX, outputY, inputX, inputY, outputCompOffsetX,
-                        outputCompOffsetY, inputCompOffsetX, inputCompOffsetY);
+                    this.wires[this.wireIdNum] = new Wire(this.outputComponent, this.inputComponent, inputNum, wireId, outputX, outputY, inputX, inputY, this.outputCompOffsetX,
+                        this.outputCompOffsetY, inputCompOffsetX, inputCompOffsetY);
 
-                    var inputComponentIndex = Number(inputComponent.substring(10, inputComponent.length));
-                    var outputComponentIndex = Number(outputComponent.substring(10, outputComponent.length));
+                    var inputComponentIndex = Number(this.inputComponent.substring(10, this.inputComponent.length));
+                    var outputComponentIndex = Number(this.outputComponent.substring(10, this.outputComponent.length));
 
-                    var inputCompObject = circuitComponents[inputComponentIndex];
-                    inputCompObject.inputConnections.push(this.wires[wireIdNum]);
+                    var inputCompObject = this.circuitComponents[inputComponentIndex];
+                    inputCompObject.inputConnections.push(this.wires[this.wireIdNum]);
 
-                    var outputCompObject = circuitComponents[outputComponentIndex];
-                    outputCompObject.outputConnections.push(this.wires[wireIdNum]);
+                    var outputCompObject = this.circuitComponents[outputComponentIndex];
+                    outputCompObject.outputConnections.push(this.wires[this.wireIdNum]);
 
-                    wireIdNum++;
+                    this.wireIdNum++;
 
-                   this.outputCoords = [];  // Reset output coords
+                    this.outputCoords = [];  // Reset output coords
 
                 }
 
@@ -655,8 +674,10 @@
 
             redrawWires (e) {
 
+                console.log(e)
+
                 let snap = Snap('#canvas')
-                
+
                 var componentId = e.getAttribute("id");
                 var componentIndex = Number(componentId.substring(10, componentId.length));
                 var componentObject = this.circuitComponents[componentIndex];
@@ -748,7 +769,7 @@
 
                         // Looks for the proper wire in the corresponding input component's connections array
                         var inputSideWire;
-                        for (var j = 0; j < circuitComponents[inputSideIndex].inputConnections.length; ++j) {
+                        for (var j = 0; j < this.circuitComponents[inputSideIndex].inputConnections.length; ++j) {
 
                             if (this.circuitComponents[inputSideIndex].inputConnections[j].wireId == currentWire.wireId) {
                                 inputSideWire = this.circuitComponents[inputSideIndex].inputConnections[j];
@@ -795,7 +816,7 @@
 
                 // Create Array of outputs (which will become the roots)
                 var treeRoots = [];
-                for (var i = 0; i < circuitComponents.length; ++i) {
+                for (var i = 0; i < this.circuitComponents.length; ++i) {
 
                     if (this.circuitComponents[i] != null) {
                         if (this.circuitComponents[i].outputConnections.length == 0) {
@@ -873,7 +894,6 @@
                     for (j = 0; j < nodes.length; ++j) {
 
                         var currentComponent = this.circuitComponents[nodes[j]];
-
                         var output = currentComponent.output();
 
                         for (k = 0; k < currentComponent.outputConnections.length; ++k) {
@@ -914,10 +934,8 @@
                 }
 
             }
+
         }
+
     }
 </script>
-
-<style scoped>
-
-</style>

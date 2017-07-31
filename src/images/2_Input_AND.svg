@@ -19,7 +19,6 @@
        id="output-2-AND"
        class="gate-output"
        aria-label="34.5"
-       ondblclick="findOutputCoords(this)"
        style="fill:none;stroke-width:1.78999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
     </path>
     <path
@@ -27,7 +26,6 @@
        id="input-A2-AND"
        aria-label="22.2"
        class="gate-input input1"
-       ondblclick="findInputCoords(this)"
        style="fill:none;stroke-width:1.78999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
     </path>
     <path
@@ -35,7 +33,6 @@
        class="gate-input input2"
        id="input-B2-AND"
        aria-label="47"
-       ondblclick="findInputCoords(this)"
        style="fill:none;stroke-width:1.80999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
     </path>
     <path
@@ -43,6 +40,6 @@
        id="two-AND"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Bitstream Vera Sans';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;visibility:visible;fill:#000000;fill-opacity:1;marker:none">
     </path>
-      <rect x="30" y="6" width="43" height="43" fill="transparent" onmouseup="redrawWires(this.parentNode)"/>
+      <rect x="30" y="6" width="43" height="43" fill="transparent" class="drag-box"/>
   </g>
 </svg>
