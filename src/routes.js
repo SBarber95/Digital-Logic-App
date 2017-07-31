@@ -17,6 +17,11 @@ import FourVarTT from './components/subComponents/fourVarTT.vue'
 import KarnaughMaps from './components/karnaughMaps.vue'
 import ThreeVarKM from './components/subComponents/threeVarKM.vue'
 import FourVarKM from './components/subComponents/fourVarKM.vue'
+import DesignProblems from './components/designProblems.vue'
+import SRCounter from './components/subComponents/SRCounter.vue'
+import JKCounter from './components/subComponents/JKCounter.vue'
+import DCounter from './components/subComponents/DCounter.vue'
+import TCounter from './components/subComponents/TCounter.vue'
 import CircuitDesign from './components/circuitDesign.vue'
 
 export const routes = [
@@ -46,6 +51,14 @@ export const routes = [
         children: [
             {path: 'threeVar', component: ThreeVarKM},
             {path: 'fourVar', component: FourVarKM}
+        ]
+    },
+    {path: '/designProblems/', component: DesignProblems,
+        children: [
+            {path: 'SR-Counter', component: SRCounter},
+            {path: 'JK-Counter', component: JKCounter},
+            {path: 'D-Counter', component: DCounter},
+            {path: 'T-Counter', component: TCounter},
         ]
     },
     {path: '/circuitDesign', component: CircuitDesign},
