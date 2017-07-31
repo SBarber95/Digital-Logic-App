@@ -326,9 +326,6 @@
     }
 
     export default {
-        components: {
-            twoAND: twoInputAND
-        },
         data() {
             return {
                 // TODO: PERHAPS STORE INFO OF LATEST COMPONENT OR WIRE MADE FOR UNDO PURPOSES
