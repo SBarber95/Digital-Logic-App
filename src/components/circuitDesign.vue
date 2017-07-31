@@ -161,7 +161,7 @@
     import Snap from 'snapsvg'
     import TreeModel from 'tree-model'
     import $ from 'jquery'
-    import twoInputAND from './subComponents/twoInputAND.vue'
+    import twoInputAND from './circuitComponents/twoInputAND.vue'
 
     function ThreeInputAND (id, input1, input2, input3, inputConnections, outputConnections) {
 
@@ -356,7 +356,7 @@
 
             $('#select3InputNAND').click(function() {
 
-                Snap.load("src/components/subComponents/threeInputNAND.vue", function(e) {
+                Snap.load("src/components/circuitComponents/threeInputNAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -376,7 +376,7 @@
 
             $('#select3InputAND').click(function() {
 
-                Snap.load("src/components/subComponents/threeInputAND.vue", function(e) {
+                Snap.load("src/components/circuitComponents/threeInputAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -396,7 +396,7 @@
 
             $("#select3InputNOR").click(function() {
 
-                Snap.load("src/components/subComponents/threeInputNOR.vue", function(e) {
+                Snap.load("src/components/circuitComponents/threeInputNOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -416,7 +416,7 @@
 
             $("#select3InputOR").click(function() {
 
-                Snap.load("src/components/subComponents/threeInputOR.vue", function(e) {
+                Snap.load("src/components/circuitComponents/threeInputOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -436,7 +436,7 @@
 
             $("#select2InputXOR").click(function() {
 
-                Snap.load("src/components/subComponents/twoInputXOR.vue", function(e) {
+                Snap.load("src/components/circuitComponents/twoInputXOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -456,7 +456,7 @@
 
             $("#select2InputXNOR").click(function() {
 
-                Snap.load("src/components/subComponents/twoInputXNOR.vue", function(e) {
+                Snap.load("src/components/circuitComponents/twoInputXNOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -476,7 +476,7 @@
 
             $("#select2InputOR").click(function() {
 
-                Snap.load("src/components/subComponents/twoInputOR.vue", function(e) {
+                Snap.load("src/components/circuitComponents/twoInputOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -496,7 +496,7 @@
 
             $("#select2InputNOR").click(function() {
 
-                Snap.load("src/components/subComponents/twoInputNOR.vue", function(e) {
+                Snap.load("src/components/circuitComponents/twoInputNOR.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -516,7 +516,7 @@
 
             $("#select2InputNAND").click(function() {
 
-                Snap.load("src/components/subComponents/twoInputNAND.vue", function(e) {
+                Snap.load("src/components/circuitComponents/twoInputNAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -536,7 +536,7 @@
 
             $("#select2InputAND").click(function() {
 
-                Snap.load("src/components/subComponents/twoInputAND.vue", function(e) {
+                Snap.load("src/components/circuitComponents/twoInputAND.vue", function(e) {
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
