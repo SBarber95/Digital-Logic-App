@@ -11,6 +11,7 @@ import ConversionsFromDec from './components/subComponents/conversionsFromDec.vu
 import ConversionsFromBin from './components/subComponents/conversionsFromBin.vue'
 import ConversionsFromOctal from './components/subComponents/conversionsFromOctal.vue'
 import ConversionsFromHex from './components/subComponents/conversionsFromHex.vue'
+import IEEEConversions from './components/subComponents/ieeeConversions.vue'
 import MinMaxterms from './components/minMaxterms.vue'
 import ThreeVarTT from './components/subComponents/threeVarTT.vue'
 import FourVarTT from './components/subComponents/fourVarTT.vue'
@@ -40,7 +41,8 @@ export const routes = [
             {path: 'fromDecimal', component: ConversionsFromDec},
             {path: 'fromBinary', component: ConversionsFromBin},
             {path: 'fromOctal', component: ConversionsFromOctal},
-            {path: 'fromHex', component: ConversionsFromHex}
+            {path: 'fromHex', component: ConversionsFromHex},
+            {path: 'ieee-conversions', component: IEEEConversions}
         ]
     },
     {path: '/minMaxterms/', component: MinMaxterms,

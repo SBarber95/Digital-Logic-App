@@ -11,7 +11,7 @@
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li class="sub-header">Special Conversions</li>
-                    <li id="ieee_conversions"><a href="#">IEEE Floating Point</a></li>
+                    <li id="ieee_conversions"><router-link to="ieee-conversions">IEEE Floating Point</router-link></li>
                 </ul>
             </div>
             <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
