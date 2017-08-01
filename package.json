@@ -1,17 +1,32 @@
 {
-  "name": "Logic",
+  "name": "sovereign-logic",
+  "description": "A Vue.js project",
   "version": "1.0.0",
+  "author": "Savannah Barber (SBarber95)",
+  "private": true,
   "scripts": {
-    "start": "npm run lite",
-    "lite": "lite-server"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
-  "license": "ISC",
   "dependencies": {
-    "vue": "^2.0.0"
+    "jquery": "^3.2.1",
+    "snap": "^0.2.2",
+    "snapsvg": "^0.5.1",
+    "tree-model": "^1.0.6",
+    "vue": "^2.3.3",
+    "vue-router": "^2.7.0"
   },
   "devDependencies": {
-    "concurrently": "^3.0.0",
-    "lite-server": "^2.2.2",
-    "surge": "^0.18.0"
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-env": "^1.5.1",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "imports-loader": "^0.7.1",
+    "vue-loader": "^12.1.0",
+    "vue-template-compiler": "^2.3.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }

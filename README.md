@@ -1,16 +1,18 @@
-**Sovereign Logic**
+# sovereign-logic
 
-1. Clone repo & set up in IDE of choice 
-2. npm install _(install dependencies)_
-3. npm run lite _(runs lite-server)_
+> A Vue.js project
 
-**Needed Improvements/Features**
+## Build Setup
 
-1. Implement Binary Division calculator and quizzer
-2. Implement IEEE floating point conversions
-3. Continue structuring circuit designer objects and components
-4. Fill out Reference pages with relevant information
-5. Fill out and style the home page
-6. Fix Karnaugh Map bugs with don't care values
-7. Implement 7-Segment Display designer
-8. Error-checking for arithmetic and conversions input
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+```
+
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

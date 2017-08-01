@@ -5,21 +5,18 @@
        d="m 95.13382,32.424619 c 24.36049,0 19.48839,0 19.48839,0"
        aria-label="32.424619"
        class="gate-output"
-       ondblclick="findOutputCoords(this)"
        id="path3059"/>
     <path
        style="fill:none;stroke-width:2.58471894;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 36.668639,18.71231 5,18.71231"
        aria-label="18.71231"
        class="gate-input input1"
-       ondblclick="findInputCoords(this)"
        id="path3061"/>
     <path
        style="fill:none;stroke-width:2.5847187;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 37.886664,46.136929 5,46.136929"
        aria-label="46.136929"
        class="gate-input input2"
-       ondblclick="findInputCoords(this)"
        id="path3944"/>
     <g id="g4712" transform="matrix(1.2180246,0,0,1.371231,-1.090123,-1.8561549)">
       <g transform="translate(26.5,-39.5)" id="g2560">
@@ -33,6 +30,6 @@
            style="display:inline;overflow:visible;visibility:visible;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" />
       </g>
     </g>
-    <rect x="37" y="8" width="46" height="48" fill="transparent" onmouseup="redrawWires(this.parentNode)"/>
+    <rect x="37" y="8" width="46" height="48" fill="transparent" class="drag-box"/>
   </g>
 </svg>
