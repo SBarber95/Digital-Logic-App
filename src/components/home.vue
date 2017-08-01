@@ -59,7 +59,7 @@
                     <img class="img-circle" src="../images/circle_3.jpg" alt="Generic placeholder image" width="140" height="140">
                     <h2>New to Digital Logic?</h2>
                     <p>No problem! This site has a reference section that includes helpful links for beginners to learn the fundamentals of digital logic, as well as helpful resources regarding logic gates, boolean theorems, binary arithmetic rules, and more!</p>
-                    <p><a class="btn btn-default" href="src/views/references.html" role="button">View References &raquo;</a></p>
+                    <p><router-link class="btn btn-default" to="/references/boolean-theorems" role="button">View References &raquo;</router-link></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="img-circle" src="../images/circle_1.png" alt="Generic placeholder image" width="140" height="140">
