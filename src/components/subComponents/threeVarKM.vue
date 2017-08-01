@@ -484,14 +484,10 @@
     input {
         margin-top: 8px;
         position: relative;
-        left: 33.2vw;
-        top: -62.5vh;
     }
     .second-input {
         margin-top: 8px;
         position: relative;
-        left: 57vw;
-        top: -68.8vh;
     }
     .btn-primary {
         font-size: 18px;

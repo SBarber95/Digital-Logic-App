@@ -97,7 +97,7 @@
                        name="submit" value="Simplify (Maxterms)">
                 </form>
         </div>
-        <div class="panel panel-primary" style="float: right; display: inline-block; width: 52%;">
+        <div class="panel panel-primary" style="float: right; display: inline-block; width: 48%;">
             <div class="panel-heading">
                 <h3 class="panel-title">Simplified Boolean Expression</h3>
             </div>
@@ -740,8 +740,6 @@
     input {
         margin-top: 8px;
         position: relative;
-        left: 33.2vw;
-        top: -62.5vh;
     }
     .first-input-4-var {
         margin-top: 8px;
