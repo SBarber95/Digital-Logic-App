@@ -16,7 +16,7 @@
             <li><router-link to="/karnaughMaps/threeVar">Karnaugh Maps</router-link></li>
             <li><router-link to="/designProblems/SR-Counter">Design Problems</router-link></li>
             <li><router-link to="/circuitDesign">Circuit Design</router-link></li>
-            <li><a href="views/references.html">References</a></li>
+            <li><router-link to="/references/boolean-theorems">References</router-link></li>
           </ul>
         </div>
       </div>

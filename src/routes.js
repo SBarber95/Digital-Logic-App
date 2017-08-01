@@ -23,6 +23,8 @@ import JKCounter from './components/subComponents/JKCounter.vue'
 import DCounter from './components/subComponents/DCounter.vue'
 import TCounter from './components/subComponents/TCounter.vue'
 import CircuitDesign from './components/circuitDesign.vue'
+import References from './components/references.vue'
+import BooleanTheorems from './components/subComponents/booleanTheorems.vue'
 
 export const routes = [
     {path: '', component: Home},
@@ -62,5 +64,10 @@ export const routes = [
         ]
     },
     {path: '/circuitDesign', component: CircuitDesign},
+    {path: '/references/', component: References,
+        children: [
+            {path: 'boolean-theorems', component: BooleanTheorems}
+        ]
+    },
     {path: '*', component: Home}
 ]
