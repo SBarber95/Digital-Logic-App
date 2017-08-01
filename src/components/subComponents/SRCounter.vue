@@ -234,10 +234,10 @@
                        value="Set Up Counter Design">
             </form>
         </div>
-        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
+        <div class="col-sm-8 col-md-9">
             <div class="km-container">
                 <p class="km-label">Sc</p>
-                <div class="info-cell"><img src="../../images/KMLabel3Var.png"></div>
+                <div class="info-cell"><img src="../../images/counterKMLogo.png"></div>
                 <div class="info-cell"><p class="info-top">0</p></div>
                 <div class="info-cell"><p class="info-top">1</p></div>
                 <div class="info-cell"><p class="info-side">00</p></div>
@@ -255,7 +255,7 @@
             </div>
             <div class="km-container">
                 <p class="km-label">Sb</p>
-                <div class="info-cell"><img src="../../images/KMLabel3Var.png"></div>
+                <div class="info-cell"><img src="../../images/counterKMLogo.png"></div>
                 <div class="info-cell"><p class="info-top">0</p></div>
                 <div class="info-cell"><p class="info-top">1</p></div>
                 <div class="info-cell"><p class="info-side">00</p></div>
@@ -273,7 +273,7 @@
             </div>
             <div class="km-container">
                 <p class="km-label">Sa</p>
-                <div class="info-cell"><img src="../../images/KMLabel3Var.png"></div>
+                <div class="info-cell"><img src="../../images/counterKMLogo.png"></div>
                 <div class="info-cell"><p class="info-top">0</p></div>
                 <div class="info-cell"><p class="info-top">1</p></div>
                 <div class="info-cell"><p class="info-side">00</p></div>
@@ -291,7 +291,7 @@
             </div>
             <div class="km-container">
                 <p class="km-label">Rc</p>
-                <div class="info-cell"><img src="../../images/KMLabel3Var.png"></div>
+                <div class="info-cell"><img src="../../images/counterKMLogo.png"></div>
                 <div class="info-cell"><p class="info-top">0</p></div>
                 <div class="info-cell"><p class="info-top">1</p></div>
                 <div class="info-cell"><p class="info-side">00</p></div>
@@ -309,7 +309,7 @@
             </div>
             <div class="km-container">
                 <p class="km-label">Rb</p>
-                <div class="info-cell"><img src="../../images/KMLabel3Var.png"></div>
+                <div class="info-cell"><img src="../../images/counterKMLogo.png"></div>
                 <div class="info-cell"><p class="info-top">0</p></div>
                 <div class="info-cell"><p class="info-top">1</p></div>
                 <div class="info-cell"><p class="info-side">00</p></div>
@@ -327,7 +327,7 @@
             </div>
             <div class="km-container">
                 <p class="km-label">Ra</p>
-                <div class="info-cell"><img src="../../images/KMLabel3Var.png"></div>
+                <div class="info-cell"><img src="../../images/counterKMLogo.png"></div>
                 <div class="info-cell"><p class="info-top">0</p></div>
                 <div class="info-cell"><p class="info-top">1</p></div>
                 <div class="info-cell"><p class="info-side">00</p></div>
@@ -363,6 +363,32 @@
     }
 
     export default {
+        mounted () {
+            document.getElementById("design-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">'+
+                'Instructions!'+
+                '</button>'+
+                '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+                '<div class="modal-dialog" role="document">'+
+                '<div class="modal-content">'+
+                '<div class="modal-header">'+
+                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>'+
+                '</div>'+
+                '<div class="modal-body">'+
+                'Fill out the table entries according to the state changes you wish to include in your counter. '+
+                'Click "Set Up Counter Design" and the rest of the table will fill in with the proper values. '+
+                'Below the table, the Karnaugh Maps associated with each '+
+                'input column will be populated with the table info. A '+
+                'simplified minterm boolean expression for the counter inputs is shown at the bottom.'+
+                '</div>'+
+                '<div class="modal-footer">'+
+                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '</div>'+
+                '</div>'+
+                '</div>'+
+                '</div>'+
+                'S-R Counter Design';
+        },
         methods: {
             designCounter: function(e) {
 

@@ -4,16 +4,16 @@
             <div class="col-sm-4 col-md-3 sidebar">
                 <ul class="nav nav-sidebar">
                     <li class="sub-header">Counter Design</li>
-                    <li id="select_SR_counter"><a href="#">S-R Counter</a></li>
-                    <li id="select_JK_counter"><a href="#">J-K Counter</a></li>
-                    <li id="select_D_counter"><a href="#">D Counter</a></li>
-                    <li id="select_T_counter"><a href="#">T Counter</a></li>
+                    <li id="select_SR_counter"><router-link to="SR-Counter">S-R Counter</router-link></li>
+                    <li id="select_JK_counter"><router-link to="JK-Counter">J-K Counter</router-link></li>
+                    <li id="select_D_counter"><router-link to="D-Counter">D Counter</router-link></li>
+                    <li id="select_T_counter"><router-link to="T-Counter">T Counter</router-link></li>
                     <li class="sub-header">Other Design Problems</li>
                     <li id="select_7S_Display"><a href="#">7-Segment Display</a></li>
                 </ul>
             </div>
             <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-                <h1 class="page-header">
+                <h1 class="page-header" id="design-header">
                     <button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal"
                             data-target="#counterModal">Instructions!
                     </button>
