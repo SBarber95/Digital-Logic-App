@@ -9,7 +9,7 @@
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li class="sub-header">Need to Simplify a Boolean Expression?</li>
-                    <li><router-link to="">Karnaugh Maps</router-link></li>
+                    <li><router-link to="/karnaughMaps/threeVar">Karnaugh Maps</router-link></li>
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li class="sub-header">Working on a Design Problem?</li>
