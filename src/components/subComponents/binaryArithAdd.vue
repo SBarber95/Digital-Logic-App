@@ -18,8 +18,8 @@
                 <p id="second_quiz_number"></p>
                 <p id="quiz_border" class="border"></p>
                 <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
-                <button class="btn btn-primary" name="submit" v-on:click="checkAnswer">Check Answer</button>
-                <button class="btn btn-primary" name="reset" v-on:click="resetValues">Change Values</button>
+                <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
+                <button class="btn btn-mdb" name="reset" v-on:click="resetValues">Change Values</button>
                 </form>
             <p id="quiz_output_add" class="well arithmetic-output">Your answer will be checked here.</p>
         </div>

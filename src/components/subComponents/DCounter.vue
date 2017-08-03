@@ -176,7 +176,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-primary" v-on:click="designCounter" name="submit">Set Up Counter Design</button>
+                <button class="btn btn-mdb" v-on:click="designCounter" name="submit">Set Up Counter Design</button>
             </form>
         </div>
         <div class="col-sm-8 col-md-9">

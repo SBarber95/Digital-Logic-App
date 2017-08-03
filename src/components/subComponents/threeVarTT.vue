@@ -85,7 +85,7 @@
                 </tr>
             </tbody>
             </table>
-        <button v-on:click="findMinMaxterms" class="btn btn-primary" name="submit">Find Min/Maxterms</button>
+        <button v-on:click="findMinMaxterms" class="btn btn-mdb" name="submit">Find Min/Maxterms</button>
         </form>
     <div class="col-sm-12 output-panel">
         <div class="panel panel-primary">

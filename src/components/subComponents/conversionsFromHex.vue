@@ -7,7 +7,7 @@
                 Select Desired Base: <select name="desiredBase"><option value="2">2</option>
                     <option value="8">8</option>
                     <option value="10">10</option></select><br>
-                <button id="converter_submit" class="btn btn-primary" v-on:click="convert" name="submit">Convert</button>
+                <button id="converter_submit" class="btn btn-mdb" v-on:click="convert" name="submit">Convert</button>
                 </form>
             <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
         </div>
@@ -20,8 +20,8 @@
                 Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>
                     <option value="8">8</option>
                     <option value="10">10</option></select><br>
-                <button class="btn btn-primary" name="submit" v-on:click="checkAnswer">Check Answer</button>
-                <button class="btn btn-primary" name="reset" v-on:click="resetConvertValue">Change Value</button>
+                <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
+                <button class="btn btn-mdb" name="reset" v-on:click="resetConvertValue">Change Value</button>
                 </form>
             <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
         </div>

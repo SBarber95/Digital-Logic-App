@@ -136,7 +136,7 @@
                 <input type="button" id="delete_circuit" style="position: relative; left: 74%; top: 70px;"
                         class="btn btn-danger" value="Delete Circuit">
                 <input type="submit" id="simulate" @click="simulate"
-                        style="position: relative; left: 63%; top: 130px;" class="btn btn-primary" value="Simulate">
+                        style="position: relative; left: 63%; top: 130px;" class="btn btn-mdb" value="Simulate">
             </div>
         </div>
         <nav id="context-menu" class="context-menu">

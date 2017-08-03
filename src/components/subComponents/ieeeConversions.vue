@@ -3,9 +3,9 @@
         <div id="convert-component">
             <form id="ieee-hex-converter">
                 <input type="text" class="ieee-hex-value" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #" required>
-                <button id="converter_submit" class="btn btn-primary" v-on:click="convertFromHex" name="submit">Convert</button>
+                <button id="converter_submit" class="btn btn-mdb" v-on:click="convertFromHex" name="submit">Convert</button>
             </form>
-            <button id="toggle_direction" class="btn btn-primary" v-on:click="toggleDirection">Toggle Direction</button>
+            <button id="toggle_direction" class="btn btn-mdb" v-on:click="toggleDirection">Toggle Direction</button>
         </div>
         <div id="convert-quiz-component">
             <h2 id="second_header">Conversion Steps</h2>
@@ -19,9 +19,9 @@
         <div id="convert-component">
             <form id="ieee-dec-converter">
                 <input type="text" class="ieee-dec-value" name="ieeeDecValue" placeholder="Enter a Decimal Value" required>
-                <button id="converter_submit" class="btn btn-primary" v-on:click="convertFromHex" name="submit">Convert</button>
+                <button id="converter_submit" class="btn btn-mdb" v-on:click="convertFromHex" name="submit">Convert</button>
             </form>
-            <button id="toggle_direction" class="btn btn-primary" v-on:click="toggleDirection">Toggle Direction</button>
+            <button id="toggle_direction" class="btn btn-mdb" v-on:click="toggleDirection">Toggle Direction</button>
         </div>
         <div id="convert-quiz-component">
             <h2 id="second_header">Conversion Steps</h2>
