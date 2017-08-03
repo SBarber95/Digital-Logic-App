@@ -6,7 +6,7 @@
             <input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>
             + <input type="text" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>
             <p class="border"></p>
-            <input type="submit" class="btn btn-primary" name="submit" value="Calculate" v-on:click="calculate">
+            <button class="btn btn-primary" name="submit" v-on:click="calculate">Calculate</button>
             </form>
         <p id="calculator_output_add" class="well arithmetic-output">The Answer Will Appear Here.</p>
         </div>
@@ -18,8 +18,8 @@
                 <p id="second_quiz_number"></p>
                 <p id="quiz_border" class="border"></p>
                 <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
-                <input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">
-                <input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">
+                <button class="btn btn-primary" name="submit" v-on:click="checkAnswer">Check Answer</button>
+                <button class="btn btn-primary" name="reset" v-on:click="resetValues">Change Values</button>
                 </form>
             <p id="quiz_output_add" class="well arithmetic-output">Your answer will be checked here.</p>
         </div>
@@ -30,14 +30,14 @@
     export default {
         mounted () {
 
-            document.getElementById("binary-arith-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">'+
+            document.getElementById("binary-arith-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">'+
                 'Instructions!'+
                 '</button>'+
                 '<div class="modal fade" id="binaryAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
                 '<div class="modal-dialog" role="document">'+
                 '<div class="modal-content">'+
                 '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
                 '<h4 class="modal-title" id="binaryAddTitle">Binary Addition Instructions</h4>'+
                 '</div>'+
                 '<div class="modal-body">'+
@@ -51,7 +51,7 @@
                 'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.'+
                 '</div>'+
                 '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
                 '</div>'+
                 '</div>'+
                 '</div>'+

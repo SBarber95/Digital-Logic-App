@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-toggleable-md navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand">Sovereign Logic</a>

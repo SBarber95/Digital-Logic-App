@@ -14,7 +14,7 @@
             </div>
             <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
                 <h1 class="page-header" id="design-header">
-                    <button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal"
+                    <button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal"
                             data-target="#counterModal">Instructions!
                     </button>
                     <div class="modal fade" id="counterModal" tabindex="-1" role="dialog"
@@ -22,7 +22,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button class="close" data-dismiss="modal" aria-label="Close">
                                         <span>&times;</span></button>
                                     <h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>
                                 </div>
@@ -34,7 +34,7 @@
                                     simplified minterm boolean expression for the counter inputs is shown at the bottom.
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>

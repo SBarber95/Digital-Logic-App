@@ -212,10 +212,6 @@ input {
     line-height: 2;
 }
 
-.btn-default {
-    color: white;
-}
-
 #addition_calculator > input, #subtraction_calculator > input, #multiplication_calculator > input {
     margin-bottom: 20px;
 }

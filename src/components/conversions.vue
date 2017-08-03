@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-                <h1 id="conversions-header" class="page-header"><button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">
+                <h1 id="conversions-header" class="page-header"><button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">
                     Instructions!
                 </button>
                     <div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -36,7 +36,7 @@
                                     Make sure you select which base you converted to in the drop-down box as you put in your answer.
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>

@@ -7,8 +7,8 @@
                 Select Desired Base: <select name="desiredBase"><option value="2">2</option>
                     <option value="10">10</option>
                     <option value="16">16</option></select><br>
-                <input type="submit" id="converter_submit" class="btn btn-primary" v-on:click="convert" name="submit" value="Convert">
-                </form>
+                <button id="converter_submit" class="btn btn-primary" v-on:click="convert" name="submit">Convert</button>
+            </form>
             <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
         </div>
         <div class="conversion-quiz">
@@ -20,9 +20,9 @@
                 Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>
                     <option value="10">10</option>
                     <option value="16">16</option></select><br>
-                <input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">
-                <input type="button" class="btn btn-primary" name="reset" value="Change Value" v-on:click="resetConvertValue">
-                </form>
+                <button class="btn btn-primary" name="submit" v-on:click="checkAnswer">Check Answer</button>
+                <button class="btn btn-primary" name="reset" v-on:click="resetConvertValue">Change Value</button>
+            </form>
             <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
         </div>
     </div>
@@ -36,14 +36,14 @@
 
             document.getElementById("second_header").innerHTML = "Practice Problems";
 
-            document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
+            document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
                 'Instructions!'+
                 '</button>'+
                 '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
                 '<div class="modal-dialog" role="document">'+
                 '<div class="modal-content">'+
                 '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
                 '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
                 '</div>'+
                 '<div class="modal-body">'+
@@ -57,7 +57,7 @@
                 'Make sure you select which base you converted to in the drop-down box as you put in your answer.'+
                 '</div>'+
                 '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
                 '</div>'+
                 '</div>'+
                 '</div>'+

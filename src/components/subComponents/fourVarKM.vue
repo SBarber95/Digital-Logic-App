@@ -91,10 +91,10 @@
                     <option value="1">1</option>
                     <option value="X">X</option>
                     </select></div>
-                <input type="submit" v-on:click="simplifyMinterms4Var" class="btn btn-primary first-input-4-var"
-                       name="submit" value="Simplify (Minterms)">
-                <input type="submit" v-on:click="simplifyMaxterms4Var" class="btn btn-primary second-input-4-var"
-                       name="submit" value="Simplify (Maxterms)">
+                <button v-on:click="simplifyMinterms4Var" class="btn btn-primary first-input-4-var"
+                        name="submit">Simplify (Minterms)</button>
+                <button v-on:click="simplifyMaxterms4Var" class="btn btn-primary second-input-4-var"
+                        name="submit">Simplify (Maxterms)</button>
                 </form>
         </div>
         <div class="panel panel-primary" style="float: right; display: inline-block; width: 48%;">
@@ -118,14 +118,14 @@
     export default {
         mounted () {
             var header = document.getElementById("km_header");
-            header.innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#KMModal">'+
+            header.innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#KMModal">'+
                 'Instructions!'+
                 '</button>'+
                 '<div class="modal fade" id="KMModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
                 '<div class="modal-dialog" role="document">'+
                 '<div class="modal-content">'+
                 '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
                 '<h4 class="modal-title" id="KMTitle">Karnaugh Map Instructions</h4>'+
                 '</div>'+
                 '<div class="modal-body">'+
@@ -135,7 +135,7 @@
                 'and a list of the groupings by cell number.'+
                 '</div>'+
                 '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
                 '</div>'+
                 '</div>'+
                 '</div>'+

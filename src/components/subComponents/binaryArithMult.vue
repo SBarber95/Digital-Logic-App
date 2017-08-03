@@ -6,7 +6,7 @@
                 <input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>
                 * <input type="text" style="margin-left: 4px" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>
                 <p class="border"></p>
-                <input type="submit" class="btn btn-primary" name="submit" value="Calculate" v-on:click="calculate">
+                <button class="btn btn-primary" name="submit" v-on:click="calculate">Calculate</button>
                 </form>
             <p id="calculator_output_mult" class="well arithmetic-output">The Answer Will Appear Here.</p>
         </div>
@@ -18,8 +18,8 @@
                 <p id="second_quiz_number"></p>
                 <p id="quiz_border" class="border"></p>
                 <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
-                <input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">
-                <input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">
+                <button class="btn btn-primary" name="submit" v-on:click="checkAnswer">Check Answer</button>
+                <button class="btn btn-primary" name="reset" v-on:click="resetValues">Change Values</button>
                 </form>
             <p id="quiz_output_mult" class="well arithmetic-output">Your answer will be checked here.</p>
         </div>
@@ -29,14 +29,14 @@
 <script>
     export default {
         mounted () {
-            document.getElementById("binary-arith-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryMultModal">'+
+            document.getElementById("binary-arith-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryMultModal">'+
                 'Instructions!'+
                 '</button>'+
                 '<div class="modal fade" id="binaryMultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
                 '<div class="modal-dialog" role="document">'+
                 '<div class="modal-content">'+
                 '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
                 '<h4 class="modal-title" id="binaryMultTitle">Binary Multiplication Instructions</h4>'+
                 '</div>'+
                 '<div class="modal-body">'+
@@ -49,7 +49,7 @@
                 'value will show. Generate more random values with the Change Values button.'+
                 '</div>'+
                 '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
                 '</div>'+
                 '</div>'+
                 '</div>'+

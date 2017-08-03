@@ -49,8 +49,10 @@
                     <option value="1">1</option>
                     <option value="X">X</option>
                     </select></div>
-                <input type="submit" v-on:click="simplifyMinterms" class="btn btn-primary" name="submit" value="Simplify (Minterms)">
-                <input type="submit" v-on:click="simplifyMaxterms" class="btn btn-primary second-input" name="submit" value="Simplify (Maxterms)">
+                <button v-on:click="simplifyMinterms" class="btn btn-primary"
+                        name="submit">Simplify (Minterms)</button>
+                <button v-on:click="simplifyMaxterms" class="btn btn-primary second-input"
+                        name="submit">Simplify (Maxterms)</button>
                 </form>
         </div>
         <div class="panel panel-primary" style="float: right; display: inline-block; width: 52%; position: relative; top: 12.4vh">

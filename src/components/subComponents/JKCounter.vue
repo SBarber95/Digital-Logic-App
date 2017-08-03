@@ -230,8 +230,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <input class="btn btn-primary" v-on:click="designCounter" type="submit" name="submit"
-                       value="Set Up Counter Design">
+                <button class="btn btn-primary" v-on:click="designCounter" name="submit">Set Up Counter Design</button>
             </form>
         </div>
         <div class="col-sm-8 col-md-9">
@@ -364,14 +363,14 @@
 
     export default {
         mounted() {
-            document.getElementById("design-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">' +
+            document.getElementById("design-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">' +
                 'Instructions!' +
                 '</button>' +
                 '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
                 '<div class="modal-dialog" role="document">' +
                 '<div class="modal-content">' +
                 '<div class="modal-header">' +
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
                 '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>' +
                 '</div>' +
                 '<div class="modal-body">' +
@@ -382,7 +381,7 @@
                 'simplified minterm boolean expression for the counter inputs is shown at the bottom.' +
                 '</div>' +
                 '<div class="modal-footer">' +
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
