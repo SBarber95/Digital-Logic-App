@@ -86,6 +86,7 @@ export default {
 
   .component-img {
     float: right;
+    height: 50px;
   }
 
   .list-group-item:hover {
