@@ -362,8 +362,5 @@ export default {
         $(document).on("mouseup", ".drag-box", function () {
             vm.redrawWires($(this)[0].parentNode)
         });
-    },
-    methods: {
-
     }
 }
