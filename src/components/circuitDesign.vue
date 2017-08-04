@@ -554,6 +554,7 @@
                 vm.findInputCoords($(this))
             });
             $(document).on("mouseup", ".drag-box", function () {
+                console.log($(this)[0].parentNode)
                 vm.redrawWires($(this)[0].parentNode)
             });
             /**
@@ -841,7 +842,7 @@
             // circuit components (for use in wire drawing)
             findOutputCoords (e) {
 
-                e = e[0]
+                e = e[0];
 
                 this.outputComponent = e.parentNode.getAttribute("id");
 
@@ -872,7 +873,9 @@
              */
             findInputCoords (e) {
 
-                e = e[0]
+                console.log('Finding output coords and making wire');
+
+                e = e[0];
 
                 let snap = Snap('#canvas');
 
@@ -944,6 +947,8 @@
             },
 
             redrawWires (e) {
+
+                console.log('Redrawing Wires')
 
                 let snap = Snap('#canvas')
 
