@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="user-input-converter">
-            <h2 class="sub-header" style="margin-bottom: 20px;">Converter</h2>
+        <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
+            <h2 class="sub-header flex-center" style="margin-bottom: 20px;">Converter</h2>
             <form id="oct-converter">
                 <input type="text" class="octal-value" name="octalValue" placeholder="Enter an Octal Value" required><br>
                 Select Desired Base: <select name="desiredBase"><option value="2">2</option>
@@ -11,8 +11,8 @@
             </form>
             <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
         </div>
-        <div class="conversion-quiz">
-            <h2 class="sub-header" id="second_header">Practice Problems</h2>
+        <div class="conversion-quiz col-xs-5 col-sm-5 col-md-5 card">
+            <h2 class="sub-header flex-center" id="second_header">Practice Problems</h2>
             <form id="converter_quiz">
                 <p id="quiz_number_placeholder">Convert from this Base 8 Value: <span id="quiz_number"></span></p>
                 <p class="border"></p>

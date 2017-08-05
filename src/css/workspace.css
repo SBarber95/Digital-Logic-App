@@ -140,9 +140,6 @@ body {
 
 .user-input-addition, .user-input-converter, .user-input-subtraction,
 .user-input-multiplication{
-    width: 48%;
-    height: 80%;
-    padding-right: 1%;
     display: inline-block;
 }
 
@@ -170,9 +167,6 @@ p.border {
 }
 
 .addition-quiz, .conversion-quiz, .subtraction-quiz, .multiplication-quiz {
-    height: 80%;
-    width: 48%;
-    padding-left: 1%;
     display: inline-block;
     float: right;
 }

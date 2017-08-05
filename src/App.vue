@@ -78,8 +78,8 @@ export default {
 
   #canvas {
     position: absolute;
-    height: 650px;
-    width: 80%;
+    height: 550px;
+    width: 91%;
     padding: 0 0 0 0;
     border: 3px solid #626d71;
   }

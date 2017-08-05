@@ -1,18 +1,18 @@
 <template>
     <div>
-        <div class="user-input-multiplication" id="calc">
-            <h2 class="sub-header">Calculator</h2>
+        <div class="user-input-multiplication col-xs-5 col-sm-5 col-md-5 card" id="calc">
+            <h2 class="sub-header flex-center">Calculator</h2>
             <form id="multiplication_calculator">
                 <input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>
                 * <input type="text" style="margin-left: 4px" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>
                 <p class="border"></p>
-                <button class="btn btn-primary" name="submit" v-on:click="calculate">Calculate</button>
+                <button class="btn btn-mdb" name="submit" v-on:click="calculate">Calculate</button>
                 </form>
             <p id="calculator_output_mult" class="well arithmetic-output">The Answer Will Appear Here.</p>
         </div>
         <!-- Quiz -->
-        <div class="multiplication-quiz" id="quiz">
-            <h2 class="sub-header">Practice Problems</h2>
+        <div class="multiplication-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
+            <h2 class="sub-header flex-center">Practice Problems</h2>
             <form id="multiplication_quiz_form">
                 <p id="first_quiz_number" style="margin-left: 5.5%;"></p>
                 <p id="second_quiz_number"></p>

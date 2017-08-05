@@ -99,44 +99,43 @@
                     </ul>
                 </div>
                 <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-                    <svg id="canvas"></svg>
-                </div>
-                <button style="position: relative; left: 87.5%;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#circuitModal">
-                    Instructions!
-                </button>
-                <div class="modal fade" id="circuitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                                </button>
-                                <h4 class="modal-title" id="circuitTitle">Circuit Designer Instructions</h4>
-                            </div>
-                            <div class="modal-body">
-                                <h3 class="sub-header">How to Add Circuit Components</h3>
-                                Click on any component from the list on the left to add it to the design space.
-                                <h3 class="sub-header">How to Draw Wires Between Components</h3>
-                                Double-click on a component's output. Then, double-click on the second component's input.
-                                A wire will be drawn between both components.
-                                <h3 class="sub-header">Setting Inputs</h3>
-                                All inputs are false by default. To toggle an input signal, right click on the
-                                input you wish to change. Select "toggle input" from the menu. The associated
-                                input will change color based in its current value (Green = true; Red = false).
-                                <h3 class="sub-header">Running Simulations</h3>
-                                When your circuit is fully connected, click on the Simulate button. The application
-                                can evaluate both single and multiple-output circuits. The outputs will change color
-                                in association with the simulated value (Green = true; Red = false).
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-default" data-dismiss="modal">Close</button>
+                    <h1 style="margin-top: 0"><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#circuitModal">
+                        Instructions!
+                    </button>
+                        <div class="modal fade" id="circuitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
+                                        </button>
+                                        <h4 class="modal-title" id="circuitTitle">Circuit Designer Instructions</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3 class="sub-header">How to Add Circuit Components</h3>
+                                        Click on any component from the list on the left to add it to the design space.
+                                        <h3 class="sub-header">How to Draw Wires Between Components</h3>
+                                        Double-click on a component's output. Then, double-click on the second component's input.
+                                        A wire will be drawn between both components.
+                                        <h3 class="sub-header">Setting Inputs</h3>
+                                        All inputs are false by default. To toggle an input signal, right click on the
+                                        input you wish to change. Select "toggle input" from the menu. The associated
+                                        input will change color based in its current value (Green = true; Red = false).
+                                        <h3 class="sub-header">Running Simulations</h3>
+                                        When your circuit is fully connected, click on the Simulate button. The application
+                                        can evaluate both single and multiple-output circuits. The outputs will change color
+                                        in association with the simulated value (Green = true; Red = false).
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <input type="button" id="delete_circuit" class="btn btn-danger btn-sm" value="Delete Circuit">
+                        <input type="submit" id="simulate" @click="simulate" class="btn btn-mdb btn-sm" value="Simulate">
+                    </h1>
+                    <svg id="canvas"></svg>
                 </div>
-                <input type="button" id="delete_circuit" style="position: relative; left: 74%; top: 70px;"
-                        class="btn btn-danger" value="Delete Circuit">
-                <input type="submit" id="simulate" @click="simulate"
-                        style="position: relative; left: 63%; top: 130px;" class="btn btn-mdb" value="Simulate">
             </div>
         </div>
         <nav id="context-menu" class="context-menu">
