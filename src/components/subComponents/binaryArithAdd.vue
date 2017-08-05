@@ -1,14 +1,18 @@
 <template>
     <div>
         <div class="user-input-addition col-xs-5 col-sm-5 col-md-5 card" id="calc">
-        <h2 class="sub-header flex-center">Calculator</h2>
-        <form id="addition_calculator">
-            <input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>
-            + <input type="text" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>
-            <p class="border"></p>
-            <button class="btn btn-mdb" name="submit" v-on:click="calculate">Calculate</button>
+            <h2 class="sub-header flex-center">Calculator</h2>
+            <form id="addition_calculator">
+                <div class="md-form">
+                    <input type="text" class="first-value form-control" name="firstNumber" placeholder="Enter First Binary Value" required>
+                </div>
+                <div class="md-form">
+                    <input type="text" class="second-value form-control" name="secondNumber" placeholder="Enter Second Binary Value" required>
+                </div>
+                <p class="border"></p>
+                <button class="btn btn-mdb" name="submit" v-on:click="calculate">Calculate</button>
             </form>
-        <p id="calculator_output_add" class="well arithmetic-output">The Answer Will Appear Here.</p>
+            <p id="calculator_output_add" class="well arithmetic-output">The Answer Will Appear Here.</p>
         </div>
         <!--Quiz -->
         <div class="addition-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
@@ -20,7 +24,7 @@
                 <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
                 <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
                 <button class="btn btn-mdb" name="reset" v-on:click="resetValues">Change Values</button>
-                </form>
+            </form>
             <p id="quiz_output_add" class="well arithmetic-output">Your answer will be checked here.</p>
         </div>
     </div>
@@ -28,34 +32,34 @@
 
 <script>
     export default {
-        mounted () {
+        mounted() {
 
-            document.getElementById("binary-arith-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">'+
-                'Instructions!'+
-                '</button>'+
-                '<div class="modal fade" id="binaryAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
-                '<div class="modal-dialog" role="document">'+
-                '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
-                '<h4 class="modal-title" id="binaryAddTitle">Binary Addition Instructions</h4>'+
-                '</div>'+
-                '<div class="modal-body">'+
-                '<h3 class="sub-header">Calculator</h3>'+
-                'Simply enter your two binary values and hit calculate! If you have negative binary values, '+
-                'it is recommended to use the binary subtraction feature as binary addition only works with '+
-                'positive binary numbers as of now. Please read the instructions on that page.'+
-                '<h3 class="sub-header">Practice Problems</h3>'+
-                'This feature generates two random binary values for you to add and provide the answer for. '+
-                'You can generate new random values with the Change Values button. You can also check your '+
-                'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.'+
-                '</div>'+
-                '<div class="modal-footer">'+
-                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
+            document.getElementById("binary-arith-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">' +
+                'Instructions!' +
+                '</button>' +
+                '<div class="modal fade" id="binaryAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
+                '<h4 class="modal-title" id="binaryAddTitle">Binary Addition Instructions</h4>' +
+                '</div>' +
+                '<div class="modal-body">' +
+                '<h3 class="sub-header">Calculator</h3>' +
+                'Simply enter your two binary values and hit calculate! If you have negative binary values, ' +
+                'it is recommended to use the binary subtraction feature as binary addition only works with ' +
+                'positive binary numbers as of now. Please read the instructions on that page.' +
+                '<h3 class="sub-header">Practice Problems</h3>' +
+                'This feature generates two random binary values for you to add and provide the answer for. ' +
+                'You can generate new random values with the Change Values button. You can also check your ' +
+                'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
                 'Binary Addition';
 
             var firstQuizNumPlaceholder = document.getElementById("first_quiz_number");
@@ -82,7 +86,7 @@
             }
         },
         methods: {
-            calculate: function(e) {
+            calculate: function (e) {
                 /**
                  * Created by savannah on 12/19/2016.
                  * TODO: Add error-checking for user entering both binary values
@@ -160,7 +164,7 @@
 
             },
             // Quiz Methods --------------------
-            resetValues: function(e) {
+            resetValues: function (e) {
 
                 e.preventDefault();
 
@@ -178,7 +182,7 @@
                 }
 
             },
-            checkAnswer: function(e) {
+            checkAnswer: function (e) {
 
                 e.preventDefault();
 
@@ -190,7 +194,7 @@
                 var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
                 var userAnswer = additionQuizForm.userAnswer.value;
 
-                var actualAnswer = (firstNumber+secondNumber).toString(2);
+                var actualAnswer = (firstNumber + secondNumber).toString(2);
 
                 // Clear previous output and set up again
                 quizOutput.innerHTML = "You are ";

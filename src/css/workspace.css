@@ -144,16 +144,13 @@ body {
 }
 
 .first-value {
-    margin-left: 15px;
     margin-bottom: 10px;
     width: 250px;
-    border-radius: 3px;
 }
 
 .second-value {
     margin-bottom: 10px;
     width: 250px;
-    border-radius: 3px;
 }
 
 .user-answer, .user_answer, .decimal-value, .binary-value,

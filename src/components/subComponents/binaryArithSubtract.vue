@@ -3,11 +3,15 @@
         <div class="user-input-subtraction col-xs-5 col-sm-5 col-md-5 card" id="calc">
             <h2 class="sub-header flex-center">Calculator</h2>
             <form id="subtraction_calculator">
-                <input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>
-                - <input type="text" style="margin-left: 4px" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>
+                <div class="md-form">
+                    <input type="text" class="first-value form-control" name="firstNumber" placeholder="Enter First Binary Value" required>
+                </div>
+                <div class="md-form">
+                    <input type="text" class="second-value form-control" name="secondNumber" placeholder="Enter Second Binary Value" required>
+                </div>
                 <p class="border"></p>
                 <button class="btn btn-mdb" name="submit" v-on:click="calculate">Calculate</button>
-                </form>
+            </form>
             <p id="calculator_output_sub" class="well arithmetic-output">The Answer Will Appear Here.</p>
         </div>
         <!-- Quiz -->
