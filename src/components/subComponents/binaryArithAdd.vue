@@ -2,30 +2,30 @@
     <div>
         <div class="user-input-addition col-xs-5 col-sm-5 col-md-5 card" id="calc">
             <h2 class="sub-header flex-center">Calculator</h2>
-            <form id="addition_calculator">
+            <form @submit="calculate">
                 <div class="md-form">
-                    <input type="text" class="first-value form-control" v-model="firstBinaryValue" name="firstNumber" placeholder="Enter First Binary Value" required>
+                    <input type="text" class="first-value form-control" v-model="firstBinaryValue" placeholder="Enter First Binary Value" required>
                 </div>
                 <div class="md-form">
-                    <input type="text" class="second-value form-control" v-model="secondBinaryValue" name="secondNumber" placeholder="Enter Second Binary Value" required>
+                    <input type="text" class="second-value form-control" v-model="secondBinaryValue" placeholder="Enter Second Binary Value" required>
                 </div>
                 <p class="border"></p>
-                <button class="btn btn-mdb" name="submit" v-on:click="calculate">Calculate</button>
+                <input type="submit" class="btn btn-mdb" value="Calculate">
             </form>
-            <p id="calculator_output_add" class="well arithmetic-output">The Answer Will Appear Here.</p>
+            <p class="well arithmetic-output">{{ calculatorOutput }}</p>
         </div>
-        <!--Quiz -->
+        <!-- Quiz -->
         <div class="addition-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
             <h2 class="sub-header flex-center">Practice Problems</h2>
-            <form id="addition_quiz_form">
+            <form @submit="checkAnswer">
                 <p id="first_quiz_number" style="margin-left: 6.5%;">{{ firstQuizNumber }}</p>
                 <p id="second_quiz_number">+ {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" name="userAnswer" v-model="userAnswer" placeholder="Enter Your Answer" required>
-                <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
+                <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
+                <input type="submit" class="btn btn-mdb" value="Check Answer">
                 <button class="btn btn-mdb" name="reset" v-on:click="resetValues">Change Values</button>
             </form>
-            <p id="quiz_output_add" class="well arithmetic-output">Your answer will be checked here.</p>
+            <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>
     </div>
 </template>
@@ -38,7 +38,9 @@
                 secondBinaryValue: null,
                 firstQuizNumber: null,
                 secondQuizNumber: null,
-                userAnswer: null
+                userAnswer: null,
+                calculatorOutput: 'The answer will appear here.',
+                quizOutput: 'Your answer will be checked here.'
             }
         },
         mounted() {
@@ -97,8 +99,6 @@
                  */
                 e.preventDefault();
 
-                var calculatorOutput = document.getElementById("calculator_output_add");
-
                 // Convert string input to arrays to prepare for arithmetic
                 var firstNumberDigits = Array.from(this.firstBinaryValue);
                 var secondNumberDigits = Array.from(this.secondBinaryValue);
@@ -123,9 +123,6 @@
 
                 var carryIn = 0;
                 var answer = [];
-
-                // Clear previous output
-                calculatorOutput.innerHTML = "Answer: ";
 
                 for (i = firstNumberDigits.length - 1; i >= 0; i--) {
 
@@ -158,9 +155,13 @@
 
                 }
 
+                var output = '';
+
                 for (i = 0; i < answer.length; i++) {
-                    calculatorOutput.innerHTML += "" + answer[i];
+                    output += "" + answer[i];
                 }
+
+                this.calculatorOutput = 'Answer: ' + output;
 
             },
             // Quiz Methods --------------------
@@ -187,24 +188,18 @@
 
                 e.preventDefault();
 
-                // Grab references to necessary HTML elements
-                var quizOutput = document.getElementById("quiz_output_add");
-
                 var firstNumber = parseInt(this.firstQuizNumber, 2);
                 var secondNumber = parseInt(this.secondQuizNumber, 2);
                 var userAnswer = this.userAnswer;
 
                 var actualAnswer = (firstNumber + secondNumber).toString(2);
 
-                // Clear previous output and set up again
-                quizOutput.innerHTML = "You are ";
-
                 // Compare user answer to algorithm's answer and display result
                 if (userAnswer == actualAnswer) {
-                    quizOutput.innerHTML += "correct."
+                    this.quizOutput = "You are correct."
                 }
                 else {
-                    quizOutput.innerHTML += "incorrect. The answer is " + actualAnswer;
+                    this.quizOutput = "You are incorrect. The answer is " + actualAnswer;
                 }
 
             }
