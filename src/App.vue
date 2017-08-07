@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-toggleable-md navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand">Sovereign Logic</a>
@@ -78,14 +78,15 @@ export default {
 
   #canvas {
     position: absolute;
-    height: 650px;
-    width: 80%;
+    height: 550px;
+    width: 91%;
     padding: 0 0 0 0;
     border: 3px solid #626d71;
   }
 
   .component-img {
     float: right;
+    height: 50px;
   }
 
   .list-group-item:hover {

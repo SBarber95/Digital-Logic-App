@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "jquery": "^3.2.1",
+    "mdbootstrap": "^4.4.0",
     "snap": "^0.2.2",
     "snapsvg": "^0.5.1",
     "tree-model": "^1.0.6",

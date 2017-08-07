@@ -2,13 +2,13 @@
     <div v-if="!toggled">
         <div id="convert-component">
             <form id="ieee-hex-converter">
-                <input type="text" class="ieee-hex-value" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #" required><br>
-                <input id="toggle_direction" type="button" class="btn btn-primary" v-on:click="toggleDirection" value="Toggle Direction">
-                <input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convertFromHex" name="submit" value="Convert">
+                <input type="text" class="ieee-hex-value" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #" required>
+                <button id="converter_submit" class="btn btn-mdb" v-on:click="convertFromHex" name="submit">Convert</button>
             </form>
+            <button id="toggle_direction" class="btn btn-mdb" v-on:click="toggleDirection">Toggle Direction</button>
         </div>
         <div id="convert-quiz-component">
-            <h2 id="second_header"></h2>
+            <h2 id="second_header">Conversion Steps</h2>
             <div id="convert_steps">
                 The steps will appear here.
             </div>
@@ -18,13 +18,13 @@
     <div v-else>
         <div id="convert-component">
             <form id="ieee-dec-converter">
-                <input type="text" class="ieee-dec-value" name="ieeeDecValue" placeholder="Enter a Decimal Value" required><br>
-                <input id="toggle_direction" type="button" class="btn btn-primary" v-on:click="toggleDirection" value="Toggle Direction">
-                <input id="converter_submit" type="submit" class="btn btn-primary" v-on:click="convertFromDec" name="submit" value="Convert">
+                <input type="text" class="ieee-dec-value" name="ieeeDecValue" placeholder="Enter a Decimal Value" required>
+                <button id="converter_submit" class="btn btn-mdb" v-on:click="convertFromHex" name="submit">Convert</button>
             </form>
+            <button id="toggle_direction" class="btn btn-mdb" v-on:click="toggleDirection">Toggle Direction</button>
         </div>
         <div id="convert-quiz-component">
-            <h2 id="second_header"></h2>
+            <h2 id="second_header">Conversion Steps</h2>
             <div id="convert_steps">
                 The steps will appear here.
             </div>
@@ -47,14 +47,14 @@
         },
         mounted () {
 
-            document.getElementById("conversions-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
+            document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
                 'Instructions!'+
                 '</button>'+
                 '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
                 '<div class="modal-dialog" role="document">'+
                 '<div class="modal-content">'+
                 '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
                 '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
                 '</div>'+
                 '<div class="modal-body">'+
@@ -63,13 +63,11 @@
                 'the hex value without the 4 trailing zeroes (3F88; C7F0) or enter it with them (C7F00000).'+
                 '</div>'+
                 '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
                 '</div>'+
                 '</div>'+
                 '</div>'+
                 '</div>IEEE Floating Point Conversions';
-
-            document.getElementById("second_header").innerHTML = "Conversion Steps";
 
         },
         methods: {

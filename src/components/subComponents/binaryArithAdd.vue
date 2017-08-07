@@ -1,72 +1,81 @@
 <template>
     <div>
-        <div class="user-input-addition" id="calc">
-        <h2 class="sub-header">Calculator</h2>
-        <form id="addition_calculator">
-            <input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>
-            + <input type="text" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>
-            <p class="border"></p>
-            <input type="submit" class="btn btn-primary" name="submit" value="Calculate" v-on:click="calculate">
+        <div class="user-input-addition col-xs-5 col-sm-5 col-md-5 card" id="calc">
+            <h2 class="sub-header flex-center">Calculator</h2>
+            <form @submit="calculate">
+                <div class="md-form">
+                    <input type="text" class="first-value form-control" v-model="firstBinaryValue" placeholder="Enter First Binary Value" required>
+                </div>
+                <div class="md-form">
+                    <input type="text" class="second-value form-control" v-model="secondBinaryValue" placeholder="Enter Second Binary Value" required>
+                </div>
+                <p class="border"></p>
+                <input type="submit" class="btn btn-mdb" value="Calculate">
             </form>
-        <p id="calculator_output_add" class="well arithmetic-output">The Answer Will Appear Here.</p>
+            <p class="well arithmetic-output">{{ calculatorOutput }}</p>
         </div>
-        <!--Quiz -->
-        <div class="addition-quiz" id="quiz">
-            <h2 class="sub-header">Practice Problems</h2>
-            <form id="addition_quiz_form">
-                <p id="first_quiz_number" style="margin-left: 6.5%;"></p>
-                <p id="second_quiz_number"></p>
+        <!-- Quiz -->
+        <div class="addition-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
+            <h2 class="sub-header flex-center">Practice Problems</h2>
+            <form @submit="checkAnswer">
+                <p id="first_quiz_number" style="margin-left: 6.5%;">{{ firstQuizNumber }}</p>
+                <p id="second_quiz_number">+ {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
-                <input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">
-                <input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">
-                </form>
-            <p id="quiz_output_add" class="well arithmetic-output">Your answer will be checked here.</p>
+                <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
+                <input type="submit" class="btn btn-mdb" value="Check Answer">
+                <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
+            </form>
+            <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        mounted () {
+        data () {
+            return {
+                firstBinaryValue: null,
+                secondBinaryValue: null,
+                firstQuizNumber: null,
+                secondQuizNumber: null,
+                userAnswer: null,
+                calculatorOutput: 'The answer will appear here.',
+                quizOutput: 'Your answer will be checked here.'
+            }
+        },
+        mounted() {
 
-            document.getElementById("binary-arith-header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">'+
-                'Instructions!'+
-                '</button>'+
-                '<div class="modal fade" id="binaryAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
-                '<div class="modal-dialog" role="document">'+
-                '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
-                '<h4 class="modal-title" id="binaryAddTitle">Binary Addition Instructions</h4>'+
-                '</div>'+
-                '<div class="modal-body">'+
-                '<h3 class="sub-header">Calculator</h3>'+
-                'Simply enter your two binary values and hit calculate! If you have negative binary values, '+
-                'it is recommended to use the binary subtraction feature as binary addition only works with '+
-                'positive binary numbers as of now. Please read the instructions on that page.'+
-                '<h3 class="sub-header">Practice Problems</h3>'+
-                'This feature generates two random binary values for you to add and provide the answer for. '+
-                'You can generate new random values with the Change Values button. You can also check your '+
-                'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.'+
-                '</div>'+
-                '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
+            document.getElementById("binary-arith-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">' +
+                'Instructions!' +
+                '</button>' +
+                '<div class="modal fade" id="binaryAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
+                '<h4 class="modal-title" id="binaryAddTitle">Binary Addition Instructions</h4>' +
+                '</div>' +
+                '<div class="modal-body">' +
+                '<h3 class="sub-header">Calculator</h3>' +
+                'Simply enter your two binary values and hit calculate! If you have negative binary values, ' +
+                'it is recommended to use the binary subtraction feature as binary addition only works with ' +
+                'positive binary numbers as of now. Please read the instructions on that page.' +
+                '<h3 class="sub-header">Practice Problems</h3>' +
+                'This feature generates two random binary values for you to add and provide the answer for. ' +
+                'You can generate new random values with the Change Values button. You can also check your ' +
+                'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
                 'Binary Addition';
-
-            var firstQuizNumPlaceholder = document.getElementById("first_quiz_number");
-            var secondQuizNumPlaceholder = document.getElementById("second_quiz_number");
 
             // Initialize quiz numbers to be randomized
             var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
             var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
-
-            firstQuizNumPlaceholder.innerHTML = "";
-            secondQuizNumPlaceholder.innerHTML = "+ ";
 
             // Sets random binary digits to each quiz number
             // and injects generated values into HTML for user viewing
@@ -76,28 +85,23 @@
                 firstQuizNum[i] = Math.floor((Math.random() * 2));
                 secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
             }
+
+            this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+            this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
+
         },
         methods: {
-            calculate: function(e) {
+            calculate: function (e) {
                 /**
                  * Created by savannah on 12/19/2016.
                  * TODO: Add error-checking for user entering both binary values
                  */
                 e.preventDefault();
 
-                var calculatorOutput = document.getElementById("calculator_output_add");
-                var calculatorForm = document.getElementById("addition_calculator");
-
-                var firstNumber = calculatorForm.firstNumber.value;
-                var secondNumber = calculatorForm.secondNumber.value;
-
                 // Convert string input to arrays to prepare for arithmetic
-                var firstNumberDigits = Array.from(firstNumber);
-                var secondNumberDigits = Array.from(secondNumber);
+                var firstNumberDigits = Array.from(this.firstBinaryValue);
+                var secondNumberDigits = Array.from(this.secondBinaryValue);
 
                 // The following loops prepend 0's to simulate a zero-extension
                 // of the shorter binary value to the matched size of the longer
@@ -119,9 +123,6 @@
 
                 var carryIn = 0;
                 var answer = [];
-
-                // Clear previous output
-                calculatorOutput.innerHTML = "Answer: ";
 
                 for (i = firstNumberDigits.length - 1; i >= 0; i--) {
 
@@ -154,54 +155,51 @@
 
                 }
 
+                var output = '';
+
                 for (i = 0; i < answer.length; i++) {
-                    calculatorOutput.innerHTML += "" + answer[i];
+                    output += "" + answer[i];
                 }
+
+                this.calculatorOutput = 'Answer: ' + output;
 
             },
             // Quiz Methods --------------------
-            resetValues: function(e) {
+            resetValues: function (e) {
+
+                // Initialize quiz numbers to be randomized
+                var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
+                var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
                 e.preventDefault();
-
-                firstQuizNumPlaceholder.innerHTML = "";
-                secondQuizNumPlaceholder.innerHTML = "+ ";
 
                 for (var i = 0; i < firstQuizNum.length; i++) {
 
                     firstQuizNum[i] = Math.floor((Math.random() * 2));
                     secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                    firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                    secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
                 }
 
+                this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+                this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
+
             },
-            checkAnswer: function(e) {
+            checkAnswer: function (e) {
 
                 e.preventDefault();
 
-                // Grab references to necessary HTML elements
-                var additionQuizForm = document.getElementById("addition_quiz_form");
-                var quizOutput = document.getElementById("quiz_output_add");
+                var firstNumber = parseInt(this.firstQuizNumber, 2);
+                var secondNumber = parseInt(this.secondQuizNumber, 2);
+                var userAnswer = this.userAnswer;
 
-                var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-                var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
-                var userAnswer = additionQuizForm.userAnswer.value;
-
-                var actualAnswer = (firstNumber+secondNumber).toString(2);
-
-                // Clear previous output and set up again
-                quizOutput.innerHTML = "You are ";
-
+                var actualAnswer = (firstNumber + secondNumber).toString(2);
 
                 // Compare user answer to algorithm's answer and display result
                 if (userAnswer == actualAnswer) {
-                    quizOutput.innerHTML += "correct."
+                    this.quizOutput = "You are correct."
                 }
                 else {
-                    quizOutput.innerHTML += "incorrect. The answer (normal form) is " + actualAnswer;
+                    this.quizOutput = "You are incorrect. The answer is " + actualAnswer;
                 }
 
             }

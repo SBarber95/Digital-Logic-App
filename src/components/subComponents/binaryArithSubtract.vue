@@ -1,42 +1,57 @@
 <template>
     <div>
-        <div class="user-input-subtraction" id="calc">
-            <h2 class="sub-header">Calculator</h2>
-            <form id="subtraction_calculator">
-                <input type="text" class="first-value" name="firstNumber" placeholder="Enter First Binary Value" required><br>
-                - <input type="text" style="margin-left: 4px" class="second-value" name="secondNumber" placeholder="Enter Second Binary Value" required><br>
+        <div class="user-input-subtraction col-xs-5 col-sm-5 col-md-5 card" id="calc">
+            <h2 class="sub-header flex-center">Calculator</h2>
+            <form @submit="calculate">
+                <div class="md-form">
+                    <input type="text" class="first-value form-control" v-model="firstBinaryValue" placeholder="Enter First Binary Value" required>
+                </div>
+                <div class="md-form">
+                    <input type="text" class="second-value form-control" v-model="secondBinaryValue" placeholder="Enter Second Binary Value" required>
+                </div>
                 <p class="border"></p>
-                <input type="submit" class="btn btn-primary" name="submit" value="Calculate" v-on:click="calculate">
-                </form>
-            <p id="calculator_output_sub" class="well arithmetic-output">The Answer Will Appear Here.</p>
+                <input type="submit" class="btn btn-mdb" value="Calculate">
+            </form>
+            <p class="well arithmetic-output">{{ calculatorOutput }}</p>
         </div>
         <!-- Quiz -->
-        <div class="subtraction-quiz" id="quiz">
-            <h2 class="sub-header">Practice Problems</h2>
-            <form id="subtraction_quiz_form">
-                <p id="first_quiz_number" style="margin-left: 5.5%;"></p>
-                <p id="second_quiz_number"></p>
+        <div class="subtraction-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
+            <h2 class="sub-header flex-center">Practice Problems</h2>
+            <form @submit="checkAnswer">
+                <p id="first_quiz_number" style="margin-left: 5.5%;">{{ firstQuizNumber }}</p>
+                <p id="second_quiz_number">- {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
-                <input type="submit" class="btn btn-primary" name="submit" value="Check Answer" v-on:click="checkAnswer">
-                <input type="button" class="btn btn-primary" name="reset" value="Change Values" v-on:click="resetValues">
+                <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
+                <input class="btn btn-mdb" type="submit" value="Check Answer">
+                <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
                 </form>
-            <p id="quiz_output_sub" class="well arithmetic-output">Your answer will be checked here.</p>
+            <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        data () {
+            return {
+                firstBinaryValue: null,
+                secondBinaryValue: null,
+                firstQuizNumber: null,
+                secondQuizNumber: null,
+                userAnswer: null,
+                calculatorOutput: 'The answer will appear here.',
+                quizOutput: 'Your answer will be checked here.'
+            }
+        },
         mounted () {
-            document.getElementById("binary-arith-header").innerHTML = `<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binarySubModal">
+            document.getElementById("binary-arith-header").innerHTML = `<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binarySubModal">
                 Instructions!
                 </button>
                 <div class="modal fade" id="binarySubModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
                 <h4 class="modal-title" id="binarySubTitle">Binary Subtraction Instructions</h4>
                 </div>
                 <div class="modal-body">
@@ -53,22 +68,16 @@
                 Example) If the answer was 2s complement 101, enter 1111111111111101.
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
                 </div>
                 </div>
                 </div>
                 Binary Subtraction`;
 
-            var firstQuizNumPlaceholder = document.getElementById("first_quiz_number");
-            var secondQuizNumPlaceholder = document.getElementById("second_quiz_number");
-
             // Initialize quiz numbers to be randomized
             var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
             var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
-
-            firstQuizNumPlaceholder.innerHTML = "";
-            secondQuizNumPlaceholder.innerHTML = "- ";
 
             // Sets random binary digits to each quiz number
             // and injects generated values into HTML for user viewing
@@ -78,10 +87,11 @@
                 firstQuizNum[i] = Math.floor((Math.random() * 2));
                 secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
             }
+
+            this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+            this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
+
         },
         methods: {
             calculate: function(e) {
@@ -93,13 +103,8 @@
 
                 e.preventDefault();
 
-                var calculatorOutput = document.getElementById("calculator_output_sub");
-                var calculatorForm = document.getElementById("subtraction_calculator");
-
-                calculatorOutput.innerHTML = "";
-
-                var firstNumber = parseInt(calculatorForm.firstNumber.value, 2);
-                var secondNumber = parseInt(calculatorForm.secondNumber.value, 2);
+                var firstNumber = parseInt(this.firstBinaryValue, 2);
+                var secondNumber = parseInt(this.secondBinaryValue, 2);
 
                 var answer = (firstNumber-secondNumber).toString(2);
                 var twosCompAnswer = ((firstNumber-secondNumber) >>> 0).toString(2);
@@ -108,27 +113,27 @@
                     twosCompAnswer = "" + twosCompAnswer.substring(16);
                 }
 
-                calculatorOutput.innerHTML += "Answer (Normal Form): " + answer + "<br>";
-                calculatorOutput.innerHTML += "Answer (2s Complement): " + twosCompAnswer;
+                this.calculatorOutput = "Answer (Normal Form): " + answer + ". Answer (2s Complement): " + twosCompAnswer;
 
             },
             // Quiz method(s)
             resetValues: function(e) {
 
-                e.preventDefault();
+                // Initialize quiz numbers to be randomized
+                var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
+                var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
-                firstQuizNumPlaceholder.innerHTML = "";
-                secondQuizNumPlaceholder.innerHTML = "- ";
+                e.preventDefault();
 
                 for (var i = 0; i < firstQuizNum.length; i++) {
 
                     firstQuizNum[i] = Math.floor((Math.random() * 2));
                     secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                    firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                    secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
                 }
+
+                this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+                this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
 
             },
 
@@ -136,30 +141,22 @@
 
                 e.preventDefault();
 
-                // Grab references to necessary HTML elements
-                var subtractionQuizForm = document.getElementById("subtraction_quiz_form");
-                var quizOutput = document.getElementById("quiz_output_sub");
-
-                var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-                var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
-                var userAnswer = subtractionQuizForm.userAnswer.value;
+                var firstNumber = parseInt(this.firstQuizNumber, 2);
+                var secondNumber = parseInt(this.secondQuizNumber, 2);
 
                 var actualAnswer1 = (firstNumber-secondNumber).toString(2);
                 var actualAnswer2 = ((firstNumber-secondNumber) >>> 0).toString(2);
-
-                // Clear previous output and set up again
-                quizOutput.innerHTML = "You are ";
 
                 if (actualAnswer2.length == 32) {
                     actualAnswer2 = "" + actualAnswer2.substring(16);
                 }
 
                 // Compare user answer to algorithm's answer and display result
-                if (userAnswer == actualAnswer1 || userAnswer == actualAnswer2) {
-                    quizOutput.innerHTML += "correct."
+                if (this.userAnswer == actualAnswer1 || this.userAnswer == actualAnswer2) {
+                    this.quizOutput = "You are correct."
                 }
                 else {
-                    quizOutput.innerHTML += "incorrect.<br> The answer in normal form is " + actualAnswer1 + "<br>" +
+                    this.quizOutput = "You are incorrect. The answer in normal form is " + actualAnswer1 + ". " +
                         "The 2s complement answer is " + actualAnswer2;
                 }
 

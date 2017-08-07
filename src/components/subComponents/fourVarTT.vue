@@ -174,7 +174,7 @@
                 </tr>
             </tbody>
             </table>
-        <input type="submit" v-on:click="findMinMaxterms" class="btn btn-primary" name="submit" value="Find Min/Maxterms">
+        <button v-on:click="findMinMaxterms" class="btn btn-mdb" name="submit">Find Min/Maxterms</button>
         </form>
     <div class="col-sm-12 output-panel">
         <div class="panel panel-primary">
@@ -191,14 +191,14 @@
 <script>
     export default {
         mounted () {
-            document.getElementById("truth_table_header").innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#minMaxModal">'+
+            document.getElementById("truth_table_header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#minMaxModal">'+
                 'Instructions!'+
                 '</button>'+
                 '<div class="modal fade" id="minMaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
                 '<div class="modal-dialog" role="document">'+
                 '<div class="modal-content">'+
                 '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
                 '<h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>'+
                 '</div>'+
                 '<div class="modal-body">'+
@@ -208,7 +208,7 @@
                 'you can use the output here with the Karnaugh Map feature.'+
                 '</div>'+
                 '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
                 '</div>'+
                 '</div>'+
                 '</div>'+
