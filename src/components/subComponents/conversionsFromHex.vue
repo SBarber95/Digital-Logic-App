@@ -3,12 +3,15 @@
         <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center" style="margin-bottom: 20px;">Converter</h2>
             <form id="hex-converter">
-                <input type="text" class="hex-value" name="hexValue" placeholder="Enter a Hexadecimal Value" required><br>
-                Select Desired Base: <select name="desiredBase"><option value="2">2</option>
-                    <option value="8">8</option>
-                    <option value="10">10</option></select><br>
+                <input type="text" class="hex-value" name="hexValue" placeholder="Enter a Hexadecimal Value"
+                       required><br>
+                Select Desired Base: <select name="desiredBase">
+                <option value="2">2</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            </select><br>
                 <button id="converter_submit" class="btn btn-mdb" v-on:click="convert" name="submit">Convert</button>
-                </form>
+            </form>
             <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
         </div>
         <div class="conversion-quiz col-xs-5 col-sm-5 col-md-5 card">
@@ -17,12 +20,14 @@
                 <p id="quiz_number_placeholder">Convert from this Base 16 Value: <span id="quiz_number"></span></p>
                 <p class="border"></p>
                 <input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>
-                Select Base You Converted To: <select name="selectedBase"><option value="2">2</option>
-                    <option value="8">8</option>
-                    <option value="10">10</option></select><br>
+                Select Base You Converted To: <select name="selectedBase">
+                <option value="2">2</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            </select><br>
                 <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
                 <button class="btn btn-mdb" name="reset" v-on:click="resetConvertValue">Change Value</button>
-                </form>
+            </form>
             <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
         </div>
     </div>
@@ -33,35 +38,35 @@
     var altHexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
     var quizNum = [0, 0, 0, 0];
     export default {
-        mounted () {
+        mounted() {
 
             document.getElementById("second_header").innerHTML = "Practice Problems";
 
-            document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
-                'Instructions!'+
-                '</button>'+
-                '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
-                '<div class="modal-dialog" role="document">'+
-                '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
-                '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
-                '</div>'+
-                '<div class="modal-body">'+
-                '<h3 class="sub-header">Calculator</h3>'+
-                'Simply enter your hex value and hit convert! Select the desired base '+
-                'you wish to convert to in the drop-down box.'+
-                '<h3 class="sub-header">Practice Problems</h3>'+
-                'This feature generates a random decimal value for you to convert. '+
-                'Generate new random values with the Change Values button. Check your '+
-                'answer with the Check Answer button. If you are incorrect, the correct answer will show. '+
-                'Make sure you select which base you converted to in the drop-down box as you put in your answer.'+
-                '</div>'+
-                '<div class="modal-footer">'+
-                '<button class="btn btn-default" data-dismiss="modal">Close</button>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
+            document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">' +
+                'Instructions!' +
+                '</button>' +
+                '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
+                '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>' +
+                '</div>' +
+                '<div class="modal-body">' +
+                '<h3 class="sub-header">Calculator</h3>' +
+                'Simply enter your hex value and hit convert! Select the desired base ' +
+                'you wish to convert to in the drop-down box.' +
+                '<h3 class="sub-header">Practice Problems</h3>' +
+                'This feature generates a random decimal value for you to convert. ' +
+                'Generate new random values with the Change Values button. Check your ' +
+                'answer with the Check Answer button. If you are incorrect, the correct answer will show. ' +
+                'Make sure you select which base you converted to in the drop-down box as you put in your answer.' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
                 '</div>Conversions from Hexadecimal (Base 16)';
 
             // To place initial random value on first load
@@ -75,7 +80,7 @@
 
         },
         methods: {
-            convert: function(e) {
+            convert: function (e) {
 
                 // TODO: CHANGE TO ACCEPT NEGATIVES
                 e.preventDefault();
@@ -109,7 +114,7 @@
 
                 output.innerHTML = "Converted Value: " + (base10Value).toString(desiredBaseValue);
             },
-            resetConvertValue: function(e) {
+            resetConvertValue: function (e) {
 
                 e.preventDefault();
 
@@ -124,7 +129,7 @@
                 }
 
             },
-            checkAnswer: function(e) {
+            checkAnswer: function (e) {
 
                 e.preventDefault();
 
