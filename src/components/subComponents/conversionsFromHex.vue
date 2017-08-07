@@ -35,8 +35,6 @@
     export default {
         mounted () {
 
-            document.getElementById("quiz_output").setAttribute("class", "well converter-output");
-
             document.getElementById("second_header").innerHTML = "Practice Problems";
 
             document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
@@ -75,7 +73,6 @@
 
             }
 
-            document.getElementById("output").setAttribute("style", "margin-top: 62px");
         },
         methods: {
             convert: function(e) {

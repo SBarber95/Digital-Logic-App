@@ -59,8 +59,6 @@
                 '</div>Conversions from Decimal (Base 10)';
             // To place initial random value on first load
             document.getElementById("quiz_number").innerHTML = "" + Math.floor((Math.random() * 200));
-            // TODO: Terrible Style design obviously
-            document.getElementById("output").setAttribute("style", "margin-top: 60px");
         },
         methods: {
             convert: function(e) {
