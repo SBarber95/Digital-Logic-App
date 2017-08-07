@@ -35,32 +35,32 @@
 <script>
     export default {
         mounted() {
-            document.getElementById("binary-arith-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryMultModal">' +
-                'Instructions!' +
-                '</button>' +
-                '<div class="modal fade" id="binaryMultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
-                '<div class="modal-dialog" role="document">' +
-                '<div class="modal-content">' +
-                '<div class="modal-header">' +
-                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
-                '<h4 class="modal-title" id="binaryMultTitle">Binary Multiplication Instructions</h4>' +
-                '</div>' +
-                '<div class="modal-body">' +
-                '<h3 class="sub-header">Calculator</h3>' +
-                'Simply enter two binary numbers and hit calculate! The multiplier works with any positive ' +
-                'whole binary number.' +
-                '<h3 class="sub-header">Practice Problems</h3>' +
-                'This section generates two random binary values for you to multiply. Enter your ' +
-                'answer in the text box and click "Check Answer". If you are incorrect, the correct ' +
-                'value will show. Generate more random values with the Change Values button.' +
-                '</div>' +
-                '<div class="modal-footer">' +
-                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                'Binary Multiplication';
+            document.getElementById("binary-arith-header").innerHTML = `<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryMultModal">
+                Instructions!
+                </button>
+                <div class="modal fade" id="binaryMultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                <h4 class="modal-title" id="binaryMultTitle">Binary Multiplication Instructions</h4>
+                </div>
+                <div class="modal-body">
+                <h3 class="sub-header">Calculator</h3>
+                Simply enter two binary numbers and hit calculate! The multiplier works with any positive
+                whole binary number.
+                <h3 class="sub-header">Practice Problems</h3>
+                This section generates two random binary values for you to multiply. Enter your
+                answer in the text box and click "Check Answer". If you are incorrect, the correct
+                value will show. Generate more random values with the Change Values button.
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>
+                Binary Multiplication`;
 
             var firstQuizNumPlaceholder = document.getElementById("first_quiz_number");
             var secondQuizNumPlaceholder = document.getElementById("second_quiz_number");

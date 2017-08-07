@@ -4,10 +4,10 @@
             <h2 class="sub-header flex-center">Calculator</h2>
             <form id="addition_calculator">
                 <div class="md-form">
-                    <input type="text" class="first-value form-control" name="firstNumber" placeholder="Enter First Binary Value" required>
+                    <input type="text" class="first-value form-control" v-model="firstBinaryValue" name="firstNumber" placeholder="Enter First Binary Value" required>
                 </div>
                 <div class="md-form">
-                    <input type="text" class="second-value form-control" name="secondNumber" placeholder="Enter Second Binary Value" required>
+                    <input type="text" class="second-value form-control" v-model="secondBinaryValue" name="secondNumber" placeholder="Enter Second Binary Value" required>
                 </div>
                 <p class="border"></p>
                 <button class="btn btn-mdb" name="submit" v-on:click="calculate">Calculate</button>
@@ -18,10 +18,10 @@
         <div class="addition-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
             <h2 class="sub-header flex-center">Practice Problems</h2>
             <form id="addition_quiz_form">
-                <p id="first_quiz_number" style="margin-left: 6.5%;"></p>
-                <p id="second_quiz_number"></p>
+                <p id="first_quiz_number" style="margin-left: 6.5%;">{{ firstQuizNumber }}</p>
+                <p id="second_quiz_number">+ {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
+                <input type="text" class="user_answer" name="userAnswer" v-model="userAnswer" placeholder="Enter Your Answer" required>
                 <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
                 <button class="btn btn-mdb" name="reset" v-on:click="resetValues">Change Values</button>
             </form>
@@ -32,6 +32,15 @@
 
 <script>
     export default {
+        data () {
+            return {
+                firstBinaryValue: null,
+                secondBinaryValue: null,
+                firstQuizNumber: null,
+                secondQuizNumber: null,
+                userAnswer: null
+            }
+        },
         mounted() {
 
             document.getElementById("binary-arith-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryAddModal">' +
@@ -62,15 +71,9 @@
                 '</div>' +
                 'Binary Addition';
 
-            var firstQuizNumPlaceholder = document.getElementById("first_quiz_number");
-            var secondQuizNumPlaceholder = document.getElementById("second_quiz_number");
-
             // Initialize quiz numbers to be randomized
             var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
             var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
-
-            firstQuizNumPlaceholder.innerHTML = "";
-            secondQuizNumPlaceholder.innerHTML = "+ ";
 
             // Sets random binary digits to each quiz number
             // and injects generated values into HTML for user viewing
@@ -80,10 +83,11 @@
                 firstQuizNum[i] = Math.floor((Math.random() * 2));
                 secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
             }
+
+            this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+            this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
+
         },
         methods: {
             calculate: function (e) {
@@ -94,14 +98,10 @@
                 e.preventDefault();
 
                 var calculatorOutput = document.getElementById("calculator_output_add");
-                var calculatorForm = document.getElementById("addition_calculator");
-
-                var firstNumber = calculatorForm.firstNumber.value;
-                var secondNumber = calculatorForm.secondNumber.value;
 
                 // Convert string input to arrays to prepare for arithmetic
-                var firstNumberDigits = Array.from(firstNumber);
-                var secondNumberDigits = Array.from(secondNumber);
+                var firstNumberDigits = Array.from(this.firstBinaryValue);
+                var secondNumberDigits = Array.from(this.secondBinaryValue);
 
                 // The following loops prepend 0's to simulate a zero-extension
                 // of the shorter binary value to the matched size of the longer
@@ -166,20 +166,21 @@
             // Quiz Methods --------------------
             resetValues: function (e) {
 
-                e.preventDefault();
+                // Initialize quiz numbers to be randomized
+                var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
+                var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
-                firstQuizNumPlaceholder.innerHTML = "";
-                secondQuizNumPlaceholder.innerHTML = "+ ";
+                e.preventDefault();
 
                 for (var i = 0; i < firstQuizNum.length; i++) {
 
                     firstQuizNum[i] = Math.floor((Math.random() * 2));
                     secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                    firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                    secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
                 }
+
+                this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+                this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
 
             },
             checkAnswer: function (e) {
@@ -187,25 +188,23 @@
                 e.preventDefault();
 
                 // Grab references to necessary HTML elements
-                var additionQuizForm = document.getElementById("addition_quiz_form");
                 var quizOutput = document.getElementById("quiz_output_add");
 
-                var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-                var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
-                var userAnswer = additionQuizForm.userAnswer.value;
+                var firstNumber = parseInt(this.firstQuizNumber, 2);
+                var secondNumber = parseInt(this.secondQuizNumber, 2);
+                var userAnswer = this.userAnswer;
 
                 var actualAnswer = (firstNumber + secondNumber).toString(2);
 
                 // Clear previous output and set up again
                 quizOutput.innerHTML = "You are ";
 
-
                 // Compare user answer to algorithm's answer and display result
                 if (userAnswer == actualAnswer) {
                     quizOutput.innerHTML += "correct."
                 }
                 else {
-                    quizOutput.innerHTML += "incorrect. The answer (normal form) is " + actualAnswer;
+                    quizOutput.innerHTML += "incorrect. The answer is " + actualAnswer;
                 }
 
             }
