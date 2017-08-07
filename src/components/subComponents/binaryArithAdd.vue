@@ -23,7 +23,7 @@
                 <p id="quiz_border" class="border"></p>
                 <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
                 <input type="submit" class="btn btn-mdb" value="Check Answer">
-                <button class="btn btn-mdb" name="reset" v-on:click="resetValues">Change Values</button>
+                <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
             </form>
             <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>

@@ -34,6 +34,17 @@
 
 <script>
     export default {
+        data () {
+            return {
+                firstBinaryValue: null,
+                secondBinaryValue: null,
+                firstQuizNumber: null,
+                secondQuizNumber: null,
+                userAnswer: null,
+                calculatorOutput: 'The answer will appear here.',
+                quizOutput: 'Your answer will be checked here.'
+            }
+        },
         mounted() {
             document.getElementById("binary-arith-header").innerHTML = `<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binaryMultModal">
                 Instructions!
