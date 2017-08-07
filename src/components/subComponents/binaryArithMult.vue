@@ -2,32 +2,32 @@
     <div>
         <div class="user-input-multiplication col-xs-5 col-sm-5 col-md-5 card" id="calc">
             <h2 class="sub-header flex-center">Calculator</h2>
-            <form id="multiplication_calculator">
+            <form @submit="calculate">
                 <div class="md-form">
-                    <input type="text" class="first-value form-control" name="firstNumber"
+                    <input type="text" class="first-value form-control" v-model="firstBinaryValue"
                            placeholder="Enter First Binary Value" required>
                 </div>
                 <div class="md-form">
-                    <input type="text" class="second-value form-control" name="secondNumber"
+                    <input type="text" class="second-value form-control" v-model="secondBinaryValue"
                            placeholder="Enter Second Binary Value" required>
                 </div>
                 <p class="border"></p>
-                <button class="btn btn-mdb" name="submit" v-on:click="calculate">Calculate</button>
+                <input type="submit" class="btn btn-mdb" value="Calculate">
             </form>
-            <p id="calculator_output_mult" class="well arithmetic-output">The Answer Will Appear Here.</p>
+            <p class="well arithmetic-output">{{ calculatorOutput }}</p>
         </div>
         <!-- Quiz -->
         <div class="multiplication-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
             <h2 class="sub-header flex-center">Practice Problems</h2>
-            <form id="multiplication_quiz_form">
-                <p id="first_quiz_number" style="margin-left: 5.5%;"></p>
-                <p id="second_quiz_number"></p>
+            <form @submit="checkAnswer">
+                <p id="first_quiz_number" style="margin-left: 5.5%;">{{ firstQuizNumber }}</p>
+                <p id="second_quiz_number">* {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" name="userAnswer" placeholder="Enter Your Answer" required>
-                <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
-                <button class="btn btn-mdb" name="reset" v-on:click="resetValues">Change Values</button>
+                <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
+                <input class="btn btn-mdb" type="submit" value="Check Answer">
+                <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
             </form>
-            <p id="quiz_output_mult" class="well arithmetic-output">Your answer will be checked here.</p>
+            <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>
     </div>
 </template>
@@ -73,15 +73,9 @@
                 </div>
                 Binary Multiplication`;
 
-            var firstQuizNumPlaceholder = document.getElementById("first_quiz_number");
-            var secondQuizNumPlaceholder = document.getElementById("second_quiz_number");
-
             // Initialize quiz numbers to be randomized
             var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
             var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
-
-            firstQuizNumPlaceholder.innerHTML = "";
-            secondQuizNumPlaceholder.innerHTML = "* ";
 
             // Sets random binary digits to each quiz number
             // and injects generated values into HTML for user viewing
@@ -91,10 +85,11 @@
                 firstQuizNum[i] = Math.floor((Math.random() * 2));
                 secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
             }
+
+            this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+            this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
+
         },
         methods: {
             calculate: function (e) {
@@ -106,15 +101,12 @@
 
                 e.preventDefault();
 
-                var calculatorOutput = document.getElementById("calculator_output_mult");
-                var calculatorForm = document.getElementById("multiplication_calculator");
-
-                var firstNumber = parseInt(calculatorForm.firstNumber.value, 2);
-                var secondNumber = parseInt(calculatorForm.secondNumber.value, 2);
+                var firstNumber = parseInt(this.firstBinaryValue, 2);
+                var secondNumber = parseInt(this.secondBinaryValue, 2);
 
                 var answer = (firstNumber * secondNumber).toString(2);
 
-                calculatorOutput.innerHTML = "Answer: " + answer;
+                this.calculatorOutput = "Answer: " + answer;
 
             },
             // Quiz methods
@@ -122,18 +114,19 @@
 
                 e.preventDefault();
 
-                firstQuizNumPlaceholder.innerHTML = "";
-                secondQuizNumPlaceholder.innerHTML = "* ";
+                // Initialize quiz numbers to be randomized
+                var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
+                var secondQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
 
                 for (var i = 0; i < firstQuizNum.length; i++) {
 
                     firstQuizNum[i] = Math.floor((Math.random() * 2));
                     secondQuizNum[i] = Math.floor((Math.random() * 2));
 
-                    firstQuizNumPlaceholder.innerHTML += firstQuizNum[i];
-                    secondQuizNumPlaceholder.innerHTML += secondQuizNum[i];
-
                 }
+
+                this.firstQuizNumber = firstQuizNum.toString().replace(/,/g, '');
+                this.secondQuizNumber = secondQuizNum.toString().replace(/,/g, '');
 
             },
 
@@ -141,25 +134,17 @@
 
                 e.preventDefault();
 
-                // Grab references to necessary HTML elements
-                var multiplicationQuizForm = document.getElementById("multiplication_quiz_form");
-                var quizOutput = document.getElementById("quiz_output_mult");
-
-                var firstNumber = parseInt(document.getElementById("first_quiz_number").innerHTML, 2);
-                var secondNumber = parseInt((document.getElementById("second_quiz_number").innerHTML.substring(1)), 2);
-                var userAnswer = multiplicationQuizForm.userAnswer.value;
+                var firstNumber = parseInt(this.firstQuizNumber, 2);
+                var secondNumber = parseInt(this.secondQuizNumber, 2);
 
                 var actualAnswer = (firstNumber * secondNumber).toString(2);
 
-                // Clear previous output and set up again
-                quizOutput.innerHTML = "You are ";
-
                 // Compare user answer to algorithm's answer and display result
-                if (userAnswer == actualAnswer) {
-                    quizOutput.innerHTML += "correct."
+                if (this.userAnswer == actualAnswer) {
+                    this.quizOutput = "Your are correct."
                 }
                 else {
-                    quizOutput.innerHTML += "incorrect. The answer is " + actualAnswer;
+                    this.quizOutput = "You are incorrect. The answer is " + actualAnswer;
                 }
 
             }
