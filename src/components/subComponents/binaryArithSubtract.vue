@@ -4,13 +4,17 @@
             <h2 class="sub-header flex-center">Calculator</h2>
             <form @submit="calculate">
                 <div class="md-form">
-                    <input type="text" class="first-value form-control" v-model="firstBinaryValue" placeholder="Enter First Binary Value" required>
+                    <input type="text" class="first-value form-control" v-model="firstBinaryValue"
+                           placeholder="Enter First Binary Value" required>
                 </div>
                 <div class="md-form">
-                    <input type="text" class="second-value form-control" v-model="secondBinaryValue" placeholder="Enter Second Binary Value" required>
+                    <input type="text" class="second-value form-control" v-model="secondBinaryValue"
+                           placeholder="Enter Second Binary Value" required>
                 </div>
                 <p class="border"></p>
-                <input type="submit" class="btn btn-mdb" value="Calculate">
+                <div class="flex-center">
+                    <input type="submit" class="btn btn-mdb" value="Calculate">
+                </div>
             </form>
             <p class="well arithmetic-output">{{ calculatorOutput }}</p>
         </div>
@@ -21,10 +25,13 @@
                 <p id="first_quiz_number" style="margin-left: 5.5%;">{{ firstQuizNumber }}</p>
                 <p id="second_quiz_number">- {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
-                <input class="btn btn-mdb" type="submit" value="Check Answer">
-                <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
-                </form>
+                <input type="text" class="user_answer form-control" v-model="userAnswer" placeholder="Enter Your Answer"
+                       required>
+                <div class="flex-center">
+                    <input class="btn btn-mdb" type="submit" value="Check Answer">
+                    <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
+                </div>
+            </form>
             <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>
     </div>
@@ -32,7 +39,7 @@
 
 <script>
     export default {
-        data () {
+        data() {
             return {
                 firstBinaryValue: null,
                 secondBinaryValue: null,
@@ -43,7 +50,7 @@
                 quizOutput: 'Your answer will be checked here.'
             }
         },
-        mounted () {
+        mounted() {
             document.getElementById("binary-arith-header").innerHTML = `<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binarySubModal">
                 Instructions!
                 </button>
@@ -94,7 +101,7 @@
 
         },
         methods: {
-            calculate: function(e) {
+            calculate: function (e) {
 
                 /**
                  * Created by savannah on 1/3/2017.
@@ -106,8 +113,8 @@
                 var firstNumber = parseInt(this.firstBinaryValue, 2);
                 var secondNumber = parseInt(this.secondBinaryValue, 2);
 
-                var answer = (firstNumber-secondNumber).toString(2);
-                var twosCompAnswer = ((firstNumber-secondNumber) >>> 0).toString(2);
+                var answer = (firstNumber - secondNumber).toString(2);
+                var twosCompAnswer = ((firstNumber - secondNumber) >>> 0).toString(2);
 
                 if (twosCompAnswer.length == 32) {
                     twosCompAnswer = "" + twosCompAnswer.substring(16);
@@ -117,7 +124,7 @@
 
             },
             // Quiz method(s)
-            resetValues: function(e) {
+            resetValues: function (e) {
 
                 // Initialize quiz numbers to be randomized
                 var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -137,15 +144,15 @@
 
             },
 
-            checkAnswer: function(e) {
+            checkAnswer: function (e) {
 
                 e.preventDefault();
 
                 var firstNumber = parseInt(this.firstQuizNumber, 2);
                 var secondNumber = parseInt(this.secondQuizNumber, 2);
 
-                var actualAnswer1 = (firstNumber-secondNumber).toString(2);
-                var actualAnswer2 = ((firstNumber-secondNumber) >>> 0).toString(2);
+                var actualAnswer1 = (firstNumber - secondNumber).toString(2);
+                var actualAnswer2 = ((firstNumber - secondNumber) >>> 0).toString(2);
 
                 if (actualAnswer2.length == 32) {
                     actualAnswer2 = "" + actualAnswer2.substring(16);

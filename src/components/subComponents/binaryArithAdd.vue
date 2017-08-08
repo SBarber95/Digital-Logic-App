@@ -4,13 +4,17 @@
             <h2 class="sub-header flex-center">Calculator</h2>
             <form @submit="calculate">
                 <div class="md-form">
-                    <input type="text" class="first-value form-control" v-model="firstBinaryValue" placeholder="Enter First Binary Value" required>
+                    <input type="text" class="first-value form-control" v-model="firstBinaryValue"
+                           placeholder="Enter First Binary Value" required>
                 </div>
                 <div class="md-form">
-                    <input type="text" class="second-value form-control" v-model="secondBinaryValue" placeholder="Enter Second Binary Value" required>
+                    <input type="text" class="second-value form-control" v-model="secondBinaryValue"
+                           placeholder="Enter Second Binary Value" required>
                 </div>
                 <p class="border"></p>
-                <input type="submit" class="btn btn-mdb" value="Calculate">
+                <div class="flex-center">
+                    <input type="submit" class="btn btn-mdb" value="Calculate">
+                </div>
             </form>
             <p class="well arithmetic-output">{{ calculatorOutput }}</p>
         </div>
@@ -21,9 +25,12 @@
                 <p id="first_quiz_number" style="margin-left: 6.5%;">{{ firstQuizNumber }}</p>
                 <p id="second_quiz_number">+ {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
-                <input type="submit" class="btn btn-mdb" value="Check Answer">
-                <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
+                <input type="text" class="user_answer form-control" v-model="userAnswer" placeholder="Enter Your Answer"
+                       required>
+                <div class="flex-center">
+                    <input type="submit" class="btn btn-mdb" value="Check Answer">
+                    <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
+                </div>
             </form>
             <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>
@@ -32,7 +39,7 @@
 
 <script>
     export default {
-        data () {
+        data() {
             return {
                 firstBinaryValue: null,
                 secondBinaryValue: null,

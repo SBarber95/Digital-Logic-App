@@ -12,7 +12,9 @@
                            placeholder="Enter Second Binary Value" required>
                 </div>
                 <p class="border"></p>
-                <input type="submit" class="btn btn-mdb" value="Calculate">
+                <div class="flex-center">
+                    <input type="submit" class="btn btn-mdb" value="Calculate">
+                </div>
             </form>
             <p class="well arithmetic-output">{{ calculatorOutput }}</p>
         </div>
@@ -23,9 +25,12 @@
                 <p id="first_quiz_number" style="margin-left: 5.5%;">{{ firstQuizNumber }}</p>
                 <p id="second_quiz_number">* {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
-                <input type="text" class="user_answer" v-model="userAnswer" placeholder="Enter Your Answer" required>
-                <input class="btn btn-mdb" type="submit" value="Check Answer">
-                <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
+                <input type="text" class="user_answer form-control" v-model="userAnswer" placeholder="Enter Your Answer"
+                       required>
+                <div class="flex-center">
+                    <input class="btn btn-mdb" type="submit" value="Check Answer">
+                    <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
+                </div>
             </form>
             <p class="well arithmetic-output">{{ quizOutput }}</p>
         </div>
@@ -34,7 +39,7 @@
 
 <script>
     export default {
-        data () {
+        data() {
             return {
                 firstBinaryValue: null,
                 secondBinaryValue: null,
