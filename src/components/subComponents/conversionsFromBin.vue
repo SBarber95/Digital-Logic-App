@@ -26,7 +26,7 @@
                 <p id="quiz_number_placeholder">Convert from this Base 2 Value: {{ quizNumber }}</p>
                 <p class="border"></p>
                 <div class="md-form">
-                    <input type="text" placeholder="Enter Your Answer" v-model="userAnswer" required>
+                    <input type="text" class="form-control" placeholder="Enter Your Answer" v-model="userAnswer" required>
                 </div>
                 <div class="flex-center md-form">
                     Select Base You Converted To: <select v-model="desiredQuizBase">
