@@ -3,14 +3,20 @@
         <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center">Converter</h2>
             <form @submit="convert">
-                <input type="text" v-model="hexValue" placeholder="Enter a Hexadecimal Value"
-                       required><br>
-                Select Desired Base: <select v-model="desiredBase">
-                <option value="2">2</option>
-                <option value="8">8</option>
-                <option value="10">10</option>
-            </select><br>
-                <input class="btn btn-mdb" value="Convert" type="submit">
+                <div class="md-form">
+                    <input type="text" class="form-control" v-model="hexValue" placeholder="Enter a Hexadecimal Value"
+                           required>
+                </div>
+                <div class="flex-center md-form">
+                    Select Desired Base: <select v-model="desiredBase">
+                    <option value="2">2</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                </select>
+                </div>
+                <div class="flex-center">
+                    <input class="btn btn-mdb" value="Convert" type="submit">
+                </div>
             </form>
             <p class="well converter-output">{{ convertOutput }}</p>
         </div>
@@ -19,14 +25,21 @@
             <form @submit="checkAnswer">
                 <p id="quiz_number_placeholder">Convert from this Base 16 Value: {{ quizNumber }}</p>
                 <p class="border"></p>
-                <input type="text" v-model="userAnswer" placeholder="Enter Your Answer" required><br>
-                Select Base You Converted To: <select v-model="desiredQuizBase">
-                <option value="2">2</option>
-                <option value="8">8</option>
-                <option value="10">10</option>
-            </select><br>
-                <input class="btn btn-mdb" type="submit" value="Check Answer">
-                <button class="btn btn-mdb" v-on:click="resetConvertValue">Change Value</button>
+                <div class="md-form">
+                    <input type="text" class="form-control" v-model="userAnswer" placeholder="Enter Your Answer"
+                           required>
+                </div>
+                <div class="flex-center md-form">
+                    Select Base You Converted To: <select v-model="desiredQuizBase">
+                    <option value="2">2</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                </select>
+                </div>
+                <div class="flex-center">
+                    <input class="btn btn-mdb" type="submit" value="Check Answer">
+                    <button class="btn btn-mdb" v-on:click="resetConvertValue">Change Value</button>
+                </div>
             </form>
             <p class="well converter-output">{{ quizOutput }}</p>
         </div>
@@ -38,7 +51,7 @@
     var altHexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
     var quizNum = [0, 0, 0, 0];
     export default {
-        data () {
+        data() {
             return {
                 hexValue: null,
                 desiredBase: null,
