@@ -126,7 +126,7 @@
                                         in association with the simulated value (Green = true; Red = false).
                                     </div>
                                     <div class="modal-footer">
-                                        <button class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-mdb" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>

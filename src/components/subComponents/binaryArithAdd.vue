@@ -73,7 +73,7 @@
                 'answer with the Check Answer button. If you are incorrect, the correct answer will be displayed.' +
                 '</div>' +
                 '<div class="modal-footer">' +
-                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
+                '<button class="btn btn-mdb" data-dismiss="modal">Close</button>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +

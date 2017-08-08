@@ -304,7 +304,7 @@
                 'simplified minterm boolean expression for the counter inputs is shown at the bottom.' +
                 '</div>' +
                 '<div class="modal-footer">' +
-                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
+                '<button class="btn btn-mdb" data-dismiss="modal">Close</button>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
