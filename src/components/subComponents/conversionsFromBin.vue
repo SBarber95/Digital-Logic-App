@@ -1,34 +1,33 @@
 <template>
     <div>
         <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
-            <h2 class="sub-header flex-center" style="margin-bottom: 20px;">Converter</h2>
-            <form id="bin-converter">
-                <input type="text" class="binary-value" name="binaryValue" placeholder="Enter a Binary Value"
-                       required><br>
-                Select Desired Base: <select name="desiredBase">
+            <h2 class="sub-header flex-center">Converter</h2>
+            <form @submit="convert">
+                <input type="text" v-model="binaryValue" placeholder="Enter a Binary Value" required><br>
+                Select Desired Base: <select v-model="desiredBase">
                 <option value="8">8</option>
                 <option value="10">10</option>
                 <option value="16">16</option>
             </select><br>
-                <button id="converter_submit" class="btn btn-mdb" v-on:click="convert" name="submit">Convert</button>
+                <input class="btn btn-mdb" value="Convert" type="submit">
             </form>
-            <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+            <p class="well converter-output">{{ convertOutput }}</p>
         </div>
         <div class="conversion-quiz col-xs-5 col-sm-5 col-md-5 card">
-            <h2 class="sub-header flex-center" id="second_header">Practice Problems</h2>
-            <form id="converter_quiz">
-                <p id="quiz_number_placeholder">Convert from this Base 2 Value: <span id="quiz_number"></span></p>
+            <h2 class="sub-header flex-center">Practice Problems</h2>
+            <form @submit="checkAnswer">
+                <p id="quiz_number_placeholder">Convert from this Base 2 Value: {{ quizNumber }}</p>
                 <p class="border"></p>
-                <input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>
-                Select Base You Converted To: <select name="selectedBase">
+                <input type="text" class="user-answer" v-model="userAnswer" placeholder="Enter Your Answer" required><br>
+                Select Base You Converted To: <select v-model="desiredQuizBase">
                 <option value="8">8</option>
                 <option value="10">10</option>
                 <option value="16">16</option>
             </select><br>
-                <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
-                <button class="btn btn-mdb" name="reset" v-on:click="resetConvertValue">Change Value</button>
+                <input class="btn btn-mdb" type="submit" value="Check Answer">
+                <button class="btn btn-mdb" v-on:click="resetConvertValue">Change Value</button>
             </form>
-            <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
+            <p class="well converter-output">{{ quizOutput }}</p>
         </div>
     </div>
 </template>
@@ -36,9 +35,18 @@
 <script>
     var quizNum = [0, 0, 0, 0, 0, 0, 0, 0];
     export default {
+        data () {
+            return {
+                binaryValue: null,
+                desiredBase: null,
+                desiredQuizBase: null,
+                convertOutput: 'The Answer Will Appear Here.',
+                quizOutput: 'Your Answer Will Be Checked Here.',
+                quizNumber: null,
+                userAnswer: null
+            }
+        },
         mounted() {
-
-            document.getElementById("second_header").innerHTML = "Practice Problems";
 
             document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">' +
                 'Instructions!' +
@@ -67,14 +75,17 @@
                 '</div>' +
                 '</div>Conversions from Binary (Base 2)';
 
+            var quizNumber = '';
+
             // To place initial random value on first load
             for (var i = 0; i < quizNum.length; i++) {
 
                 quizNum[i] = Math.floor((Math.random() * 2));
-
-                document.getElementById("quiz_number").innerHTML += quizNum[i];
+                quizNumber += quizNum[i];
 
             }
+
+            this.quizNumber = quizNumber;
 
         },
         methods: {
@@ -83,47 +94,42 @@
                 // TODO: CHANGE TO ACCEPT NEGATIVES
                 e.preventDefault();
 
-                var output = document.getElementById("output");
+                var binaryValue = parseInt(this.binaryValue, 2);
+                var desiredBaseValue = parseInt(this.desiredBase);
 
-                var form = document.getElementById("bin-converter");
+                this.convertOutput = "Converted Value: " + (binaryValue).toString(desiredBaseValue);
 
-                var binaryValue = parseInt(form.binaryValue.value, 2);
-                var desiredBaseValue = parseInt(form.desiredBase.value);
-
-                output.innerHTML = "Converted Value: " + (binaryValue).toString(desiredBaseValue);
             },
             resetConvertValue: function (e) {
 
                 e.preventDefault();
 
-                document.getElementById("quiz_number").innerHTML = "";
+                var quizNumber = '';
 
                 for (var i = 0; i < quizNum.length; i++) {
 
                     quizNum[i] = Math.floor((Math.random() * 2));
-
-                    document.getElementById("quiz_number").innerHTML += quizNum[i];
+                    quizNumber += quizNum[i];
 
                 }
+
+                this.quizNumber = quizNumber;
 
             },
             checkAnswer: function (e) {
 
                 e.preventDefault();
 
-                var convertQuizForm = document.getElementById("converter_quiz");
+                var selectedBase = parseInt(this.desiredQuizBase);
+                var userAnswer = parseInt(this.userAnswer, selectedBase);
 
-                var selectedBase = parseInt(convertQuizForm.selectedBase.value);
-                var userAnswer = parseInt(convertQuizForm.userAnswer.value, selectedBase);
-
-                var quizBinary = parseInt(document.getElementById("quiz_number").innerHTML, 2);
+                var quizBinary = parseInt(this.quizNumber, 2);
 
                 if (userAnswer == quizBinary) {
-                    document.getElementById("quiz_output").innerHTML = "Correct.";
+                    this.quizOutput = "You are correct.";
                 }
                 else {
-                    document.getElementById("quiz_output").innerHTML = "You are incorrect. The answer is " +
-                        quizBinary.toString(selectedBase);
+                    this.quizOutput = "You are incorrect. The answer is " + quizBinary.toString(selectedBase);
                 }
 
             }

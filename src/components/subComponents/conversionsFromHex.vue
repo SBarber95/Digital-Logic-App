@@ -1,34 +1,34 @@
 <template>
     <div>
         <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
-            <h2 class="sub-header flex-center" style="margin-bottom: 20px;">Converter</h2>
-            <form id="hex-converter">
-                <input type="text" class="hex-value" name="hexValue" placeholder="Enter a Hexadecimal Value"
+            <h2 class="sub-header flex-center">Converter</h2>
+            <form @submit="convert">
+                <input type="text" v-model="hexValue" placeholder="Enter a Hexadecimal Value"
                        required><br>
-                Select Desired Base: <select name="desiredBase">
+                Select Desired Base: <select v-model="desiredBase">
                 <option value="2">2</option>
                 <option value="8">8</option>
                 <option value="10">10</option>
             </select><br>
-                <button id="converter_submit" class="btn btn-mdb" v-on:click="convert" name="submit">Convert</button>
+                <input class="btn btn-mdb" value="Convert" type="submit">
             </form>
-            <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+            <p class="well converter-output">{{ convertOutput }}</p>
         </div>
         <div class="conversion-quiz col-xs-5 col-sm-5 col-md-5 card">
-            <h2 class="sub-header flex-center" id="second_header">Practice Problems</h2>
-            <form id="converter_quiz">
-                <p id="quiz_number_placeholder">Convert from this Base 16 Value: <span id="quiz_number"></span></p>
+            <h2 class="sub-header flex-center">Practice Problems</h2>
+            <form @submit="checkAnswer">
+                <p id="quiz_number_placeholder">Convert from this Base 16 Value: {{ quizNumber }}</p>
                 <p class="border"></p>
-                <input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>
-                Select Base You Converted To: <select name="selectedBase">
+                <input type="text" v-model="userAnswer" placeholder="Enter Your Answer" required><br>
+                Select Base You Converted To: <select v-model="desiredQuizBase">
                 <option value="2">2</option>
                 <option value="8">8</option>
                 <option value="10">10</option>
             </select><br>
-                <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
-                <button class="btn btn-mdb" name="reset" v-on:click="resetConvertValue">Change Value</button>
+                <input class="btn btn-mdb" type="submit" value="Check Answer">
+                <button class="btn btn-mdb" v-on:click="resetConvertValue">Change Value</button>
             </form>
-            <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
+            <p class="well converter-output">{{ quizOutput }}</p>
         </div>
     </div>
 </template>
@@ -38,9 +38,18 @@
     var altHexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
     var quizNum = [0, 0, 0, 0];
     export default {
+        data () {
+            return {
+                hexValue: null,
+                desiredBase: null,
+                desiredQuizBase: null,
+                convertOutput: 'The Answer Will Appear Here.',
+                quizOutput: 'Your Answer Will Be Checked Here.',
+                quizNumber: null,
+                userAnswer: null
+            }
+        },
         mounted() {
-
-            document.getElementById("second_header").innerHTML = "Practice Problems";
 
             document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">' +
                 'Instructions!' +
@@ -69,14 +78,17 @@
                 '</div>' +
                 '</div>Conversions from Hexadecimal (Base 16)';
 
+            var quizNumber = '';
+
             // To place initial random value on first load
             for (var i = 0; i < quizNum.length; i++) {
 
                 quizNum[i] = hexDigits[Math.floor((Math.random() * 16))];
-
-                document.getElementById("quiz_number").innerHTML += quizNum[i];
+                quizNumber += quizNum[i];
 
             }
+
+            this.quizNumber = quizNumber;
 
         },
         methods: {
@@ -85,13 +97,9 @@
                 // TODO: CHANGE TO ACCEPT NEGATIVES
                 e.preventDefault();
 
-                var output = document.getElementById("output");
-
-                var form = document.getElementById("hex-converter");
-
-                var hexValue = form.hexValue.value;
+                var hexValue = this.hexValue;
                 var hexValueArray = Array.from(hexValue);
-                var desiredBaseValue = parseInt(form.desiredBase.value);
+                var desiredBaseValue = parseInt(this.desiredBase);
 
                 var exponent = 0;
                 var hexDigitValue = null;
@@ -112,33 +120,32 @@
 
                 }
 
-                output.innerHTML = "Converted Value: " + (base10Value).toString(desiredBaseValue);
+                this.convertOutput = "Converted Value: " + (base10Value).toString(desiredBaseValue);
             },
             resetConvertValue: function (e) {
 
                 e.preventDefault();
 
-                document.getElementById("quiz_number").innerHTML = "";
+                var quizNumber = '';
 
                 for (var i = 0; i < quizNum.length; i++) {
 
                     quizNum[i] = hexDigits[Math.floor((Math.random() * 16))];
-
-                    document.getElementById("quiz_number").innerHTML += quizNum[i];
+                    quizNumber += quizNum[i];
 
                 }
+
+                this.quizNumber = quizNumber;
 
             },
             checkAnswer: function (e) {
 
                 e.preventDefault();
 
-                var convertQuizForm = document.getElementById("converter_quiz");
+                var selectedBase = parseInt(this.desiredQuizBase);
+                var userAnswer = parseInt(this.userAnswer);
 
-                var selectedBase = parseInt(convertQuizForm.selectedBase.value);
-                var userAnswer = parseInt(convertQuizForm.userAnswer.value);
-
-                var answer = Array.from(document.getElementById("quiz_number").innerHTML);
+                var answer = Array.from(this.quizNumber);
 
                 var exponent = 0;
                 var hexDigitValue = null;
@@ -162,11 +169,10 @@
                 var finalAnswer = base10Value.toString(selectedBase);
 
                 if (userAnswer == finalAnswer) {
-                    document.getElementById("quiz_output").innerHTML = "Correct.";
+                    this.quizOutput = "You are correct.";
                 }
                 else {
-                    document.getElementById("quiz_output").innerHTML = "You are incorrect. The answer is " +
-                        finalAnswer;
+                    this.quizOutput = "You are incorrect. The answer is " + finalAnswer;
                 }
 
             }
