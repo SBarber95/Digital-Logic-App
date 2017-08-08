@@ -49,17 +49,22 @@
                     <option value="1">1</option>
                     <option value="X">X</option>
                     </select></div>
+                </form>
+        </div>
+        <div class="inputs">
+            <div class="flex-center md-form">
                 <button v-on:click="simplifyMinterms" class="btn btn-mdb"
                         name="submit">Simplify (Minterms)</button>
                 <button v-on:click="simplifyMaxterms" class="btn btn-mdb second-input"
                         name="submit">Simplify (Maxterms)</button>
-                </form>
-        </div>
-        <div class="panel panel-primary" style="float: right; display: inline-block; width: 52%; position: relative; top: 12.4vh">
-            <div class="panel-heading">
-                <h3 class="panel-title">Simplified Boolean Expression</h3>
             </div>
-            <div class="panel-body" id="KM_Output">
+            <div class="card">
+                <div class="card-header mdb-color white-text">
+                    Simplified Boolean Expression
+                </div>
+                <div class="card-body">
+                    <p id="KM_Output" class="card-text">Output will appear here.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -487,11 +492,14 @@
         margin-top: 8px;
         position: relative;
     }
-    .second-input {
-        margin-top: 8px;
-        position: relative;
+    .inputs {
+        float: right;
     }
-    .btn-primary {
-        font-size: 18px;
+    .card-header, .card-text {
+        padding: 10px;
+    }
+    .card {
+        width: 500px;
+        padding: 0;
     }
 </style>

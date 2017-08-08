@@ -85,15 +85,16 @@
                 </tr>
             </tbody>
             </table>
+        <div class="flex-center md-form">
         <button v-on:click="findMinMaxterms" class="btn btn-mdb" name="submit">Find Min/Maxterms</button>
+        </div>
         </form>
-    <div class="col-sm-12 output-panel">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Minterms and Maxterms</h3>
-            </div>
-            <div class="panel-body" id="Output">
-            </div>
+    <div class="card">
+        <div class="card-header mdb-color white-text">
+            Minterms and Maxterms
+        </div>
+        <div class="card-body">
+            <p id="Output" class="card-text">Output will appear here.</p>
         </div>
     </div>
 </div>
@@ -190,7 +191,7 @@
 </script>
 
 <style scoped>
-    .output-panel {
-        margin-top: 20px;
+    .card-header, .card-text {
+        padding: 10px;
     }
 </style>
