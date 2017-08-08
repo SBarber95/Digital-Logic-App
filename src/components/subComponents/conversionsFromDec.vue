@@ -1,40 +1,51 @@
 <template>
     <div>
         <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
-            <h2 class="sub-header flex-center" style="margin-bottom: 20px;">Converter</h2>
-            <form id="dec-converter">
-                <input type="text" class="decimal-value" name="decimalValue" placeholder="Enter a Decimal Value"
+            <h2 class="sub-header flex-center">Converter</h2>
+            <form @submit="convert">
+                <input type="text" v-model="decimalValue" placeholder="Enter a Decimal Value"
                        required><br>
-                Select Desired Base: <select name="desiredBase">
+                Select Desired Base: <select v-model="desiredBase">
                 <option value="2">2</option>
                 <option value="8">8</option>
                 <option value="16">16</option>
             </select><br>
-                <button id="converter_submit" class="btn btn-mdb" v-on:click="convert" name="submit">Convert</button>
+                <input class="btn btn-mdb" type="submit" value="Convert">
             </form>
-            <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+            <p class="well converter-output">{{ convertOutput }}</p>
         </div>
         <div class="conversion-quiz col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center" id="second_header">Practice Problems</h2>
-            <form id="converter_quiz">
-                <p id="quiz_number_placeholder">Convert from this Base 10 Value: <span id="quiz_number"></span></p>
+            <form @submit="checkAnswer">
+                <p id="quiz_number_placeholder">Convert from this Base 10 Value: {{ quizNumber }}</p>
                 <p class="border"></p>
-                <input type="text" class="user-answer" name="userAnswer" placeholder="Enter Your Answer" required><br>
-                Select Base You Converted To: <select name="selectedBase">
+                <input type="text" placeholder="Enter Your Answer" v-model="userAnswer" required><br>
+                Select Base You Converted To: <select v-model="desiredQuizBase">
                 <option value="2">2</option>
                 <option value="8">8</option>
                 <option value="16">16</option>
             </select><br>
-                <button class="btn btn-mdb" name="submit" v-on:click="checkAnswer">Check Answer</button>
-                <button class="btn btn-mdb" name="reset" v-on:click="resetConvertValue">Change Value</button>
+                <input class="btn btn-mdb" type="submit" value="Check Answer">
+                <button class="btn btn-mdb" v-on:click="resetConvertValue">Change Value</button>
             </form>
-            <p id="quiz_output" class="well converter-output">Your Answer Will Be Checked Here.</p>
+            <p class="well converter-output">{{ quizOutput }}</p>
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        data () {
+            return {
+                decimalValue: null,
+                desiredBase: null,
+                desiredQuizBase: null,
+                convertOutput: 'The Answer Will Appear Here.',
+                quizOutput: 'Your Answer Will Be Checked Here.',
+                quizNumber: null,
+                userAnswer: null
+            }
+        },
         mounted() {
             document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">' +
                 'Instructions!' +
@@ -62,8 +73,10 @@
                 '</div>' +
                 '</div>' +
                 '</div>Conversions from Decimal (Base 10)';
+
             // To place initial random value on first load
-            document.getElementById("quiz_number").innerHTML = "" + Math.floor((Math.random() * 200));
+            this.quizNumber = Math.floor((Math.random() * 200));
+
         },
         methods: {
             convert: function (e) {
@@ -71,39 +84,32 @@
                 // TODO: CHANGE TO ACCEPT NEGATIVES
                 e.preventDefault();
 
-                var output = document.getElementById("output");
+                var decimalValue = parseInt(this.decimalValue);
+                var desiredBaseValue = parseInt(this.desiredBase);
 
-                var form = document.getElementById("dec-converter");
-
-                var decimalValue = parseInt(form.decimalValue.value);
-                var desiredBaseValue = parseInt(form.desiredBase.value);
-
-                output.innerHTML = "Converted Value: " + (decimalValue).toString(desiredBaseValue);
+                this.convertOutput = "Converted Value: " + (decimalValue).toString(desiredBaseValue);
 
             },
             resetConvertValue: function (e) {
 
                 e.preventDefault();
-                document.getElementById("quiz_number").innerHTML = "" + Math.floor((Math.random() * 200));
+                this.quizNumber = Math.floor((Math.random() * 200));
 
             },
             checkAnswer: function (e) {
 
                 e.preventDefault();
 
-                var convertQuizForm = document.getElementById("converter_quiz");
+                var selectedBase = parseInt(this.desiredQuizBase);
+                var userAnswer = parseInt(this.userAnswer, this.desiredQuizBase);
 
-                var selectedBase = parseInt(convertQuizForm.selectedBase.value);
-                var userAnswer = parseInt(convertQuizForm.userAnswer.value, selectedBase);
-
-                var quizDecimal = parseInt(document.getElementById("quiz_number").innerHTML);
+                var quizDecimal = parseInt(this.quizNumber);
 
                 if (userAnswer == quizDecimal) {
-                    document.getElementById("quiz_output").innerHTML = "Correct.";
+                    this.quizOutput = "You are correct.";
                 }
                 else {
-                    document.getElementById("quiz_output").innerHTML = "You are incorrect. The answer is " +
-                        quizDecimal.toString(selectedBase);
+                    this.quizOutput = "You are incorrect. The answer is " + quizDecimal.toString(selectedBase);
                 }
 
             }
