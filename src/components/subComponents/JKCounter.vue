@@ -230,10 +230,12 @@
                     </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-mdb" v-on:click="designCounter" name="submit">Set Up Counter Design</button>
+                <div class="flex-center">
+                    <button class="btn btn-mdb" v-on:click="designCounter" name="submit">Set Up Counter Design</button>
+                </div>
             </form>
         </div>
-        <div class="col-sm-8 col-md-9">
+        <div class="col-sm-12 col-md-12">
             <div class="km-container">
                 <p class="km-label">Jc</p>
                 <div class="info-cell"><img src="../../images/counterKMLogo.png"></div>
@@ -342,11 +344,13 @@
                 <div class="cell"><p id="KA_cell2">0</p></div>
                 <div class="cell"><p id="KA_cell6">0</p></div>
             </div>
-            <div class="panel panel-primary" style="margin-top: 40px">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Simplified Boolean Expressions</h3>
-                </div>
-                <div class="panel-body" id="design_output"></div>
+        </div>
+        <div class="card col-lg-12 col-md-12 col-sm-12">
+            <div class="card-header mdb-color white-text">
+                Simplified Boolean Expressions
+            </div>
+            <div class="card-body">
+                <p id="design_output" class="card-text">Output will appear here.</p>
             </div>
         </div>
     </div>
@@ -1489,3 +1493,13 @@
         }
     }
 </script>
+
+<style scoped>
+    .card {
+        padding: 0;
+        margin-top: 24px;
+    }
+    .card-header, .card-text {
+        padding: 10px;
+    }
+</style>
