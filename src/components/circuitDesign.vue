@@ -201,7 +201,6 @@
             // Finds approximate output coordinates on
             // circuit components (for use in wire drawing)
             findOutputCoords (e) {
-                console.log(this)
 
                 e = e[0];
 
@@ -234,9 +233,6 @@
              */
             findInputCoords (e) {
 
-                console.log('Finding output coords and making wire');
-                console.log(this)
-
                 e = e[0];
 
                 let snap = Snap('#canvas');
@@ -246,8 +242,6 @@
                 }
 
                 else {
-
-                    console.log(this.circuitComponents)
 
                     // Grabs which input the wire will be connecting to
                     var inputNum = e.getAttribute("class");
@@ -311,10 +305,6 @@
             },
 
             redrawWires (e) {
-
-                console.log('Redrawing Wires')
-                console.log(this)
-                console.log(e)
 
                 let snap = Snap('#canvas')
 
