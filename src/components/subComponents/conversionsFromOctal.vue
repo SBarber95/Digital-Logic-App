@@ -83,7 +83,7 @@
                 'Make sure you select which base you converted to in the drop-down box as you put in your answer.' +
                 '</div>' +
                 '<div class="modal-footer">' +
-                '<button class="btn btn-default" data-dismiss="modal">Close</button>' +
+                '<button class="btn btn-mdb" data-dismiss="modal">Close</button>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +

@@ -19,7 +19,10 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ## Known Issues
 
-The recent restructuring of the project to single file Vue.js templates has caused some odd behavior with the circuit design
-feature.
+The delete circuit feature needs to be re-implemented, so for now it does nothing.
 
-Restructuring has also caused site-wide CSS issues which will be addressed during the transition to Material Bootstrap.
+Delete component needs to be implemented, but will be done so after enough of the application restructuring is completed.
+
+Restructuring has also caused site-wide CSS issues which will be addressed during the transition to Material Bootstrap. This is now in progress.
+
+Various UX improvements need to be made, especially in the circuit design feature.
