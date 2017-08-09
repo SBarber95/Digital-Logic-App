@@ -59,19 +59,19 @@
                     <img class="img-circle" src="../images/circle_3.jpg" alt="Generic placeholder image" width="140" height="140">
                     <h2>New to Digital Logic?</h2>
                     <p>No problem! This site has a reference section that includes helpful links for beginners to learn the fundamentals of digital logic, as well as helpful resources regarding logic gates, boolean theorems, binary arithmetic rules, and more!</p>
-                    <p><router-link class="btn btn-default" to="/references/boolean-theorems" role="button">View References &raquo;</router-link></p>
+                    <p><router-link class="btn btn-mdb" to="/references/boolean-theorems" role="button">View References &raquo;</router-link></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="img-circle" src="../images/circle_1.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>Want More Features?</h2>
                     <p>Make a request at <a href="https://github.com/SBarber95/Digital-Logic-App/issues">GitHub</a> or think about becoming a contributor yourself by writing the code and submitting a pull request! All are welcome to make improvements! There's no need to be an expert, just know some HTML, CSS, and JavaScript.</p>
-                    <p><a class="btn btn-default" href="https://github.com/SBarber95/Digital-Logic-App/" role="button">Contribute! &raquo;</a></p>
+                    <p><a class="btn btn-mdb" href="https://github.com/SBarber95/Digital-Logic-App/" role="button">Contribute! &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="img-circle" src="../images/circle_2.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>Found a Bug?</h2>
                     <p>Open up an issue in <a href="https://github.com/SBarber95/Digital-Logic-App/issues">GitHub</a>. Please note as of version 1.0.0 (first release), the app is not fully functional as some features still need to be completely implemented (and there will be bugs for sure). See below for more details.</p>
-                    <p><a class="btn btn-default" href="https://github.com/SBarber95/Digital-Logic-App/issues" role="button">Open Issue &raquo;</a></p>
+                    <p><a class="btn btn-mdb" href="https://github.com/SBarber95/Digital-Logic-App/issues" role="button">Open Issue &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
 

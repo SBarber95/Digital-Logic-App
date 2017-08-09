@@ -340,8 +340,10 @@
             }
         },
         mounted () {
+
             let snap = Snap('#canvas');
             let vm = this;
+            console.log(vm)
 
             let newComponent;
             let canvas = document.getElementById("canvas");
@@ -529,6 +531,7 @@
             $("#select2InputAND").click(function() {
 
                 Snap.load("src/components/circuitComponents/twoInputAND.vue", function(e) {
+
                     newComponent = e.select("g");
                     snap.append(newComponent);
                     newComponent.drag();
@@ -546,16 +549,18 @@
 
             });
 
-            $(document).on("dblclick", ".gate-output", function () {
+            $("#canvas").on("dblclick", ".gate-output", function () {
                 vm.findOutputCoords($(this))
             });
-            $(document).on("dblclick", ".gate-input", function () {
+            $("#canvas").on("dblclick", ".gate-input", function () {
                 vm.findInputCoords($(this))
             });
-            $(document).on("mouseup", ".drag-box", function () {
-                console.log($(this)[0].parentNode)
+            $("#canvas").on("mouseup", ".drag-box", function () {
+                console.log(vm) // Grabs old Vue instance
                 vm.redrawWires($(this)[0].parentNode)
             });
+
+
             /**
              * Custom context menu script for the circuit designer.
              * STRUCTURE CODE PROVIDED BY SITEPOINT
@@ -840,6 +845,7 @@
             // Finds approximate output coordinates on
             // circuit components (for use in wire drawing)
             findOutputCoords (e) {
+                console.log(this)
 
                 e = e[0];
 
@@ -873,6 +879,7 @@
             findInputCoords (e) {
 
                 console.log('Finding output coords and making wire');
+                console.log(this)
 
                 e = e[0];
 
@@ -883,6 +890,8 @@
                 }
 
                 else {
+
+                    console.log(this.circuitComponents)
 
                     // Grabs which input the wire will be connecting to
                     var inputNum = e.getAttribute("class");
@@ -948,6 +957,8 @@
             redrawWires (e) {
 
                 console.log('Redrawing Wires')
+                console.log(this)
+                console.log(e)
 
                 let snap = Snap('#canvas')
 
