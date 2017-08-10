@@ -286,30 +286,31 @@
 
     export default {
         mounted() {
-            document.getElementById("design-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#counterModal">' +
-                'Instructions!' +
-                '</button>' +
-                '<div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
-                '<div class="modal-dialog" role="document">' +
-                '<div class="modal-content">' +
-                '<div class="modal-header">' +
-                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
-                '<h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>' +
-                '</div>' +
-                '<div class="modal-body">' +
-                'Fill out the table entries according to the state changes you wish to include in your counter. ' +
-                'Click "Set Up Counter Design" and the rest of the table will fill in with the proper values. ' +
-                'Below the table, the Karnaugh Maps associated with each ' +
-                'input column will be populated with the table info. A ' +
-                'simplified minterm boolean expression for the counter inputs is shown at the bottom.' +
-                '</div>' +
-                '<div class="modal-footer">' +
-                '<button class="btn btn-mdb" data-dismiss="modal">Close</button>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                'T Counter Design'
+            document.getElementById("design-header").innerHTML = `
+                <div class="modal fade" id="counterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                <h4 class="modal-title" id="counterTitle">Counter Design Instructions</h4>
+                </div>
+                <div class="modal-body">
+                Fill out the table entries according to the state changes you wish to include in your counter.
+                Click "Set Up Counter Design" and the rest of the table will fill in with the proper values.
+                Below the table, the Karnaugh Maps associated with each
+                input column will be populated with the table info. A
+                simplified minterm boolean expression for the counter inputs is shown at the bottom.
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-mdb" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>
+                T Counter Design
+                <button style="margin-top: 0; float: right" class="btn btn-info" data-toggle="modal" data-target="#counterModal">
+                Instructions!
+                </button>`;
         },
         methods: {
             designCounter: function(e) {
