@@ -502,4 +502,9 @@
         width: 500px;
         padding: 0;
     }
+    @media (max-width: 1169px) {
+        .inputs {
+            float: left;
+        }
+    }
 </style>

@@ -2,19 +2,18 @@
     <div id="app">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
-                <!-- Navbar brand -->
-                <router-link class="navbar-brand" style="color: white" to="/">Sovereign Logic</router-link>
-
                 <!-- Collapse button -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" style="width: 40px"
+                <button type="button" class="navbar-toggle" data-toggle="collapse" style="width: 44px;"
                         data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- Navbar brand -->
+                <router-link class="navbar-brand" style="color: white" to="/">Sovereign Logic</router-link>
             </div>
             <!-- Collapsible content -->
-            <div class="collapse navbar-collapse collapse navbar-responsive-collapse">
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
 
                 <!-- Links -->
                 <ul class="nav navbar-nav mr-auto">

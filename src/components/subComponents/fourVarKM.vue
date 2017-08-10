@@ -755,4 +755,9 @@
     .card-header, .card-text {
         padding: 10px;
     }
+    @media (max-width: 1409px) {
+        .inputs {
+            float: left;
+        }
+    }
 </style>
