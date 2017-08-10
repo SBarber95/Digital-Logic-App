@@ -18,28 +18,7 @@
                 </ul>
             </div>
             <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-                <h1 class="page-header" id="truth_table_header"><button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#minMaxModal">
-                    Instructions!
-                </button>
-                    <div class="modal fade" id="minMaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-                                    <h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>
-                                </div>
-                                <div class="modal-body">
-                                    Select the output values in the table and click "Find Min/Maxterms"
-                                    to receive the minterm and maxterm expression. <br>NOTE: The min/maxterm
-                                    expression you receive here is NOT simplified! If you desire a simplified expression,
-                                    you can use the output here with the Karnaugh Map feature.
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-mdb" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>3-Variable Truth Table</h1>
+                <h1 class="page-header" id="truth_table_header">3-Variable Truth Table</h1>
                 <div id="table-placeholder">
                    <router-view></router-view>
                 </div>
@@ -51,3 +30,9 @@
 <script>
     export default {}
 </script>
+
+<style scoped>
+    .page-header {
+        font-size: 40px;
+    }
+</style>

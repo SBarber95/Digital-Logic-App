@@ -13,34 +13,7 @@
                 </ul>
             </div>
             <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-                <h1 class="page-header" id="design-header">
-                    <button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal"
-                            data-target="#counterModal">Instructions!
-                    </button>
-                    <div class="modal fade" id="counterModal" tabindex="-1" role="dialog"
-                         aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal" aria-label="Close">
-                                        <span>&times;</span></button>
-                                    <h4 class="modal-title" id="counterTitle">Binary Addition Instructions</h4>
-                                </div>
-                                <div class="modal-body">
-                                    Fill out the table entries according to the state changes you wish to include in your counter.
-                                    Click "Set Up Counter Design" and the rest of the table will fill in with the proper values.
-                                    Below the table, the Karnaugh Maps associated with each
-                                    input column will be populated with the table info. A
-                                    simplified minterm boolean expression for the counter inputs is shown at the bottom.
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-mdb" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    S-R Counter Design
-                </h1>
+                <h1 class="page-header" id="design-header">S-R Counter Design</h1>
                 <router-view></router-view>
             </div>
         </div>
@@ -112,5 +85,8 @@
 
     .btn-primary {
         font-size: 18px;
+    }
+    .page-header {
+        font-size: 40px;
     }
 </style>

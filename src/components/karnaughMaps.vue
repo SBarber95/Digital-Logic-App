@@ -15,28 +15,7 @@
                 </ul>
             </div>
             <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-                <h1 id="km_header" class="page-header"><button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#KMModal">
-                    Instructions!
-                </button>
-                    <div class="modal fade" id="KMModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
-                                    <h4 class="modal-title" id="KMTitle">Karnaugh Map Instructions</h4>
-                                </div>
-                                <div class="modal-body">
-                                    Fill in your desired values in the drop-down boxes. Once you fill in your values,
-                                    click "Simplify Minterms" or "Simplify Maxterms". Keep in mind that minterms group
-                                    1s and maxterms group 0s. The output box will show its generated simplified expression
-                                    and a list of the groupings by cell number.
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-mdb" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>3-Variable Karnaugh Map</h1>
+                <h1 id="km_header" class="page-header">3-Variable Karnaugh Map</h1>
                 <router-view></router-view>
             </div>
         </div>
@@ -46,3 +25,9 @@
 <script>
     export default {}
 </script>
+
+<style scoped>
+    .page-header {
+        font-size: 40px;
+    }
+</style>
