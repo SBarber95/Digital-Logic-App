@@ -81,28 +81,29 @@
     export default {
         mounted () {
             var header = document.getElementById("km_header");
-            header.innerHTML = '<button type="button" style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#KMModal">'+
-                'Instructions!'+
-                '</button>'+
-                '<div class="modal fade" id="KMModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
-                '<div class="modal-dialog" role="document">'+
-                '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
-                '<h4 class="modal-title" id="KMTitle">Karnaugh Map Instructions</h4>'+
-                '</div>'+
-                '<div class="modal-body">'+
-                'Fill in your desired values in the drop-down boxes. Once you fill in your values, '+
-                'click "Simplify Minterms" or "Simplify Maxterms". Keep in mind that minterms group '+
-                '1s and maxterms group 0s. The output box will show its generated simplified expression '+
-                'and a list of the groupings by cell number.'+
-                '</div>'+
-                '<div class="modal-footer">'+
-                '<button type="button" class="btn btn-mdb" data-dismiss="modal">Close</button>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
-                '</div>3-Variable Karnaugh Map';
+            header.innerHTML = `
+                <div class="modal fade" id="KMModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                <h4 class="modal-title" id="KMTitle">Karnaugh Map Instructions</h4>
+                </div>
+                <div class="modal-body">
+                Fill in your desired values in the drop-down boxes. Once you fill in your values,
+                click "Simplify Minterms" or "Simplify Maxterms". Keep in mind that minterms group
+                1s and maxterms group 0s. The output box will show its generated simplified expression
+                and a list of the groupings by cell number.
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-mdb" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>3-Variable Karnaugh Map
+                <button type="button" style="margin-top: 0; float: right;" class="btn btn-info" data-toggle="modal" data-target="#KMModal">
+                Instructions!
+                </button>`;
         },
         methods: {
             simplifyMinterms: function(e) {
