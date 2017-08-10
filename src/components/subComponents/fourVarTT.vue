@@ -192,29 +192,30 @@
 <script>
     export default {
         mounted () {
-            document.getElementById("truth_table_header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#minMaxModal">'+
-                'Instructions!'+
-                '</button>'+
-                '<div class="modal fade" id="minMaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
-                '<div class="modal-dialog" role="document">'+
-                '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
-                '<h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>'+
-                '</div>'+
-                '<div class="modal-body">'+
-                'Select the output values in the table and click "Find Min/Maxterms" '+
-                'to receive the minterm and maxterm expression. <br>NOTE: The min/maxterm '+
-                'expression you receive here is NOT simplified! If you desire a simplified expression, '+
-                'you can use the output here with the Karnaugh Map feature.'+
-                '</div>'+
-                '<div class="modal-footer">'+
-                '<button class="btn btn-mdb" data-dismiss="modal">Close</button>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
-                '4-Variable Truth Table';
+            document.getElementById("truth_table_header").innerHTML = `
+                <div class="modal fade" id="minMaxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                <button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+                <h4 class="modal-title" id="minMaxTitle">Min/Maxterm Instructions</h4>
+                </div>
+                <div class="modal-body">
+                Select the output values in the table and click "Find Min/Maxterms"
+                to receive the minterm and maxterm expression. <br>NOTE: The min/maxterm
+                expression you receive here is NOT simplified! If you desire a simplified expression,
+                you can use the output here with the Karnaugh Map feature.
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-mdb" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+                </div>
+                </div>
+                4-Variable Truth Table
+                <button style="margin-top: 0; float: right" class="btn btn-info" data-toggle="modal" data-target="#minMaxModal">
+                Instructions!
+                </button>`;
         },
         methods: {
             findMinMaxterms: function(e) {

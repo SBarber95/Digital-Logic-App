@@ -2,19 +2,18 @@
     <div id="app">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
-                <!-- Navbar brand -->
-                <router-link class="navbar-brand" style="color: white" to="/">Sovereign Logic</router-link>
-
                 <!-- Collapse button -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" style="width: 40px"
+                <button type="button" class="navbar-toggle" data-toggle="collapse" style="width: 44px;"
                         data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- Navbar brand -->
+                <router-link class="navbar-brand" style="color: white" to="/">Sovereign Logic</router-link>
             </div>
             <!-- Collapsible content -->
-            <div class="collapse navbar-collapse collapse navbar-responsive-collapse">
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
 
                 <!-- Links -->
                 <ul class="nav navbar-nav mr-auto">
@@ -285,5 +284,42 @@
     .component {
         display: inline;
         position: relative;
+    }
+
+    @media (max-width: 1171px) {
+        .navbar-header {
+            float: none;
+        }
+        .navbar-left,.navbar-right {
+            float: none !important;
+        }
+        .navbar-toggle {
+            display: block;
+        }
+        .navbar-collapse {
+            border-top: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px;
+        }
+        .navbar-collapse.collapse {
+            display: none!important;
+        }
+        .navbar-nav {
+            float: none!important;
+            margin-top: 7.5px;
+        }
+        .navbar-nav>li {
+            float: none;
+        }
+        .navbar-nav>li>a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .collapse.in{
+            display:block !important;
+        }
     }
 </style>

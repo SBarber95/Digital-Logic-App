@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="button" id="delete_circuit" class="btn btn-danger btn-sm" value="Delete Circuit">
+                        <input type="button" @click="deleteCircuit" class="btn btn-danger btn-sm" value="Delete Circuit">
                         <input type="submit" id="simulate" @click="simulate" class="btn btn-mdb btn-sm" value="Simulate">
                     </h1>
                     <svg id="canvas"></svg>
@@ -563,6 +563,19 @@
 
                 }
 
+            },
+            deleteCircuit () {
+                let response = confirm('Are you sure you want to clear the design canvas? This action cannot be undone.');
+
+                if (response) {
+
+                    $("#canvas").empty();
+                    this.circuitComponents = [];
+                    this.wires = [];
+                    this.idNum = 0;
+                    this.wireIdNum = 0;
+
+                }
             }
 
         }

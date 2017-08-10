@@ -51,9 +51,7 @@
             }
         },
         mounted() {
-            document.getElementById("binary-arith-header").innerHTML = `<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#binarySubModal">
-                Instructions!
-                </button>
+            document.getElementById("binary-arith-header").innerHTML = `
                 <div class="modal fade" id="binarySubModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -80,7 +78,10 @@
                 </div>
                 </div>
                 </div>
-                Binary Subtraction`;
+                Binary Subtraction
+                <button class="btn btn-info" data-toggle="modal" style="float: right; margin-top: 0;" data-target="#binarySubModal">
+                Instructions!
+                </button>`;
 
             // Initialize quiz numbers to be randomized
             var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
