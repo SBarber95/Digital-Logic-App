@@ -285,6 +285,7 @@
         display: inline;
         position: relative;
     }
+
     @media (max-width: 1171px) {
         .navbar-header {
             float: none;
