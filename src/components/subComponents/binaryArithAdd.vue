@@ -11,7 +11,6 @@
                     <input type="text" class="second-value form-control" v-model="secondBinaryValue"
                            placeholder="Enter Second Binary Value" required>
                 </div>
-                <p class="border"></p>
                 <div class="flex-center">
                     <input type="submit" class="btn btn-mdb" value="Calculate">
                 </div>
