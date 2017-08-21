@@ -227,7 +227,7 @@
 
             },
             convertFromDec () {
-                
+
                 document.getElementById("output").setAttribute("style", "margin-top: 20px");
 
                 var output = document.getElementById("output");
