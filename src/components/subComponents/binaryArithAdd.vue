@@ -5,11 +5,11 @@
             <form @submit.prevent="calculate">
                 <div class="md-form">
                     <input type="text" class="first-value form-control" v-model="firstBinaryValue"
-                           placeholder="Enter First Binary Value" required>
+                           placeholder="Enter First Binary Value" maxlength="16" required>
                 </div>
                 <div class="md-form">
                     <input type="text" class="second-value form-control" v-model="secondBinaryValue"
-                           placeholder="Enter Second Binary Value" required>
+                           placeholder="Enter Second Binary Value" maxlength="16" required>
                 </div>
                 <div class="flex-center">
                     <input type="submit" class="btn btn-mdb" value="Calculate">
