@@ -2,7 +2,7 @@
     <div>
         <div class="user-input-multiplication col-xs-5 col-sm-5 col-md-5 card" id="calc">
             <h2 class="sub-header flex-center">Calculator</h2>
-            <form @submit="calculate">
+            <form @submit.prevent="calculate">
                 <div class="md-form">
                     <input type="text" class="first-value form-control" v-model="firstBinaryValue"
                            placeholder="Enter First Binary Value" required>
@@ -20,7 +20,7 @@
         <!-- Quiz -->
         <div class="multiplication-quiz col-xs-5 col-sm-5 col-md-5 card" id="quiz">
             <h2 class="sub-header flex-center">Practice Problems</h2>
-            <form @submit="checkAnswer">
+            <form @submit.prevent="checkAnswer">
                 <p id="first_quiz_number" style="margin-left: 5.5%;">{{ firstQuizNumber }}</p>
                 <p id="second_quiz_number">* {{ secondQuizNumber }}</p>
                 <p id="quiz_border" class="border"></p>
@@ -28,7 +28,7 @@
                        required>
                 <div class="flex-center">
                     <input class="btn btn-mdb" type="submit" value="Check Answer">
-                    <button class="btn btn-mdb" v-on:click="resetValues">Change Values</button>
+                    <button class="btn btn-mdb" @click.prevent="resetValues">Change Values</button>
                 </div>
             </form>
             <p class="well arithmetic-output">{{ quizOutput }}</p>
@@ -97,14 +97,29 @@
 
         },
         methods: {
-            calculate: function (e) {
+            calculate () {
 
-                /**
-                 * Created by savannah on 1/3/2017.
-                 * TODO: Add error-checking for user entering both binary values
-                 */
+                for (var i = 0; i < this.firstBinaryValue.length; ++i) {
 
-                e.preventDefault();
+                    if (this.firstBinaryValue.charAt(i) == 1 || this.firstBinaryValue.charAt(i) == 0) {
+                    }
+                    else {
+                        this.calculatorOutput = "Please enter valid binary values.";
+                        return
+                    }
+
+                }
+
+                for (i = 0; i < this.secondBinaryValue.length; ++i) {
+
+                    if (this.secondBinaryValue.charAt(i) == 1 || this.secondBinaryValue.charAt(i) == 0) {
+                    }
+                    else {
+                        this.calculatorOutput = "Please enter valid binary values.";
+                        return
+                    }
+
+                }
 
                 var firstNumber = parseInt(this.firstBinaryValue, 2);
                 var secondNumber = parseInt(this.secondBinaryValue, 2);
@@ -115,9 +130,7 @@
 
             },
             // Quiz methods
-            resetValues: function (e) {
-
-                e.preventDefault();
+            resetValues () {
 
                 // Initialize quiz numbers to be randomized
                 var firstQuizNum = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -135,9 +148,7 @@
 
             },
 
-            checkAnswer: function (e) {
-
-                e.preventDefault();
+            checkAnswer () {
 
                 var firstNumber = parseInt(this.firstQuizNumber, 2);
                 var secondNumber = parseInt(this.secondQuizNumber, 2);
