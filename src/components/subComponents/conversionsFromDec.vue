@@ -2,10 +2,10 @@
     <div>
         <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center">Converter</h2>
-            <form @submit="convert">
+            <form @submit.prevent="convert">
                 <div class="md-form">
-                    <input class="form-control" type="text" v-model="decimalValue" placeholder="Enter a Decimal Value"
-                           required>
+                    <input class="form-control" type="number" v-model="decimalValue" placeholder="Enter a Decimal Value"
+                           maxlength="16" required>
                 </div>
                 <div class="flex-center md-form">
                     Select Desired Base: <select v-model="desiredBase">
@@ -22,7 +22,7 @@
         </div>
         <div class="conversion-quiz col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center" id="second_header">Practice Problems</h2>
-            <form @submit="checkAnswer">
+            <form @submit.prevent="checkAnswer">
                 <p id="quiz_number_placeholder">Convert from this Base 10 Value: {{ quizNumber }}</p>
                 <p class="border"></p>
                 <div class="md-form">
@@ -36,7 +36,7 @@
                 </select></div>
                 <div class="flex-center">
                     <input class="btn btn-mdb" type="submit" value="Check Answer">
-                    <button class="btn btn-mdb" v-on:click="resetConvertValue">Change Value</button>
+                    <button class="btn btn-mdb" @click.prevent="resetConvertValue">Change Value</button>
                 </div>
             </form>
             <p class="well converter-output">{{ quizOutput }}</p>
@@ -46,7 +46,7 @@
 
 <script>
     export default {
-        data() {
+        data () {
             return {
                 decimalValue: null,
                 desiredBase: null,
@@ -57,7 +57,7 @@
                 userAnswer: null
             }
         },
-        mounted() {
+        mounted () {
             document.getElementById("conversions-header").innerHTML = `
                 <div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -91,10 +91,8 @@
 
         },
         methods: {
-            convert: function (e) {
-
+            convert () {
                 // TODO: CHANGE TO ACCEPT NEGATIVES
-                e.preventDefault();
 
                 var decimalValue = parseInt(this.decimalValue);
                 var desiredBaseValue = parseInt(this.desiredBase);
@@ -102,15 +100,10 @@
                 this.convertOutput = "Converted Value: " + (decimalValue).toString(desiredBaseValue);
 
             },
-            resetConvertValue: function (e) {
-
-                e.preventDefault();
+            resetConvertValue () {
                 this.quizNumber = Math.floor((Math.random() * 200));
-
             },
-            checkAnswer: function (e) {
-
-                e.preventDefault();
+            checkAnswer () {
 
                 var selectedBase = parseInt(this.desiredQuizBase);
                 var userAnswer = parseInt(this.userAnswer, this.desiredQuizBase);

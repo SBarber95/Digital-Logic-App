@@ -2,10 +2,10 @@
     <div>
         <div class="user-input-converter col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center">Converter</h2>
-            <form @submit="convert">
+            <form @submit.prevent="convert">
                 <div class="md-form">
                     <input type="text" class="form-control" v-model="hexValue" placeholder="Enter a Hexadecimal Value"
-                           required>
+                           maxlength="16" required>
                 </div>
                 <div class="flex-center md-form">
                     Select Desired Base: <select v-model="desiredBase">
@@ -22,7 +22,7 @@
         </div>
         <div class="conversion-quiz col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center">Practice Problems</h2>
-            <form @submit="checkAnswer">
+            <form @submit.prevent="checkAnswer">
                 <p id="quiz_number_placeholder">Convert from this Base 16 Value: {{ quizNumber }}</p>
                 <p class="border"></p>
                 <div class="md-form">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="flex-center">
                     <input class="btn btn-mdb" type="submit" value="Check Answer">
-                    <button class="btn btn-mdb" v-on:click="resetConvertValue">Change Value</button>
+                    <button class="btn btn-mdb" @click.prevent="resetConvertValue">Change Value</button>
                 </div>
             </form>
             <p class="well converter-output">{{ quizOutput }}</p>
@@ -51,7 +51,7 @@
     var altHexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
     var quizNum = [0, 0, 0, 0];
     export default {
-        data() {
+        data () {
             return {
                 hexValue: null,
                 desiredBase: null,
@@ -62,7 +62,7 @@
                 userAnswer: null
             }
         },
-        mounted() {
+        mounted () {
 
             document.getElementById("conversions-header").innerHTML = `
                 <div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -106,10 +106,8 @@
 
         },
         methods: {
-            convert: function (e) {
-
+            convert () {
                 // TODO: CHANGE TO ACCEPT NEGATIVES
-                e.preventDefault();
 
                 var hexValue = this.hexValue;
                 var hexValueArray = Array.from(hexValue);
@@ -136,9 +134,7 @@
 
                 this.convertOutput = "Converted Value: " + (base10Value).toString(desiredBaseValue);
             },
-            resetConvertValue: function (e) {
-
-                e.preventDefault();
+            resetConvertValue () {
 
                 var quizNumber = '';
 
@@ -152,9 +148,7 @@
                 this.quizNumber = quizNumber;
 
             },
-            checkAnswer: function (e) {
-
-                e.preventDefault();
+            checkAnswer () {
 
                 var selectedBase = parseInt(this.desiredQuizBase);
                 var userAnswer = parseInt(this.userAnswer);
