@@ -3,7 +3,7 @@
         <div class="col-xs-5 col-sm-5 col-md-5 card">
             <h2 class="sub-header flex-center">IEEE Converter</h2>
             <form id="ieee-hex-converter">
-                <input type="text" class="ieee-hex-value" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #"
+                <input type="text" class="ieee-hex-value form-control" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #"
                        required>
                 <div class="flex-center">
                     <button class="btn btn-mdb" @click.prevent="convertFromHex" name="submit">Convert</button>
@@ -23,7 +23,7 @@
         <div class="col-xs-5 col-sm-5 col-md-5 card">
             <h2>IEEE Converter</h2>
             <form id="ieee-dec-converter">
-                <input type="text" class="ieee-dec-value" name="ieeeDecValue" placeholder="Enter a Decimal Value"
+                <input type="text" class="ieee-dec-value form-control" name="ieeeDecValue" placeholder="Enter a Decimal Value"
                        required>
                 <div class="flex-center">
                     <button class="btn btn-mdb" @click.prevent="convertFromDec" name="submit">Convert</button>
@@ -356,3 +356,9 @@
         }
     }
 </script>
+
+<style scoped>
+    .card {
+        padding: 10px;
+    }
+</style>
