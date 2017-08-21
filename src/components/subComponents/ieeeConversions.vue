@@ -1,34 +1,42 @@
 <template>
     <div v-if="!toggled">
-        <div id="convert-component">
+        <div class="col-xs-5 col-sm-5 col-md-5 card">
+            <h2 class="sub-header flex-center">IEEE Converter</h2>
             <form id="ieee-hex-converter">
-                <input type="text" class="ieee-hex-value" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #" required>
-                <button id="converter_submit" class="btn btn-mdb" v-on:click="convertFromHex" name="submit">Convert</button>
+                <input type="text" class="ieee-hex-value form-control" name="ieeeHexValue" placeholder="Enter an 8-digit IEEE Hex #"
+                       required>
+                <div class="flex-center">
+                    <button class="btn btn-mdb" @click.prevent="convertFromHex" name="submit">Convert</button>
+                    <button class="btn btn-mdb" @click.prevent="toggleDirection">Toggle Direction</button>
+                </div>
             </form>
-            <button id="toggle_direction" class="btn btn-mdb" v-on:click="toggleDirection">Toggle Direction</button>
         </div>
-        <div id="convert-quiz-component">
-            <h2 id="second_header">Conversion Steps</h2>
+        <div class="col-xs-5 col-sm-5 col-md-5 card" style="float: right">
+            <h2 class="sub-header flex-center">Conversion Steps</h2>
             <div id="convert_steps">
-                The steps will appear here.
+                The conversion steps will appear here.
             </div>
-            <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+            <p id="output" class="well converter-output">*Final Answer*</p>
         </div>
     </div>
     <div v-else>
-        <div id="convert-component">
+        <div class="col-xs-5 col-sm-5 col-md-5 card">
+            <h2>IEEE Converter</h2>
             <form id="ieee-dec-converter">
-                <input type="text" class="ieee-dec-value" name="ieeeDecValue" placeholder="Enter a Decimal Value" required>
-                <button id="converter_submit" class="btn btn-mdb" v-on:click="convertFromHex" name="submit">Convert</button>
+                <input type="text" class="ieee-dec-value form-control" name="ieeeDecValue" placeholder="Enter a Decimal Value"
+                       required>
+                <div class="flex-center">
+                    <button class="btn btn-mdb" @click.prevent="convertFromDec" name="submit">Convert</button>
+                    <button class="btn btn-mdb" @click.prevent="toggleDirection">Toggle Direction</button>
+                </div>
             </form>
-            <button id="toggle_direction" class="btn btn-mdb" v-on:click="toggleDirection">Toggle Direction</button>
         </div>
-        <div id="convert-quiz-component">
-            <h2 id="second_header">Conversion Steps</h2>
+        <div class="col-xs-5 col-sm-5 col-md-5 card" style="float: right">
+            <h2>Conversion Steps</h2>
             <div id="convert_steps">
-                The steps will appear here.
+                The conversion steps will appear here.
             </div>
-            <p id="output" class="well converter-output">The Answer Will Appear Here.</p>
+            <p id="output" class="well converter-output">*Final Answer*</p>
         </div>
     </div>
 </template>
@@ -40,43 +48,41 @@
     var quizNum = [0, 0, 0, 0];
 
     export default {
-        data () {
+        data() {
             return {
                 toggled: false
             }
         },
-        mounted () {
+        mounted() {
 
-            document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">'+
-                'Instructions!'+
-                '</button>'+
-                '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
-                '<div class="modal-dialog" role="document">'+
-                '<div class="modal-content">'+
-                '<div class="modal-header">'+
-                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>'+
-                '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>'+
-                '</div>'+
-                '<div class="modal-body">'+
-                '<h3 class="sub-header">Calculator</h3>'+
-                'Enter the IEEE hex or decimal value in the input box and click "Calculate".  You may enter '+
-                'the hex value without the 4 trailing zeroes (3F88; C7F0) or enter it with them (C7F00000).'+
-                '</div>'+
-                '<div class="modal-footer">'+
-                '<button class="btn btn-mdb" data-dismiss="modal">Close</button>'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
+            document.getElementById("conversions-header").innerHTML = '<button style="margin-right: 12px" class="btn btn-info btn-lg" data-toggle="modal" data-target="#conversionModal">' +
+                'Instructions!' +
+                '</button>' +
+                '<div class="modal fade" id="conversionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<button class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>' +
+                '<h4 class="modal-title" id="conversionTitle">Conversion Instructions</h4>' +
+                '</div>' +
+                '<div class="modal-body">' +
+                '<h3 class="sub-header">Calculator</h3>' +
+                'Enter the IEEE hex or decimal value in the input box and click "Calculate".  You may enter ' +
+                'the hex value without the 4 trailing zeroes (3F88; C7F0) or enter it with them (C7F00000).' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '<button class="btn btn-mdb" data-dismiss="modal">Close</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
                 '</div>IEEE Floating Point Conversions';
 
         },
         methods: {
-            toggleDirection () {
+            toggleDirection() {
                 this.toggled = !this.toggled
             },
-            convertFromHex (e) {
-
-                e.preventDefault();
+            convertFromHex() {
 
                 document.getElementById("output").setAttribute("style", "margin-top: 20px");
 
@@ -228,9 +234,7 @@
                 }
 
             },
-            convertFromDec (e) {
-
-                e.preventDefault();
+            convertFromDec() {
 
                 document.getElementById("output").setAttribute("style", "margin-top: 20px");
 
@@ -352,3 +356,9 @@
         }
     }
 </script>
+
+<style scoped>
+    .card {
+        padding: 10px;
+    }
+</style>

@@ -23,4 +23,6 @@ Delete component needs to be implemented, but will be done so after enough of th
 
 Restructuring has also caused site-wide CSS issues which will be addressed during the transition to Material Bootstrap. This is now in progress.
 
-Various UX improvements need to be made, especially in the circuit design feature.
+Various UX improvements need to be made, especially in the circuit design feature. The list of proposed changes will be placed in a wiki page in the near future.
+
+Input validation needs to be improved for a couple of conversion features like octal, hex, and IEEE conversions.
