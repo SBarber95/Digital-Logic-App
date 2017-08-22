@@ -21,7 +21,7 @@
     </div>
     <div v-else>
         <div class="col-xs-5 col-sm-5 col-md-5 card">
-            <h2>IEEE Converter</h2>
+            <h2 class="sub-header flex-center">IEEE Converter</h2>
             <form id="ieee-dec-converter">
                 <input type="text" class="ieee-dec-value form-control" name="ieeeDecValue" placeholder="Enter a Decimal Value"
                        required>
@@ -32,7 +32,7 @@
             </form>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 card" style="float: right">
-            <h2>Conversion Steps</h2>
+            <h2 class="sub-header flex-center">Conversion Steps</h2>
             <div id="convert_steps">
                 The conversion steps will appear here.
             </div>
@@ -168,8 +168,8 @@
                     last7bits += binaryArray[i];
                 }
 
-                steps.innerHTML += "<br>Adding the hidden bit of 1 before the decimal place and" +
-                    "<br>placing the last 7 bits at the end, you get 1." + last7bits;
+                steps.innerHTML += "<br>Adding the hidden bit of 1 before the decimal place and " +
+                    "placing the last 7 bits at the end, you get 1." + last7bits;
 
                 steps.innerHTML += "<br>Adding the x 2<sup>" + biasCalculation + "</sup>: 1."
                     + last7bits + " x 2<sup>" + biasCalculation + "</sup>";
@@ -262,6 +262,9 @@
                         signBit = 1;
 
                         for (var i = 2; i < binaryArray.length; ++i) {
+                            if (binaryArray[i] == '.') {
+                                continue
+                            }
                             partialBinValue += binaryArray[i];
                         }
 
@@ -274,6 +277,9 @@
                         exponent = binaryArray.length - 1;
 
                         for (i = 1; i < binaryArray.length; ++i) {
+                            if (binaryArray[i] == '.') {
+                                continue
+                            }
                             partialBinValue += binaryArray[i];
                         }
 
